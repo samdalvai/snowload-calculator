@@ -1,2 +1,10 @@
 # snowload-calculator
 A web application for the calculation of snowload and snow retaining systems in Italy
+Basic framework taken from tutorial [app](https://www.baeldung.com/spring-boot-react-crud)
+
+# How to run
+To start the Spring Boot API
+
+> mvn spring-boot:run
+
+Access the API on http://localhost:8080/clients.

@@ -6,7 +6,7 @@ CREATE TABLE province (
     shorthand VARCHAR(2) PRIMARY KEY,
     name VARCHAR(40) NOT NULL UNIQUE,
     zone VARCHAR(3) NOT NULL,
-    baseLoad NUMERIC NOT NULL,
+    baseLoad FLOAT NOT NULL,
     CONSTRAINT zoneCheck CHECK (zone IN ('I-A', 'I-M', 'II', 'III')),
     CONSTRAINT loadCheck CHECK (baseLoad > 0)
 );

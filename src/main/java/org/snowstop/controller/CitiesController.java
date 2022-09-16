@@ -2,14 +2,9 @@ package org.snowstop.controller;
 
 import org.snowstop.model.City;
 import org.snowstop.model.CityId;
-import org.snowstop.model.Client;
 import org.snowstop.repository.CityRepository;
-import org.snowstop.repository.ClientRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
@@ -37,10 +32,22 @@ public class CitiesController {
         return cityRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
-    // URL example http://localhost:8080/cities/zip/
+    // URL example http://localhost:8080/cities/zip/39040
     @GetMapping("/zip/{zip}")
     public List<City> getCityByZip(@PathVariable String zip) {
         return cityRepository.findCityByZip(zip);
+    }
+
+    // URL example http://localhost:8080/cities/name/Bolzano
+    @GetMapping("/name/{name}")
+    public List<City> getCityByName(@PathVariable String name) {
+        return cityRepository.findCityByName(name);
+    }
+
+    // URL example http://localhost:8080/cities/province/BZ
+    @GetMapping("/province/{province}")
+    public List<City> getCityByProvince(@PathVariable String province) {
+        return cityRepository.findCityByProvince(province);
     }
 
     /*@PostMapping

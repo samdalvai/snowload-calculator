@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d/:ro #database files called when the container is built and started for the first time
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+
+volumes:
+  mysql-data:

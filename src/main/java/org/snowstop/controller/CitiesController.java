@@ -3,8 +3,11 @@ package org.snowstop.controller;
 import org.snowstop.model.City;
 import org.snowstop.model.CityId;
 import org.snowstop.repository.CityRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
@@ -27,7 +30,7 @@ public class CitiesController {
     @GetMapping("/id")
     public City getCity(@RequestParam(name = "zip") final String zip,
                         @RequestParam(name = "name") final String name) {
-        CityId id = new CityId(zip,name);
+        CityId id = new CityId(zip, name);
 
         return cityRepository.findById(id).orElseThrow(RuntimeException::new);
     }
@@ -50,14 +53,14 @@ public class CitiesController {
         return cityRepository.findCityByProvince(province);
     }
 
-    /*@PostMapping
-    public ResponseEntity createClient(@RequestBody Client client) throws URISyntaxException {
-        Client savedClient = cityRepository.save(client);
+    @PostMapping
+    public ResponseEntity createClient(@RequestBody City city) throws URISyntaxException {
+        City savedCity = cityRepository.save(city);
 
-        return ResponseEntity.created(new URI("/clients/" + savedClient.getId())).body(savedClient);
+        return ResponseEntity.created(new URI("/cities/id?zip=" + savedCity.getZip() + "&name=" + savedCity.getName())).body(savedCity);
     }
 
-    @PutMapping("/{id}")
+    /*@PutMapping("/{id}")
     public ResponseEntity updateClient(@PathVariable Long id, @RequestBody Client client) {
         Client currentClient = cityRepository.findById(id).orElseThrow(RuntimeException::new);
         currentClient.setName(client.getName());

@@ -59,4 +59,18 @@ public class ProvinceController {
         return provinceRepository.findProvinceByLoadBetween(lower,upper);
     }
 
+    @PostMapping
+    public ResponseEntity createProvince(@RequestBody Province province) throws URISyntaxException {
+        Province savedProvince = provinceRepository.save(province);
+
+        return ResponseEntity.created(new URI("/provinces/shorthand/" + savedProvince.getShorthand())).body(savedProvince);
+    }
+
+    @DeleteMapping("/shorthand/{shorthand}")
+    public ResponseEntity deleteProvince(@PathVariable String shorthand) {
+        provinceRepository.deleteById(shorthand);
+
+        return ResponseEntity.ok().build();
+    }
+
 }

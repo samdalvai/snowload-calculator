@@ -72,6 +72,8 @@ The lower and upper bound must be specified in the URL, for example: `/cities/al
 
 ## `POST` endpoints:
 
+### CITIES
+
 * `/cities`: add a new city to the list of cities. The data on the new city must be passed as a `json` to the body of the request,
 for exaple: 
 
@@ -86,12 +88,32 @@ for exaple:
 For the `POST` request you can use a tool like `Postman`.
 On success, the API will return the URL with the id of the newly created city, for example: `/cities/id?zip=00000&name=example-city`
 
+### PROVINCES
+
+* `/provinces`: similarly as for the cities, add a new province by sending the data on the new province as a json in the body of the request:
+
+```Json
+{
+  "shorthand": "XX",
+  "name": "example-province",
+  "zone": "I-A",
+  "load": 1.5
+}
+```
+
 ## `DELETE` endpoints:
+
+### CITIES
 
 * `/cities/id`: deletes a city based on the id.
 For example `/cities/id?zip=00000&name=example-city` will delete the city with zip code `00000` and name `example-city`.
 
- 
+### PROVINCES
+
+* `/provinces/shorthand/{shorthand}`: deletes a city based on the id.
+  For example `/provinces/shorthand/XX` will delete the city with shorthand `XX`.
+
+
 
 <!--To start the frontend application, from inside the `frontend/` folder
 

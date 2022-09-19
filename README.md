@@ -3,12 +3,18 @@ A web application for the calculation of snowload and snow retaining systems in 
 Basic framework taken from tutorial [app](https://www.baeldung.com/spring-boot-react-crud)
 
 # How to run
-To start the Spring Boot API, from the root folder
+To start the Spring Boot API, from the root folder run:
 
 > mvn spring-boot:run
 
 Access the API on http://localhost:8080/cities.
 See a complete list of the endpoints in the next [chapter](#api-endpoints).
+
+As an alternative you can use the docker to run the dockerized version of spring boot with 
+mysql, by running: 
+
+> docker-compose up -d
+
 
 
 # API endpoints

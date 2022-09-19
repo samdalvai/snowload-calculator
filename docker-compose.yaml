@@ -1,16 +1,31 @@
 version: "3"
 
 services:
-  mysql:
+  db:
     image: mysql:8.0
     ports:
       - "3306:3306"
     volumes:
       - mysql-data:/var/lib/mysql
-      - ./sql:/docker-entrypoint-initdb.d/:ro #database files called when the container is built and started for the first time
-    restart: always
+      - ./sql:/docker-entrypoint-initdb.d/:ro
+    restart: on-failure
     environment:
       MYSQL_ROOT_PASSWORD: password
+  #web:   ## uncomment to run dockerized version of spring boot
+   # depends_on:
+    #  - db
+    #restart: on-failure
+    #build: .
+    #ports:
+    #  - "8080:8080"
+    #environment:
+    #  SPRING_APPLICATION_JSON: '{
+    #        "spring.datasource.url"  : "jdbc:mysql://db:3306/Snowload",
+    #        "spring.datasource.username" : "root",
+    #        "spring.datasource.password" : "password",
+    #        "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
+    #        "spring.jpa.hibernate.ddl-auto" : "update"
+    #      }'
 
 volumes:
   mysql-data:

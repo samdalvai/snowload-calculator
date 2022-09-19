@@ -59,6 +59,13 @@ public class CitiesController {
         return cityRepository.findCityByNameContains(name);
     }
 
+    // URL example: http://localhost:8080/cities/altitude?lower=100&upper=200
+    @GetMapping("/altitude")
+    public List<City> getCityByAltitude(@RequestParam(name = "lower") final Integer lower,
+                                        @RequestParam(name = "upper") final Integer upper) {
+        return cityRepository.findCityByAltitudeBetween(lower,upper);
+    }
+
     @PostMapping
     public ResponseEntity createCity(@RequestBody City city) throws URISyntaxException {
         City savedCity = cityRepository.save(city);
@@ -68,22 +75,12 @@ public class CitiesController {
 
     @DeleteMapping("/id")
     public ResponseEntity deleteCity(@RequestParam(name = "zip") final String zip,
-                                       @RequestParam(name = "name") final String name) {
+                                     @RequestParam(name = "name") final String name) {
         CityId id = new CityId(zip, name);
 
         cityRepository.deleteById(id);
 
         return ResponseEntity.ok().build();
     }
-
-    /*@PutMapping("/{id}")
-    public ResponseEntity updateClient(@PathVariable Long id, @RequestBody Client client) {
-        Client currentClient = cityRepository.findById(id).orElseThrow(RuntimeException::new);
-        currentClient.setName(client.getName());
-        currentClient.setEmail(client.getEmail());
-        currentClient = cityRepository.save(client);
-
-        return ResponseEntity.ok(currentClient);
-    }*/
 
 }

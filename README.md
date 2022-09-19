@@ -38,6 +38,8 @@ mysql, by uncommenting the service in the `docker-comose.yaml` file:
 
 ## `GET` endpoints:
 
+### CITIES
+
 * `/cities`: lists all cities
 
 * `/cities/id`: retrieves the city based on the id. 
@@ -59,6 +61,10 @@ A request example might be: `/cities/province/BZ`
 
 * `/cities/altitude`: retrieve cities by altitude.
 The lower and upper bound must be specified, for example: `/cities/altitude?lower=100&upper=200`
+
+### PROVINCES
+
+* `/provinces`: lists all provinces
 
 
 ## `POST` endpoints:

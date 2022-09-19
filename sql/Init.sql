@@ -6,9 +6,9 @@ CREATE TABLE province (
     shorthand VARCHAR(2) PRIMARY KEY,
     name VARCHAR(40) NOT NULL UNIQUE,
     zone VARCHAR(3) NOT NULL,
-    baseLoad FLOAT NOT NULL,
+    baseload DOUBLE NOT NULL,
     CONSTRAINT zoneCheck CHECK (zone IN ('I-A', 'I-M', 'II', 'III')),
-    CONSTRAINT loadCheck CHECK (baseLoad > 0)
+    CONSTRAINT loadCheck CHECK (baseload > 0.0)
 );
 
 CREATE TABLE city (

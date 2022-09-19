@@ -33,8 +33,11 @@ A request example might be: `/cities/zip/39040`
 With this endpoint, the name must match the city name, partial matches will not be returned. 
 A request example might be: `/cities/name/Bolzano`
 
+`/cities/namecontains/`: same as above, but returns also partial results.
+A request example might be: `/cities/namecontains/Bolzano`
+
 `/cities/province/`: retrieves the cities by province. 
-A request example might be: `/cities/name/BZ`
+A request example might be: `/cities/province/BZ`
 
 
 ## `POST` endpoints:

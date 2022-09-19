@@ -28,5 +28,35 @@ public class ProvinceController {
         return provinceRepository.findAll();
     }
 
+    // URL example: http://localhost:8080/provinces/shorthand/BZ
+    @GetMapping("/shorthand/{shorthand}")
+    public Province getProvince(@PathVariable String shorthand) {
+        return provinceRepository.findById(shorthand).orElseThrow(RuntimeException::new);
+    }
+
+    // URL example: http://localhost:8080/provinces/name/Bolzano
+    @GetMapping("/name/{name}")
+    public List<Province> getProvinceByName(@PathVariable String name) {
+        return provinceRepository.findProvinceByName(name);
+    }
+
+    // URL example: http://localhost:8080/provinces/namecontains/Bolz
+    @GetMapping("/namecontains/{name}")
+    public List<Province> getProvinceByNameContains(@PathVariable String name) {
+        return provinceRepository.findProvinceByNameContains(name);
+    }
+
+    // URL example: http://localhost:8080/provinces/zone/I-A
+    @GetMapping("/zone/{zone}")
+    public List<Province> getProvinceByZone(@PathVariable String zone) {
+        return provinceRepository.findProvinceByZone(zone);
+    }
+
+    // URL example: http://localhost:8080/provinces/load?lower=1.0&upper=2.0
+    @GetMapping("/load")
+    public List<Province> getProvinceByAltitude(@RequestParam(name = "lower") final Double lower,
+                                        @RequestParam(name = "upper") final Double upper) {
+        return provinceRepository.findProvinceByLoadBetween(lower,upper);
+    }
 
 }

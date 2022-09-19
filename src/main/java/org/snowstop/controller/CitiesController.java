@@ -47,16 +47,17 @@ public class CitiesController {
         return cityRepository.findCityByName(name);
     }
 
-    // URL example: http://localhost:8080/cities/province/BZ
-    @GetMapping("/province/{province}")
-    public List<City> getCityByProvince(@PathVariable String province) {
-        return cityRepository.findCityByProvince(province);
-    }
 
     // URL example: http://localhost:8080/cities/namecontains/Bolzano
     @GetMapping("/namecontains/{name}")
     public List<City> getCityByNameContains(@PathVariable String name) {
         return cityRepository.findCityByNameContains(name);
+    }
+
+    // URL example: http://localhost:8080/cities/province/BZ
+    @GetMapping("/province/{province}")
+    public List<City> getCityByProvince(@PathVariable String province) {
+        return cityRepository.findCityByProvince(province);
     }
 
     // URL example: http://localhost:8080/cities/altitude?lower=100&upper=200

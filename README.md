@@ -43,28 +43,31 @@ mysql, by uncommenting the service in the `docker-comose.yaml` file:
 * `/cities`: lists all cities
 
 * `/cities/id`: retrieves the city based on the id. 
-The id is composed of the zip code and the name of the city.
+The id is composed of the `zip` code and the `name` of the city.
 A request example might be: `/cities/id?zip=39040&name=Aldino`
 
 * `/cities/zip/{zip}`: retrieves the cities by zip code. 
 A request example might be: `/cities/zip/39040`
 
 * `/cities/name/{name}`: retrieves the cities by name. 
-With this endpoint, the name must match the city name, partial matches will not be returned. 
-A request example might be: `/cities/name/Bolzano`
+With this endpoint the name must match the city name, partial matches will not be returned. 
 
 * `/cities/namecontains/{name}`: same as above, but returns also partial results.
-A request example might be: `/cities/namecontains/Bolzano`
 
 * `/cities/province/{province}`: retrieves the cities by province. 
-A request example might be: `/cities/province/BZ`
 
-* `/cities/altitude`: retrieve cities by altitude.
-The lower and upper bound must be specified, for example: `/cities/altitude?lower=100&upper=200`
+* `/cities/altitude`: retrieve cities by `lower` and `upper` bound for altitude.
+The lower and upper bound must be specified in the URL, for example: `/cities/altitude?lower=100&upper=200`
 
 ### PROVINCES
 
 * `/provinces`: lists all provinces
+* `/provinces/shorthand/{shorthand}`: retrieves the province based on the shorthand of the province.
+* `/provinces/name/{name}`: retrieves the province based on the name.
+* `/provinces/namecontains/{name}`: same as above, but returns also partial results.
+* `/provinces/zone/{zone}`: retrieves the province based on the zone.
+* `/cities/load`: retrieve cities by `lower` and `upper` bound for load.
+  The lower and upper bound must be specified in the URL, for example: `/province/load?lower=0.5&upper=1.2`
 
 
 ## `POST` endpoints:

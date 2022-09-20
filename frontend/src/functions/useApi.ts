@@ -1,4 +1,3 @@
-// Custom hook for data fetching
 import {useEffect, useState} from "react";
 
 export type ApiResponse = {

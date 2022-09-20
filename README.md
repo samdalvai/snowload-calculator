@@ -135,4 +135,4 @@ For example `/cities/id?zip=00000&name=example-city` will delete the city with z
 
 > npm start
 
-Access teh application at http://localhost:3000 in the browser.
+Access the application at http://localhost:3000 in the browser.

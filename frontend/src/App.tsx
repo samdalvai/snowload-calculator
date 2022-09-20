@@ -8,7 +8,7 @@ function App() {
     const {data} = useApiGet('/cities/namecontains/Bolzano');
 
     return (
-        <div className="container-fluid">
+        <div className="container p-2">
             <SearchField onSearch={console.log} placeHolder={'Search'}/>
         </div>
     );

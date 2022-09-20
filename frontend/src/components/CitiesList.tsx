@@ -1,6 +1,6 @@
 import {City} from "../functions/types";
 
-export const CitiesList = ({cities}: { cities: City[] }) => {
+export const CitiesList = ({cities}: { cities: City[]}) => {
 
     return (
         <div className="list-group">

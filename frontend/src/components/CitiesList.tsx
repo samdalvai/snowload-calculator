@@ -8,7 +8,7 @@ export const CitiesList = ({cities, onSelectCity}: { cities: City[], onSelectCit
                 cities.length > 0 ?
                     cities.map((city: City) =>
                         <button type="button"
-                                className="list-group-item list-group-item-action"
+                                className="list-group-item list-group-item-action list-group-item-light"
                                 key={city.zip + city.name}
                                 onClick={() => onSelectCity(city)}>
                             {city.zip} {city.name} ({city.province})

@@ -1,6 +1,6 @@
 import {City, CityCallBack} from "../functions/types";
 
-export const CitiesList = ({cities, onSelectCity}: { cities: City[], onSelectCity: CityCallBack}) => {
+export const CitiesList = ({cities, onSelectCity}: { cities: City[], onSelectCity: CityCallBack }) => {
 
     return (
         <div className="list-group">

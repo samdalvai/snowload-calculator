@@ -1,8 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Button from 'react-bootstrap/Button';
 import {useApiGet} from "./functions/useApiHook";
+import {City} from "./functions/types";
 
 function App() {
     const { data } = useApiGet('/cities/namecontains/Bolzano');

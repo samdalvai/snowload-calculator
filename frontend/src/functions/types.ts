@@ -4,3 +4,10 @@ export interface City {
     province: string,
     altitude: number
 }
+
+export interface Province {
+    shorthand: string,
+    name: string,
+    zone: string,
+    load: number
+}

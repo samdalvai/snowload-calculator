@@ -1,20 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {useApiGet} from "./functions/useApiHook";
 import {City} from "./functions/types";
+import {SearchField} from "./components/SearchField";
 
 function App() {
-    const { data } = useApiGet('/cities/namecontains/Bolzano');
-
-    console.log(data);
+    const {data} = useApiGet('/cities/namecontains/Bolzano');
 
     return (
-        <div className="container">
-            {
-                data.map((city: City) => {
-                    return <h1 key={city.zip}>{city.name}</h1>;
-                })
-            }
+        <div className="container-fluid">
+            <SearchField onSearch={console.log} placeHolder={'Search'}/>
         </div>
     );
 }

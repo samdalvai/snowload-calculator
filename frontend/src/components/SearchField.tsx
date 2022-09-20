@@ -2,7 +2,7 @@ import {StringCallBack} from "../functions/types";
 
 export const SearchField = ({ placeHolder, onSearch }: { placeHolder: string, onSearch: StringCallBack }) => {
     return (
-        <div className="centered">
+        <div>
             <div className="input-group mb-3">
                 <input type="text"
                        className="form-control"

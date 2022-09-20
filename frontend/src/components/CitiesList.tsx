@@ -1,6 +1,6 @@
-import {City} from "../functions/types";
+import {City, CityCallBack} from "../functions/types";
 
-export const CitiesList = ({cities}: { cities: City[]}) => {
+export const CitiesList = ({cities, onClick}: { cities: City[], onClick: CityCallBack}) => {
 
     return (
         <div className="list-group">
@@ -9,12 +9,12 @@ export const CitiesList = ({cities}: { cities: City[]}) => {
                     cities.map((city: City) =>
                         <button type="button"
                                 className="list-group-item list-group-item-action"
-                                key={city.zip + city.name}>
+                                key={city.zip + city.name}
+                                onClick={() => onClick(city)}>
                             {city.zip} {city.name} ({city.province})
                         </button>)
                     : ""
             }
-
         </div>
     )
 }

@@ -13,3 +13,5 @@ export interface Province {
 }
 
 export type StringCallBack = (arg: string) => void
+
+export type CityCallBack = (arg: City) => void

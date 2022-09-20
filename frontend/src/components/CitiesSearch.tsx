@@ -17,7 +17,7 @@ export const CitiesSearch = () => {
     return (
         <div className="container p-2">
             <SearchField onSearch={filterCities} placeHolder={'Search'}/>
-            <CitiesList cities={searchCities}/>
+            <CitiesList cities={searchCities} onClick={console.log}/>
         </div>
     );
 }

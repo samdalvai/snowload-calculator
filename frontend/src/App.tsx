@@ -1,19 +1,24 @@
 import React, {useState} from 'react';
 import './App.css';
 import {useApiGet} from "./functions/useApiHook";
-import {City} from "./functions/types";
 import {SearchField} from "./components/SearchField";
 import {CitiesList} from "./components/CitiesList";
 
 function App() {
-    const {data} = useApiGet('/cities/namecontains/Bolzano');
+    const [url, setUrl] = useState<string>('/cities/namecontains/xxxxx')
+    const {data} = useApiGet(url);
 
-    const cities = data.slice(0,3);
+    const updateUrl = (search: string) => {
+        if (search !== "") {
+            console.log('URL: ' + '/cities/namecontains/' + search)
+            setUrl('/cities/namecontains/' + search);
+        }
+    }
 
     return (
         <div className="container p-2">
-            <SearchField onSearch={console.log} placeHolder={'Search'}/>
-            <CitiesList  elements={cities}/>
+            <SearchField onSearch={updateUrl} placeHolder={'Search'}/>
+            <CitiesList  cities={data}/>
         </div>
     );
 }

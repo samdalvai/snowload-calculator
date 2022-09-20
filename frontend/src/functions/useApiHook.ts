@@ -19,6 +19,7 @@ export const useApiGet = (url: string): ApiResponse => {
     const getAPIData = async () => {
         setLoading(true);
         try {
+            console.log('Fetching: ' + url)
             const apiResponse = await fetch(url);
             const json = await apiResponse.json();
 
@@ -33,7 +34,7 @@ export const useApiGet = (url: string): ApiResponse => {
 
     useEffect(() => {
         getAPIData();
-    }, []);
+    }, [url]);
 
     return {status, statusText, data, error, loading};
 };

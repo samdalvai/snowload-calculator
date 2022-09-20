@@ -8,16 +8,16 @@ import {searchCity} from "../functions/search";
 
 export const CitiesSearch = () => {
     const {cities, loading} = useCities();
-    const [searchCities, setSearchCities] = useState<City[]>([]);
+    const [filteredCities, setFilteredCities] = useState<City[]>([]);
 
     const filterCities = (keyword: string) => {
-        setSearchCities(searchCity(keyword,cities));
+        keyword === "" ? setFilteredCities([]) : setFilteredCities(searchCity(keyword,cities));
     }
 
     return (
-        <div className="container p-2">
-            <SearchField onSearch={filterCities} placeHolder={'Search'}/>
-            <CitiesList cities={searchCities} onClick={console.log}/>
+        <div>
+            <SearchField onSearch={filterCities} placeHolder={'Search city'}/>
+            <CitiesList cities={filteredCities} onSelectCity={console.log}/>
         </div>
     );
 }

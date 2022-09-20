@@ -12,7 +12,7 @@ export type ApiResponse = {
 export const useApiGet = (url: string): ApiResponse => {
     const [status, setStatus] = useState<Number>(0);
     const [statusText, setStatusText] = useState<String>('');
-    const [data, setData] = useState<any>();
+    const [data, setData] = useState<any>([]);
     const [error, setError] = useState<any>();
     const [loading, setLoading] = useState<boolean>(false);
 

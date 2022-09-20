@@ -10,7 +10,11 @@ function App() {
 
     return (
         <div className="container">
-
+            {
+                data.map((city: City) => {
+                    return <h1 key={city.zip}>{city.name}</h1>;
+                })
+            }
         </div>
     );
 }

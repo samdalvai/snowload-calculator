@@ -26,7 +26,7 @@ CREATE TABLE city (
 INSERT INTO province VALUES
 
 ('SS','Sassari','III',0.6),
-('BZ','Bolzano/Bozen','I-A',1.5),
+('BZ','Bolzano','I-A',1.5),
 ('FG','Foggia','II',1),
 ('CN','Cuneo','I-A',1.5),
 ('TO','Torino','I-A',1.5),
@@ -82,7 +82,7 @@ INSERT INTO province VALUES
 ('TA','Taranto','III',0.6),
 ('PI','Pisa','III',0.6),
 ('CZ','Catanzaro','III',0.6),
-('FC','Forlì-Cesena','I-M',1.5),
+('FC','Forli-Cesena','I-M',1.5),
 ('MN','Mantova','II',1),
 ('RE','Reggio Emilia','I-M',1.5),
 ('PN','Pordenone','I-A',1.5),

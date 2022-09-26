@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {StringCallBack} from "../functions/callbacks";
+import {XIcon} from "@primer/octicons-react";
 
 export const SearchField = ({placeHolder, onSearch}: { placeHolder: string, onSearch: StringCallBack }) => {
     const [search, setSearch] = useState<string>('');
@@ -20,15 +21,15 @@ export const SearchField = ({placeHolder, onSearch}: { placeHolder: string, onSe
                     search === '' ?
                         <button type="button"
                                 className="btn btn-secondary disabled"
-                                style={{width: '25%'}}>Delete</button>
+                                style={{width: '15%'}}><XIcon size={22}/></button>
                         :
                         <button type="button"
                                 className="btn btn-secondary"
-                                style={{width: '25%'}}
+                                style={{width: '15%'}}
                                 onClick={() => {
                                     setSearch('');
                                     onSearch('')
-                                }}>Delete</button>
+                                }}><XIcon size={22}/></button>
                 }
 
             </div>

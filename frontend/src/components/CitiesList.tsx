@@ -11,7 +11,7 @@ export const CitiesList = ({cities, onSelectCity}: { cities: City[], onSelectCit
                                 className="list-group-item list-group-item-action list-group-item-light"
                                 key={city.zip + city.name}
                                 onClick={() => onSelectCity(city)}>
-                            {city.zip} {city.name} ({city.province})
+                            {city.zip} {city.name} {city.province}
                         </button>)
                     : ""
             }

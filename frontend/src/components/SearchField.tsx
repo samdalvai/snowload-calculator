@@ -6,7 +6,7 @@ export const SearchField = ({placeHolder, onSearch}: { placeHolder: string, onSe
 
     return (
         <div>
-            <div className="input-group mb-3">
+            <div className="input-group">
                 <input type="text"
                        className="form-control"
                        placeholder={placeHolder}

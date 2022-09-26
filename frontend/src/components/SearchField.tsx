@@ -1,5 +1,6 @@
-import {StringCallBack} from "../functions/types";
+
 import {useState} from "react";
+import {StringCallBack} from "../functions/callbacks";
 
 export const SearchField = ({placeHolder, onSearch}: { placeHolder: string, onSearch: StringCallBack }) => {
     const [search, setSearch] = useState<string>('');

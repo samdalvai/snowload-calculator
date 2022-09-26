@@ -11,7 +11,7 @@ export const CitiesSearch = () => {
     const [filteredCities, setFilteredCities] = useState<City[]>([]);
 
     const filterCities = (keyword: string) => {
-        keyword === "" ? setFilteredCities([]) : setFilteredCities(searchCity(keyword,cities));
+        keyword === "" ? setFilteredCities([]) : setFilteredCities(searchCity(keyword, cities, 10));
     }
 
     return (

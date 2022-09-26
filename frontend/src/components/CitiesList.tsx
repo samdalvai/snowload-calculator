@@ -1,4 +1,5 @@
-import {City, CityCallBack} from "../functions/types";
+import {City} from "../functions/types";
+import {CityCallBack} from "../functions/callbacks";
 
 export const CitiesList = ({cities, onSelectCity}: { cities: City[], onSelectCity: CityCallBack }) => {
 

@@ -11,7 +11,3 @@ export interface Province {
     zone: string,
     load: number
 }
-
-export type StringCallBack = (arg: string) => void
-
-export type CityCallBack = (arg: City) => void

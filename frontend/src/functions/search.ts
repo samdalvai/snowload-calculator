@@ -8,9 +8,9 @@ export interface cityWithMatchIndex {
 
 export const searchCity = (keyword: string, cities: City[], suggestionLimit: number) => {
     const results : cityWithMatchIndex[] = cities.filter(city => {
-        return getCityString(city).indexOf(keyword.toLowerCase()) > -1;
+        return getCityString(city).toLowerCase().indexOf(keyword.toLowerCase()) > -1;
     }).map(city => {
-        return {city: city, matchIndex: getCityString(city).indexOf(keyword.toLowerCase())};
+        return {city: city, matchIndex: getCityString(city).toLowerCase().indexOf(keyword.toLowerCase())};
     });
 
     const sorted: cityWithMatchIndex[] = results.sort(compareMatchIndex);
@@ -21,8 +21,9 @@ export const searchCity = (keyword: string, cities: City[], suggestionLimit: num
 }
 
 export const getCityString = (city: City): string => {
-    return (city.zip + ' ' + city.name + ' ' + city.province).toLowerCase();
+    return (city.zip + ' ' + city.name + ' ' + city.province);
 }
+
 
 export const compareMatchIndex = ( a: cityWithMatchIndex, b: cityWithMatchIndex ): number => {
     if ( a.matchIndex < b.matchIndex ){

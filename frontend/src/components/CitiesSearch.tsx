@@ -5,7 +5,6 @@ import React, {useState} from "react";
 import {City} from "../functions/types";
 import {searchCity} from "../functions/search";
 
-
 export const CitiesSearch = () => {
     const {cities, loading} = useCities();
     const [keyword, setKeyword] = useState<string>('');
@@ -22,8 +21,15 @@ export const CitiesSearch = () => {
 
     return (
         <div>
-            <SearchField onSearch={filterCities} placeHolder={'Search city'}/>
-            <CitiesSuggestionList cities={filteredCities} keyword={keyword} onSelectCity={console.log}/>
+            {
+                loading ?
+                    <input className="form-control" id="disabledInput" type="text" placeholder="Loading cities..."
+                           disabled/> :
+                    <div>
+                        <SearchField onSearch={filterCities} placeHolder={'Search city'}/>
+                        <CitiesSuggestionList cities={filteredCities} keyword={keyword} onSelectCity={console.log}/>
+                    </div>
+            }
         </div>
     );
 }

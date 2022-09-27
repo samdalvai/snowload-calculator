@@ -12,7 +12,7 @@ function App() {
 
             <div className="row">
                 <div className="col-md-6 pt-3">
-                    <InputWithChangeableRightLabel label={'Steepness (α)'} placeHolder={'Insert steepness...'} units={['°','%']}/>
+                    <InputWithLabel label={'Steepness (α)'} placeHolder={'Insert steepness...'} units={'°'}/>
                 </div>
                 <div className="col-md-6 pt-3">
                     <InputWithLabel label={'Roof length (sl)'} placeHolder={'Insert roof length...'} units={'m'} />

@@ -11,6 +11,8 @@ export const InputWithLabel = ({label, placeHolder, units}: {label: string, plac
     )
 }
 
+
+// Currently not used by the application, to be used in case we want to be able to change unit of measure, e.g. (° or %)
 export const InputWithChangeableRightLabel = ({label, placeHolder, units}: {label: string, placeHolder: string, units: string[]
 }) => {
     const [unitsIndex, setUnitsIndex] = useState<number>(0);

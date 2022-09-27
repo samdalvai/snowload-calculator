@@ -8,14 +8,13 @@ export const MessageModal = ({header, body}: { header: string, body: string }) =
         <div>
             <Modal show={show} onHide={() => setShow(false)} centered>
                 <Modal.Header closeButton>
-                    <Modal.Title>{header}</Modal.Title>
+                    <h3 className="modal-title">{header}</h3>
                 </Modal.Header>
-                <Modal.Body>{body}</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={() => setShow(false)}>
-                        Close
-                    </Button>
-                </Modal.Footer>
+                <div className="modal-body">{body}</div>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" onClick={() => setShow(false)}>Close</button>
+
+                </div>
             </Modal>
         </div>
     );

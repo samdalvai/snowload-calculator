@@ -5,6 +5,7 @@ import React, {useState} from "react";
 import {City} from "../../../functions/types";
 import {searchCity} from "../../../functions/search";
 import {CityCallBack} from "../../../functions/callbacks";
+import {ErrorInput} from "../ErrorInput";
 
 export const CitiesSearch = ({onSelectCity}: { onSelectCity: CityCallBack }) => {
     const {cities, loading, error} = useCities();
@@ -23,9 +24,7 @@ export const CitiesSearch = ({onSelectCity}: { onSelectCity: CityCallBack }) => 
     return (
         <div>
             {
-                error ? <input className="form-control is-invalid" type="text"
-                               placeholder={"Error loading cities: " + error}
-                               disabled/> : loading ?
+                error ? <ErrorInput message={"Error loading cities: "} error={error}/> : loading ?
                     <input className="form-control" id="disabledInput" type="text" placeholder="Loading cities..."
                            disabled/> :
                     <div>

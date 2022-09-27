@@ -6,10 +6,10 @@ export const InputWithLabel = ({label, placeHolder, units, value, onChange}: {
 }) => {
     return (
         <div className="input-group shadow-sm rounded">
-            <label className="input-group-text" style={{minWidth: "45%"}}>{label}</label>
+            <label className="input-group-text" style={{minWidth: "50%"}}>{label}</label>
             <input type="text" className="form-control" value={value}
                    onChange={event => onChange(event.target.value)} placeholder={placeHolder} required/>
-            <label className="input-group-text" style={{minWidth: "12.5%"}}>{units}</label>
+            <label className="input-group-text" style={{minWidth: "15%"}}>{units}</label>
         </div>
     )
 }

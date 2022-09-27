@@ -1,6 +1,5 @@
 import {RoofMeasureInput} from "../roof/RoofMeasureInput";
 import {CitiesSelector} from "../../selection/cities/CitiesSelector";
-import {Button} from "react-bootstrap";
 import {GearIcon, TrashIcon} from "@primer/octicons-react";
 import {Callback} from "../../../functions/callbacks";
 import {useState} from "react";
@@ -22,11 +21,19 @@ export const SnowloadCalculationForm = () => {
     }
 
     return (
-        <div>
-            <CitiesSelector selectedCity={selectedCity} onSelectedCity={setSelectedCity}/>
-            <RoofMeasureInput steepness={steepness} roofLength={roofLength} roofWidth={roofWidth} coefficient={coefficient}
-                              onSteepnessChange={setSteepness} onRoofLengthChange={setRoofLength} onRoofWidthChange={setRoofWidth} onCoefficientChange={() => setCoefficient(!coefficient)}/>
-            <SnowloadButtonsGroup onCompute={() => null} onReset={resetInputs}/>
+        <div className="card shadow rounded">
+            <div className="card-header text-center">
+                <h3 style={{color: "#0d6efd"}}><strong>Snowload Calculator</strong></h3>
+            </div>
+            <div className="card-body">
+                <CitiesSelector selectedCity={selectedCity} onSelectedCity={setSelectedCity}/>
+                <RoofMeasureInput steepness={steepness} roofLength={roofLength} roofWidth={roofWidth}
+                                  coefficient={coefficient}
+                                  onSteepnessChange={setSteepness} onRoofLengthChange={setRoofLength}
+                                  onRoofWidthChange={setRoofWidth}
+                                  onCoefficientChange={() => setCoefficient(!coefficient)}/>
+                <SnowloadButtonsGroup onCompute={() => null} onReset={resetInputs}/>
+            </div>
         </div>
     )
 }

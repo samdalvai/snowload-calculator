@@ -4,9 +4,9 @@ export const InputWithLabel = ({label, placeHolder, units}: {label: string, plac
 }) => {
     return (
         <div className="input-group shadow-sm rounded">
-            <label className="input-group-text" style={{minWidth: "35%"}}>{label}</label>
+            <label className="input-group-text" style={{minWidth: "40%"}}>{label}</label>
             <input type="text" className="form-control" placeholder={placeHolder} required/>
-            <label className="input-group-text" style={{minWidth: "10%"}}>{units}</label>
+            <label className="input-group-text" style={{minWidth: "12.5%"}}>{units}</label>
         </div>
     )
 }
@@ -27,7 +27,7 @@ export const InputWithChangeableRightLabel = ({label, placeHolder, units}: {labe
 
     return (
         <div className="input-group">
-            <label className="input-group-text" style={{minWidth: "35%"}}>{label}</label>
+            <label className="input-group-text" style={{minWidth: "40%"}}>{label}</label>
             <input type="text" className="form-control" placeholder={placeHolder} required/>
             <label className="input-group-text" style={rightLabelStyle}
                    onClick={updateUnits}

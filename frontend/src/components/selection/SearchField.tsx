@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {StringCallBack} from "../functions/callbacks";
+import {StringCallBack} from "../../functions/callbacks";
 import {XIcon} from "@primer/octicons-react";
 
 export const SearchField = ({placeHolder, onSearch}: { placeHolder: string, onSearch: StringCallBack }) => {

@@ -1,7 +1,7 @@
 import {CitiesSearch} from "./CitiesSearch";
 import {useState} from "react";
-import {City} from "../functions/types";
-import {getCityString} from "../functions/search";
+import {City} from "../../../functions/types";
+import {getCityString} from "../../../functions/search";
 import {XIcon} from "@primer/octicons-react";
 
 export const CitiesSelector = () => {

@@ -1,10 +1,10 @@
-import {useCities} from "../functions/useCities";
-import {SearchField} from "./SearchField";
+import {useCities} from "../../../functions/useCities";
+import {SearchField} from "../SearchField";
 import {CitiesSuggestionList} from "./CitiesSuggestion";
 import React, {useState} from "react";
-import {City} from "../functions/types";
-import {searchCity} from "../functions/search";
-import {CityCallBack} from "../functions/callbacks";
+import {City} from "../../../functions/types";
+import {searchCity} from "../../../functions/search";
+import {CityCallBack} from "../../../functions/callbacks";
 
 export const CitiesSearch = ({onSelectCity}: {onSelectCity: CityCallBack}) => {
     const {cities, loading} = useCities();

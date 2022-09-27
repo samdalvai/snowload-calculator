@@ -20,7 +20,7 @@ export const CitiesSelector = () => {
                                 onClick={() => setSelectedCity(null)}><XIcon size={22}/></button>
                     </div>
                     :
-                    <CitiesSearch  onSelectCity={setSelectedCity}/>
+                    <CitiesSearch onSelectCity={setSelectedCity}/>
             }
         </div>
 

@@ -15,7 +15,7 @@ export const CitiesSearch = ({onSelectCity}: {onSelectCity: CityCallBack}) => {
         if (keyword === "") {
             setFilteredCities([])
         } else {
-            setFilteredCities(searchCity(keyword, cities, 10));
+            setFilteredCities(searchCity(keyword, cities, 15));
             setKeyword(keyword);
         }
     }
@@ -27,7 +27,7 @@ export const CitiesSearch = ({onSelectCity}: {onSelectCity: CityCallBack}) => {
                     <input className="form-control" id="disabledInput" type="text" placeholder="Loading cities..."
                            disabled/> :
                     <div>
-                        <SearchField onSearch={filterCities} placeHolder={'Search city'}/>
+                        <SearchField onSearch={filterCities} placeHolder={'Search city...'}/>
                         <CitiesSuggestionList cities={filteredCities} keyword={keyword} onSelectCity={onSelectCity}/>
                     </div>
             }

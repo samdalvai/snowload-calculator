@@ -4,7 +4,7 @@ import {CitiesSelector} from "./components/CitiesSelector";
 
 function App() {
     return (
-        <div className="container p-5">
+        <div className="container p-3">
             <CitiesSelector />
         </div>
     );

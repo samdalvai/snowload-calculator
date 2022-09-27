@@ -7,7 +7,7 @@ import {CheckBoxWithDescription} from "./components/input/CheckBoxWithDescriptio
 function App() {
     // @ts-ignore
     return (
-        <div className="container p-3">
+        <div className="container p-3 shadow rounded">
             <CitiesSelector />
 
             <div className="row">

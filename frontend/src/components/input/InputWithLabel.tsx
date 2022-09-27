@@ -1,11 +1,13 @@
 import {useState} from "react";
 
-export const InputWithLabel = ({label, placeHolder, units}: {label: string, placeHolder: string, units: string
+export const InputWithLabel = ({label, placeHolder, units, initialValue}: {label: string, placeHolder: string, units: string, initialValue: string
 }) => {
+    const [value, setValue] = useState<string>('')
+
     return (
         <div className="input-group shadow-sm rounded">
             <label className="input-group-text" style={{minWidth: "45%"}}>{label}</label>
-            <input type="text" className="form-control" placeholder={placeHolder} required/>
+            <input type="text" className="form-control" value={value} onChange={event => setValue(event.target.value)} placeholder={placeHolder} required/>
             <label className="input-group-text" style={{minWidth: "12.5%"}}>{units}</label>
         </div>
     )

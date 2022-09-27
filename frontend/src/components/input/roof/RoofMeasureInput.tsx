@@ -6,15 +6,15 @@ export const RoofMeasureInput = () => {
         <div>
             <div className="row">
                 <div className="col-md-6 pt-3">
-                    <InputWithLabel label={'Steepness (α)'} placeHolder={'Insert steepness...'} units={'°'}/>
+                    <InputWithLabel label={'Steepness (α)'} placeHolder={'Insert steepness...'} units={'°'} initialValue={''}/>
                 </div>
                 <div className="col-md-6 pt-3">
-                    <InputWithLabel label={'Roof length (sl)'} placeHolder={'Insert roof length...'} units={'m'}/>
+                    <InputWithLabel label={'Roof length (sl)'} placeHolder={'Insert roof length...'} units={'m'} initialValue={''}/>
                 </div>
             </div>
             <div className="row">
                 <div className="col-md-6 pt-3">
-                    <InputWithLabel label={'Roof width (l)'} placeHolder={'Insert roof width...'} units={'m'}/>
+                    <InputWithLabel label={'Roof width (l)'} placeHolder={'Insert roof width...'} units={'m'} initialValue={''}/>
                 </div>
                 <div className="col-md-6 pt-3">
                     <CheckBoxWithDescription placeHolder={'1.5 safety coefficient'}/>

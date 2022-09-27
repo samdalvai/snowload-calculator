@@ -20,6 +20,13 @@ export const SnowloadCalculationForm = () => {
         setCoefficient(false)
     }
 
+    const validateInputs = () => {
+
+
+
+
+    }
+
     return (
         <div className="card shadow rounded">
             <div className="card-header text-center">
@@ -42,7 +49,7 @@ export const SnowloadButtonsGroup = ({onCompute, onReset}: { onCompute: Callback
     return (
         <div className="row">
             <div className="col-md-6 pt-3">
-                <button type="button" className="btn btn-primary shadow-sm rounded" style={{width: "100%"}}
+                <button type="submit" className="btn btn-primary shadow-sm rounded" style={{width: "100%"}}
                         onClick={onCompute}><GearIcon size={20}/> Compute
                 </button>
             </div>

@@ -1,4 +1,4 @@
-import {City} from "./types";
+import {City} from "../types";
 import {useApiGet} from "./useApi";
 
 export type CitiesResponse = {

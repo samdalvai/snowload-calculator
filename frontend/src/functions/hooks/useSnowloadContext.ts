@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {City} from "./types";
+import {City} from "../types";
 
 export const useSnowloadContext = () => {
     const [city, setCity] = useState<City | null>(null)

@@ -1,6 +1,6 @@
 import {RoofMeasureInput} from "../roof/RoofMeasureInput";
 import {CitiesSelector} from "../../selection/cities/CitiesSelector";
-import {GearIcon, TrashIcon} from "@primer/octicons-react";
+import {GearIcon, SunIcon, TrashIcon} from "@primer/octicons-react";
 import {Callback} from "../../../functions/callbacks";
 import {useState} from "react";
 import {City} from "../../../functions/types";

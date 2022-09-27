@@ -1,4 +1,4 @@
-import {useCities} from "../../../functions/useCities";
+import {useCities} from "../../../functions/hooks/useCities";
 import {SearchField} from "../SearchField";
 import {CitiesSuggestionList} from "./CitiesSuggestion";
 import React, {useState} from "react";

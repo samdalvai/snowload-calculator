@@ -2,18 +2,21 @@ import {RoofMeasureInput} from "../roof/RoofMeasureInput";
 import {CitiesSelector} from "../../selection/cities/CitiesSelector";
 import {Button} from "react-bootstrap";
 import {GearIcon, TrashIcon} from "@primer/octicons-react";
+import {Callback} from "../../../functions/callbacks";
 
 export const SnowloadCalculationForm = () => {
+
+
     return (
         <div>
             <CitiesSelector/>
             <RoofMeasureInput/>
-            <SnowloadButtonsGroup/>
+            <SnowloadButtonsGroup onCompute={() => null} onReset={() => null}/>
         </div>
     )
 }
 
-export const SnowloadButtonsGroup = () => {
+export const SnowloadButtonsGroup = ({onCompute, onReset}:{onCompute: Callback, onReset: Callback}) => {
     return (
         <div className="row">
             <div className="col-md-6 pt-3">

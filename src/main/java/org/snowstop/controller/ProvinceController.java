@@ -1,10 +1,8 @@
 package org.snowstop.controller;
 
-import org.snowstop.model.City;
-import org.snowstop.model.CityId;
 import org.snowstop.model.Province;
-import org.snowstop.repository.CityRepository;
 import org.snowstop.repository.ProvinceRepository;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -3,6 +3,7 @@ package org.snowstop.controller;
 import org.snowstop.model.City;
 import org.snowstop.model.CityId;
 import org.snowstop.repository.CityRepository;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -7,9 +7,10 @@ function App() {
     return (
         <div className="container p-3">
             <SnowloadCalculationForm/>
-            <MessageModal  header={'Input validation error'} body={'You have an error in your input, please retry...'} />
         </div>
     );
 }
+
+//             <MessageModal  header={'Input validation error'} body={'You have an error in your input, please retry...'} />
 
 export default App;

@@ -5,7 +5,7 @@ import {getCityString} from "../../../functions/search";
 import {XIcon} from "@primer/octicons-react";
 import {CityCallBack} from "../../../functions/callbacks";
 
-export const CitiesSelector = ({selectedCity, onSelectedCity}: {selectedCity: City | null, onSelectedCity: CityCallBack}) => {
+export const CitiesSelector = ({selectedCity, valid, onSelectedCity}: {selectedCity: City | null, valid: boolean, onSelectedCity: CityCallBack}) => {
 
     return (
         <div>
@@ -20,7 +20,7 @@ export const CitiesSelector = ({selectedCity, onSelectedCity}: {selectedCity: Ci
                                 onClick={() => onSelectedCity(null)}><XIcon size={22}/></button>
                     </div>
                     :
-                    <CitiesSearch onSelectCity={onSelectedCity}/>
+                    <CitiesSearch onSelectCity={onSelectedCity} valid={valid}/>
             }
         </div>
 

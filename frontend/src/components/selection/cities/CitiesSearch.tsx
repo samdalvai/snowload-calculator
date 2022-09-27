@@ -7,7 +7,7 @@ import {searchCity} from "../../../functions/search";
 import {CityCallBack} from "../../../functions/callbacks";
 import {ErrorInput} from "../ErrorInput";
 
-export const CitiesSearch = ({onSelectCity}: { onSelectCity: CityCallBack }) => {
+export const CitiesSearch = ({onSelectCity, valid}: { onSelectCity: CityCallBack, valid: boolean }) => {
     const {cities, loading, error} = useCities();
     const [keyword, setKeyword] = useState<string>('');
     const [filteredCities, setFilteredCities] = useState<City[]>([]);
@@ -28,7 +28,7 @@ export const CitiesSearch = ({onSelectCity}: { onSelectCity: CityCallBack }) => 
                     <input className="form-control" id="disabledInput" type="text" placeholder="Loading cities..."
                            disabled/> :
                     <div>
-                        <SearchField onSearch={filterCities} placeHolder={'Search city...'}/>
+                        <SearchField onSearch={filterCities} placeHolder={'Search city...'} valid={valid}/>
                         <CitiesSuggestionList cities={filteredCities} keyword={keyword} onSelectCity={onSelectCity}/>
                     </div>
             }

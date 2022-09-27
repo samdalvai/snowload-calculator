@@ -12,6 +12,8 @@ export const SnowloadCalculationForm = () => {
     const [roofWidth, setRoofWidth] = useState<string>('')
     const [coefficient, setCoefficient] = useState<boolean>(false)
 
+    const [validCityinput, setValidCityInput] = useState<boolean>(true)
+
     const resetInputs = () => {
         setSelectedCity(null)
         setSteepness('')
@@ -21,9 +23,14 @@ export const SnowloadCalculationForm = () => {
     }
 
     const validateInputs = () => {
+        if (selectedCity === null)
+            setValidCityInput(false)
 
 
+    }
 
+    const resetInvalidInputs = () => {
+        setValidCityInput(true)
 
     }
 
@@ -32,14 +39,14 @@ export const SnowloadCalculationForm = () => {
             <div className="card-header text-center">
                 <h3 style={{color: "#0d6efd"}}><strong>Snowload Calculator</strong></h3>
             </div>
-            <div className="card-body">
-                <CitiesSelector selectedCity={selectedCity} onSelectedCity={setSelectedCity}/>
+            <div className="card-body" onChange={resetInvalidInputs}>
+                <CitiesSelector selectedCity={selectedCity} onSelectedCity={setSelectedCity} valid={validCityinput}/>
                 <RoofMeasureInput steepness={steepness} roofLength={roofLength} roofWidth={roofWidth}
                                   coefficient={coefficient}
                                   onSteepnessChange={setSteepness} onRoofLengthChange={setRoofLength}
                                   onRoofWidthChange={setRoofWidth}
                                   onCoefficientChange={() => setCoefficient(!coefficient)}/>
-                <SnowloadButtonsGroup onCompute={() => null} onReset={resetInputs}/>
+                <SnowloadButtonsGroup onCompute={validateInputs} onReset={resetInputs}/>
             </div>
         </div>
     )

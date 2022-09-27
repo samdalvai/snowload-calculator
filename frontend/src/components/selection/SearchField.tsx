@@ -2,14 +2,14 @@ import {useState} from "react";
 import {StringCallBack} from "../../functions/callbacks";
 import {XIcon} from "@primer/octicons-react";
 
-export const SearchField = ({placeHolder, onSearch}: { placeHolder: string, onSearch: StringCallBack }) => {
+export const SearchField = ({placeHolder, onSearch, valid}: { placeHolder: string, onSearch: StringCallBack, valid: boolean }) => {
     const [search, setSearch] = useState<string>('');
 
     return (
         <div>
             <div className="input-group">
                 <input type="text"
-                       className="form-control"
+                       className={valid ? "form-control" : "form-control is-invalid"}
                        placeholder={placeHolder}
                        onChange={event => {
                            onSearch(event.target.value)

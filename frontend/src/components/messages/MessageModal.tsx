@@ -12,7 +12,7 @@ export const MessageModal = ({header, body}: { header: string, body: string }) =
                 </Modal.Header>
                 <div className="modal-body">{body}</div>
                 <div className="modal-footer">
-                    <button type="button" className="btn btn-secondary" onClick={() => setShow(false)}>Close</button>
+                    <button type="button" className="btn btn-secondary" onClick={() => setShow(!show)}>Close</button>
 
                 </div>
             </Modal>

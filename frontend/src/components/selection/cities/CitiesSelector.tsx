@@ -3,9 +3,9 @@ import {useState} from "react";
 import {City} from "../../../functions/types";
 import {getCityString} from "../../../functions/search";
 import {XIcon} from "@primer/octicons-react";
+import {CityCallBack} from "../../../functions/callbacks";
 
-export const CitiesSelector = () => {
-    const [selectedCity, setSelectedCity] = useState<City | null>(null)
+export const CitiesSelector = ({selectedCity, onSelectedCity}: {selectedCity: City | null, onSelectedCity: CityCallBack}) => {
 
     return (
         <div>
@@ -17,10 +17,10 @@ export const CitiesSelector = () => {
                         <button type="button"
                                 className="btn btn-secondary"
                                 style={{width: '15%'}}
-                                onClick={() => setSelectedCity(null)}><XIcon size={22}/></button>
+                                onClick={() => onSelectedCity(null)}><XIcon size={22}/></button>
                     </div>
                     :
-                    <CitiesSearch onSelectCity={setSelectedCity}/>
+                    <CitiesSearch onSelectCity={onSelectedCity}/>
             }
         </div>
 

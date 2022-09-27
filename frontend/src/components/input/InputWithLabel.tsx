@@ -1,13 +1,13 @@
 import {useState} from "react";
 import {StringCallBack} from "../../functions/callbacks";
 
-export const InputWithLabel = ({label, placeHolder, units, value, onChange}: {
-    label: string, placeHolder: string, units: string, value: string, onChange: StringCallBack
+export const InputWithLabel = ({label, valid, placeHolder, units, value, onChange}: {
+    label: string, valid: boolean, placeHolder: string, units: string, value: string, onChange: StringCallBack
 }) => {
     return (
         <div className="input-group shadow-sm rounded">
             <label className="input-group-text" style={{minWidth: "50%"}}>{label}</label>
-            <input type="text" className="form-control" value={value}
+            <input type="text" className={valid ? "form-control" : "form-control is-invalid"} value={value}
                    onChange={event => onChange(event.target.value)} placeholder={placeHolder} required/>
             <label className="input-group-text" style={{minWidth: "15%"}}>{units}</label>
         </div>

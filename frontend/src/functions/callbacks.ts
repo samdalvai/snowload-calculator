@@ -7,3 +7,5 @@ export type CityCallBack = (arg: City | null) => void
 export type NumberCallBack = (arg: number) => void
 
 export type Callback = () => void
+
+export type BooleanCallback = (arg: boolean) => void

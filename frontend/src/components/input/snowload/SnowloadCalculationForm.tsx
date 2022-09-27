@@ -11,19 +11,21 @@ export const SnowloadCalculationForm = () => {
     const [steepness, setSteepness] = useState<string>('')
     const [roofLength, setRoofLength] = useState<string>('')
     const [roofWidth, setRoofWidth] = useState<string>('')
+    const [coefficient, setCoefficient] = useState<boolean>(false)
 
     const resetInputs = () => {
         setSelectedCity(null)
         setSteepness('')
         setRoofLength('')
         setRoofWidth('')
+        setCoefficient(false)
     }
 
     return (
         <div>
             <CitiesSelector selectedCity={selectedCity} onSelectedCity={setSelectedCity}/>
-            <RoofMeasureInput steepness={steepness} roofLength={roofLength} roofWidth={roofWidth}
-                              onSteepnessChange={setSteepness} onRoofLengthChange={setRoofLength} onRoofWidthChange={setRoofWidth}/>
+            <RoofMeasureInput steepness={steepness} roofLength={roofLength} roofWidth={roofWidth} coefficient={coefficient}
+                              onSteepnessChange={setSteepness} onRoofLengthChange={setRoofLength} onRoofWidthChange={setRoofWidth} onCoefficientChange={() => setCoefficient(!coefficient)}/>
             <SnowloadButtonsGroup onCompute={() => null} onReset={resetInputs}/>
         </div>
     )

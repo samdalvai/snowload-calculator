@@ -3,11 +3,12 @@ import {useApiGet} from "./useApi";
 
 export type CitiesResponse = {
     cities: City[],
-    loading: Boolean
+    loading: Boolean,
+    error: any
 }
 
 export const useCities = (): CitiesResponse => {
-    const {data, loading} = useApiGet('/cities');
+    const {data, loading, error} = useApiGet('/cities');
 
-    return {cities: data, loading};
+    return {cities: data, loading, error};
 }

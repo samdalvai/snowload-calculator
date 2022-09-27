@@ -1,4 +1,3 @@
-import {CitiesSelector} from "../../selection/cities/CitiesSelector";
 import {InputWithLabel} from "../InputWithLabel";
 import {CheckBoxWithDescription} from "../CheckBoxWithDescription";
 

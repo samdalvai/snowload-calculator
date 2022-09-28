@@ -28,7 +28,7 @@ export const CitiesSearch = ({onSelectCity, valid}: { onSelectCity: CityCallBack
                     <input className="form-control" id="disabledInput" type="text" placeholder="Loading cities..."
                            disabled/> :
                     <div>
-                        <SearchField onSearch={filterCities} placeHolder={'Search city...'} valid={valid}/>
+                        <SearchField onSearch={filterCities} placeHolder={'Search city...'} valid={valid} onAddCity={() => null}/>
                         <CitiesSuggestionList cities={filteredCities} keyword={keyword} onSelectCity={onSelectCity}/>
                     </div>
             }

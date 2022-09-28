@@ -4,7 +4,7 @@ import {GearIcon, TrashIcon} from "@primer/octicons-react";
 import {Callback, RoofDataCallback} from "../../../functions/callbacks";
 import {useState} from "react";
 import {City, RoofData} from "../../../functions/types";
-import {MessageModal} from "../../messages/MessageModal";
+import {MessageModal} from "../../modal/Modal";
 import {IsInputBetweenLowerAndUpperBound, IsValidSteepness} from "../../../functions/validation/stringValidation";
 import {StringToNumber} from "../../../functions/conversion/stringConversion";
 

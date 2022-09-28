@@ -3,7 +3,7 @@ import {
     IsInputBetweenLowerAndUpperBound,
     IsStringNumber,
     IsValidSteepness
-} from "../functions/validation/inputValidation";
+} from "../functions/validation/stringValidation";
 
 describe('testing input validation functions', () => {
     it('string with integer number should be a number', () => {

@@ -1,4 +1,4 @@
-import {IsStringNumber} from "../validation/inputValidation";
+import {IsStringNumber} from "../validation/stringValidation";
 
 export const StringToNumber = (s: string): number => {
     if (IsStringNumber(s))

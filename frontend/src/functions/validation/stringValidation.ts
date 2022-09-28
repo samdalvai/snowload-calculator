@@ -1,6 +1,9 @@
-import {StringToNumber} from "../conversion/conversion";
+import {StringToNumber} from "../conversion/stringConversion";
 
 export const IsStringNumber = (s: string): boolean => {
+    if (s === "")
+        return false;
+
     const numbers = "0123456789.-"
 
     const separatorCount = s.split("").filter(char => char === ".").length

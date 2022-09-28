@@ -15,7 +15,7 @@ export interface Province {
 }
 
 export interface RoofData {
-    city: City,
+    city: City | null,
     steepness: number,
     roofLength: number,
     roofWidth: number,

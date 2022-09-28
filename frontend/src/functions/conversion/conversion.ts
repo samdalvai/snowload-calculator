@@ -1,8 +1,6 @@
 import {IsStringNumber} from "../validation/inputValidation";
 
 export const StringToNumber = (s: string): number => {
-
-
     if (IsStringNumber(s))
         return parseFloat(s);
     else

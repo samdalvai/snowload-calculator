@@ -1,3 +1,5 @@
+import {useState} from "react";
+
 export interface City {
     zip: string,
     name: string,
@@ -10,4 +12,12 @@ export interface Province {
     name: string,
     zone: string,
     load: number
+}
+
+export interface RoofData {
+    city: City,
+    steepness: number,
+    roofLength: number,
+    roofWidth: number,
+    coefficient: boolean
 }

@@ -1,12 +1,14 @@
 import React, {useState} from "react";
-import {InputWithLeftLabel, InputWithTwoLabels} from "../InputWithLabels";
-import {GearIcon, HomeIcon, TrashIcon} from "@primer/octicons-react";
+import {InputWithLeftLabel} from "../InputWithLabels";
+import {HomeIcon, TrashIcon} from "@primer/octicons-react";
 
 export const NewCityForm = () => {
     const [zip, setZip] = useState<string>('')
     const [name, setName] = useState<string>('')
     const [province, setProvince] = useState<string>('')
     const [altitude, setAltitude] = useState<string>('')
+
+    const [showAlert, setShowAlert] = useState<boolean>(false)
 
     const resetInputs = () => {
         setZip('')
@@ -17,6 +19,12 @@ export const NewCityForm = () => {
 
     return (
         <div>
+            {
+                showAlert ?
+                    <div className="alert alert-danger" role="alert">
+                        You have an error in your input, please retry...
+                    </div> : ""
+            }
             <div className="row">
                 <div className="col-md-6 pt-3">
                     <InputWithLeftLabel leftLabel={'ZIP'} placeHolder={''} value={zip}

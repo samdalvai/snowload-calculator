@@ -15,7 +15,7 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
     const [roofWidth, setRoofWidth] = useState<string>('')
     const [coefficient, setCoefficient] = useState<boolean>(false)
 
-    const [validCityinput, setValidCityInput] = useState<boolean>(true)
+    const [validCityInput, setValidCityInput] = useState<boolean>(true)
     const [validSteepnessInput, setValidSteepnessInput] = useState<boolean>(true)
     const [validRoofLengthInput, setValidRoofLengthInput] = useState<boolean>(true)
     const [validRoofWidthInput, setValidRoofWidthInput] = useState<boolean>(true)
@@ -79,7 +79,7 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
             <div className="card-body">
                 <div onChange={() => setValidCityInput(true)}>
                     <CitiesSelector selectedCity={selectedCity} onSelectedCity={setSelectedCity}
-                                    valid={validCityinput}/>
+                                    valid={validCityInput}/>
                 </div>
                 <RoofMeasureInput steepness={steepness} roofLength={roofLength} roofWidth={roofWidth}
                                   validSteepness={validSteepnessInput} validRoofLength={validRoofLengthInput}

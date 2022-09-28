@@ -4,6 +4,7 @@ import {GearIcon, TrashIcon} from "@primer/octicons-react";
 import {Callback} from "../../../functions/callbacks";
 import {useState} from "react";
 import {City} from "../../../functions/types";
+import {MessageModal} from "../../messages/MessageModal";
 
 export const SnowloadCalculationForm = () => {
     const [selectedCity, setSelectedCity] = useState<City | null>(null)
@@ -16,6 +17,8 @@ export const SnowloadCalculationForm = () => {
     const [validSteepnessInput, setValidSteepnessInput] = useState<boolean>(true)
     const [validRoofLengthInput, setValidRoofLengthInput] = useState<boolean>(true)
     const [validRoofWidthInput, setValidRoofWidthInput] = useState<boolean>(true)
+
+    const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false)
 
     const resetInputs = () => {
         setSelectedCity(null)
@@ -37,6 +40,13 @@ export const SnowloadCalculationForm = () => {
 
         if (roofWidth === "")
             setValidRoofWidthInput(false)
+
+        if (isInputInvalid())
+            setShowErrorMessage(true);
+    }
+
+    const isInputInvalid = (): boolean => {
+        return selectedCity === null || steepness === "" || roofLength === "" || roofWidth === "";
     }
 
     const resetInvalidInputs = () => {
@@ -48,6 +58,7 @@ export const SnowloadCalculationForm = () => {
 
     return (
         <div className="card shadow rounded">
+            <MessageModal show={showErrorMessage} header={'Input validation error'} body={'You have an error in your input, please retry...'} onHide={() => setShowErrorMessage(false)}/>
             <div className="card-header text-center">
                 <h3 style={{color: "#0d6efd"}}><strong>Snowload Calculator</strong></h3>
             </div>

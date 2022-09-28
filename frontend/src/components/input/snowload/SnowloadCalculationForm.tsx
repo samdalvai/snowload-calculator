@@ -1,14 +1,14 @@
 import {RoofMeasureInput} from "../roof/RoofMeasureInput";
 import {CitiesSelector} from "../../selection/cities/CitiesSelector";
-import {GearIcon, TrashIcon} from "@primer/octicons-react";
+import {GearIcon, Icon, TrashIcon} from "@primer/octicons-react";
 import {Callback, RoofDataCallback} from "../../../functions/callbacks";
-import {useState} from "react";
-import {City, RoofData} from "../../../functions/types";
+import {Component, useState} from "react";
+import {City} from "../../../functions/types";
 import {MessageModal} from "../../modal/Modal";
 import {IsInputBetweenLowerAndUpperBound, IsValidSteepness} from "../../../functions/validation/stringValidation";
 import {StringToNumber} from "../../../functions/conversion/stringConversion";
 
-export const SnowloadCalculationForm = ({onCompute}: {onCompute: RoofDataCallback}) => {
+export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallback }) => {
     const [selectedCity, setSelectedCity] = useState<City | null>(null)
     const [steepness, setSteepness] = useState<string>('')
     const [roofLength, setRoofLength] = useState<string>('')
@@ -37,10 +37,10 @@ export const SnowloadCalculationForm = ({onCompute}: {onCompute: RoofDataCallbac
         if (!IsValidSteepness(steepness))
             setValidSteepnessInput(false)
 
-        if (!IsInputBetweenLowerAndUpperBound(roofLength,0.0,1000))
+        if (!IsInputBetweenLowerAndUpperBound(roofLength, 0.0, 1000))
             setValidRoofLengthInput(false)
 
-        if (!IsInputBetweenLowerAndUpperBound(roofWidth,0.0,1000))
+        if (!IsInputBetweenLowerAndUpperBound(roofWidth, 0.0, 1000))
             setValidRoofWidthInput(false)
 
         if (isInputValid())
@@ -56,7 +56,7 @@ export const SnowloadCalculationForm = ({onCompute}: {onCompute: RoofDataCallbac
     }
 
     const isInputValid = (): boolean => {
-        return selectedCity !== null && IsValidSteepness(steepness) && IsInputBetweenLowerAndUpperBound(roofLength,0.0,1000) && IsInputBetweenLowerAndUpperBound(roofWidth,0.0,1000);
+        return selectedCity !== null && IsValidSteepness(steepness) && IsInputBetweenLowerAndUpperBound(roofLength, 0.0, 1000) && IsInputBetweenLowerAndUpperBound(roofWidth, 0.0, 1000);
     }
 
     const resetInvalidInputs = () => {
@@ -71,13 +71,15 @@ export const SnowloadCalculationForm = ({onCompute}: {onCompute: RoofDataCallbac
             <MessageModal show={showErrorMessage} header={'Input validation error'}
                           body={'You have an error in your input.\n' +
                               'The city must be selected, the steepness must be between 0 and 90 degrees,' +
-                              ' and the roof length and width must be between 0 and 1000 meters'} onHide={() => setShowErrorMessage(false)}/>
+                              ' and the roof length and width must be between 0 and 1000 meters'}
+                          onHide={() => setShowErrorMessage(false)}/>
             <div className="card-header text-center">
                 <h1 className="display-6" style={{color: "#0d6efd"}}><strong>Snowload Calculator</strong></h1>
             </div>
             <div className="card-body">
                 <div onChange={() => setValidCityInput(true)}>
-                    <CitiesSelector selectedCity={selectedCity} onSelectedCity={setSelectedCity} valid={validCityinput}/>
+                    <CitiesSelector selectedCity={selectedCity} onSelectedCity={setSelectedCity}
+                                    valid={validCityinput}/>
                 </div>
                 <RoofMeasureInput steepness={steepness} roofLength={roofLength} roofWidth={roofWidth}
                                   validSteepness={validSteepnessInput} validRoofLength={validRoofLengthInput}

@@ -1,4 +1,4 @@
-import {InputWithLabel} from "../InputWithLabel";
+import {InputWithTwoLabels} from "../InputWithTwoLabels";
 import {CheckBoxWithDescription} from "../CheckBoxWithDescription";
 import {Callback, StringCallBack} from "../../../functions/callbacks";
 
@@ -16,18 +16,18 @@ export const RoofMeasureInput = ({
         <div>
             <div className="row">
                 <div className="col-md-6 pt-3">
-                    <InputWithLabel label={'Steepness (α)'} placeHolder={''} units={'°'} value={steepness}
-                                    onChange={onSteepnessChange} valid={validSteepness}/>
+                    <InputWithTwoLabels leftLabel={'Steepness (α)'} placeHolder={''} rightLabel={'°'} value={steepness}
+                                        onChange={onSteepnessChange} valid={validSteepness}/>
                 </div>
                 <div className="col-md-6 pt-3">
-                    <InputWithLabel label={'Roof length (sl)'} placeHolder={''} units={'m'} value={roofLength}
-                                    onChange={onRoofLengthChange} valid={validRoofLength}/>
+                    <InputWithTwoLabels leftLabel={'Roof length (sl)'} placeHolder={''} rightLabel={'m'} value={roofLength}
+                                        onChange={onRoofLengthChange} valid={validRoofLength}/>
                 </div>
             </div>
             <div className="row">
                 <div className="col-md-6 pt-3">
-                    <InputWithLabel label={'Roof width (l)'} placeHolder={''} units={'m'} value={roofWidth}
-                                    onChange={onRoofWidthChange} valid={validRoofWidth}/>
+                    <InputWithTwoLabels leftLabel={'Roof width (l)'} placeHolder={''} rightLabel={'m'} value={roofWidth}
+                                        onChange={onRoofWidthChange} valid={validRoofWidth}/>
                 </div>
                 <div className="col-md-6 pt-3">
                     <CheckBoxWithDescription placeHolder={'1.5 safety coefficient'} checked={coefficient}

@@ -10,5 +10,16 @@ describe('testing input validation functions', () => {
         expect(IsStringNumber("1a23")).equal(false)
     });
 
+    it('string with float number should be a number', () => {
+        expect(IsStringNumber("123.1")).equal(true)
+    });
+
+    it('string with too many separators should not be a number', () => {
+        expect(IsStringNumber("123.1.1")).equal(false)
+    });
+
+    it('string with comma and dot separator should not be a number', () => {
+        expect(IsStringNumber("123.1,1")).equal(false)
+    });
 
 });

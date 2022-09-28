@@ -1,5 +1,11 @@
-export const IsStringNumber = (string: string): boolean => {
-    const numbers = "0123456789"
+export const IsStringNumber = (s: string): boolean => {
+    const numbers = "0123456789."
 
-    return string.split("").every(char => numbers.includes(char))
+    const separatorCount = s.split("").filter(char => char === ".").length
+
+    if (separatorCount > 1)
+        return false;
+
+    return s.split("").every(char => numbers.includes(char))
 }
+

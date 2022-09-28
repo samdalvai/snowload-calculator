@@ -3,7 +3,7 @@ import {SearchField} from "../SearchField";
 import {CitiesSuggestionList} from "./CitiesSuggestion";
 import React, {useState} from "react";
 import {City} from "../../../functions/types";
-import {searchCity} from "../../../functions/search";
+import {searchCity} from "../../../functions/search/search";
 import {CityCallBack} from "../../../functions/callbacks";
 import {ErrorInput} from "../ErrorInput";
 

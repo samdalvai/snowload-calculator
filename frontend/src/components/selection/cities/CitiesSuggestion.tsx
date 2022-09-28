@@ -1,6 +1,6 @@
 import {City} from "../../../functions/types";
 import {CityCallBack} from "../../../functions/callbacks";
-import {getCityString} from "../../../functions/search";
+import {getCityString} from "../../../functions/search/search";
 
 export const CitiesSuggestionList = ({cities, keyword, onSelectCity}: { cities: City[], keyword: string, onSelectCity: CityCallBack }) => {
     return (

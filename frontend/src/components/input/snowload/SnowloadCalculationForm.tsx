@@ -51,14 +51,26 @@ export const SnowloadCalculationForm = () => {
             <div className="card-header text-center">
                 <h3 style={{color: "#0d6efd"}}><strong>Snowload Calculator</strong></h3>
             </div>
-            <div className="card-body" onChange={resetInvalidInputs}>
-                <CitiesSelector selectedCity={selectedCity} onSelectedCity={setSelectedCity} valid={validCityinput}/>
+            <div className="card-body">
+                <div onChange={() => setValidCityInput(true)}>
+                    <CitiesSelector selectedCity={selectedCity} onSelectedCity={setSelectedCity} valid={validCityinput}/>
+                </div>
                 <RoofMeasureInput steepness={steepness} roofLength={roofLength} roofWidth={roofWidth}
                                   validSteepness={validSteepnessInput} validRoofLength={validRoofLengthInput}
                                   validRoofWidth={validRoofWidthInput}
                                   coefficient={coefficient}
-                                  onSteepnessChange={setSteepness} onRoofLengthChange={setRoofLength}
-                                  onRoofWidthChange={setRoofWidth}
+                                  onSteepnessChange={value => {
+                                      setSteepness(value)
+                                      setValidSteepnessInput(true)
+                                  }}
+                                  onRoofLengthChange={value => {
+                                      setRoofLength(value)
+                                      setValidRoofLengthInput(true)
+                                  }}
+                                  onRoofWidthChange={value => {
+                                      setRoofWidth(value)
+                                      setValidRoofWidthInput(true)
+                                  }}
                                   onCoefficientChange={() => setCoefficient(!coefficient)}/>
                 <SnowloadButtonsGroup onCompute={validateInputs}
                                       onReset={() => {

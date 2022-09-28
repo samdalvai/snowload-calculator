@@ -3,6 +3,7 @@ import {InputWithLeftLabel} from "../InputWithLabels";
 import {HomeIcon, TrashIcon} from "@primer/octicons-react";
 import {IsInputBetweenLowerAndUpperBound, IsValidSteepness} from "../../../functions/validation/stringValidation";
 import {StringToNumber} from "../../../functions/conversion/stringConversion";
+import {Alert} from "../../alert/Alert";
 
 export const NewCityForm = () => {
     const [zip, setZip] = useState<string>('')
@@ -52,10 +53,7 @@ export const NewCityForm = () => {
         <div>
             {
                 showAlert ?
-                    <div className="alert alert-danger alert-dismissible" role="alert">
-                        You have an error in your input, please retry...
-                        <button type="button" className="btn-close" onClick={() => setShowAlert(false)} />
-                    </div> : ""
+                    <Alert  message={'You have an error in your input, please retry...'} onClose={() => setShowAlert(false)}/> : ""
             }
             <div className="row">
                 <div className="col-md-6 pt-3" onChange={() => setValidZip(true)}>

@@ -2,11 +2,12 @@ import {RoofMeasureInput} from "../roof/RoofMeasureInput";
 import {CitiesSelector} from "../../selection/cities/CitiesSelector";
 import {GearIcon, Icon, TrashIcon} from "@primer/octicons-react";
 import {Callback, RoofDataCallback} from "../../../functions/callbacks";
-import {Component, useState} from "react";
+import React, {Component, useState} from "react";
 import {City} from "../../../functions/types";
 import {MessageModal} from "../../modal/Modal";
 import {IsInputBetweenLowerAndUpperBound, IsValidSteepness} from "../../../functions/validation/stringValidation";
 import {StringToNumber} from "../../../functions/conversion/stringConversion";
+import {Alert} from "../../alert/Alert";
 
 export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallback }) => {
     const [selectedCity, setSelectedCity] = useState<City | null>(null)
@@ -68,15 +69,13 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
 
     return (
         <div className="card shadow rounded">
-            <MessageModal show={showErrorMessage} header={'Input validation error'}
-                          body={'You have an error in your input.\n' +
-                              'The city must be selected, the steepness must be between 0 and 90 degrees,' +
-                              ' and the roof length and width must be between 0 and 1000 meters'}
-                          onHide={() => setShowErrorMessage(false)}/>
             <div className="card-header text-center">
                 <h1 className="display-6" style={{color: "#0d6efd"}}><strong>Snowload Calculator</strong></h1>
             </div>
             <div className="card-body">
+                {
+                    showErrorMessage ? <Alert  message={'You have an error in your input, please retry...'} onClose={() => setShowErrorMessage(false)}/> : ""
+                }
                 <div onChange={() => setValidCityInput(true)}>
                     <CitiesSelector selectedCity={selectedCity} onSelectedCity={setSelectedCity}
                                     valid={validCityInput}/>

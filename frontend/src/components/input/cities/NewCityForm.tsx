@@ -1,23 +1,44 @@
 import React from "react";
-import {InputWithTwoLabels} from "../InputWithTwoLabels";
+import {InputWithLeftLabel, InputWithTwoLabels} from "../InputWithLabels";
+import {GearIcon, HomeIcon, TrashIcon} from "@primer/octicons-react";
 
 export const NewCityForm = () => {
-
 
 
     return (
         <div>
             <div className="row">
                 <div className="col-md-6 pt-3">
-                    <InputWithTwoLabels leftLabel={'Steepness (α)'} placeHolder={''} rightLabel={'°'} value={''}
+                    <InputWithLeftLabel leftLabel={'ZIP'} placeHolder={''} value={''}
                                         onChange={() => null} valid={true}/>
                 </div>
                 <div className="col-md-6 pt-3">
-                    <InputWithTwoLabels leftLabel={'Roof length (sl)'} placeHolder={''} rightLabel={'m'} value={''}
+                    <InputWithLeftLabel leftLabel={'Name'} placeHolder={''} value={''}
                                         onChange={() => null} valid={true}/>
                 </div>
             </div>
-            <button type="button" className="btn btn-primary" onClick={() => null}>Add</button>
+            <div className="row">
+                <div className="col-md-6 pt-3">
+                    <InputWithLeftLabel leftLabel={'Province'} placeHolder={''} value={''}
+                                        onChange={() => null} valid={true}/>
+                </div>
+                <div className="col-md-6 pt-3">
+                    <InputWithLeftLabel leftLabel={'Altitude'} placeHolder={''} value={''}
+                                        onChange={() => null} valid={true}/>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-md-6 pt-3">
+                    <button type="submit" className="btn btn-primary shadow-sm rounded" style={{width: "100%"}}
+                            onClick={() => null}><HomeIcon size={20}/> Add city
+                    </button>
+                </div>
+                <div className="col-md-6 pt-3">
+                    <button type="submit" className="btn btn-secondary shadow-sm rounded" style={{width: "100%"}}
+                            onClick={() => null}><TrashIcon size={20}/> Reset
+                    </button>
+                </div>
+            </div>
         </div>
     )
 }

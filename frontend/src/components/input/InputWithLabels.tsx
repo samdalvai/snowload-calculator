@@ -14,6 +14,17 @@ export const InputWithTwoLabels = ({leftLabel, rightLabel, valid, placeHolder, v
     )
 }
 
+export const InputWithLeftLabel = ({leftLabel, valid, placeHolder, value, onChange}: {
+    leftLabel: string, valid: boolean, placeHolder: string, value: string, onChange: StringCallBack
+}) => {
+    return (
+        <div className="input-group shadow-sm rounded">
+            <label className="input-group-text" style={{minWidth: "50%"}}>{leftLabel}</label>
+            <input type="text" className={valid ? "form-control" : "form-control is-invalid"} value={value}
+                   onChange={event => onChange(event.target.value)} placeholder={placeHolder} required/>
+        </div>
+    )
+}
 
 // Currently not used by the application, to be used in case we want to be able to change unit of measure, e.g. (° or %)
 export const InputWithChangeableRightLabel = ({label, placeHolder, units}: {

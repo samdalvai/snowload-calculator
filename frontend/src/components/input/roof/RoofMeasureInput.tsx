@@ -1,4 +1,4 @@
-import {InputWithTwoLabels} from "../InputWithTwoLabels";
+import {InputWithTwoLabels} from "../InputWithLabels";
 import {CheckBoxWithDescription} from "../CheckBoxWithDescription";
 import {Callback, StringCallBack} from "../../../functions/callbacks";
 

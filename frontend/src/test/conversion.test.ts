@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {StringToNumber} from "../functions/conversion/stringConversion";
+import {StringToNumber} from "../functions/conversion/conversion";
 
 describe('testing string conversion functions', () => {
 

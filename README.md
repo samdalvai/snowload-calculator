@@ -30,17 +30,17 @@ Access the API on http://localhost:8080/cities.
 A complete list of the endpoints can be found in the [ENDPOINTS](ENDPOINTS.md) readme file.
 
 As an alternative you can use the docker to run the dockerized version of `Spring Boot` with 
-mysql, by uncommenting the service in the `docker-comose.yaml` file:
+mysql, by uncommenting the backend service in the `docker-comose.yaml` file:
 
 ```yaml
-  #web:   ## uncomment to run dockerized version of spring boot
-   # depends_on:
+    #backend:   ## uncomment to run dockerized version of spring boot
+    #depends_on:
     #  - db
     #restart: on-failure
-    #build: .
+    #build: ./backend
     #ports:
     #  - "8080:8080"
-    ...
+    #...
 ```
 
 # FRONT-END APPLICATION

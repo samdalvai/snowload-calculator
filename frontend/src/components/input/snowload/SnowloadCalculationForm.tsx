@@ -21,7 +21,7 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
     const [validRoofLengthInput, setValidRoofLengthInput] = useState<boolean>(true)
     const [validRoofWidthInput, setValidRoofWidthInput] = useState<boolean>(true)
 
-    const [showErrorMessage, setShowErrorMessage] = useState<boolean>(false)
+    const [showAlert, setShowAlert] = useState<boolean>(false)
 
     const resetInputs = () => {
         setSelectedCity(null)
@@ -53,7 +53,7 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
                 coefficient: coefficient
             })
         else
-            setShowErrorMessage(true);
+            setShowAlert(true);
     }
 
     const isInputValid = (): boolean => {
@@ -74,7 +74,7 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
             </div>
             <div className="card-body">
                 {
-                    showErrorMessage ? <Alert  message={'You have an error in your input, please retry...'} onClose={() => setShowErrorMessage(false)}/> : ""
+                    showAlert ? <Alert  message={'You have an error in your input, please retry...'} onClose={() => setShowAlert(false)}/> : ""
                 }
                 <div onChange={() => setValidCityInput(true)}>
                     <CitiesSelector selectedCity={selectedCity} onSelectedCity={setSelectedCity}

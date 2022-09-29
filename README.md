@@ -20,9 +20,9 @@ and a frontend application with `React`.
 ## How to run
 
 * Run `docker-compose up -d` to run the mysql database.
-* The configuration should load all the queries found in `sql/Init.sql` automatically the first time the docker container is created, if this is not the case you might need to run all of them manually.
+* The configuration should load all the queries found in `backend/sql/Init.sql` automatically the first time the docker container is created, if this is not the case you might need to run all of them manually.
 
-To start the Spring Boot API, from the root folder run:
+To start the Spring Boot API, from the `backend/cd ba` folder run:
 
 > mvn spring-boot:run
 
@@ -57,3 +57,7 @@ mysql, by uncommenting the service in the `docker-comose.yaml` file:
 > npm start
 
 Access the application at http://localhost:3000 in the browser.
+
+## How to test
+
+* From inside the `frontend/` folder run `npm test` to run all the tests

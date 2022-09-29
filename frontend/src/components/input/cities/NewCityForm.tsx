@@ -1,9 +1,11 @@
 import React, {useState} from "react";
 import {InputWithLeftLabel} from "../InputWithLabels";
 import {HomeIcon, TrashIcon} from "@primer/octicons-react";
-import {IsInputBetweenLowerAndUpperBound, IsValidSteepness} from "../../../functions/validation/stringValidation";
+import {isInputBetweenLowerAndUpperBound, isValidSteepness} from "../../../functions/validation/stringValidation";
 import {StringToFloatNumber} from "../../../functions/conversion/stringConversion";
 import {Alert} from "../../alert/Alert";
+import {useProvincesGenericEndpoint} from "../../../functions/hooks/useProvinces";
+import {isValidAltitude, isValidProvince, isValidZip} from "../../../functions/validation/cityInputValidation";
 
 export const NewCityForm = () => {
     const [zip, setZip] = useState<string>('')
@@ -18,6 +20,8 @@ export const NewCityForm = () => {
     const [validProvince, setValidProvince] = useState<boolean>(true)
     const [validAltitude, setValidAltitude] = useState<boolean>(true)
 
+    // const {provinces, loading, error} = useProvincesGenericEndpoint('shorthand/' + province);
+
     const resetInputs = () => {
         setZip('')
         setName('')
@@ -27,26 +31,26 @@ export const NewCityForm = () => {
     }
 
     const validateInputs = () => {
-        if (zip === '')
+        if (!isValidZip(zip))
             setValidZip(false)
 
         if (name === '')
             setValidName(false)
 
-        if (province === '')
+        if (!isValidProvince(province))
             setValidProvince(false)
 
-        if (altitude === '')
+        if (!isValidAltitude(altitude))
             setValidAltitude(false)
 
         if (isInputValid())
-            console.log('valid')
+            console.log('valid input, adding city...')
         else
             setShowAlert(true)
     }
 
     const isInputValid = (): boolean => {
-        return zip !== '' && name !== '' && province !== '' && altitude !== ''
+        return isValidZip(zip) && name !== '' && isValidProvince(province) && isValidAltitude(altitude)
     }
 
     return (

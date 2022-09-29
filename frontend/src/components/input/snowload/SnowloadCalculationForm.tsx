@@ -5,7 +5,7 @@ import {Callback, RoofDataCallback} from "../../../functions/callbacks";
 import React, {Component, useState} from "react";
 import {City} from "../../../functions/types";
 import {MessageModal} from "../../modal/Modal";
-import {IsInputBetweenLowerAndUpperBound, IsValidSteepness} from "../../../functions/validation/stringValidation";
+import {isInputBetweenLowerAndUpperBound, isValidSteepness} from "../../../functions/validation/stringValidation";
 import {StringToFloatNumber} from "../../../functions/conversion/stringConversion";
 import {Alert} from "../../alert/Alert";
 
@@ -35,13 +35,13 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
         if (selectedCity === null)
             setValidCityInput(false)
 
-        if (!IsValidSteepness(steepness))
+        if (!isValidSteepness(steepness))
             setValidSteepnessInput(false)
 
-        if (!IsInputBetweenLowerAndUpperBound(roofLength, 0.0, 1000))
+        if (!isInputBetweenLowerAndUpperBound(roofLength, 0.0, 1000))
             setValidRoofLengthInput(false)
 
-        if (!IsInputBetweenLowerAndUpperBound(roofWidth, 0.0, 1000))
+        if (!isInputBetweenLowerAndUpperBound(roofWidth, 0.0, 1000))
             setValidRoofWidthInput(false)
 
         if (isInputValid())
@@ -57,7 +57,7 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
     }
 
     const isInputValid = (): boolean => {
-        return selectedCity !== null && IsValidSteepness(steepness) && IsInputBetweenLowerAndUpperBound(roofLength, 0.0, 1000) && IsInputBetweenLowerAndUpperBound(roofWidth, 0.0, 1000);
+        return selectedCity !== null && isValidSteepness(steepness) && isInputBetweenLowerAndUpperBound(roofLength, 0.0, 1000) && isInputBetweenLowerAndUpperBound(roofWidth, 0.0, 1000);
     }
 
     const resetInvalidInputs = () => {

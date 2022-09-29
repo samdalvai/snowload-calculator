@@ -1,6 +1,6 @@
 import {StringToFloatNumber} from "../conversion/stringConversion";
 
-export const IsStringNumber = (s: string): boolean => {
+export const isStringNumber = (s: string): boolean => {
     if (s === "")
         return false;
 
@@ -15,10 +15,10 @@ export const IsStringNumber = (s: string): boolean => {
     return s.split("").every(char => numbers.includes(char))
 }
 
-export const IsInputBetweenLowerAndUpperBound = (input: string, min: number, max: number): boolean => {
-    return IsStringNumber(input) && StringToFloatNumber(input) >= min && StringToFloatNumber(input) <= max;
+export const isInputBetweenLowerAndUpperBound = (input: string, min: number, max: number): boolean => {
+    return isStringNumber(input) && StringToFloatNumber(input) >= min && StringToFloatNumber(input) <= max;
 }
 
-export const IsValidSteepness = (input: string): boolean => {
-    return IsInputBetweenLowerAndUpperBound(input, 0.0, 90.0);
+export const isValidSteepness = (input: string): boolean => {
+    return isInputBetweenLowerAndUpperBound(input, 0.0, 90.0);
 }

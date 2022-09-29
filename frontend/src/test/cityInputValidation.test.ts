@@ -1,36 +1,50 @@
 import {expect} from 'chai';
-import {IsValidProvince, IsValidZip} from "../functions/validation/cityInputValidation";
+import {isValidAltitude, isValidProvince, isValidZip} from "../functions/validation/cityInputValidation";
+import {isInputBetweenLowerAndUpperBound} from "../functions/validation/stringValidation";
 
 describe('testing city input validation functions', () => {
     it('zip code with 5 numeric characters should be valid', () => {
-        expect(IsValidZip("12345")).equal(true)
+        expect(isValidZip("12345")).equal(true)
     });
 
     it('zip code with 4 numeric characters and one non numeric character should not be valid', () => {
-        expect(IsValidZip("1234b")).equal(false)
+        expect(isValidZip("1234b")).equal(false)
     });
 
     it('zip code with 4 numeric characters should not be valid', () => {
-        expect(IsValidZip("1234")).equal(false)
+        expect(isValidZip("1234")).equal(false)
     });
 
     it('province with only alphabetic characters and length 2 should be valid', () => {
-        expect(IsValidProvince("TN")).equal(true)
-        expect(IsValidProvince("Tn")).equal(true)
-        expect(IsValidProvince("tN")).equal(true)
-        expect(IsValidProvince("tn")).equal(true)
+        expect(isValidProvince("TN")).equal(true)
+        expect(isValidProvince("Tn")).equal(true)
+        expect(isValidProvince("tN")).equal(true)
+        expect(isValidProvince("tn")).equal(true)
     });
 
     it('province with only alphabetic characters and longer than 2 should be valid', () => {
-        expect(IsValidProvince("TNS")).equal(false)
+        expect(isValidProvince("TNS")).equal(false)
     });
 
     it('province with only alphabetic characters and shorter than 2 should be valid', () => {
-        expect(IsValidProvince("T")).equal(false)
+        expect(isValidProvince("T")).equal(false)
     });
 
     it('province with numeric values should not be valid', () => {
-        expect(IsValidProvince("T1")).equal(false)
+        expect(isValidProvince("T1")).equal(false)
+    });
+
+    it('altitude with value between 0 and 3000 should be valid', () => {
+        expect(isValidAltitude("500")).equal(true)
+    });
+
+    it('altitude with value below 0 or above 3000 should not be valid', () => {
+        expect(isValidAltitude("-1")).equal(false)
+        expect(isValidAltitude("3001")).equal(false)
+    });
+
+    it('empty altitude should not be valid', () => {
+        expect(isValidAltitude("")).equal(false)
     });
 
 });

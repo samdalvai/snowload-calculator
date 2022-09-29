@@ -1,5 +1,6 @@
 import {City} from "../types";
 import {useApiGet} from "./useApi";
+import {ProvincesResponse} from "./useProvinces";
 
 export type CitiesResponse = {
     cities: City[],
@@ -9,6 +10,12 @@ export type CitiesResponse = {
 
 export const useCities = (): CitiesResponse => {
     const {data, loading, error} = useApiGet('/cities');
+
+    return {cities: data, loading, error};
+}
+
+export const useCitiesGenericEndpoint = (url: string): CitiesResponse => {
+    const {data, loading, error} = useApiGet('/cities/' + url);
 
     return {cities: data, loading, error};
 }

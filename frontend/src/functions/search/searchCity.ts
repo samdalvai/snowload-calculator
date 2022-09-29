@@ -5,7 +5,6 @@ export interface cityWithMatchIndex {
     matchIndex: number;
 }
 
-
 export const searchCity = (keyword: string, cities: City[], suggestionLimit: number) => {
     const results : cityWithMatchIndex[] = cities.filter(city => {
         return getCityString(city).toLowerCase().indexOf(keyword.toLowerCase()) > -1;

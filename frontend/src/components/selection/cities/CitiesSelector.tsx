@@ -1,7 +1,7 @@
 import {CitiesSearch} from "./CitiesSearch";
 import {useState} from "react";
 import {City} from "../../../functions/types";
-import {getCityString} from "../../../functions/search/search";
+import {getCityString} from "../../../functions/search/searchCity";
 import {XIcon} from "@primer/octicons-react";
 import {CityCallBack} from "../../../functions/callbacks";
 

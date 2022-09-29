@@ -3,9 +3,12 @@ import {SnowloadCalculationForm} from "./components/input/snowload/SnowloadCalcu
 import {AddCityModal} from "./components/modal/Modal";
 import {ErrorInput} from "./components/selection/ErrorInput";
 import {useState} from "react";
+import {doesProvinceExist} from "./functions/search/searchProvince";
 
 function App() {
     const [show, setShow] = useState<boolean>(false)
+
+    doesProvinceExist('TNs')
 
     return (
         <div className="container p-3">

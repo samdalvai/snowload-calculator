@@ -1,4 +1,4 @@
-import {StringToNumber} from "../conversion/stringConversion";
+import {StringToFloatNumber} from "../conversion/stringConversion";
 
 export const IsStringNumber = (s: string): boolean => {
     if (s === "")
@@ -16,7 +16,7 @@ export const IsStringNumber = (s: string): boolean => {
 }
 
 export const IsInputBetweenLowerAndUpperBound = (input: string, min: number, max: number): boolean => {
-    return IsStringNumber(input) && StringToNumber(input) >= min && StringToNumber(input) <= max;
+    return IsStringNumber(input) && StringToFloatNumber(input) >= min && StringToFloatNumber(input) <= max;
 }
 
 export const IsValidSteepness = (input: string): boolean => {

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {InputWithLeftLabel} from "../InputWithLabels";
 import {HomeIcon, TrashIcon} from "@primer/octicons-react";
 import {IsInputBetweenLowerAndUpperBound, IsValidSteepness} from "../../../functions/validation/stringValidation";
-import {StringToNumber} from "../../../functions/conversion/stringConversion";
+import {StringToFloatNumber} from "../../../functions/conversion/stringConversion";
 import {Alert} from "../../alert/Alert";
 
 export const NewCityForm = () => {

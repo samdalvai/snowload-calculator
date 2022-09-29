@@ -6,7 +6,7 @@ import React, {Component, useState} from "react";
 import {City} from "../../../functions/types";
 import {MessageModal} from "../../modal/Modal";
 import {IsInputBetweenLowerAndUpperBound, IsValidSteepness} from "../../../functions/validation/stringValidation";
-import {StringToNumber} from "../../../functions/conversion/stringConversion";
+import {StringToFloatNumber} from "../../../functions/conversion/stringConversion";
 import {Alert} from "../../alert/Alert";
 
 export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallback }) => {
@@ -47,9 +47,9 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
         if (isInputValid())
             onCompute({
                 city: selectedCity,
-                steepness: StringToNumber(steepness),
-                roofLength: StringToNumber(roofLength),
-                roofWidth: StringToNumber(roofWidth),
+                steepness: StringToFloatNumber(steepness),
+                roofLength: StringToFloatNumber(roofLength),
+                roofWidth: StringToFloatNumber(roofWidth),
                 coefficient: coefficient
             })
         else

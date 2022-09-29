@@ -65,12 +65,13 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
         setValidSteepnessInput(true)
         setValidRoofLengthInput(true)
         setValidRoofWidthInput(true)
+        setShowAlert(false)
     }
 
     return (
         <div className="card shadow rounded">
-            <div className="card-header text-center">
-                <h1 className="display-6" style={{color: "#0d6efd"}}><strong>Snowload Calculator</strong></h1>
+            <div className="card-header text-center" style={{backgroundColor: "lightgrey"}}>
+                <h1 className="display-6"><strong>Snowload Calculator</strong></h1>
             </div>
             <div className="card-body">
                 {

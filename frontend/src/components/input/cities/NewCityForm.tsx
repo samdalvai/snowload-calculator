@@ -57,6 +57,14 @@ export const NewCityForm = () => {
         return isValidZip(zip) && name !== '' && isValidProvince(province) && isValidAltitude(altitude)
     }
 
+    const resetInvalidInputs = () => {
+        setValidZip(true)
+        setValidName(true)
+        setValidProvince(true)
+        setValidAltitude(true)
+        setShowAlert(false)
+    }
+
     const handleAddCity = async () => {
         const newCity: City = {
             zip: zip,
@@ -95,7 +103,7 @@ export const NewCityForm = () => {
             }
             {
                 success ?
-                    <SuccessAlert message={'New city successfully added'}
+                    <SuccessAlert message={'New city successfully added, please reload the previous page'}
                                   onClose={() => setSuccess(false)}/> : ""
             }
             {
@@ -131,7 +139,10 @@ export const NewCityForm = () => {
                 </div>
                 <div className="col-md-6 pt-3">
                     <button type="submit" className="btn btn-secondary shadow-sm rounded" style={{width: "100%"}}
-                            onClick={resetInputs}><TrashIcon size={20}/> Reset
+                            onClick={() => {
+                                resetInputs()
+                                resetInvalidInputs()
+                            }}><TrashIcon size={20}/> Reset
                     </button>
                 </div>
             </div>

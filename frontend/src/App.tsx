@@ -5,7 +5,7 @@ import {ErrorInput} from "./components/selection/ErrorInput";
 import {useState} from "react";
 
 function App() {
-    const [show, setShow] = useState<boolean>(true)
+    const [show, setShow] = useState<boolean>(false)
 
     return (
         <div className="container p-3">

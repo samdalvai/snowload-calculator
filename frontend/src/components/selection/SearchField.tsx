@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {Callback, StringCallBack} from "../../functions/callbacks";
 import {PlusIcon, XIcon} from "@primer/octicons-react";
+import {AddButton} from "../button/AddButton";
 
 export const SearchField = ({placeHolder, onSearch, onAddCity, valid}: { placeHolder: string, onSearch: StringCallBack, onAddCity: Callback, valid: boolean }) => {
     const [search, setSearch] = useState<string>('');
@@ -34,17 +35,12 @@ export const SearchField = ({placeHolder, onSearch, onAddCity, valid}: { placeHo
                                 onClick={resetSearch}>
                             <XIcon size={22}/></button>
                 }
-                <button type="button"
-                        className="btn btn-primary"
-                        data-bs-toggle="tooltip" data-bs-placement="top" title="Click to add a new city"
-                        style={{width: '15%'}}
-                        onClick={
-                    () => {
-                        onAddCity();
-                        resetSearch();
-                    }}
-                ><PlusIcon size={22}/></button>
+                <AddButton  onAdd={() => {
+                    onAddCity();
+                    resetSearch()
+                }} tooltip={'Click to add a new city'}/>
             </div>
         </div>
     )
 }
+

@@ -2,6 +2,7 @@ import {useState} from "react";
 import {Callback, StringCallBack} from "../../functions/callbacks";
 import {PlusIcon, XIcon} from "@primer/octicons-react";
 import {AddButton} from "../button/AddButton";
+import {DeleteButton} from "../button/DeleteButton";
 
 export const SearchField = ({placeHolder, onSearch, onAddCity, valid}: { placeHolder: string, onSearch: StringCallBack, onAddCity: Callback, valid: boolean }) => {
     const [search, setSearch] = useState<string>('');
@@ -23,18 +24,7 @@ export const SearchField = ({placeHolder, onSearch, onAddCity, valid}: { placeHo
                        }}
                        value={search}
                        aria-label="Search"/>
-                {
-                    search === '' ?
-                        <button type="button"
-                                className="btn btn-secondary disabled"
-                                style={{width: '15%'}}><XIcon size={22}/></button>
-                        :
-                        <button type="button"
-                                className="btn btn-secondary"
-                                style={{width: '15%'}}
-                                onClick={resetSearch}>
-                            <XIcon size={22}/></button>
-                }
+                <DeleteButton disabled={search === ''} onDelete={resetSearch} />
                 <AddButton  onAdd={() => {
                     onAddCity();
                     resetSearch()

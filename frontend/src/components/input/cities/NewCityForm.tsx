@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import {InputWithLeftLabel} from "../InputWithLabels";
 import {HomeIcon, TrashIcon} from "@primer/octicons-react";
-import {isInputBetweenLowerAndUpperBound, isValidSteepness} from "../../../functions/validation/stringValidation";
-import {StringToFloatNumber} from "../../../functions/conversion/stringConversion";
-import {Alert} from "../../alert/Alert";
-import {useProvincesGenericEndpoint} from "../../../functions/hooks/useProvinces";
+import {StringToIntNumber} from "../../../functions/conversion/stringConversion";
+import {ErrorAlert} from "../../alert/ErrorAlert";
 import {isValidAltitude, isValidProvince, isValidZip} from "../../../functions/validation/cityInputValidation";
+import {City} from "../../../functions/types";
+import {SuccessAlert} from "../../alert/SuccessAlert";
 
 export const NewCityForm = () => {
     const [zip, setZip] = useState<string>('')
@@ -14,13 +14,13 @@ export const NewCityForm = () => {
     const [altitude, setAltitude] = useState<string>('')
 
     const [showAlert, setShowAlert] = useState<boolean>(false)
+    const [success, setSuccess] = useState<boolean>(false)
+    const [error, setError] = useState<boolean>(false)
 
     const [validZip, setValidZip] = useState<boolean>(true)
     const [validName, setValidName] = useState<boolean>(true)
     const [validProvince, setValidProvince] = useState<boolean>(true)
     const [validAltitude, setValidAltitude] = useState<boolean>(true)
-
-    // const {provinces, loading, error} = useProvincesGenericEndpoint('shorthand/' + province);
 
     const resetInputs = () => {
         setZip('')
@@ -28,6 +28,8 @@ export const NewCityForm = () => {
         setProvince('')
         setAltitude('')
         setShowAlert(false)
+        setSuccess(false)
+        setError(false)
     }
 
     const validateInputs = () => {
@@ -43,9 +45,11 @@ export const NewCityForm = () => {
         if (!isValidAltitude(altitude))
             setValidAltitude(false)
 
-        if (isInputValid())
-            console.log('valid input, adding city...')
-        else
+        if (isInputValid()) {
+            console.log('valid input, adding new city...')
+            setShowAlert(false)
+            handleAddCity()
+        } else
             setShowAlert(true)
     }
 
@@ -53,11 +57,51 @@ export const NewCityForm = () => {
         return isValidZip(zip) && name !== '' && isValidProvince(province) && isValidAltitude(altitude)
     }
 
+    const handleAddCity = async () => {
+        const newCity: City = {
+            zip: zip,
+            name: name,
+            province: province,
+            altitude: StringToIntNumber(altitude)
+        }
+
+        await fetch('/cities', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newCity),
+        })
+            .then((response) => {
+                console.log(response)
+                if (response.status === 201 || response.status === 200){
+                    setSuccess(true)
+                    setError(false)
+                } else {
+                    setError(true)
+                    setSuccess(false)
+                }
+            })
+
+    }
+
     return (
         <div>
             {
                 showAlert ?
-                    <Alert  message={'You have an error in your input, please retry...'} onClose={() => setShowAlert(false)}/> : ""
+                    <ErrorAlert message={'You have an error in your input, please retry...'}
+                                onClose={() => setShowAlert(false)}/> : ""
+            }
+            {
+                success ?
+                    <SuccessAlert message={'New city successfully added'}
+                                  onClose={() => setSuccess(false)}/> : ""
+            }
+            {
+                error ?
+                    <ErrorAlert message={'Error adding new city, please retry...'}
+                                  onClose={() => setError(false)}/> : ""
             }
             <div className="row">
                 <div className="col-md-6 pt-3" onChange={() => setValidZip(true)}>

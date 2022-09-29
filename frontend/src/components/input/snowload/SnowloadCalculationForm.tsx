@@ -7,7 +7,7 @@ import {City} from "../../../functions/types";
 import {MessageModal} from "../../modal/Modal";
 import {isInputBetweenLowerAndUpperBound, isValidSteepness} from "../../../functions/validation/stringValidation";
 import {StringToFloatNumber} from "../../../functions/conversion/stringConversion";
-import {Alert} from "../../alert/Alert";
+import {ErrorAlert} from "../../alert/ErrorAlert";
 
 export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallback }) => {
     const [selectedCity, setSelectedCity] = useState<City | null>(null)
@@ -74,7 +74,7 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
             </div>
             <div className="card-body">
                 {
-                    showAlert ? <Alert  message={'You have an error in your input, please retry...'} onClose={() => setShowAlert(false)}/> : ""
+                    showAlert ? <ErrorAlert message={'You have an error in your input, please retry...'} onClose={() => setShowAlert(false)}/> : ""
                 }
                 <div onChange={() => setValidCityInput(true)}>
                     <CitiesSelector selectedCity={selectedCity} onSelectedCity={setSelectedCity}

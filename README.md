@@ -33,14 +33,14 @@ As an alternative you can use the docker to run the dockerized version of `Sprin
 mysql, by uncommenting the backend service in the `docker-comose.yaml` file:
 
 ```yaml
-    #backend:   ## uncomment to run dockerized version of spring boot
-    #depends_on:
-    #  - db
-    #restart: on-failure
-    #build: ./backend
-    #ports:
-    #  - "8080:8080"
-    #...
+    #  backend:
+    #    depends_on:
+    #      - db
+    #    restart: on-failure
+    #    build: ./backend
+    #    ports:
+    #      - "8080:8080"
+    ...
 ```
 
 # FRONT-END APPLICATION
@@ -57,6 +57,21 @@ mysql, by uncommenting the backend service in the `docker-comose.yaml` file:
 > npm start
 
 Access the application at http://localhost:3000 in the browser.
+
+As an alternative you can use the docker to run the dockerized version of `Node` by uncommenting the backend service in the `docker-comose.yaml` file:
+
+```yaml
+    #  frontend:
+    #    depends_on:
+    #      - backend
+    #    restart: on-failure
+    #    build: ./frontend
+    #    volumes:
+    #      - ./frontend:/usr/app
+    #    ports:
+    #      - "3000:3000"
+    ...
+```
 
 ## How to test
 

@@ -25,7 +25,7 @@ export const AddCityModal = ({show, onHide}: { show: boolean, onHide: Callback }
         <div>
             <Modal size={"xl"} show={show} onHide={onHide} centered>
                 <Modal.Header closeButton style={{backgroundColor: "lightgrey"}}>
-                    <h3 className="modal-title">Add new city</h3>
+                    <h3 className="modal-title text-center">Add new city</h3>
                 </Modal.Header>
                 <div className="modal-body">
                     <NewCityForm />

@@ -1,6 +1,5 @@
-import {expect} from 'chai';
 import {isValidAltitude, isValidProvince, isValidZip} from "../functions/validation/cityInputValidation";
-import {isInputBetweenLowerAndUpperBound} from "../functions/validation/stringValidation";
+const {expect} = require('chai');
 
 describe('testing city input validation functions', () => {
     it('zip code with 5 numeric characters should be valid', () => {

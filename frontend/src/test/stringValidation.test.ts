@@ -1,9 +1,9 @@
-import {expect} from 'chai';
 import {
     isInputBetweenLowerAndUpperBound,
     isStringNumber,
     isValidSteepness
 } from "../functions/validation/stringValidation";
+const {expect} = require('chai');
 
 describe('testing input validation functions', () => {
     it('string with integer number should be a number', () => {

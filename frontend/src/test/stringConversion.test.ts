@@ -1,5 +1,5 @@
-import {expect} from 'chai';
 import {StringToFloatNumber, StringToIntNumber} from "../functions/conversion/stringConversion";
+const {expect} = require('chai');
 
 describe('testing string conversion functions for floating number', () => {
 

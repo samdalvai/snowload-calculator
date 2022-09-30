@@ -1,10 +1,7 @@
 import './App.css';
 import {SnowloadCalculationForm} from "./components/input/snowload/SnowloadCalculationForm";
 import {AddCityModal} from "./components/modal/Modal";
-import {ErrorInput} from "./components/selection/ErrorInput";
 import {useState} from "react";
-import {useCities} from "./functions/hooks/useCities";
-import {useProvincesGenericEndpoint} from "./functions/hooks/useProvinces";
 
 function App() {
     const [show, setShow] = useState<boolean>(false)

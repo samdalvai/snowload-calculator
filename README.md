@@ -4,7 +4,6 @@ based on the full stack application template from tutorial [app](https://www.bae
 The application architecture is based on a backend API with `Java Spring Boot`,
 and a frontend application with `React`.
 
-
 # Table of contents
 * [BACK-END-APPLICATION](#back-end-application)
 * [FRONT-END-APPLICATION](#front-end-application)
@@ -22,7 +21,7 @@ and a frontend application with `React`.
 * Run `docker-compose up -d` to run the mysql database.
 * The configuration should load all the queries found in `backend/sql/Init.sql` automatically the first time the docker container is created, if this is not the case you might need to run all of them manually.
 
-To start the Spring Boot API, from the `backend/cd ba` folder run:
+To start the Spring Boot API, from the `backend/` folder run:
 
 > mvn spring-boot:run
 
@@ -47,7 +46,7 @@ mysql, by uncommenting the backend service in the `docker-comose.yaml` file:
 
 ## Application Prerequisites
 
-* node.js 12 or higher
+* Node.js 12 or higher
 
 ## How to run
 

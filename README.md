@@ -71,6 +71,8 @@ As an alternative you can use the docker to run the dockerized version of `Node`
     #      - "3000:3000"
     ...
 ```
+Please note that if you are using both the docker version of the `backend` and the `frontend` application, you need to change the `"proxy"` property 
+in the `package.json` file of the `frontend` application from `http://localhost:8080` to `http://backend:8080`.
 
 ## How to test
 

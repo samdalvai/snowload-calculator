@@ -9,7 +9,7 @@ export const isValidZip = (zip: string): boolean => {
 export const isValidProvince = (province: string): boolean => {
     const numbers = "abcdefghijklmnopqrstuvwxyz"
 
-    return province.split("").every(char => numbers.includes(char.toLowerCase())) && province.length == 2
+    return province.split("").every(char => numbers.includes(char.toLowerCase())) && province.length === 2
 }
 
 export const isValidAltitude = (input: string): boolean => {

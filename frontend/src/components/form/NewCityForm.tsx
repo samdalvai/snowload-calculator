@@ -5,6 +5,7 @@ import {StringToIntNumber} from "../../functions/conversion/stringConversion";
 import {isValidAltitude, isValidProvince, isValidZip} from "../../functions/validation/cityInputValidation";
 import {City} from "../../functions/types";
 import {Alert} from "../alert/Alert";
+import {ResetButton} from "../button/ResetButton";
 
 export const NewCityForm = () => {
     const [zip, setZip] = useState<string>('')
@@ -137,12 +138,10 @@ export const NewCityForm = () => {
                     </button>
                 </div>
                 <div className="col-md-6 pt-3">
-                    <button type="submit" className="btn btn-secondary shadow-sm rounded" style={{width: "100%"}}
-                            onClick={() => {
-                                resetInputs()
-                                resetInvalidInputs()
-                            }}><TrashIcon size={20}/> Reset
-                    </button>
+                    <ResetButton  onReset={() => {
+                        resetInputs()
+                        resetInvalidInputs()
+                    }}/>
                 </div>
             </div>
         </div>

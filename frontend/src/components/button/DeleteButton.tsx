@@ -10,6 +10,7 @@ export const DeleteButton = ({disabled, onDelete}: { disabled: boolean, onDelete
                 title="Click to delete selection"
                 style={{width: '15%'}}
                 onClick={onDelete}>
-            <XIcon size={22}/></button>
+            <XIcon size={22}/>
+        </button>
     )
 }

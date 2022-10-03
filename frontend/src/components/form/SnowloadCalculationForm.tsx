@@ -8,6 +8,8 @@ import {isInputBetweenLowerAndUpperBound, isValidSteepness} from "../../function
 import {StringToFloatNumber} from "../../functions/conversion/stringConversion";
 import {SnowFlakeIcon} from "../icon/SnowFlakeIcon";
 import {Alert} from "../alert/Alert";
+import {ComputeButton} from "../button/ComputeButton";
+import {ResetButton} from "../button/ResetButton";
 
 export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallback }) => {
     const [selectedCity, setSelectedCity] = useState<City | null>(null)
@@ -117,14 +119,10 @@ export const SnowloadButtonsGroup = ({onCompute, onReset}: { onCompute: Callback
     return (
         <div className="row">
             <div className="col-md-6 pt-3">
-                <button type="submit" className="btn btn-primary shadow-sm rounded" style={{width: "100%"}}
-                        onClick={onCompute}><SnowFlakeIcon size={20} /> Compute
-                </button>
+                <ComputeButton onCompute={onCompute} />
             </div>
             <div className="col-md-6 pt-3">
-                <button type="button" className="btn btn-secondary shadow-sm rounded" style={{width: "100%"}}
-                        onClick={onReset}><TrashIcon size={20}/> Reset
-                </button>
+                <ResetButton  onReset={onReset}/>
             </div>
         </div>
     )

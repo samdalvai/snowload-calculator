@@ -23,7 +23,7 @@ export const MessageModal = ({show, header, body, onHide}: { show: boolean, head
 export const AddCityModal = ({show, onHide}: { show: boolean, onHide: Callback }) => {
     return (
         <div>
-            <Modal size={"xl"} show={show} onHide={onHide} centered>
+            <Modal size={"lg"} show={show} onHide={onHide} centered>
                 <Modal.Header closeButton style={{backgroundColor: "lightgrey"}}>
                     <h3 className="modal-title text-center">Add new city</h3>
                 </Modal.Header>

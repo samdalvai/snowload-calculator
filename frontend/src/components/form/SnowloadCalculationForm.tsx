@@ -8,6 +8,8 @@ import {StringToFloatNumber} from "../../functions/conversion/stringConversion";
 import {Alert} from "../alert/Alert";
 import {ComputeButton} from "../button/ComputeButton";
 import {ResetButton} from "../button/ResetButton";
+import {InputWithTwoLabels} from "../input/InputWithLabels";
+import {CheckBoxWithDescription} from "../input/CheckBoxWithDescription";
 
 export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallback }) => {
     const [selectedCity, setSelectedCity] = useState<City | null>(null)
@@ -16,10 +18,10 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
     const [roofWidth, setRoofWidth] = useState<string>('')
     const [coefficient, setCoefficient] = useState<boolean>(false)
 
-    const [validCityInput, setValidCityInput] = useState<boolean>(true)
-    const [validSteepnessInput, setValidSteepnessInput] = useState<boolean>(true)
-    const [validRoofLengthInput, setValidRoofLengthInput] = useState<boolean>(true)
-    const [validRoofWidthInput, setValidRoofWidthInput] = useState<boolean>(true)
+    const [validCity, setValidCity] = useState<boolean>(true)
+    const [validSteepness, setValidSteepnessInput] = useState<boolean>(true)
+    const [validRoofLength, setValidRoofLength] = useState<boolean>(true)
+    const [validRoofWidth, setValidRoofWidth] = useState<boolean>(true)
 
     const [showAlert, setShowAlert] = useState<boolean>(false)
 
@@ -33,16 +35,16 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
 
     const validateInputs = () => {
         if (selectedCity === null)
-            setValidCityInput(false)
+            setValidCity(false)
 
         if (!isValidSteepness(steepness))
             setValidSteepnessInput(false)
 
         if (!isInputBetweenLowerAndUpperBound(roofLength, 0.0, 1000))
-            setValidRoofLengthInput(false)
+            setValidRoofLength(false)
 
         if (!isInputBetweenLowerAndUpperBound(roofWidth, 0.0, 1000))
-            setValidRoofWidthInput(false)
+            setValidRoofWidth(false)
 
         if (isInputValid())
             onCompute({
@@ -61,10 +63,10 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
     }
 
     const resetInvalidInputs = () => {
-        setValidCityInput(true)
+        setValidCity(true)
         setValidSteepnessInput(true)
-        setValidRoofLengthInput(true)
-        setValidRoofWidthInput(true)
+        setValidRoofLength(true)
+        setValidRoofWidth(true)
         setShowAlert(false)
     }
 
@@ -82,27 +84,42 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
                     showAlert ? <Alert type={"danger"} message={'You have an error in your input, please retry...'}
                                        onClose={() => setShowAlert(false)}/> : ""
                 }
-                <div onChange={() => setValidCityInput(true)}>
+                <div onChange={() => setValidCity(true)}>
                     <CitiesSelector selectedCity={selectedCity} onSelectedCity={setSelectedCity}
-                                    valid={validCityInput}/>
+                                    valid={validCity}/>
                 </div>
-                <RoofMeasureInput steepness={steepness} roofLength={roofLength} roofWidth={roofWidth}
-                                  validSteepness={validSteepnessInput} validRoofLength={validRoofLengthInput}
-                                  validRoofWidth={validRoofWidthInput}
-                                  coefficient={coefficient}
-                                  onSteepnessChange={value => {
-                                      setSteepness(value)
-                                      setValidSteepnessInput(true)
-                                  }}
-                                  onRoofLengthChange={value => {
-                                      setRoofLength(value)
-                                      setValidRoofLengthInput(true)
-                                  }}
-                                  onRoofWidthChange={value => {
-                                      setRoofWidth(value)
-                                      setValidRoofWidthInput(true)
-                                  }}
-                                  onCoefficientChange={() => setCoefficient(!coefficient)}/>
+                <div className="row">
+                    <div className="col-md-6 pt-3">
+                        <InputWithTwoLabels leftLabel={'Steepness (α)'} placeHolder={''} rightLabel={'°'}
+                                            value={steepness}
+                                            onChange={value => {
+                                                setSteepness(value)
+                                                setValidSteepnessInput(true)
+                                            }} valid={validSteepness}/>
+                    </div>
+                    <div className="col-md-6 pt-3">
+                        <InputWithTwoLabels leftLabel={'Roof length (sl)'} placeHolder={''} rightLabel={'m'}
+                                            value={roofLength}
+                                            onChange={value => {
+                                                setRoofLength(value)
+                                                setValidRoofLength(true)
+                                            }} valid={validRoofLength}/>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-md-6 pt-3">
+                        <InputWithTwoLabels leftLabel={'Roof width (l)'} placeHolder={''} rightLabel={'m'}
+                                            value={roofWidth}
+                                            onChange={value => {
+                                                setRoofWidth(value)
+                                                setValidRoofWidth(true)
+                                            }} valid={validRoofWidth}/>
+                    </div>
+                    <div className="col-md-6 pt-3">
+                        <CheckBoxWithDescription placeHolder={'1.5 safety coefficient'} checked={coefficient}
+                                                 onChange={() => setCoefficient(!coefficient)}/>
+                    </div>
+                </div>
                 <SnowloadButtonsGroup onCompute={validateInputs}
                                       onReset={() => {
                                           resetInputs()
@@ -150,7 +167,8 @@ export const TermsOfUse = () => {
             </p>
             <p className={"font-12"}>
                 For the highest possible stability of the snow protection system, an exact specification of the
-                requested data is required. The information is processed automatically by the system used and is not checked
+                requested data is required. The information is processed automatically by the system used and is not
+                checked
                 individually for correctness. No liability can be accepted for incorrect data.
             </p>
         </div>

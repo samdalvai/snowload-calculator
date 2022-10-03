@@ -7,6 +7,7 @@ import {City} from "../../functions/types";
 import {isInputBetweenLowerAndUpperBound, isValidSteepness} from "../../functions/validation/stringValidation";
 import {StringToFloatNumber} from "../../functions/conversion/stringConversion";
 import {ErrorAlert} from "../alert/ErrorAlert";
+import {SnowFlakeIcon} from "../icon/SnowFlakeIcon";
 
 export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallback }) => {
     const [selectedCity, setSelectedCity] = useState<City | null>(null)
@@ -117,7 +118,7 @@ export const SnowloadButtonsGroup = ({onCompute, onReset}: { onCompute: Callback
         <div className="row">
             <div className="col-md-6 pt-3">
                 <button type="submit" className="btn btn-primary shadow-sm rounded" style={{width: "100%"}}
-                        onClick={onCompute}><GearIcon size={20}/> Compute
+                        onClick={onCompute}><SnowFlakeIcon size={20} /> Compute
                 </button>
             </div>
             <div className="col-md-6 pt-3">

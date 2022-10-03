@@ -57,7 +57,7 @@ mysql, by uncommenting the backend service in the `docker-comose.yaml` file:
 
 Access the application at http://localhost:3000 in the browser.
 
-As an alternative you can use the docker to run the dockerized version of `Node` by uncommenting the backend service in the `docker-comose.yaml` file:
+As an alternative you can use the dockerized version of `Node` by uncommenting the backend service in the `docker-comose.yaml` file:
 
 ```yaml
     #  frontend:

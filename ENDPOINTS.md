@@ -1,7 +1,7 @@
 
 ## API endpoints
 
-## <span style="color: green; background-color: lightgreen; padding: 2.5px; margin: 2px; border-radius: 2.5px; border-width: 2px; border-color: black">GET</span> endpoints:
+## `GET` endpoints:
 
 ### CITIES
 
@@ -35,7 +35,7 @@
   The lower and upper bound must be specified in the URL, for example: `/province/load?lower=0.5&upper=1.2`
 
 
-## <span style="color: blue; background-color: lightblue; padding: 2.5px; margin: 2px; border-radius: 2.5px; border-width: 2px; border-color: black">POST</span> endpoints:
+## `POST` endpoints:
 
 ### CITIES
 
@@ -66,7 +66,7 @@ On success, the API will return the URL with the id of the newly created city, f
 }
 ```
 
-## <span style="color: red; background-color: coral; padding: 2.5px; margin: 2px; border-radius: 2.5px; border-width: 2px; border-color: black">DELETE</span> endpoints:
+## `DELETE` endpoints:
 
 ### CITIES
 

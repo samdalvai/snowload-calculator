@@ -77,8 +77,3 @@ On success, the API will return the URL with the id of the newly created city, f
 
 * `/provinces/shorthand/{shorthand}`: deletes a city based on the id.
   For example `/provinces/shorthand/XX` will delete the city with shorthand `XX`.
-
-
-<div style="border-width: 2px; border-color: red; border-radius: 2px">
-  <p>Hello</p>
-</div>

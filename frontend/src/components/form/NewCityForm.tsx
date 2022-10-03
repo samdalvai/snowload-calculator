@@ -2,10 +2,9 @@ import React, {useState} from "react";
 import {InputWithLeftLabel} from "../input/InputWithLabels";
 import {HomeIcon, TrashIcon} from "@primer/octicons-react";
 import {StringToIntNumber} from "../../functions/conversion/stringConversion";
-import {ErrorAlert} from "../alert/ErrorAlert";
 import {isValidAltitude, isValidProvince, isValidZip} from "../../functions/validation/cityInputValidation";
 import {City} from "../../functions/types";
-import {SuccessAlert} from "../alert/SuccessAlert";
+import {Alert} from "../alert/Alert";
 
 export const NewCityForm = () => {
     const [zip, setZip] = useState<string>('')
@@ -98,17 +97,17 @@ export const NewCityForm = () => {
         <div>
             {
                 showAlert ?
-                    <ErrorAlert message={'You have an error in your input, please retry...'}
+                    <Alert type={"danger"} message={'You have an error in your input, please retry...'}
                                 onClose={() => setShowAlert(false)}/> : ""
             }
             {    // TODO: When adding a new city, the CitySelector component must be reloaded manually to get new city...
                 success ?
-                    <SuccessAlert message={'New city successfully added, please reload the previous page'}
-                                  onClose={() => setSuccess(false)}/> : ""
+                    <Alert type={"success"} message={'New city successfully added, please reload the previous page'}
+                           onClose={() => setSuccess(false)} /> : ""
             }
             {
                 error ?
-                    <ErrorAlert message={'Error adding new city, please retry...'}
+                    <Alert type={"danger"} message={'Error adding new city, please retry...'}
                                   onClose={() => setError(false)}/> : ""
             }
             <div className="row">

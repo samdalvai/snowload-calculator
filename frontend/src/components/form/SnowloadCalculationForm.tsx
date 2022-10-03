@@ -6,8 +6,8 @@ import React, {useState} from "react";
 import {City} from "../../functions/types";
 import {isInputBetweenLowerAndUpperBound, isValidSteepness} from "../../functions/validation/stringValidation";
 import {StringToFloatNumber} from "../../functions/conversion/stringConversion";
-import {ErrorAlert} from "../alert/ErrorAlert";
 import {SnowFlakeIcon} from "../icon/SnowFlakeIcon";
+import {Alert} from "../alert/Alert";
 
 export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallback }) => {
     const [selectedCity, setSelectedCity] = useState<City | null>(null)
@@ -79,7 +79,7 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
             </div>
             <div className="card-body">
                 {
-                    showAlert ? <ErrorAlert message={'You have an error in your input, please retry...'}
+                    showAlert ? <Alert type={"danger"} message={'You have an error in your input, please retry...'}
                                             onClose={() => setShowAlert(false)}/> : ""
                 }
                 <div onChange={() => setValidCityInput(true)}>

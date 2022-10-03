@@ -1,13 +1,12 @@
-import {RoofMeasureInput} from "../roof/RoofMeasureInput";
-import {CitiesSelector} from "../../selection/cities/CitiesSelector";
-import {GearIcon, Icon, TrashIcon} from "@primer/octicons-react";
-import {Callback, RoofDataCallback} from "../../../functions/callbacks";
-import React, {Component, useState} from "react";
-import {City} from "../../../functions/types";
-import {MessageModal} from "../../modal/Modal";
-import {isInputBetweenLowerAndUpperBound, isValidSteepness} from "../../../functions/validation/stringValidation";
-import {StringToFloatNumber} from "../../../functions/conversion/stringConversion";
-import {ErrorAlert} from "../../alert/ErrorAlert";
+import {RoofMeasureInput} from "../input/roof/RoofMeasureInput";
+import {CitiesSelector} from "../selection/cities/CitiesSelector";
+import {GearIcon, TrashIcon} from "@primer/octicons-react";
+import {Callback, RoofDataCallback} from "../../functions/callbacks";
+import React, {useState} from "react";
+import {City} from "../../functions/types";
+import {isInputBetweenLowerAndUpperBound, isValidSteepness} from "../../functions/validation/stringValidation";
+import {StringToFloatNumber} from "../../functions/conversion/stringConversion";
+import {ErrorAlert} from "../alert/ErrorAlert";
 
 export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallback }) => {
     const [selectedCity, setSelectedCity] = useState<City | null>(null)
@@ -71,11 +70,16 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
     return (
         <div className="card shadow rounded">
             <div className="card-header text-center" style={{backgroundColor: "lightgrey"}}>
-                <h1 className="display-6"><strong>Snowload Calculator</strong></h1>
+                <h2 style={{color: "#0d6efd"}}>
+                    <strong>
+                        Snowload Calculator
+                    </strong>
+                </h2>
             </div>
             <div className="card-body">
                 {
-                    showAlert ? <ErrorAlert message={'You have an error in your input, please retry...'} onClose={() => setShowAlert(false)}/> : ""
+                    showAlert ? <ErrorAlert message={'You have an error in your input, please retry...'}
+                                            onClose={() => setShowAlert(false)}/> : ""
                 }
                 <div onChange={() => setValidCityInput(true)}>
                     <CitiesSelector selectedCity={selectedCity} onSelectedCity={setSelectedCity}

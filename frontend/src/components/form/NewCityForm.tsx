@@ -1,11 +1,11 @@
 import React, {useState} from "react";
-import {InputWithLeftLabel} from "../InputWithLabels";
+import {InputWithLeftLabel} from "../input/InputWithLabels";
 import {HomeIcon, TrashIcon} from "@primer/octicons-react";
-import {StringToIntNumber} from "../../../functions/conversion/stringConversion";
-import {ErrorAlert} from "../../alert/ErrorAlert";
-import {isValidAltitude, isValidProvince, isValidZip} from "../../../functions/validation/cityInputValidation";
-import {City} from "../../../functions/types";
-import {SuccessAlert} from "../../alert/SuccessAlert";
+import {StringToIntNumber} from "../../functions/conversion/stringConversion";
+import {ErrorAlert} from "../alert/ErrorAlert";
+import {isValidAltitude, isValidProvince, isValidZip} from "../../functions/validation/cityInputValidation";
+import {City} from "../../functions/types";
+import {SuccessAlert} from "../alert/SuccessAlert";
 
 export const NewCityForm = () => {
     const [zip, setZip] = useState<string>('')

@@ -1,5 +1,5 @@
 import './App.css';
-import {SnowloadCalculationForm} from "./components/input/snowload/SnowloadCalculationForm";
+import {SnowloadCalculationForm} from "./components/form/SnowloadCalculationForm";
 import {AddCityModal} from "./components/modal/Modal";
 import {useState} from "react";
 

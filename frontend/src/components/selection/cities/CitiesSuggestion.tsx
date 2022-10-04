@@ -7,7 +7,11 @@ export const CitiesSuggestionList = ({cities, keyword, onSelectCity}: { cities: 
         <div className="list-group">
             {
                 cities.length > 0 ?
-                    cities.map((city: City) => <CitySuggestion city={city} keyword={keyword} onSelectCity={onSelectCity} key={city.zip+city.name}/>) : ""
+                    cities.map((city: City) => <CitySuggestion
+                        city={city}
+                        keyword={keyword}
+                        onSelectCity={onSelectCity}
+                        key={city.zip+city.name}/>) : ""
             }
         </div>
     )

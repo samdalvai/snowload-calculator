@@ -1,6 +1,5 @@
 import {useState} from "react";
 import {Callback, StringCallBack} from "../../functions/callbacks";
-import {PlusIcon, XIcon} from "@primer/octicons-react";
 import {AddButton} from "../button/AddButton";
 import {DeleteButton} from "../button/DeleteButton";
 

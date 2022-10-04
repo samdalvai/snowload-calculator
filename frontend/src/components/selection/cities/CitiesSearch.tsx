@@ -1,11 +1,11 @@
 import {useCities} from "../../../functions/hooks/useCities";
-import {SearchField} from "../SearchField";
+import {SearchField} from "../../search/SearchField";
 import {CitiesSuggestionList} from "./CitiesSuggestion";
 import React, {useState} from "react";
 import {City} from "../../../functions/types";
 import {searchCity} from "../../../functions/search/searchCity";
 import {CityCallBack} from "../../../functions/callbacks";
-import {ErrorInput} from "../ErrorInput";
+import {ErrorInput} from "../../input/ErrorInput";
 import {AddCityModal} from "../../modal/Modal";
 
 export const CitiesSearch = ({onSelectCity, valid}: { onSelectCity: CityCallBack, valid: boolean }) => {

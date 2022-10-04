@@ -7,7 +7,7 @@ import {Alert} from "../alert/Alert";
 import {ResetButton} from "../button/ResetButton";
 import {AddCityButton} from "../button/AddCityButton";
 
-export const NewCityForm = () => {
+export const AddCityForm = () => {
     const [zip, setZip] = useState<string>('')
     const [name, setName] = useState<string>('')
     const [province, setProvince] = useState<string>('')
@@ -17,7 +17,7 @@ export const NewCityForm = () => {
     const [validName, setValidName] = useState<boolean>(true)
     const [validProvince, setValidProvince] = useState<boolean>(true)
     const [validAltitude, setValidAltitude] = useState<boolean>(true)
-    
+
     const [showAlert, setShowAlert] = useState<boolean>(false)
     const [success, setSuccess] = useState<boolean>(false)
     const [error, setError] = useState<boolean>(false)

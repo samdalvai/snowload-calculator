@@ -6,7 +6,7 @@ import {City} from "../../functions/types";
 import {searchCity} from "../../functions/search/searchCity";
 import {CityCallBack} from "../../functions/callbacks";
 import {ErrorInput} from "../input/ErrorInput";
-import {AddCityModal} from "../modal/Modal";
+import {AddCityModal} from "../modal/AddCityModal";
 import {DisabledInput} from "../input/DisabledInput";
 
 export const CitiesSearch = ({onSelectCity, valid}: { onSelectCity: CityCallBack, valid: boolean }) => {

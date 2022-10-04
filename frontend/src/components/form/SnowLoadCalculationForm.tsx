@@ -1,7 +1,7 @@
 import {CitiesSelector} from "../selection/CitiesSelector";
 import {Callback, RoofDataCallback} from "../../functions/callbacks";
 import React, {useState} from "react";
-import {City} from "../../functions/types";
+import {City, RoofData} from "../../functions/types";
 import {isInputBetweenLowerAndUpperBound, isValidSteepness} from "../../functions/validation/stringValidation";
 import {StringToFloatNumber} from "../../functions/conversion/stringConversion";
 import {Alert} from "../alert/Alert";
@@ -10,12 +10,12 @@ import {ResetButton} from "../button/ResetButton";
 import {InputWithTwoLabels} from "../input/InputWithLabels";
 import {CheckBoxWithDescription} from "../input/CheckBoxWithDescription";
 
-export const SnowLoadCalculationForm = ({onCompute}: { onCompute: RoofDataCallback }) => {
-    const [selectedCity, setSelectedCity] = useState<City | null>(null)
-    const [steepness, setSteepness] = useState<string>('')
-    const [roofLength, setRoofLength] = useState<string>('')
-    const [roofWidth, setRoofWidth] = useState<string>('')
-    const [coefficient, setCoefficient] = useState<boolean>(false)
+export const SnowLoadCalculationForm = ({roofData, onCompute}: { roofData: RoofData | null, onCompute: RoofDataCallback }) => {
+    const [selectedCity, setSelectedCity] = useState<City | null>(roofData ? roofData.city : null)
+    const [steepness, setSteepness] = useState<string>(roofData ? (roofData.steepness).toString() :'')
+    const [roofLength, setRoofLength] = useState<string>(roofData ? (roofData.roofLength).toString() :'')
+    const [roofWidth, setRoofWidth] = useState<string>(roofData ? (roofData.roofWidth).toString() :'')
+    const [coefficient, setCoefficient] = useState<boolean>(roofData ? roofData.coefficient :false)
 
     const [validCity, setValidCity] = useState<boolean>(true)
     const [validSteepness, setValidSteepnessInput] = useState<boolean>(true)

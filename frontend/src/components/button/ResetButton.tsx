@@ -1,14 +1,13 @@
 import {TrashIcon} from "@primer/octicons-react";
 import React from "react";
 import {Callback} from "../../functions/callbacks";
+import {ButtonWithIcon} from "./ButtonWithIcon";
 
-export const ResetButton = ({onReset}: {onReset: Callback}) => {
+export const ResetButton = ({onReset}: { onReset: Callback }) => {
     return (
-        <button type="button"
-                className="btn btn-secondary shadow-sm rounded"
-                style={{width: "100%"}}
-                onClick={onReset}>
-            <TrashIcon size={20}/> Reset
-        </button>
+        <ButtonWithIcon icon={<TrashIcon size={22}/>}
+                        type={"secondary"}
+                        text={"Reset"}
+                        onClick={onReset}/>
     )
 }

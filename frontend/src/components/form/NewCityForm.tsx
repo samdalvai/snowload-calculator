@@ -6,6 +6,7 @@ import {isValidAltitude, isValidProvince, isValidZip} from "../../functions/vali
 import {City} from "../../functions/types";
 import {Alert} from "../alert/Alert";
 import {ResetButton} from "../button/ResetButton";
+import {AddCityButton} from "../button/AddCityButton";
 
 export const NewCityForm = () => {
     const [zip, setZip] = useState<string>('')
@@ -132,9 +133,7 @@ export const NewCityForm = () => {
             </div>
             <div className="row">
                 <div className="col-md-6 pt-3">
-                    <button type="submit" className="btn btn-primary shadow-sm rounded" style={{width: "100%"}}
-                            onClick={validateInputs}><HomeIcon size={20}/> Add city
-                    </button>
+                    <AddCityButton onAddCity={validateInputs}/>
                 </div>
                 <div className="col-md-6 pt-3">
                     <ResetButton  onReset={() => {

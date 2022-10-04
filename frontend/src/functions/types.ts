@@ -1,5 +1,3 @@
-import {useState} from "react";
-
 export interface City {
     zip: string,
     name: string,

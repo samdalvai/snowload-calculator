@@ -6,11 +6,10 @@ export const InputWithTwoLabels = ({leftLabel, rightLabel, valid, placeHolder, v
     return (
         <div className="input-group shadow-sm rounded">
             <label className="input-group-text" style={{minWidth: "50%"}}>{leftLabel}</label>
-            <input type="text"
-                   className={valid ? "form-control" : "form-control is-invalid"}
-                   value={value}
-                   onChange={event => onChange(event.target.value)}
-                   placeholder={placeHolder} required/>
+            <Input value={value}
+                   placeHolder={placeHolder}
+                   valid={valid}
+                   onChange={onChange}/>
             <label className="input-group-text" style={{minWidth: "15%"}}>{rightLabel}</label>
         </div>
     )
@@ -23,10 +22,23 @@ export const InputWithLeftLabel = ({leftLabel, valid, placeHolder, value, onChan
         <div className="input-group shadow-sm rounded">
             <label className="input-group-text"
                    style={{minWidth: "50%"}}>{leftLabel}</label>
-            <input type="text" className={valid ? "form-control" : "form-control is-invalid"}
-                   value={value}
-                   onChange={event => onChange(event.target.value)}
-                   placeholder={placeHolder} required/>
+            <Input value={value}
+                   placeHolder={placeHolder}
+                   valid={valid}
+                   onChange={onChange}/>
         </div>
+    )
+}
+
+export const Input = ({value, placeHolder, valid, onChange}:
+                          { value: string, placeHolder: string, valid: boolean, onChange: StringCallBack }) => {
+    return (
+        <>
+            <input type="text"
+                   className={valid ? "form-control" : "form-control is-invalid"}
+                   value={value}
+                   onChange={e => onChange(e.target.value)}
+                   placeholder={placeHolder} required/>
+        </>
     )
 }

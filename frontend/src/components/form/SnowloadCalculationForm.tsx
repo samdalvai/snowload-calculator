@@ -1,4 +1,4 @@
-import {CitiesSelector} from "../selection/cities/CitiesSelector";
+import {CitiesSelector} from "../selection/CitiesSelector";
 import {Callback, RoofDataCallback} from "../../functions/callbacks";
 import React, {useState} from "react";
 import {City} from "../../functions/types";

@@ -4,13 +4,13 @@ import {Callback} from "../../functions/callbacks";
 
 export type ButtonType = "primary" | "secondary"
 
-export const ButtonWithIcon = ({icon, text, type, onClick}:
-                                   { icon: ReactElement<IconProps>, text: string, type: ButtonType, onClick: Callback }) => {
+export const ButtonWithIcon = ({icon, text, type, width = "100%", onClick}:
+                                   { icon: ReactElement<IconProps>, text?: string, type: ButtonType, width?: string, onClick: Callback }) => {
     return (
         <div>
             <button type="submit"
                     className={"btn btn-" + type + " shadow-sm rounded"}
-                    style={{width: "100%"}}
+                    style={{width: width}}
                     onClick={onClick}>
                 {icon} {text}
             </button>

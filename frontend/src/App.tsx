@@ -13,8 +13,11 @@ function App() {
         <div className="container p-2">
             {
                 computed ?
-                    <SnowLoadCalculatorCard body={<SnowLoadCalculationForm onCompute={console.log}/>}/> :
-                    <SnowLoadCalculatorCard body={<SnowLoadResultsForm roofData={defaultRoofData()}
+                    <SnowLoadCalculatorCard body={<SnowLoadCalculationForm onCompute={data => {
+                        setRoofData(data)
+                        setComputed(true)
+                    }}/>}/> :
+                    <SnowLoadCalculatorCard body={<SnowLoadResultsForm roofData={roofData}
                                                                        onBack={() => setComputed(false)}/>}/>
             }
         </div>

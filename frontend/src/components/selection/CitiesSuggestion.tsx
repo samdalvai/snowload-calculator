@@ -3,6 +3,7 @@ import {CityCallBack} from "../../functions/callbacks";
 import {getCityString} from "../../functions/search/searchCity";
 
 export const CitiesSuggestionList = ({cities, keyword, onSelectCity}: { cities: City[], keyword: string, onSelectCity: CityCallBack }) => {
+
     return (
         <div className="list-group">
             {
@@ -18,17 +19,25 @@ export const CitiesSuggestionList = ({cities, keyword, onSelectCity}: { cities: 
 }
 
 export const CitySuggestion = ({city, keyword, onSelectCity}: { city: City, keyword: string, onSelectCity: CityCallBack }) => {
-    const suggestionIndex: number = getCityString(city).toLowerCase().indexOf(keyword.toLowerCase());
-    const suggestionLength: number = keyword.length;
-
     return (
         <button type="button"
                 className="list-group-item list-group-item-action list-group-item-light"
                 key={city.zip + city.name}
                 onClick={() => onSelectCity(city)}>
+            <CityData city={city} keyword={keyword}/>
+        </button>
+    )
+}
+
+export const CityData = ({city, keyword}: {city: City,keyword: string}) => {
+    const suggestionIndex: number = getCityString(city).toLowerCase().indexOf(keyword.toLowerCase());
+    const suggestionLength: number = keyword.length;
+
+    return (
+        <div>
             {getCityString(city).substring(0,suggestionIndex)}
             <strong>{getCityString(city).substring(suggestionIndex,suggestionIndex + suggestionLength)}</strong>
             {getCityString(city).substring(suggestionLength + suggestionIndex)}
-        </button>
+        </div>
     )
 }

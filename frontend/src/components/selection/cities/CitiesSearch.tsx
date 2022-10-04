@@ -28,7 +28,7 @@ export const CitiesSearch = ({onSelectCity, valid}: { onSelectCity: CityCallBack
         <div>
             <AddCityModal show={showNewCityForm} onHide={() => setShowNewCityForm(false)}/>
             {
-                error ? <ErrorInput message={"Error loading cities: "} error={error}/> : loading ?
+                error ? <ErrorInput message={"Error loading cities..."} /> : loading ?
                     <input className="form-control" id="disabledInput" type="text" placeholder="Loading cities..."
                            disabled/> :
                     <div>

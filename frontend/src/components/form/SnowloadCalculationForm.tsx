@@ -45,7 +45,8 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
         if (!isInputBetweenLowerAndUpperBound(roofWidth, 0.0, 1000))
             setValidRoofWidth(false)
 
-        if (isInputValid())
+        if (isInputValid()) {
+            console.log('valid input, computing snowload...')
             onCompute({
                 city: selectedCity,
                 steepness: StringToFloatNumber(steepness),
@@ -53,6 +54,7 @@ export const SnowloadCalculationForm = ({onCompute}: { onCompute: RoofDataCallba
                 roofWidth: StringToFloatNumber(roofWidth),
                 coefficient: coefficient
             })
+        }
         else
             setShowAlert(true);
     }

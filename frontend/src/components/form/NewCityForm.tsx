@@ -13,14 +13,14 @@ export const NewCityForm = () => {
     const [province, setProvince] = useState<string>('')
     const [altitude, setAltitude] = useState<string>('')
 
-    const [showAlert, setShowAlert] = useState<boolean>(false)
-    const [success, setSuccess] = useState<boolean>(false)
-    const [error, setError] = useState<boolean>(false)
-
     const [validZip, setValidZip] = useState<boolean>(true)
     const [validName, setValidName] = useState<boolean>(true)
     const [validProvince, setValidProvince] = useState<boolean>(true)
     const [validAltitude, setValidAltitude] = useState<boolean>(true)
+    
+    const [showAlert, setShowAlert] = useState<boolean>(false)
+    const [success, setSuccess] = useState<boolean>(false)
+    const [error, setError] = useState<boolean>(false)
 
     const resetInputs = () => {
         setZip('')

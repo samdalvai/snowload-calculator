@@ -2,8 +2,10 @@ import {useState} from "react";
 import {Callback, StringCallBack} from "../../functions/callbacks";
 import {AddButton} from "../button/AddButton";
 import {DeleteButton} from "../button/DeleteButton";
+import {Input} from "../input/InputWithLabels";
 
-export const SearchField = ({placeHolder, onSearch, onAddCity, valid}: { placeHolder: string, onSearch: StringCallBack, onAddCity: Callback, valid: boolean }) => {
+export const SearchField = ({placeHolder, onSearch, onAdd, valid}:
+                                { placeHolder: string, onSearch: StringCallBack, onAdd: Callback, valid: boolean }) => {
     const [search, setSearch] = useState<string>('');
 
     const resetSearch = () => {
@@ -14,22 +16,19 @@ export const SearchField = ({placeHolder, onSearch, onAddCity, valid}: { placeHo
     return (
         <div>
             <div className="input-group">
-                <input type="text"
-                       className={valid ? "form-control" : "form-control is-invalid"}
-                       placeholder={placeHolder}
-                       onChange={event => {
-                           onSearch(event.target.value)
-                           setSearch(event.target.value)
-                       }}
-                       value={search}
-                       aria-label="Search"/>
-                <DeleteButton disabled={search === ''} onDelete={resetSearch} />
-                <AddButton  onAdd={() => {
-                    onAddCity();
+                <Input value={search}
+                       placeHolder={placeHolder}
+                       valid={valid}
+                       onChange={e => {
+                           onSearch(e)
+                           setSearch(e)
+                       }}/>
+                <DeleteButton disabled={search === ''} onDelete={resetSearch}/>
+                <AddButton onAdd={() => {
+                    onAdd();
                     resetSearch()
                 }} tooltip={'Click to add a new city'}/>
             </div>
         </div>
     )
 }
-

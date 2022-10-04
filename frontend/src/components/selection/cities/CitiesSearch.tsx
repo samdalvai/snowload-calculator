@@ -33,7 +33,7 @@ export const CitiesSearch = ({onSelectCity, valid}: { onSelectCity: CityCallBack
                            disabled/> :
                     <div>
                         <SearchField onSearch={filterCities} placeHolder={'Search city...'} valid={valid}
-                                     onAddCity={() => setShowNewCityForm(true)}/>
+                                     onAdd={() => setShowNewCityForm(true)}/>
                         <CitiesSuggestionList cities={filteredCities} keyword={keyword} onSelectCity={onSelectCity}/>
                     </div>
             }

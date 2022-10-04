@@ -2,8 +2,9 @@ import {CitiesSearch} from "./CitiesSearch";
 import {useState} from "react";
 import {City} from "../../../functions/types";
 import {getCityString} from "../../../functions/search/searchCity";
-import {XIcon} from "@primer/octicons-react";
 import {CityCallBack} from "../../../functions/callbacks";
+import {DisabledInput} from "../../input/DisabledInput";
+import {DeleteButton} from "../../button/DeleteButton";
 
 export const CitiesSelector = ({selectedCity, valid, onSelectedCity}: {selectedCity: City | null, valid: boolean, onSelectedCity: CityCallBack}) => {
 
@@ -12,12 +13,8 @@ export const CitiesSelector = ({selectedCity, valid, onSelectedCity}: {selectedC
             {
                 selectedCity ?
                     <div className="input-group">
-
-                        <input className="form-control" id="disabledInput" type="text" placeholder={getCityString(selectedCity)} disabled/>
-                        <button type="button"
-                                className="btn btn-secondary"
-                                style={{width: '15%'}}
-                                onClick={() => onSelectedCity(null)}><XIcon size={22}/></button>
+                        <DisabledInput  placeHolder={getCityString(selectedCity)}/>
+                        <DeleteButton disabled={false} onDelete={() => onSelectedCity(null)} />
                     </div>
                     :
                     <CitiesSearch onSelectCity={onSelectedCity} valid={valid}/>

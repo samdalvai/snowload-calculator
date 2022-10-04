@@ -19,3 +19,13 @@ export interface RoofData {
     roofWidth: number,
     coefficient: boolean
 }
+
+export const defaultRoofData = (): RoofData => {
+    return {
+        city: null,
+        steepness: 0,
+        roofLength: 0,
+        roofWidth: 0,
+        coefficient: false
+    }
+}

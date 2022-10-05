@@ -3,7 +3,7 @@ import {SnowLoadCalculationForm} from "./components/form/SnowLoadCalculationForm
 import {SnowLoadCalculatorCard} from "./components/card/SnowLoadCalculatorCard";
 import React, {useState} from "react";
 import {SnowLoadResultsForm} from "./components/form/SnowLoadResultsForm";
-import {RoofData} from "./functions/types";
+import {defaultRoofData, RoofData} from "./functions/types";
 
 function App() {
     const [computed, setComputed] = useState<boolean>(false)
@@ -20,7 +20,8 @@ function App() {
                                                      setComputed(true)
                                                  }}/>}/> :
                     <SnowLoadCalculatorCard body={
-                        <SnowLoadResultsForm onBack={() => setComputed(false)}/>}/>
+                        <SnowLoadResultsForm roofData={roofData ? roofData : defaultRoofData()}
+                                             onBack={() => setComputed(false)}/>}/>
             }
         </div>
     );

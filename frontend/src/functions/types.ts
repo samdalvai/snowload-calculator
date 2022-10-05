@@ -13,7 +13,7 @@ export interface Province {
 }
 
 export interface RoofData {
-    city: City | null,
+    city: City,
     steepness: number,
     roofLength: number,
     roofWidth: number,
@@ -22,10 +22,19 @@ export interface RoofData {
 
 export const defaultRoofData = (): RoofData => {
     return {
-        city: null,
+        city: defaultCity(),
         steepness: 0,
         roofLength: 0,
         roofWidth: 0,
         coefficient: false
+    }
+}
+
+export const defaultCity = (): City => {
+    return {
+        altitude: 0,
+        name: "",
+        province: "",
+        zip: ""
     }
 }

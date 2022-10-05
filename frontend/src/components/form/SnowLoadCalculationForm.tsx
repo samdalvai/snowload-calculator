@@ -1,7 +1,7 @@
 import {CitiesSelector} from "../selection/CitiesSelector";
 import {Callback, RoofDataCallback} from "../../functions/callbacks";
 import React, {useState} from "react";
-import {City, RoofData} from "../../functions/types";
+import {City, defaultCity, RoofData} from "../../functions/types";
 import {isInputBetweenLowerAndUpperBound, isValidSteepness} from "../../functions/validation/stringValidation";
 import {StringToFloatNumber} from "../../functions/conversion/stringConversion";
 import {Alert} from "../alert/Alert";
@@ -48,7 +48,7 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}: { roofData: RoofD
         if (isInputValid()) {
             console.log('valid input, computing snowload...')
             onCompute({
-                city: selectedCity,
+                city: selectedCity ? selectedCity : defaultCity(),
                 steepness: StringToFloatNumber(steepness),
                 roofLength: StringToFloatNumber(roofLength),
                 roofWidth: StringToFloatNumber(roofWidth),

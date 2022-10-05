@@ -3,51 +3,75 @@ import React from "react";
 import {SendButton} from "../button/SendButton";
 import {BackButton} from "../button/BackButton";
 import {RoofData} from "../../functions/types";
+import {useProvincesGenericEndpoint} from "../../functions/hooks/useProvinces";
 
 export const SnowLoadResultsForm = ({roofData, onBack}: { roofData: RoofData, onBack: Callback }) => {
+    const {provinces, loading, error} = useProvincesGenericEndpoint("/shorthand/" + roofData.city.province)
+
     return (
         <div>
             <div className="table-responsive rounded">
                 <table className="table">
                     <tbody>
-                        <tr className="table-primary">
-                            <th scope="row" colSpan={2}>Roof data</th>
-                        </tr>
-                        <tr>
-                            <th scope="row">City</th>
-                            <td>{roofData.city.zip} {roofData.city.name} ({roofData.city.province})</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Steepness</th>
-                            <td>{roofData.steepness} °</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Roof length</th>
-                            <td>{roofData.roofLength} m</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Roof width</th>
-                            <td>{roofData.roofWidth} m</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Safety coefficient</th>
-                            <td>{roofData.coefficient ? "Yes" : "No"}</td>
-                        </tr>
-                            <tr className="table-primary">
-                                <th scope="row" colSpan={2}>Snow load calculation</th>
-                            </tr>
-                        <tr>
-                            <th scope="row">Load on the ground</th>
-                            <td>{} kN/m^2</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Load on the roof</th>
-                            <td>{} kN/m^2</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Load per linear meter</th>
-                            <td>{} kN/m</td>
-                        </tr>
+                    <tr className="table-primary">
+                        <th scope="row" colSpan={2}>Roof data</th>
+                    </tr>
+                    <tr>
+                        <td scope="row">City</td>
+                        <td>{roofData.city.zip} {roofData.city.name} ({roofData.city.province})</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Steepness</td>
+                        <td>{roofData.steepness} °</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Roof length</td>
+                        <td>{roofData.roofLength} m</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Roof width</td>
+                        <td>{roofData.roofWidth} m</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Safety coefficient</td>
+                        <td>{roofData.coefficient ? "Yes" : "No"}</td>
+                    </tr>
+                    <tr className="table-primary">
+                        <th scope="row" colSpan={2}>Snow load calculation</th>
+                    </tr>
+                    <tr>
+                        <td scope="row">Altitude</td>
+                        <td>{roofData.city.altitude} masl</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Climatic zone</td>
+                        {
+                            error ?
+                                <td className={"table-danger"}><strong>Error loading provinces...</strong></td>
+                                :
+                                loading ?
+                                    <td className={"table-primary"}><strong>Loading provinces...</strong></td>
+                                    :
+                                    provinces.length > 0 && provinces[0].shorthand === roofData.city.province ?
+                                        <td>{provinces[0].zone}</td>
+                                        :
+                                        <td className={"table-danger"}>
+                                            <strong>Error loading province: {roofData.city.province}</strong>
+                                        </td>
+                        }
+                    </tr>
+                    <tr>
+                        <td scope="row">Load on the ground</td>
+                        <td>{} kN/m^2</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Load on the roof</td>
+                        <td>{} kN/m^2</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Load per linear meter</td>
+                        <td>{} kN/m</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>

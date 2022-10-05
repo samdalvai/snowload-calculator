@@ -17,5 +17,5 @@ export const useCities = (): CitiesResponse => {
 export const useCitiesGenericEndpoint = (url: string): CitiesResponse => {
     const {data, loading, error} = useApiGet('/cities/' + url);
 
-    return {cities: data, loading, error};
+    return {cities: [data], loading, error};
 }

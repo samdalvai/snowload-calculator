@@ -21,15 +21,15 @@ export const SnowLoadResultsForm = ({roofData, onBack}: { roofData: RoofData, on
                         <td>{roofData.city.zip} {roofData.city.name} ({roofData.city.province})</td>
                     </tr>
                     <tr>
-                        <td scope="row">Steepness</td>
+                        <td scope="row">Steepness (α)</td>
                         <td>{roofData.steepness} °</td>
                     </tr>
                     <tr>
-                        <td scope="row">Roof length</td>
+                        <td scope="row">Roof length (sl)</td>
                         <td>{roofData.roofLength} m</td>
                     </tr>
                     <tr>
-                        <td scope="row">Roof width</td>
+                        <td scope="row">Roof width (l)</td>
                         <td>{roofData.roofWidth} m</td>
                     </tr>
                     <tr>

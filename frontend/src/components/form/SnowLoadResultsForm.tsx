@@ -3,11 +3,10 @@ import React from "react";
 import {SendButton} from "../button/SendButton";
 import {BackButton} from "../button/BackButton";
 import {RoofData, SnowLoadData} from "../../functions/types";
-import {Alert, AlertNonDismissable} from "../alert/Alert";
-import {ErrorInput} from "../input/ErrorInput";
+import {AlertNonDismissable} from "../alert/Alert";
 
 export const SnowLoadResultsForm = ({roofData, snowLoadData, error, onBack}:
-                                        { roofData: RoofData, snowLoadData: SnowLoadData, error: Boolean, onBack: Callback }) => {
+                                        { roofData: RoofData | null, snowLoadData: SnowLoadData, error: Boolean, onBack: Callback }) => {
     return (
         <div>
             <div className="table-responsive rounded">
@@ -20,30 +19,30 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, onBack}:
                             </tr>
                             <tr>
                                 <td scope="row">City</td>
-                                <td>{roofData.city?.zip} {roofData.city?.name} ({roofData.city?.province})</td>
+                                <td>{roofData?.city.zip} {roofData?.city.name} ({roofData?.city.province})</td>
                             </tr>
                             <tr>
                                 <td scope="row">Steepness (α)</td>
-                                <td>{roofData.steepness} °</td>
+                                <td>{roofData?.steepness} °</td>
                             </tr>
                             <tr>
                                 <td scope="row">Roof length (sl)</td>
-                                <td>{roofData.roofLength} m</td>
+                                <td>{roofData?.roofLength} m</td>
                             </tr>
                             <tr>
                                 <td scope="row">Roof width (l)</td>
-                                <td>{roofData.roofWidth} m</td>
+                                <td>{roofData?.roofWidth} m</td>
                             </tr>
                             <tr>
                                 <td scope="row">Safety coefficient</td>
-                                <td>{roofData.coefficient ? "Yes" : "No"}</td>
+                                <td>{roofData?.coefficient ? "Yes" : "No"}</td>
                             </tr>
                             <tr className="table-primary">
                                 <th scope="row" colSpan={2}>Snow load calculation</th>
                             </tr>
                             <tr>
                                 <td scope="row">Altitude</td>
-                                <td>{roofData.city?.altitude} masl</td>
+                                <td>{roofData?.city.altitude} masl</td>
                             </tr>
                             <tr>
                                 <td scope="row">Climatic zone</td>
@@ -64,7 +63,9 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, onBack}:
                             </tbody>
                         </table>
                         :
-                        <AlertNonDismissable  message={"Some error occurred in the computation of the snow load, please go back and retry..."} type={"danger"}/>
+                        <AlertNonDismissable
+                            message={"An error occurred in the snow load calculation, please go back and try again..."}
+                            type={"danger"}/>
                 }
             </div>
 

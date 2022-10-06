@@ -2,7 +2,7 @@ import {Callback} from "../../functions/callbacks";
 import React from "react";
 import {BackButton} from "../button/BackButton";
 import {RoofData, SnowLoadData} from "../../functions/types";
-import {NonDismissableAlert} from "../alert/Alert";
+import {NonDismissableAlert} from "../alert/NonDismissableAlert";
 import {PrintButton} from "../button/PrintButton";
 import {DisabledInput} from "../input/DisabledInput";
 

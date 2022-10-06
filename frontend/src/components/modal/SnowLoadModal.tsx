@@ -7,9 +7,14 @@ export const SnowLoadModal = ({show, header, body, onHide}:
     return (
         <div>
             <Modal size={"lg"} show={show} onHide={onHide} centered>
-                <Modal.Header closeButton style={{backgroundColor: "lightgrey"}}>
-                    <h3 className="modal-title">{header}</h3>
-                </Modal.Header>
+                <div className={"modal-header snowload-header"}>
+                    <h2 className={"white text-shadow"} >
+                        <strong>
+                            {header}
+                        </strong>
+                    </h2>
+                    <button type="button" className="btn-close" aria-label="Close" onClick={onHide}></button>
+                </div>
                 <div className="modal-body">{body}</div>
             </Modal>
         </div>

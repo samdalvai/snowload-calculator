@@ -46,6 +46,10 @@
   text-shadow: 0 0 1.5px black;
 }
 
+.text-center-important {
+  text-align: center!important;
+}
+
 /* CONTAINER */
 .image-container {
   display: flex;
@@ -53,6 +57,25 @@
   justify-content: center;
 }
 
+
+/* COLORS */
+
 .white {
   color: white
+}
+
+/* SNOWLOAD STYLE */
+
+.snowload-header {
+  background-color: #6c757d!important;
+  border-bottom-width: 1.5px!important;
+  border-bottom-color: black!important;
+  border-bottom-style: solid!important;
+}
+
+.snowload-footer {
+  background-color: #6c757d!important;
+  border-top-width: 1.5px!important;
+  border-top-color: black!important;
+  border-top-style: solid!important;
 }

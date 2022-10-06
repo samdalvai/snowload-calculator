@@ -130,7 +130,7 @@ export const AddCityForm = () => {
                                         onChange={setAltitude} valid={validAltitude}/>
                 </div>
             </div>
-            <div className="row">
+            <div className="row pt-3">
                 <div className="col-md-6 pt-3">
                     <AddCityButton onAddCity={validateInputs}/>
                 </div>

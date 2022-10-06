@@ -4,11 +4,7 @@ export const SnowLoadCalculatorCard = ({body}: { body: ReactElement }) => {
     return (
         <div>
             <div className="card shadow rounded p-2">
-                <div className="card-header text-center" style={{
-                    backgroundColor: "#6c757d",
-                    borderBottomStyle: "solid",
-                    borderBottomWidth: "1.5px"}}
-                >
+                <div className="card-header text-center snowload-header">
                     <h1 className={"white text-shadow"} >
                         <strong>
                             Snowload Calculator

@@ -5,7 +5,7 @@ import {SnowLoadHeader} from "../navbar/SnowLoadHeader";
 export const SnowLoadCalculatorContainer = ({body}: { body: ReactElement }) => {
     return (
         <div>
-            <div className={"pb-4"}>
+            <div className={"pb-3"}>
                 <SnowLoadHeader/>
             </div>
 

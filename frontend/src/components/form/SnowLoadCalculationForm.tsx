@@ -72,7 +72,7 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
     }
 
     return (
-        <div>
+        <div className={"pt-3"}>
             {
                 showAlert ? <Alert type={"danger"} message={'You have an error in your input, please retry...'}
                                    onClose={() => setShowAlert(false)}/> : ""
@@ -113,11 +113,13 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
                                              onChange={() => setCoefficient(!coefficient)}/>
                 </div>
             </div>
-            <SnowloadButtonsGroup onCompute={validateInputs}
-                                  onReset={() => {
-                                      resetInputs()
-                                      resetInvalidInputs()
-                                  }}/>
+            <div className={"pt-3"}>
+                <SnowloadButtonsGroup onCompute={validateInputs}
+                                      onReset={() => {
+                                          resetInputs()
+                                          resetInvalidInputs()
+                                      }}/>
+            </div>
         </div>
     )
 }

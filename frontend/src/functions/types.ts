@@ -7,10 +7,10 @@ export interface City {
 
 export const defaultCity = (): City => {
     return {
-        altitude: 0,
-        name: "",
-        province: "",
-        zip: ""
+        altitude: -1,
+        name: "default",
+        province: "default",
+        zip: "default"
     }
 }
 

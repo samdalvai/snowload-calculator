@@ -2,11 +2,10 @@ import {Callback} from "../../functions/callbacks";
 import React from "react";
 import {SendButton} from "../button/SendButton";
 import {BackButton} from "../button/BackButton";
-import {RoofData} from "../../functions/types";
+import {RoofData, SnowLoadData} from "../../functions/types";
 
-export const SnowLoadResultsForm = ({roofData, onBack}: { roofData: RoofData, onBack: Callback }) => {
-    //const {provinces, loading, error} = useProvincesGenericEndpoint("/shorthand/" + roofData.city.province)
-
+export const SnowLoadResultsForm = ({roofData, snowLoadData, onBack}:
+                                        { roofData: RoofData, snowLoadData: SnowLoadData, onBack: Callback }) => {
     return (
         <div>
             <div className="table-responsive rounded">
@@ -17,7 +16,7 @@ export const SnowLoadResultsForm = ({roofData, onBack}: { roofData: RoofData, on
                     </tr>
                     <tr>
                         <td scope="row">City</td>
-                        <td>{roofData.city.zip} {roofData.city.name} ({roofData.city.province})</td>
+                        <td>{roofData.city?.zip} {roofData.city?.name} ({roofData.city?.province})</td>
                     </tr>
                     <tr>
                         <td scope="row">Steepness (α)</td>
@@ -40,23 +39,23 @@ export const SnowLoadResultsForm = ({roofData, onBack}: { roofData: RoofData, on
                     </tr>
                     <tr>
                         <td scope="row">Altitude</td>
-                        <td>{roofData.city.altitude} masl</td>
+                        <td>{roofData.city?.altitude} masl</td>
                     </tr>
                     <tr>
                         <td scope="row">Climatic zone</td>
-                        {}
+                        <td>{snowLoadData.zone}</td>
                     </tr>
                     <tr>
                         <td scope="row">Load on the ground</td>
-                        <td>{} kN/m^2</td>
+                        <td>{snowLoadData.groundLoad.toFixed(2)} kN/m^2</td>
                     </tr>
                     <tr>
                         <td scope="row">Load on the roof</td>
-                        <td>{} kN/m^2</td>
+                        <td>{snowLoadData.roofLoad} kN/m^2</td>
                     </tr>
                     <tr>
                         <td scope="row">Load per linear meter</td>
-                        <td>{} kN/m</td>
+                        <td>{snowLoadData.linearLoad} kN/m</td>
                     </tr>
                     </tbody>
                 </table>

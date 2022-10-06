@@ -8,7 +8,7 @@ export const AddButton = ({tooltip, onAdd}: {tooltip: string, onAdd: Callback}) 
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
                 title={tooltip}
-                style={{width: '15%'}}
+                style={{width: '15%', borderColor: "black", borderWidth: "1.5px"}}
                 onClick={onAdd}>
             <PlusIcon size={22}/>
         </button>

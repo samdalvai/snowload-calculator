@@ -8,7 +8,7 @@ export const DeleteButton = ({disabled, onDelete}: { disabled: boolean, onDelete
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
                 title="Click to delete selection"
-                style={{width: '15%'}}
+                style={{width: '15%', borderColor: disabled ? "gray" : "black", borderWidth: "1.5px"}}
                 onClick={onDelete}>
             <XIcon size={22}/>
         </button>

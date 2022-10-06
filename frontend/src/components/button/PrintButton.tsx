@@ -6,7 +6,7 @@ import React from "react";
 export const PrintButton = ({onGenerate}: { onGenerate: Callback }) => {
     return (
         <ButtonWithIcon icon={<FileIcon size={22}/>}
-                        type={"success"}
+                        type={"light"}
                         text={"Print"}
                         onClick={onGenerate}/>
     )

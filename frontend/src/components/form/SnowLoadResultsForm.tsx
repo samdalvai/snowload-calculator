@@ -10,12 +10,12 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
                                         { roofData: RoofData | null, snowLoadData: SnowLoadData, error: Boolean, loading: boolean, onBack: Callback }) => {
     return (
         <div>
-            <div className="table-responsive rounded">
+            <div className="table-responsive">
                 {
                     !error ?
                         <table className="table">
                             <tbody>
-                            <tr className="table-primary">
+                            <tr className="table-secondary">
                                 <th scope="row" colSpan={2}>Roof data</th>
                             </tr>
                             <tr>
@@ -38,7 +38,7 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
                                 <td scope="row">Safety coefficient</td>
                                 <td>{roofData?.coefficient ? "Yes" : "No"}</td>
                             </tr>
-                            <tr className="table-primary">
+                            <tr className="table-secondary">
                                 <th scope="row" colSpan={2}>Snow load calculation</th>
                             </tr>
                             <tr>
@@ -54,15 +54,15 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
                                     <>
                                         <tr>
                                             <td scope="row">Load on the ground</td>
-                                            <td>{snowLoadData.groundLoad.toFixed(3)} kN/m<sup>2</sup></td>
+                                            <td>{snowLoadData.groundLoad.toFixed(2)} kN/m<sup>2</sup></td>
                                         </tr>
                                         <tr>
                                             <td scope="row">Load on the roof</td>
-                                            <td>{snowLoadData.roofLoad.toFixed(3)} kN/m<sup>2</sup></td>
+                                            <td>{snowLoadData.roofLoad.toFixed(2)} kN/m<sup>2</sup></td>
                                         </tr>
                                         <tr>
                                             <td scope="row">Load per linear meter</td>
-                                            <td>{snowLoadData.linearLoad.toFixed(3)} kN/m</td>
+                                            <td>{snowLoadData.linearLoad.toFixed(2)} kN/m</td>
                                         </tr>
                                     </>
                                     :

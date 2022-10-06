@@ -12,7 +12,7 @@ export const Alert = ({type, message, onClose}: {type: AlertType, message: strin
     )
 }
 
-export const AlertNonDismissable = ({type, message}: {type: AlertType, message: string}) => {
+export const NonDismissableAlert = ({type, message}: {type: AlertType, message: string}) => {
     return (
         <div className={"alert alert-" + type + " alert-dismissible"} role="alert">
             {message}

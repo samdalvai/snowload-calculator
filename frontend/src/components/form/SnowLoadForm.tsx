@@ -10,8 +10,10 @@ export const SnowLoadForm = () => {
     const [roofData, setRoofData] = useState<RoofData | null>(null)
     const [snowLoadData, setSnowLoadData] = useState<SnowLoadData>(defaultSnowLoadData)
     const [error, setError] = useState<boolean>(false)
+    const [loading, setLoading] = useState<boolean>(false)
 
     const handleOnCompute = async (data: RoofData) => {
+        setLoading(true)
         await fetch('/provinces/shorthand/' + data.city.province, {
             method: 'GET'
         }).then(async (response) => {
@@ -25,6 +27,7 @@ export const SnowLoadForm = () => {
                 setError(true)
             }
         })
+        setLoading(false)
     }
 
     const computeSnowLoads = (roofData: RoofData, province: Province) => {
@@ -56,6 +59,7 @@ export const SnowLoadForm = () => {
                         <SnowLoadResultsForm roofData={roofData}
                                              snowLoadData={snowLoadData}
                                              error={error}
+                                             loading={loading}
                                              onBack={() => setComputed(false)}
                         />}/>
             }

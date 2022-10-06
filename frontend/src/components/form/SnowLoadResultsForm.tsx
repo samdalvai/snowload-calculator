@@ -1,13 +1,13 @@
 import {Callback} from "../../functions/callbacks";
 import React from "react";
-import {SendButton} from "../button/SendButton";
 import {BackButton} from "../button/BackButton";
 import {RoofData, SnowLoadData} from "../../functions/types";
-import {AlertNonDismissable} from "../alert/Alert";
+import {NonDismissableAlert} from "../alert/Alert";
 import {FileButton} from "../button/FileButton";
+import {DisabledInput} from "../input/DisabledInput";
 
-export const SnowLoadResultsForm = ({roofData, snowLoadData, error, onBack}:
-                                        { roofData: RoofData | null, snowLoadData: SnowLoadData, error: Boolean, onBack: Callback }) => {
+export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onBack}:
+                                        { roofData: RoofData | null, snowLoadData: SnowLoadData, error: Boolean, loading: boolean, onBack: Callback }) => {
     return (
         <div>
             <div className="table-responsive rounded">
@@ -49,22 +49,35 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, onBack}:
                                 <td scope="row">Climatic zone</td>
                                 <td>{snowLoadData.zone}</td>
                             </tr>
-                            <tr>
-                                <td scope="row">Load on the ground</td>
-                                <td>{snowLoadData.groundLoad.toFixed(3)} kN/m<sup>2</sup></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">Load on the roof</td>
-                                <td>{snowLoadData.roofLoad.toFixed(3)} kN/m<sup>2</sup></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">Load per linear meter</td>
-                                <td>{snowLoadData.linearLoad.toFixed(3)} kN/m</td>
-                            </tr>
+                            {
+                                !loading ?
+                                    <>
+                                        <tr>
+                                            <td scope="row">Load on the ground</td>
+                                            <td>{snowLoadData.groundLoad.toFixed(3)} kN/m<sup>2</sup></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">Load on the roof</td>
+                                            <td>{snowLoadData.roofLoad.toFixed(3)} kN/m<sup>2</sup></td>
+                                        </tr>
+                                        <tr>
+                                            <td scope="row">Load per linear meter</td>
+                                            <td>{snowLoadData.linearLoad.toFixed(3)} kN/m</td>
+                                        </tr>
+                                    </>
+                                    :
+                                    <>
+                                        <tr>
+                                            <td colSpan={2}>
+                                                <DisabledInput placeHolder={"Computing snowload..."}/>
+                                            </td>
+                                        </tr>
+                                    </>
+                            }
                             </tbody>
                         </table>
                         :
-                        <AlertNonDismissable
+                        <NonDismissableAlert
                             message={"An error occurred in the snow load calculation, please go back and try again..."}
                             type={"danger"}/>
                 }

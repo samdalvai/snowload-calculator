@@ -25,6 +25,23 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
 
     const [showAlert, setShowAlert] = useState<boolean>(false)
 
+    React.useEffect(() => {
+        const listener = (event: { code: string; }) => {
+            const pressedKey = event.code
+
+            if (pressedKey === "Enter" || pressedKey === "NumpadEnter")
+                validateInputs()
+        };
+
+        // handle keyboard event only if window element exist (Eg. on pc)
+        if (typeof document !== 'undefined'){
+            document.addEventListener("keydown", listener);
+            return () => {
+                document.removeEventListener("keydown", listener);
+            };
+        }
+    });
+
     const resetInputs = () => {
         setSelectedCity(null)
         setSteepness('')

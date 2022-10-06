@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {City, defaultRoofData, defaultSnowLoadData, Province, RoofData, SnowLoadData} from "../../functions/types";
+import {defaultSnowLoadData, Province, RoofData, SnowLoadData} from "../../functions/types";
 import {getGroundLoad, getLinearLoad, getRoofLoad} from "../../functions/computation/snowLoadComputation";
 import {SnowLoadCalculatorCard} from "../card/SnowLoadCalculatorCard";
 import {SnowLoadCalculationForm} from "./SnowLoadCalculationForm";
@@ -32,7 +32,8 @@ export const SnowLoadForm = () => {
         const roofLoad: number = getRoofLoad(groundLoad)
         const linearLoad: number = getLinearLoad(roofLoad, roofData)
 
-        setSnowLoadData({...snowLoadData,
+        setSnowLoadData({
+            ...snowLoadData,
             zone: province.zone,
             groundLoad: groundLoad,
             roofLoad: roofLoad,

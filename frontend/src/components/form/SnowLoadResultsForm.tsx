@@ -4,6 +4,7 @@ import {SendButton} from "../button/SendButton";
 import {BackButton} from "../button/BackButton";
 import {RoofData, SnowLoadData} from "../../functions/types";
 import {AlertNonDismissable} from "../alert/Alert";
+import {FileButton} from "../button/FileButton";
 
 export const SnowLoadResultsForm = ({roofData, snowLoadData, error, onBack}:
                                         { roofData: RoofData | null, snowLoadData: SnowLoadData, error: Boolean, onBack: Callback }) => {
@@ -50,11 +51,11 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, onBack}:
                             </tr>
                             <tr>
                                 <td scope="row">Load on the ground</td>
-                                <td>{snowLoadData.groundLoad.toFixed(3)} kN/m^2</td>
+                                <td>{snowLoadData.groundLoad.toFixed(3)} kN/m<sup>2</sup></td>
                             </tr>
                             <tr>
                                 <td scope="row">Load on the roof</td>
-                                <td>{snowLoadData.roofLoad.toFixed(3)} kN/m^2</td>
+                                <td>{snowLoadData.roofLoad.toFixed(3)} kN/m<sup>2</sup></td>
                             </tr>
                             <tr>
                                 <td scope="row">Load per linear meter</td>
@@ -72,7 +73,7 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, onBack}:
             <div className="row">
                 {
                     roofData ? <div className="col-md-6 pt-3">
-                        <SendButton onSend={() => null}/>
+                        <FileButton onGenerate={() => null}/>
                     </div> : ""
                 }
                 <div className={"col-md-" + (roofData ? "6" : "12") + " pt-3"}>

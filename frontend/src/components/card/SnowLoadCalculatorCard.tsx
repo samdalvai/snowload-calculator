@@ -13,7 +13,7 @@ export const SnowLoadCalculatorCard = ({body}: { body: ReactElement }) => {
                 </div>
                 <div className="card-body">
                     {body}
-                    <div className="row">
+                    <div className="row pt-3">
                         <div className="col-md-6 pt-3 image-container">
                             <div className="img-fluid">
                                 <img src={"/img/roof.jpg"} className="rounded" alt="Roof"/>

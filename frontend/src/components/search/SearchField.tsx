@@ -15,7 +15,7 @@ export const SearchField = ({placeHolder, onSearch, onAdd, valid}:
 
     return (
         <div>
-            <div className="input-group">
+            <div className="input-group shadow-sm rounded">
                 <Input value={search}
                        placeHolder={placeHolder}
                        valid={valid}

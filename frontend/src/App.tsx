@@ -3,7 +3,7 @@ import {SnowLoadForm} from "./components/form/SnowLoadForm";
 
 function App() {
     return (
-        <div className="container p-2">
+        <div>
             <SnowLoadForm />
         </div>
     );

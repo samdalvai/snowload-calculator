@@ -1,6 +1,6 @@
 import React, {ReactElement} from "react";
 import {TermsOfUse} from "../card/SnowLoadCalculatorCard";
-import {SnowLoadHeader} from "../navbar/SnowLoadHeader";
+import {SnowLoadHeader} from "../header/SnowLoadHeader";
 
 export const SnowLoadCalculatorContainer = ({body}: { body: ReactElement }) => {
     return (

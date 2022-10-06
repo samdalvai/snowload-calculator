@@ -3,13 +3,17 @@ import React, {ReactElement} from "react";
 export const SnowLoadCalculatorCard = ({body}: { body: ReactElement }) => {
     return (
         <div>
-            <div className="card shadow rounded">
-                <div className="card-header text-center" style={{backgroundColor: "lightgrey"}}>
-                    <h2 style={{color: "#0d6efd"}}>
+            <div className="card shadow rounded p-2">
+                <div className="card-header text-center" style={{
+                    backgroundColor: "#6c757d",
+                    borderBottomStyle: "solid",
+                    borderBottomWidth: "1.5px"}}
+                >
+                    <h1 className={"white text-shadow"} >
                         <strong>
                             Snowload Calculator
                         </strong>
-                    </h2>
+                    </h1>
                 </div>
                 <div className="card-body">
                     {body}

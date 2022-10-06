@@ -27,10 +27,6 @@ describe('testing snowload computation functions', () => {
         load: 0.6, name: "Trento", shorthand: "TN", zone: "III"
     }
 
-    const invalidProvince: Province = {
-        load: 0.6, name: "Trento", shorthand: "TN", zone: "invalid"
-    }
-
     it('snowload under 200 masl should return base load values', () => {
         expect(getGroundLoad(cityUnder200, provinceIA)).equal(1.5)
         expect(getGroundLoad(cityUnder200, provinceIM)).equal(1.5)
@@ -43,10 +39,6 @@ describe('testing snowload computation functions', () => {
         expect(Math.abs(getGroundLoad(cityOver200, provinceIM) - 2.281) < 0.001).equal(true)
         expect(Math.abs(getGroundLoad(cityOver200, provinceII) - 1.768) < 0.001).equal(true)
         expect(Math.abs(getGroundLoad(cityOver200, provinceIII) - 1.061) < 0.001).equal(true)
-    });
-
-    it('snowload for invalid climatic zone should throw an error', () => {
-        expect(() => getGroundLoad(cityOver200, invalidProvince)).to.throw("Invalid province zone: invalid")
     });
 
 });

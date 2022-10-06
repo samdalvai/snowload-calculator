@@ -7,7 +7,8 @@ import {defaultRoofData, RoofData} from "./functions/types";
 
 function App() {
     const [computed, setComputed] = useState<boolean>(false)
-    const [roofData, setRoofData] = useState<RoofData | null>(null)
+    const [roofData, setRoofData] = useState<RoofData>(defaultRoofData())
+
 
     return (
         <div className="container p-2">
@@ -20,7 +21,7 @@ function App() {
                                                      setComputed(true)
                                                  }}/>}/> :
                     <SnowLoadCalculatorCard body={
-                        <SnowLoadResultsForm roofData={roofData ? roofData : defaultRoofData()}
+                        <SnowLoadResultsForm roofData={roofData}
                                              onBack={() => setComputed(false)}/>}/>
             }
         </div>

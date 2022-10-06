@@ -5,11 +5,31 @@ export interface City {
     altitude: number
 }
 
+export const defaultCity = (): City => {
+    return {
+        altitude: 0,
+        name: "",
+        province: "",
+        zip: ""
+    }
+}
+
 export interface Province {
     shorthand: string,
     name: string,
-    zone: string,
+    zone: ClimaticZone,
     load: number
+}
+
+export type ClimaticZone = "I-A" | "I-M" | "II" | "III"
+
+export const defaultProvince = (): Province => {
+    return {
+        load: 0,
+        name: "",
+        shorthand: "",
+        zone: "I-A"
+    }
 }
 
 export interface RoofData {
@@ -30,11 +50,20 @@ export const defaultRoofData = (): RoofData => {
     }
 }
 
-export const defaultCity = (): City => {
+export interface SnowLoadData {
+    altitude: number,
+    zone: ClimaticZone,
+    groundLoad: number,
+    roofLoad: number,
+    linearLoad: number
+}
+
+export const defaultSnowLoadData = (): SnowLoadData => {
     return {
         altitude: 0,
-        name: "",
-        province: "",
-        zip: ""
+        groundLoad: 0,
+        linearLoad: 0,
+        roofLoad: 0,
+        zone: "I-A"
     }
 }

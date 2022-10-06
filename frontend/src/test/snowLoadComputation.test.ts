@@ -1,4 +1,4 @@
-import {getGroundLoad, getRoofLoad} from "../functions/computation/snowLoadComputation";
+import {getGroundLoad, getLinearLoad, getRoofLoad} from "../functions/computation/snowLoadComputation";
 import {City, defaultCity, Province} from "../functions/types";
 const {expect} = require('chai');
 
@@ -46,6 +46,46 @@ describe('testing snowload computation functions', () => {
         expect(Math.abs(getRoofLoad(2.281) - 1.825) < 0.001).equal(true)
         expect(Math.abs(getRoofLoad(1.768) - 1.415) < 0.001).equal(true)
         expect(Math.abs(getRoofLoad(1.061) - 0.849) < 0.001).equal(true)
+    });
+
+    it('linear snowload should be computed with precision of at least 0.001', () => {
+        expect(Math.abs(getLinearLoad(1.6365, {
+            city: defaultCity(),
+            coefficient: false,
+            roofLength: 10,
+            roofWidth: 15,
+            steepness: 20
+
+        }) - 5.2598) < 0.001).equal(true)
+
+        expect(Math.abs(getLinearLoad(1.6365, {
+            city: defaultCity(),
+            coefficient: false,
+            roofLength: 20,
+            roofWidth: 15,
+            steepness: 20
+
+        }) - 10.5195) < 0.001).equal(true)
+
+        expect(Math.abs(getLinearLoad(1.6365, {
+            city: defaultCity(),
+            coefficient: false,
+            roofLength: 10,
+            roofWidth: 15,
+            steepness: 30
+
+        }) - 7.0864) < 0.001).equal(true)
+    });
+
+    it('linear snowload with coefficient should be 1.5 times higher with precision of at least 0.001', () => {
+        expect(Math.abs(getLinearLoad(1.6365, {
+            city: defaultCity(),
+            coefficient: true,
+            roofLength: 10,
+            roofWidth: 15,
+            steepness: 20
+
+        }) - 5.2598 * 1.5) < 0.001).equal(true)
     });
 
 });

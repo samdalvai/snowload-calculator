@@ -50,15 +50,15 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, onBack}:
                             </tr>
                             <tr>
                                 <td scope="row">Load on the ground</td>
-                                <td>{snowLoadData.groundLoad.toFixed(2)} kN/m^2</td>
+                                <td>{snowLoadData.groundLoad.toFixed(3)} kN/m^2</td>
                             </tr>
                             <tr>
                                 <td scope="row">Load on the roof</td>
-                                <td>{snowLoadData.roofLoad.toFixed(2)} kN/m^2</td>
+                                <td>{snowLoadData.roofLoad.toFixed(3)} kN/m^2</td>
                             </tr>
                             <tr>
                                 <td scope="row">Load per linear meter</td>
-                                <td>{snowLoadData.linearLoad} kN/m</td>
+                                <td>{snowLoadData.linearLoad.toFixed(3)} kN/m</td>
                             </tr>
                             </tbody>
                         </table>

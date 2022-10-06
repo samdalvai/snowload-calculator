@@ -3,11 +3,11 @@ import {ButtonWithIcon} from "./ButtonWithIcon";
 import {FileIcon} from "@primer/octicons-react";
 import React from "react";
 
-export const FileButton = ({onGenerate}: { onGenerate: Callback }) => {
+export const PrintButton = ({onGenerate}: { onGenerate: Callback }) => {
     return (
         <ButtonWithIcon icon={<FileIcon size={22}/>}
                         type={"success"}
-                        text={"Send"}
+                        text={"Print"}
                         onClick={onGenerate}/>
     )
 }

@@ -3,7 +3,7 @@ import React from "react";
 import {BackButton} from "../button/BackButton";
 import {RoofData, SnowLoadData} from "../../functions/types";
 import {NonDismissableAlert} from "../alert/Alert";
-import {FileButton} from "../button/FileButton";
+import {PrintButton} from "../button/PrintButton";
 import {DisabledInput} from "../input/DisabledInput";
 
 export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onBack}:
@@ -86,7 +86,7 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
             <div className="row">
                 {
                     roofData ? <div className="col-md-6 pt-3">
-                        <FileButton onGenerate={() => null}/>
+                        <PrintButton onGenerate={window.print}/>
                     </div> : ""
                 }
                 <div className={"col-md-" + (roofData ? "6" : "12") + " pt-3"}>

@@ -5,7 +5,7 @@ import {getCityString} from "../../functions/search/searchCity";
 export const CitiesSuggestionList = ({cities, keyword, onSelectCity}: { cities: City[], keyword: string, onSelectCity: CityCallBack }) => {
 
     return (
-        <div className="list-group">
+        <div className="list-group shadow-sm rounded">
             {
                 cities.length > 0 ?
                     cities.map((city: City) => <CitySuggestion

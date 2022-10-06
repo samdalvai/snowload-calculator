@@ -46,23 +46,21 @@ export const SnowLoadForm = () => {
 
     return (
         <div>
-            {
+            <SnowLoadCalculatorCard body={
                 !computed ?
-                    <SnowLoadCalculatorCard body={
-                        <SnowLoadCalculationForm roofData={roofData}
-                                                 onCompute={data => {
-                                                     setRoofData(data)
-                                                     setComputed(true)
-                                                     handleOnCompute(data)
-                                                 }}/>}/> :
-                    <SnowLoadCalculatorCard body={
-                        <SnowLoadResultsForm roofData={roofData}
-                                             snowLoadData={snowLoadData}
-                                             error={error}
-                                             loading={loading}
-                                             onBack={() => setComputed(false)}
-                        />}/>
-            }
+                    <SnowLoadCalculationForm roofData={roofData}
+                                             onCompute={data => {
+                                                 setRoofData(data)
+                                                 setComputed(true)
+                                                 handleOnCompute(data)
+                                             }}/> :
+                    <SnowLoadResultsForm roofData={roofData}
+                                         snowLoadData={snowLoadData}
+                                         error={error}
+                                         loading={loading}
+                                         onBack={() => setComputed(false)}
+                    />
+            }/>
         </div>
     )
 }

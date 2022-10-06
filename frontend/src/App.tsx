@@ -21,13 +21,14 @@ function App() {
     const [error, setError] = useState<boolean>(false)
 
     const handleOnCompute = async (city: City) => {
-        console.log("City: ", city.province)
         await fetch('/provinces/shorthand/' + city.province, {
             method: 'GET'
         }).then(async (response) => {
+            const province: Province = await response.json();
+
             if (response.status === 201 || response.status === 200) {
-                const province: Province = await response.json();
-                computeSnowLoads(roofData.city, province)
+                console.log("Computing new snowload for: " + province.shorthand + " " + city.name)
+                computeSnowLoads(city, province)
                 setError(false)
             } else {
                 setError(true)
@@ -50,7 +51,7 @@ function App() {
                                                  onCompute={data => {
                                                      setRoofData(data)
                                                      setComputed(true)
-                                                     handleOnCompute(data.city ? data.city : defaultCity())
+                                                     handleOnCompute(data.city)
                                                  }}/>}/> :
                     <SnowLoadCalculatorCard body={
                         <SnowLoadResultsForm roofData={roofData}

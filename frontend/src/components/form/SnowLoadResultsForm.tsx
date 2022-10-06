@@ -3,62 +3,69 @@ import React from "react";
 import {SendButton} from "../button/SendButton";
 import {BackButton} from "../button/BackButton";
 import {RoofData, SnowLoadData} from "../../functions/types";
+import {Alert, AlertNonDismissable} from "../alert/Alert";
+import {ErrorInput} from "../input/ErrorInput";
 
-export const SnowLoadResultsForm = ({roofData, snowLoadData, onBack}:
-                                        { roofData: RoofData, snowLoadData: SnowLoadData, onBack: Callback }) => {
+export const SnowLoadResultsForm = ({roofData, snowLoadData, error, onBack}:
+                                        { roofData: RoofData, snowLoadData: SnowLoadData, error: Boolean, onBack: Callback }) => {
     return (
         <div>
             <div className="table-responsive rounded">
-                <table className="table">
-                    <tbody>
-                    <tr className="table-primary">
-                        <th scope="row" colSpan={2}>Roof data</th>
-                    </tr>
-                    <tr>
-                        <td scope="row">City</td>
-                        <td>{roofData.city?.zip} {roofData.city?.name} ({roofData.city?.province})</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Steepness (α)</td>
-                        <td>{roofData.steepness} °</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Roof length (sl)</td>
-                        <td>{roofData.roofLength} m</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Roof width (l)</td>
-                        <td>{roofData.roofWidth} m</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Safety coefficient</td>
-                        <td>{roofData.coefficient ? "Yes" : "No"}</td>
-                    </tr>
-                    <tr className="table-primary">
-                        <th scope="row" colSpan={2}>Snow load calculation</th>
-                    </tr>
-                    <tr>
-                        <td scope="row">Altitude</td>
-                        <td>{roofData.city?.altitude} masl</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Climatic zone</td>
-                        <td>{snowLoadData.zone}</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Load on the ground</td>
-                        <td>{snowLoadData.groundLoad.toFixed(2)} kN/m^2</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Load on the roof</td>
-                        <td>{snowLoadData.roofLoad} kN/m^2</td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Load per linear meter</td>
-                        <td>{snowLoadData.linearLoad} kN/m</td>
-                    </tr>
-                    </tbody>
-                </table>
+                {
+                    !error ?
+                        <table className="table">
+                            <tbody>
+                            <tr className="table-primary">
+                                <th scope="row" colSpan={2}>Roof data</th>
+                            </tr>
+                            <tr>
+                                <td scope="row">City</td>
+                                <td>{roofData.city?.zip} {roofData.city?.name} ({roofData.city?.province})</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Steepness (α)</td>
+                                <td>{roofData.steepness} °</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Roof length (sl)</td>
+                                <td>{roofData.roofLength} m</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Roof width (l)</td>
+                                <td>{roofData.roofWidth} m</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Safety coefficient</td>
+                                <td>{roofData.coefficient ? "Yes" : "No"}</td>
+                            </tr>
+                            <tr className="table-primary">
+                                <th scope="row" colSpan={2}>Snow load calculation</th>
+                            </tr>
+                            <tr>
+                                <td scope="row">Altitude</td>
+                                <td>{roofData.city?.altitude} masl</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Climatic zone</td>
+                                <td>{snowLoadData.zone}</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Load on the ground</td>
+                                <td>{snowLoadData.groundLoad.toFixed(2)} kN/m^2</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Load on the roof</td>
+                                <td>{snowLoadData.roofLoad} kN/m^2</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Load per linear meter</td>
+                                <td>{snowLoadData.linearLoad} kN/m</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        :
+                        <AlertNonDismissable  message={"Some error occurred in the computation of the snow load, please go back and retry..."} type={"danger"}/>
+                }
             </div>
 
             <div className="row">

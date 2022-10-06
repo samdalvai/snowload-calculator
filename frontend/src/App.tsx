@@ -56,7 +56,9 @@ function App() {
                     <SnowLoadCalculatorCard body={
                         <SnowLoadResultsForm roofData={roofData}
                                              snowLoadData={snowLoadData}
-                                             onBack={() => setComputed(false)}/>}/>
+                                             error={error}
+                                             onBack={() => setComputed(false)}
+                                             />}/>
             }
         </div>
     );

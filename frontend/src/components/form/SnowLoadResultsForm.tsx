@@ -54,7 +54,7 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, onBack}:
                             </tr>
                             <tr>
                                 <td scope="row">Load on the roof</td>
-                                <td>{snowLoadData.roofLoad} kN/m^2</td>
+                                <td>{snowLoadData.roofLoad.toFixed(2)} kN/m^2</td>
                             </tr>
                             <tr>
                                 <td scope="row">Load per linear meter</td>
@@ -82,18 +82,3 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, onBack}:
         </div>
     )
 }
-
-/*{
-    error ?
-        <td className={"table-danger"}><strong>Error loading provinces...</strong></td>
-        :
-        loading ?
-            <td className={"table-primary"}><strong>Loading provinces...</strong></td>
-            :
-            provinces.length > 0 && provinces[0].shorthand === roofData.city.province ?
-                <td>{provinces[0].zone}</td>
-                :
-                <td className={"table-danger"}>
-                    <strong>Error loading province: {roofData.city.province}</strong>
-                </td>
-}*/

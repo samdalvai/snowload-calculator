@@ -1,5 +1,5 @@
-import {getGroundLoad} from "../functions/computation/snowLoadComputation";
-import {City, Province} from "../functions/types";
+import {getGroundLoad, getRoofLoad} from "../functions/computation/snowLoadComputation";
+import {City, defaultCity, Province} from "../functions/types";
 const {expect} = require('chai');
 
 describe('testing snowload computation functions', () => {
@@ -39,6 +39,13 @@ describe('testing snowload computation functions', () => {
         expect(Math.abs(getGroundLoad(cityOver200, provinceIM) - 2.281) < 0.001).equal(true)
         expect(Math.abs(getGroundLoad(cityOver200, provinceII) - 1.768) < 0.001).equal(true)
         expect(Math.abs(getGroundLoad(cityOver200, provinceIII) - 1.061) < 0.001).equal(true)
+    });
+
+    it('snowload on the roof should be computed with precision of at least 0.001', () => {
+        expect(Math.abs(getRoofLoad(2.046) - 1.637) < 0.001).equal(true)
+        expect(Math.abs(getRoofLoad(2.281) - 1.825) < 0.001).equal(true)
+        expect(Math.abs(getRoofLoad(1.768) - 1.415) < 0.001).equal(true)
+        expect(Math.abs(getRoofLoad(1.061) - 0.849) < 0.001).equal(true)
     });
 
 });

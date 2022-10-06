@@ -1,4 +1,4 @@
-import {City, Province} from "../types";
+import {City, Province, RoofData} from "../types";
 
 export const getGroundLoad = (city: City, province: Province): number => {
     if (city.altitude <= 200)
@@ -16,4 +16,13 @@ export const getGroundLoad = (city: City, province: Province): number => {
         default:
             throw new Error("Invalid province zone: " + province.zone)
     }
+}
+
+export const getRoofLoad = (groundLoad: number): number => {
+    // TODO: NEED TO CHECK ITALIAN NORM ON SNOW CALCULATION FOR SHAPE COEFFICIENT
+    const shapeCoefficient = 0.8
+    const expositionCoefficient = 1
+    const termicalCoefficient = 1
+
+    return groundLoad * shapeCoefficient * expositionCoefficient * termicalCoefficient;
 }

@@ -7,7 +7,7 @@ export const SnowLoadModal = ({show, header, body, onHide}:
     return (
         <div>
             <Modal size={"lg"} show={show} onHide={onHide} centered>
-                <div className={"modal-header snowload-banner shadow-sm"}>
+                <div className={"modal-header all-border shadow-sm snowload-grey-background"}>
                     <h2 className={"white text-shadow"} >
                         <strong>
                             {header}

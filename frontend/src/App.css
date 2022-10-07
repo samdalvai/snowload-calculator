@@ -58,7 +58,6 @@
   justify-content: center;
 }
 
-
 /* COLORS */
 
 .white {
@@ -71,13 +70,22 @@
 
 /* SNOWLOAD STYLE */
 
-.snowload-banner {
-  border-bottom-width: 1.5px!important;
-  border-bottom-color: black!important;
-  border-bottom-style: solid!important;
-  border-top-width: 1.5px!important;
-  border-top-color: black!important;
-  border-top-style: solid!important;
+.bottom-border {
+  border-width: 1.5px!important;
+  border-color: black!important;
+  border-style: hidden hidden solid hidden;
+}
+
+.top-border {
+  border-width: 1.5px!important;
+  border-color: black!important;
+  border-style: solid hidden hidden hidden;
+}
+
+.all-border {
+  border-width: 1.5px!important;
+  border-color: black!important;
+  border-style: solid solid solid solid;
 }
 
 .snowload-grey-background {

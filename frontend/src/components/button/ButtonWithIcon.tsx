@@ -9,8 +9,8 @@ export const ButtonWithIcon = ({icon, text, type, width = "100%", onClick}:
     return (
         <div>
             <button type="submit"
-                    className={"btn btn-" + type + " shadow-sm rounded"}
-                    style={{width: width, borderColor: "black", borderWidth: "1.5px"}}
+                    className={"btn btn-" + type + " shadow-sm rounded all-border"}
+                    style={{width: width}}
                     onClick={onClick}>
                 {icon} {text}
             </button>

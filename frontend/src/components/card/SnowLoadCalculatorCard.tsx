@@ -2,9 +2,9 @@ import React, {ReactElement} from "react";
 
 export const SnowLoadCalculatorCard = ({body}: { body: ReactElement }) => {
     return (
-        <div>
-            <div className="card shadow rounded p-2">
-                <div className="card-header text-center snowload-banner">
+        <div className={"p-3"}>
+            <div className="card shadow rounded">
+                <div className="card-header text-center top-border snowload-grey-background">
                     <h1 className={"white text-shadow"} >
                         <strong>
                             Snowload Calculator

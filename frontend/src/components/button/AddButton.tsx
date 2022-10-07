@@ -4,7 +4,7 @@ import {Callback} from "../../functions/callbacks";
 export const AddButton = ({tooltip, onAdd}: {tooltip: string, onAdd: Callback}) => {
     return (
         <button type="button"
-                className="btn btn-primary all-border"
+                className="btn btn-primary all-border button-animated"
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
                 title={tooltip}

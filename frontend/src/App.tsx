@@ -1,6 +1,8 @@
 import './App.css';
-import {SnowLoadForm} from "./components/form/SnowLoadForm";
+import {SnowLoadFooter} from "./components/footer/SnowLoadFooter";
 import {SnowLoadHeader} from "./components/header/SnowLoadHeader";
+import React from "react";
+import {SnowLoadForm} from "./components/form/SnowLoadForm";
 
 function App() {
     return (

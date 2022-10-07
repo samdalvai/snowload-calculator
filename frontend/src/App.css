@@ -114,10 +114,15 @@
   flex-basis: auto;
 }
 
-button {
+footer a:hover {
+  color: white!important;
+  cursor: pointer;
+}
+
+/*button {
   padding: 7px 10px;
   margin: 0 0 8px 0;
-}
+}*/
 
 @media (max-width: 480px) {
   body {

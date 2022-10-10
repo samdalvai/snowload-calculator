@@ -13,3 +13,20 @@ function App() {
 }
 
 export default App;
+
+/*
+    const [language, setLanguage] = useState<languages>("english");
+
+    const toggleLanguage = () => {
+        setLanguage((lang) => (lang === "english" ? "italian" : "english"));
+    }
+
+//const [dictionary, setDictionary] = useState(dictionaryList.en)
+
+//const toggleDictionary = () => {
+// setDictionary((dict: any) => (dict === dictionaryList.en ? dictionaryList.it : dictionaryList.en));
+//}
+            <LanguageContext.Provider value={{language, toggleLanguage}}>
+                <SnowLoadForm/>
+            </LanguageContext.Provider>
+ */

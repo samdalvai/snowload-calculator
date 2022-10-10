@@ -1,7 +1,7 @@
 import React, {ReactElement} from "react";
-import {TermsOfUse} from "../card/SnowLoadCalculatorCard";
 import {SnowLoadHeader} from "../header/SnowLoadHeader";
 import {SnowLoadFooter} from "../footer/SnowLoadFooter";
+import {TermsOfUse} from "../text/TermsOfUse";
 
 export const SnowLoadCalculatorContainer = ({body}: { body: ReactElement }) => {
     return (

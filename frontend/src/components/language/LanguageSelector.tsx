@@ -12,7 +12,7 @@ export const LanguageSelector = ({onSelectLanguage}: { onSelectLanguage: Languag
 
     return (
         <div>
-            <select className="form-select" value={selectValue}
+            <select className="form-select shadow-sm" value={selectValue}
                     onChange={handleSelect}>
                 <option value="en">English</option>
                 <option value="it">Italian</option>

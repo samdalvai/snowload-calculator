@@ -4,14 +4,15 @@ import {Language} from "../../languages/translation";
 
 export const FlagIcon = ({size, language}: { size: number, language: Language }) => {
     return (
-        <div>
-            <ResizeableImageContainer url={getFlagFromLanguage(language)} alt={"Us-flag"} scale={(size / 30.0).toString()}/>
+        <div className={"image-container px-3"}>
+            <ResizeableImageContainer url={getFlagFromLanguage(language)} alt={language + " flag"}
+                                      scale={(size / 30.0).toString()}/>
         </div>
     )
 }
 
 export const getFlagFromLanguage = (lang: Language): string => {
-    switch (lang){
+    switch (lang) {
         case "en":
             return "/img/us-flag.jpg"
         case "it":

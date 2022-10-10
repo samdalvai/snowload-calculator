@@ -3,6 +3,7 @@ import {italian} from "./italian";
 import {german} from "./german";
 
 export interface Translation {
+    language: Language,
     termsOfUse: {
         title: string,
         text1: string,

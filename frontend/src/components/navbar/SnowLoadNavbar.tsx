@@ -5,15 +5,21 @@ import {LanguageContext} from "../language/LanguageContext";
 import {FlagIcon} from "../icon/FlagIcon";
 
 export const SnowLoadNavbar = () => {
-    const {selectTranslation} = useContext(LanguageContext);
+    const {translation, selectTranslation} = useContext(LanguageContext);
 
     return (
         <div>
             <nav className="navbar navbar-expand-sm shadow-sm
             bottom-border snowload-grey-background">
                 <div className="container-fluid">
-                    <SnowLoadLogo text={"Snowload Calculator"}/>
-                    <LanguageSelector onSelectLanguage={lang => selectTranslation ? selectTranslation(lang) : ""} />
+                    <div className={"px-1"}>
+                        <SnowLoadLogo text={"Snowload Calculator"}/>
+                    </div>
+                    <div className="d-flex">
+                        <FlagIcon size={26} language={translation.language}/>
+                        <LanguageSelector
+                            onSelectLanguage={lang => selectTranslation ? selectTranslation(lang) : ""}/>
+                    </div>
                 </div>
             </nav>
         </div>

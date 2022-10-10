@@ -8,11 +8,15 @@ export interface Translation {
         text1: string,
         text2: string
     }
+
+    // Add new text for the application here,
+    // a translation will be required for
+    // english.ts, italian.ts and german.ts
 }
 
-export type Languages = "en" | "it" | "de"
+export type Language = "en" | "it" | "de"
 
-export const getTranslation = (language: Languages): Translation => {
+export const getTranslation = (language: Language): Translation => {
     switch (language) {
         case "en":
             return english;

@@ -1,10 +1,12 @@
 import {createContext} from "react";
+import {english} from "../../languages/english";
+import {Language, Translation} from "../../languages/translation";
 
 export const LanguageContext = createContext<ILanguageContext>({
-    dictionary: "sdas"
+    translation: english
 });
 
 export interface ILanguageContext {
-    dictionary: any;
-    toggleDictionary?: () => void;
+    translation: Translation;
+    selectTranslation?: (lang: Language) => void;
 }

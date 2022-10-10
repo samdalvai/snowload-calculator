@@ -1,32 +1,24 @@
 import './App.css';
-import {SnowLoadFooter} from "./components/footer/SnowLoadFooter";
-import {SnowLoadHeader} from "./components/header/SnowLoadHeader";
-import React from "react";
+import React, {useState} from "react";
 import {SnowLoadForm} from "./components/form/SnowLoadForm";
+import {getTranslation, Language, Translation} from "./languages/translation";
+import {english} from "./languages/english";
+import { LanguageContext } from './components/language/LanguageContext';
 
 function App() {
+    const [translation, setTranslation] = useState<Translation>(english)
+
+    const selectTranslation = (lang: Language) => {
+        setTranslation(getTranslation(lang))
+    }
+
     return (
         <div>
-            <SnowLoadForm />
+            <LanguageContext.Provider value={{translation, selectTranslation}}>
+                <SnowLoadForm/>
+            </LanguageContext.Provider>
         </div>
     );
 }
 
 export default App;
-
-/*
-    const [language, setLanguage] = useState<languages>("english");
-
-    const toggleLanguage = () => {
-        setLanguage((lang) => (lang === "english" ? "italian" : "english"));
-    }
-
-//const [dictionary, setDictionary] = useState(dictionaryList.en)
-
-//const toggleDictionary = () => {
-// setDictionary((dict: any) => (dict === dictionaryList.en ? dictionaryList.it : dictionaryList.en));
-//}
-            <LanguageContext.Provider value={{language, toggleLanguage}}>
-                <SnowLoadForm/>
-            </LanguageContext.Provider>
- */

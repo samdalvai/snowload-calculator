@@ -1,5 +1,5 @@
 import React from "react";
-import {SnowFlakeIcon} from "../icon/SnowFlakeIcon";
+import {SnowLoadLogo} from "../logo/SnowLoadLogo";
 
 export const SnowLoadHeader = () => {
     return (
@@ -7,11 +7,7 @@ export const SnowLoadHeader = () => {
             <div className="container-fluid shadow-sm
             bottom-border snowload-grey-background">
                 <header className={"text-center p-3"} >
-                    <h1 className={"white text-shadow"} >
-                        <strong>
-                            Snowload Calculator
-                        </strong>
-                    </h1>
+                    <SnowLoadLogo  text={"Snowload Calculator"}/>
                 </header>
             </div>
         </div>

@@ -2,12 +2,13 @@ import React, {ReactElement} from "react";
 import {SnowLoadHeader} from "../header/SnowLoadHeader";
 import {SnowLoadFooter} from "../footer/SnowLoadFooter";
 import {TermsOfUse} from "../text/TermsOfUse";
+import {SnowLoadNavbar} from "../navbar/SnowLoadNavbar";
 
 export const SnowLoadCalculatorContainer = ({body}: { body: ReactElement }) => {
     return (
         <div className={"column-flex"}>
             <div className={"pb-3"}>
-                <SnowLoadHeader/>
+                <SnowLoadNavbar/>
             </div>
 
             <div className={"flex-auto container"}>

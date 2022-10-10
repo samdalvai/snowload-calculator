@@ -1,13 +1,16 @@
 import {Callback} from "../../functions/callbacks";
 import {ButtonWithIcon} from "./ButtonWithIcon";
-import React from "react";
+import React, {useContext} from "react";
 import {HomeIcon} from "@primer/octicons-react";
+import {LanguageContext} from "../language/LanguageContext";
 
 export const AddCityButton = ({onAddCity}: {onAddCity: Callback}) => {
+    const {translation} = useContext(LanguageContext);
+
     return (
         <ButtonWithIcon icon={<HomeIcon size={20}/>}
                         type={"primary"}
-                        text={"Add City"}
+                        text={translation.buttons.addCity}
                         onClick={onAddCity}/>
     )
 }

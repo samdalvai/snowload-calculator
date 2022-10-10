@@ -8,6 +8,14 @@ export interface Translation {
         title: string,
         text1: string,
         text2: string
+    },
+    buttons: {
+        send: string;
+        compute: string,
+        reset: string,
+        addCity: string,
+        print: string,
+        back: string
     }
 
     // Add new text for the application here,

@@ -12,7 +12,7 @@ export const SnowLoadNavbar = () => {
             <nav className="navbar navbar-expand-sm shadow-sm
             bottom-border snowload-grey-background">
                 <div className="container-fluid">
-                    <div className={"px-1"}>
+                    <div style={{marginLeft: "2.5%"}}>
                         <SnowLoadLogo text={"Snowload Calculator"}/>
                     </div>
                     <div className="d-flex">

@@ -24,6 +24,17 @@ export interface Translation {
                 roofLenght: string,
                 roofWidth: string,
                 safetyCoefficient: string
+            },
+            addCity: {
+                zip:  string,
+                name: string,
+                province: string,
+                altitude: string
+            }
+        },
+        placeholders: {
+            roofData: {
+                searchCity: string
             }
         }
     }

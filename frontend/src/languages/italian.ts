@@ -21,6 +21,17 @@ export const italian: Translation = {
                 roofLenght: "Lunghezza falda (sl)",
                 roofWidth: "Lunghezza gronda (l)",
                 safetyCoefficient: "1.5 coefficiente di sicurezza"
+            },
+            addCity: {
+                zip:  "CAP",
+                name: "Nome",
+                province: "Provincia",
+                altitude: "Altitudine"
+            }
+        },
+        placeholders: {
+            roofData: {
+                searchCity: "Ricerca città"
             }
         }
     }

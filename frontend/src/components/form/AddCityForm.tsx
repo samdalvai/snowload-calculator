@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {InputWithLeftLabel} from "../input/InputWithLabels";
 import {StringToIntNumber} from "../../functions/conversion/stringConversion";
 import {isValidAltitude, isValidProvince, isValidZip} from "../../functions/validation/cityInputValidation";
@@ -6,8 +6,11 @@ import {City} from "../../functions/types";
 import {Alert} from "../alert/Alert";
 import {ResetButton} from "../button/ResetButton";
 import {AddCityButton} from "../button/AddCityButton";
+import {LanguageContext} from "../language/LanguageContext";
 
 export const AddCityForm = () => {
+    const {translation} = useContext(LanguageContext);
+
     const [zip, setZip] = useState<string>('')
     const [name, setName] = useState<string>('')
     const [province, setProvince] = useState<string>('')
@@ -112,21 +115,21 @@ export const AddCityForm = () => {
             }
             <div className="row">
                 <div className="col-md-6 pt-3" onChange={() => setValidZip(true)}>
-                    <InputWithLeftLabel leftLabel={'ZIP'} placeHolder={''} value={zip}
+                    <InputWithLeftLabel leftLabel={translation.inputs.labels.addCity.zip} placeHolder={''} value={zip}
                                         onChange={setZip} valid={validZip}/>
                 </div>
                 <div className="col-md-6 pt-3" onChange={() => setValidName(true)}>
-                    <InputWithLeftLabel leftLabel={'Name'} placeHolder={''} value={name}
+                    <InputWithLeftLabel leftLabel={translation.inputs.labels.addCity.name} placeHolder={''} value={name}
                                         onChange={setName} valid={validName}/>
                 </div>
             </div>
             <div className="row">
                 <div className="col-md-6 pt-3" onChange={() => setValidProvince(true)}>
-                    <InputWithLeftLabel leftLabel={'Province'} placeHolder={''} value={province}
+                    <InputWithLeftLabel leftLabel={translation.inputs.labels.addCity.province} placeHolder={''} value={province}
                                         onChange={setProvince} valid={validProvince}/>
                 </div>
                 <div className="col-md-6 pt-3" onChange={() => setValidAltitude(true)}>
-                    <InputWithLeftLabel leftLabel={'Altitude'} placeHolder={''} value={altitude}
+                    <InputWithLeftLabel leftLabel={translation.inputs.labels.addCity.altitude} placeHolder={''} value={altitude}
                                         onChange={setAltitude} valid={validAltitude}/>
                 </div>
             </div>

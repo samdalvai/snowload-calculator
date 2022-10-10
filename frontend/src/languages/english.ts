@@ -21,6 +21,17 @@ export const english: Translation = {
                 roofLenght: "Roof length (sl)",
                 roofWidth: "Roof width (l)",
                 safetyCoefficient: "1.5 safety coefficient"
+            },
+            addCity: {
+                zip:  "ZIP code",
+                name: "Name",
+                province: "Province",
+                altitude: "Altitude"
+            }
+        },
+        placeholders: {
+            roofData: {
+                searchCity: "Search city..."
             }
         }
     }

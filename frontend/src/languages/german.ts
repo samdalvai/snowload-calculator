@@ -21,6 +21,17 @@ export const german: Translation = {
                 roofLenght: "Sparrenlänge (sl)",
                 roofWidth: "Trauflänge (l)",
                 safetyCoefficient: "1.5 Teilsicherheitsbeiwert"
+            },
+            addCity: {
+                zip:  "Postleitzahl",
+                name: "Name",
+                province: "Provinz",
+                altitude: "Höhenlage"
+            }
+        },
+        placeholders: {
+            roofData: {
+                searchCity: "Stadt suchen..."
             }
         }
     }

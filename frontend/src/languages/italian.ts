@@ -13,5 +13,15 @@ export const italian: Translation = {
         print: "Stampa",
         back: "Indietro",
         send: "Invia"
+    },
+    inputs: {
+        labels: {
+            roofData: {
+                steepness: "Pendenza (α)",
+                roofLenght: "Lunghezza falda (sl)",
+                roofWidth: "Lunghezza gronda (l)",
+                safetyCoefficient: "1.5 coefficiente di sicurezza"
+            }
+        }
     }
 }

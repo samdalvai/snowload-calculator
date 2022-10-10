@@ -13,5 +13,15 @@ export const german: Translation = {
         print: "Drucken",
         back: "Zurück",
         send: "Senden"
+    },
+    inputs: {
+        labels: {
+            roofData: {
+                steepness: "Neigung (α)",
+                roofLenght: "Sparrenlänge (sl)",
+                roofWidth: "Trauflänge (l)",
+                safetyCoefficient: "1.5 Teilsicherheitsbeiwert"
+            }
+        }
     }
 }

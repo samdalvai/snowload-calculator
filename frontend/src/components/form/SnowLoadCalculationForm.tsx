@@ -1,6 +1,6 @@
 import {CitiesSelector} from "../selection/CitiesSelector";
 import {Callback, RoofDataCallback} from "../../functions/callbacks";
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {City, defaultCity, RoofData} from "../../functions/types";
 import {isInputBetweenLowerAndUpperBound, isValidSteepness} from "../../functions/validation/stringValidation";
 import {StringToFloatNumber} from "../../functions/conversion/stringConversion";
@@ -9,9 +9,12 @@ import {ComputeButton} from "../button/ComputeButton";
 import {ResetButton} from "../button/ResetButton";
 import {InputWithTwoLabels} from "../input/InputWithLabels";
 import {CheckBoxWithDescription} from "../input/CheckBoxWithDescription";
+import {LanguageContext} from "../language/LanguageContext";
 
 export const SnowLoadCalculationForm = ({roofData, onCompute}:
                                             { roofData: RoofData | null, onCompute: RoofDataCallback }) => {
+    const {translation} = useContext(LanguageContext);
+
     const [selectedCity, setSelectedCity] = useState<City | null>(roofData ? roofData.city : null)
     const [steepness, setSteepness] = useState<string>(roofData ? (roofData.steepness).toString() : '')
     const [roofLength, setRoofLength] = useState<string>(roofData ? (roofData.roofLength).toString() : '')
@@ -100,7 +103,7 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
             </div>
             <div className="row">
                 <div className="col-md-6 pt-3">
-                    <InputWithTwoLabels leftLabel={'Steepness (α)'} placeHolder={''} rightLabel={'°'}
+                    <InputWithTwoLabels leftLabel={translation.inputs.labels.roofData.steepness} placeHolder={''} rightLabel={'°'}
                                         value={steepness}
                                         onChange={value => {
                                             setSteepness(value)
@@ -108,7 +111,7 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
                                         }} valid={validSteepness}/>
                 </div>
                 <div className="col-md-6 pt-3">
-                    <InputWithTwoLabels leftLabel={'Roof length (sl)'} placeHolder={''} rightLabel={'m'}
+                    <InputWithTwoLabels leftLabel={translation.inputs.labels.roofData.roofLenght} placeHolder={''} rightLabel={'m'}
                                         value={roofLength}
                                         onChange={value => {
                                             setRoofLength(value)
@@ -118,7 +121,7 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
             </div>
             <div className="row">
                 <div className="col-md-6 pt-3">
-                    <InputWithTwoLabels leftLabel={'Roof width (l)'} placeHolder={''} rightLabel={'m'}
+                    <InputWithTwoLabels leftLabel={translation.inputs.labels.roofData.roofWidth} placeHolder={''} rightLabel={'m'}
                                         value={roofWidth}
                                         onChange={value => {
                                             setRoofWidth(value)
@@ -126,7 +129,7 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
                                         }} valid={validRoofWidth}/>
                 </div>
                 <div className="col-md-6 pt-3">
-                    <CheckBoxWithDescription placeHolder={'1.5 safety coefficient'} checked={coefficient}
+                    <CheckBoxWithDescription placeHolder={translation.inputs.labels.roofData.safetyCoefficient} checked={coefficient}
                                              onChange={() => setCoefficient(!coefficient)}/>
                 </div>
             </div>

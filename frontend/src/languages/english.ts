@@ -13,5 +13,15 @@ export const english: Translation = {
         print: "Print",
         back: "Back",
         send: "Send"
+    },
+    inputs: {
+        labels: {
+            roofData: {
+                steepness: "Steepness (α)",
+                roofLenght: "Roof length (sl)",
+                roofWidth: "Roof width (l)",
+                safetyCoefficient: "1.5 safety coefficient"
+            }
+        }
     }
 }

@@ -16,6 +16,16 @@ export interface Translation {
         addCity: string,
         print: string,
         back: string
+    },
+    inputs: {
+        labels: {
+            roofData: {
+                steepness: string,
+                roofLenght: string,
+                roofWidth: string,
+                safetyCoefficient: string
+            }
+        }
     }
 
     // Add new text for the application here,

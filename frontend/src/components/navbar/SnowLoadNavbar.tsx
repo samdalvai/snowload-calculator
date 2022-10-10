@@ -2,6 +2,7 @@ import {SnowLoadLogo} from "../logo/SnowLoadLogo";
 import React, {useContext} from "react";
 import {LanguageSelector} from "../language/LanguageSelector";
 import {LanguageContext} from "../language/LanguageContext";
+import {FlagIcon} from "../icon/FlagIcon";
 
 export const SnowLoadNavbar = () => {
     const {selectTranslation} = useContext(LanguageContext);

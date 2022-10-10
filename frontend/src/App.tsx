@@ -4,6 +4,7 @@ import {SnowLoadForm} from "./components/form/SnowLoadForm";
 import {getTranslation, Language, Translation} from "./languages/translation";
 import {english} from "./languages/english";
 import { LanguageContext } from './components/language/LanguageContext';
+import {FlagIcon} from "./components/icon/FlagIcon";
 
 function App() {
     const [translation, setTranslation] = useState<Translation>(english)

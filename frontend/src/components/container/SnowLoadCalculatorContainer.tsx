@@ -3,6 +3,7 @@ import {SnowLoadHeader} from "../header/SnowLoadHeader";
 import {SnowLoadFooter} from "../footer/SnowLoadFooter";
 import {TermsOfUse} from "../text/TermsOfUse";
 import {SnowLoadNavbar} from "../navbar/SnowLoadNavbar";
+import {ImageContainerRounded} from "../image/ImageContainerRounded";
 
 export const SnowLoadCalculatorContainer = ({body}: { body: ReactElement }) => {
     return (
@@ -15,9 +16,7 @@ export const SnowLoadCalculatorContainer = ({body}: { body: ReactElement }) => {
                 {body}
                 <div className="row pt-3">
                     <div className="col-md-6 pt-3 image-container">
-                        <div className="img-fluid">
-                            <img src={"/img/roof.jpg"} className="rounded" alt="Roof"/>
-                        </div>
+                        <ImageContainerRounded url={"/img/roof.jpg"} alt={"Roof"}/>
                     </div>
                     <div className="col-md-6 pt-3">
                         <TermsOfUse/>

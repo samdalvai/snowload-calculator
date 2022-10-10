@@ -1,8 +1,9 @@
 import React, {useState} from "react";
-import {LanguageCallback, StringCallBack} from "../../functions/callbacks";
+import {LanguageCallback} from "../../functions/callbacks";
+import {FlagIcon} from "../icon/FlagIcon";
 
 export const LanguageSelector = ({onSelectLanguage}: { onSelectLanguage: LanguageCallback }) => {
-    const [selectValue, setValue] = useState("")
+    const [selectValue, setValue] = useState("en")
 
     const handleSelect = (e: any) => {
         setValue(e.target.value);

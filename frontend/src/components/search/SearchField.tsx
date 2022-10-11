@@ -1,11 +1,14 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {Callback, StringCallBack} from "../../functions/callbacks";
 import {AddButton} from "../button/AddButton";
 import {DeleteButton} from "../button/DeleteButton";
 import {Input} from "../input/InputWithLabels";
+import {LanguageContext} from "../language/LanguageContext";
 
 export const SearchField = ({placeHolder, onSearch, onAdd, valid}:
                                 { placeHolder: string, onSearch: StringCallBack, onAdd: Callback, valid: boolean }) => {
+    const {translation} = useContext(LanguageContext);
+
     const [search, setSearch] = useState<string>('');
 
     const resetSearch = () => {
@@ -27,7 +30,7 @@ export const SearchField = ({placeHolder, onSearch, onAdd, valid}:
                 <AddButton onAdd={() => {
                     onAdd();
                     resetSearch()
-                }} tooltip={'Click to add a new city'}/>
+                }} tooltip={translation.buttons.toolTips.addButton}/>
             </div>
         </div>
     )

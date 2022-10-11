@@ -10,7 +10,7 @@ export const SendButton = ({onSend}: {onSend: Callback}) => {
     return (
         <ButtonWithIcon icon={<PaperAirplaneIcon size={22}/>}
                         type={"success"}
-                        text={translation.buttons.send}
+                        text={translation.buttons.text.send}
                         onClick={onSend}/>
     )
 }

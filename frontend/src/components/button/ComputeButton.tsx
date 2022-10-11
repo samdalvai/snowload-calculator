@@ -10,7 +10,7 @@ export const ComputeButton = ({onCompute}: { onCompute: Callback }) => {
     return (
         <ButtonWithIcon icon={<SnowFlakeIcon size={22}/>}
                         type={"primary"}
-                        text={translation.buttons.compute}
+                        text={translation.buttons.text.compute}
                         onClick={onCompute}/>
     )
 }

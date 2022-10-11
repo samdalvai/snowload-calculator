@@ -10,7 +10,7 @@ export const PrintButton = ({onGenerate}: { onGenerate: Callback }) => {
     return (
         <ButtonWithIcon icon={<FileIcon size={22}/>}
                         type={"light"}
-                        text={translation.buttons.print}
+                        text={translation.buttons.text.print}
                         onClick={onGenerate}/>
     )
 }

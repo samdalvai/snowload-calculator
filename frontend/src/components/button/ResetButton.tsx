@@ -10,7 +10,7 @@ export const ResetButton = ({onReset}: { onReset: Callback }) => {
     return (
         <ButtonWithIcon icon={<TrashIcon size={22}/>}
                         type={"secondary"}
-                        text={translation.buttons.reset}
+                        text={translation.buttons.text.reset}
                         onClick={onReset}/>
     )
 }

@@ -10,7 +10,7 @@ export const AddCityButton = ({onAddCity}: {onAddCity: Callback}) => {
     return (
         <ButtonWithIcon icon={<HomeIcon size={20}/>}
                         type={"primary"}
-                        text={translation.buttons.addCity}
+                        text={translation.buttons.text.addCity}
                         onClick={onAddCity}/>
     )
 }

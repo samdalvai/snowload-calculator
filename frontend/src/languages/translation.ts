@@ -10,12 +10,18 @@ export interface Translation {
         text2: string
     },
     buttons: {
-        send: string;
-        compute: string,
-        reset: string,
-        addCity: string,
-        print: string,
-        back: string
+        text: {
+            send: string;
+            compute: string,
+            reset: string,
+            addCity: string,
+            print: string,
+            back: string
+        },
+        toolTips: {
+            addButton: string,
+            deleteButton: string
+        }
     },
     inputs: {
         labels: {

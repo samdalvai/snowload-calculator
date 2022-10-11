@@ -10,7 +10,7 @@ export const BackButton = ({onBack}: { onBack: Callback }) => {
     return (
         <ButtonWithIcon icon={<ArrowLeftIcon size={22}/>}
                         type={"primary"}
-                        text={translation.buttons.back}
+                        text={translation.buttons.text.back}
                         onClick={onBack}/>
     )
 }

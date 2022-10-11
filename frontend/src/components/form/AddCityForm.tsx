@@ -100,17 +100,17 @@ export const AddCityForm = () => {
         <div>
             {
                 showAlert ?
-                    <Alert type={"danger"} message={'You have an error in your input, please retry...'}
+                    <Alert type={"danger"} message={translation.alerts.inputError}
                                 onClose={() => setShowAlert(false)}/> : ""
             }
             {    // TODO: When adding a new city, the CitySelector component must be reloaded manually to get new city...
                 success ?
-                    <Alert type={"success"} message={'New city successfully added, please reload the previous page'}
+                    <Alert type={"success"} message={translation.alerts.addCity.success}
                            onClose={() => setSuccess(false)} /> : ""
             }
             {
                 error ?
-                    <Alert type={"danger"} message={'Error adding new city, please retry...'}
+                    <Alert type={"danger"} message={translation.alerts.addCity.error}
                                   onClose={() => setError(false)}/> : ""
             }
             <div className="row">

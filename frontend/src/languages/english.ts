@@ -10,7 +10,13 @@ export const english: Translation = {
         title: "Snowload Calculator"
     },
     footer: {
-
+        title: "Snowload Calculator",
+        resources: {
+            title: "Resources",
+        },
+        about: {
+            title: "About"
+        }
     },
     termsOfUse: {
         title: "Terms of use",
@@ -102,6 +108,21 @@ export const english: Translation = {
                     label: "string"
                 }
             }
+        }
+    },
+    loading: {
+        cities: "Loading cities...",
+        computation: "Computing snowload..."
+    },
+    error: {
+        cities: "Error loading cities..."
+    },
+    alerts: {
+        inputError: "You have an error in your input, please retry...",
+        computationError: "An error occurred in the snow load calculation, please go back and try again...",
+        addCity: {
+            error: "Error adding new city, please retry...",
+            success: "New city successfully added, please reload the previous page"
         }
     }
 }

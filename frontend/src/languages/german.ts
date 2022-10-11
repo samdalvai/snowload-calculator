@@ -10,7 +10,13 @@ export const german: Translation = {
         title: "Schneelastrechner"
     },
     footer: {
-
+        title: "Schneelastrechner",
+        resources: {
+            title: "Ressourcen",
+        },
+        about: {
+            title: "About"
+        }
     },
     termsOfUse: {
         title: "Bedingungen für die Nutzung",
@@ -102,6 +108,21 @@ export const german: Translation = {
                     label: "Schubkraft an der Traufe"
                 }
             }
+        }
+    },
+    loading: {
+        cities: "Städte werden geladen...",
+        computation: "Berechnung der Schneelast..."
+    },
+    error: {
+        cities: "Fehler beim Laden von Städten..."
+    },
+    alerts: {
+        inputError: "Sie haben einen Fehler in Ihrer Eingabe, bitte versuchen Sie es erneut...",
+        computationError: "Bei der Schneelastberechnung ist ein Fehler aufgetreten, bitte gehen Sie zurück und versuchen Sie es erneut...",
+        addCity: {
+            error: "Fehler beim Hinzufügen einer neuen Stadt, bitte versuchen Sie es erneut...",
+            success: "Neue Stadt erfolgreich hinzugefügt, bitte laden Sie die vorherige Seite neu"
         }
     }
 }

@@ -12,7 +12,13 @@ export interface Translation {
         title: string
     },
     footer: {
-
+        title: string,
+        resources: {
+            title: string,
+        },
+        about: {
+            title: string
+        }
     },
     termsOfUse: {
         title: string,
@@ -105,6 +111,21 @@ export interface Translation {
                     label: string
                 }
             }
+        }
+    },
+    loading: {
+        cities: string,
+        computation: string
+    },
+    error: {
+        cities: string
+    },
+    alerts: {
+        inputError: string,
+        computationError: string,
+        addCity: {
+            error: string,
+            success: string
         }
     }
 

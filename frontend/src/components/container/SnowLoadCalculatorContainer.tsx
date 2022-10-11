@@ -23,10 +23,13 @@ export const SnowLoadCalculatorContainer = ({body}: { body: ReactElement }) => {
                     </div>
                 </div>
             </div>
+            {
+                // Uncomment to enable footer
+                /*<div className={"pt-3"}>
+                    <SnowLoadFooter />
+                </div>*/
+            }
 
-            <div className={"pt-3"}>
-                <SnowLoadFooter />
-            </div>
         </div>
     )
 }

@@ -10,7 +10,13 @@ export const italian: Translation = {
         title: "Calcolo carico neve"
     },
     footer: {
-
+        title: "Calcolo carico neve",
+        resources: {
+            title: "Risorse",
+        },
+        about: {
+            title: "About"
+        }
     },
     termsOfUse: {
         title: "Termini di utilizzo",
@@ -102,6 +108,21 @@ export const italian: Translation = {
                     label: "Carico neve in gronda"
                 }
             }
+        }
+    },
+    loading: {
+        cities: "Caricamento delle città...",
+        computation: "Calcolo del carico di neve..."
+    },
+    error: {
+        cities: "Errore nel caricamento delle città..."
+    },
+    alerts: {
+        inputError: "Si è verificato un errore nell'inserimento dei dati, riprovare...",
+        computationError: "Si è verificato un errore nel calcolo del carico di neve, tornare indietro e riprovare...",
+        addCity: {
+            error: "Errore nell'aggiunta di una nuova città, riprovare...",
+            success: "Nuova città aggiunta con successo, ricaricare la pagina precedente"
         }
     }
 }

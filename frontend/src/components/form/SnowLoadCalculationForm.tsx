@@ -94,7 +94,7 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
     return (
         <div className={"pt-3"}>
             {
-                showAlert ? <Alert type={"danger"} message={'You have an error in your input, please retry...'}
+                showAlert ? <Alert type={"danger"} message={translation.alerts.inputError}
                                    onClose={() => setShowAlert(false)}/> : ""
             }
             <div onChange={() => setValidCity(true)}>

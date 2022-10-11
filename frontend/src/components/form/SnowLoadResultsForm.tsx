@@ -113,7 +113,7 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
                                             <>
                                                 <tr>
                                                     <td colSpan={2}>
-                                                        <DisabledInput placeHolder={"Computing snowload..."}/>
+                                                        <DisabledInput placeHolder={translation.loading.computation}/>
                                                     </td>
                                                 </tr>
                                             </>
@@ -124,7 +124,7 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
                         </div>
                         :
                         <NonDismissableAlert
-                            message={"An error occurred in the snow load calculation, please go back and try again..."}
+                            message={translation.alerts.computationError}
                             type={"danger"}/>
                 }
             </div>

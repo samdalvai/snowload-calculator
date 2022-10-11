@@ -32,9 +32,9 @@ export const CitiesSearch = ({onSelectCity, valid}: { onSelectCity: CityCallBack
         <div>
             <AddCityModal show={showNewCityForm} onHide={() => setShowNewCityForm(false)}/>
             {
-                error ? <ErrorInput message={"Error loading cities..."}/> :
+                error ? <ErrorInput message={translation.error.cities}/> :
                     loading ?
-                        <DisabledInput placeHolder={"Loading cities..."}/> :
+                        <DisabledInput placeHolder={translation.loading.cities}/> :
                         <div>
                             <SearchField onSearch={filterCities}
                                          placeHolder={translation.inputs.placeholders.roofData.searchCity}

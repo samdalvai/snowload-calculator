@@ -30,7 +30,8 @@ export const italian: Translation = {
             reset: "Reset",
             print: "Stampa",
             back: "Indietro",
-            send: "Invia"
+            send: "Invia",
+            ahead: "Avanti"
         },
         toolTips: {
             addButton: "Fare clic per aggiungere una nuova città",

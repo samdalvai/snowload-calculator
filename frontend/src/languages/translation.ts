@@ -32,7 +32,8 @@ export interface Translation {
             reset: string,
             addCity: string,
             print: string,
-            back: string
+            back: string,
+            ahead: string
         },
         toolTips: {
             addButton: string,

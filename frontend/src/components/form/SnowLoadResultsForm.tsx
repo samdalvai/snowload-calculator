@@ -6,6 +6,9 @@ import {NonDismissableAlert} from "../alert/NonDismissableAlert";
 import {PrintButton} from "../button/PrintButton";
 import {DisabledInput} from "../input/DisabledInput";
 import {LanguageContext} from "../language/LanguageContext";
+import {ComputeButton} from "../button/ComputeButton";
+import {ResetButton} from "../button/ResetButton";
+import {ButtonsGroup} from "../button/ButtonsGroup";
 
 export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onBack}:
                                         { roofData: RoofData | null, snowLoadData: SnowLoadData, error: Boolean, loading: boolean, onBack: Callback }) => {
@@ -129,15 +132,9 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
                 }
             </div>
 
-            <div className="row">
-                {
-                    roofData ? <div className="col-md-6 pt-3">
-                        <PrintButton onGenerate={window.print}/>
-                    </div> : ""
-                }
-                <div className={"col-md-" + (roofData ? "6" : "12") + " pt-3"}>
-                    <BackButton onBack={onBack}/>
-                </div>
+            <div>
+                <ButtonsGroup leftButton={roofData ? <PrintButton onGenerate={window.print}/> : <div></div>}
+                              rightButton={<BackButton onBack={onBack}/>}/>
             </div>
         </div>
     )

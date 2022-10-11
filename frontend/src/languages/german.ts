@@ -30,7 +30,8 @@ export const german: Translation = {
             reset: "Zurücksetzen",
             print: "Drucken",
             back: "Zurück",
-            send: "Senden"
+            send: "Senden",
+            ahead: "Weiter"
         },
         toolTips: {
             addButton: "Klicken Sie, um eine neue Stadt hinzuzufügen",

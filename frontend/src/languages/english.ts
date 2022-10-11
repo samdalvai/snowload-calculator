@@ -30,7 +30,8 @@ export const english: Translation = {
             reset: "Reset",
             print: "Print",
             back: "Back",
-            send: "Send"
+            send: "Send",
+            ahead: "Ahead"
         },
         toolTips: {
             addButton: "Click to add a new city",
@@ -102,10 +103,10 @@ export const english: Translation = {
                     label: "Load on the ground"
                 },
                 roofLoad: {
-                    label: "string"
+                    label: "Roof Load"
                 },
                 linearLoad: {
-                    label: "string"
+                    label: "Linear Load"
                 }
             }
         }

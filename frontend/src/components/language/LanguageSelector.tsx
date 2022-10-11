@@ -16,9 +16,9 @@ export const LanguageSelector = ({onSelectLanguage}: { onSelectLanguage: Languag
             <select className="form-select shadow-sm all-border"
                     value={selectValue}
                     onChange={handleSelect}>
-                <option value="en">{getFlagEmoji('GB')} {translation.selection.languageSelector.english}</option>
                 <option value="it">{getFlagEmoji('IT')} {translation.selection.languageSelector.italian}</option>
                 <option value="de">{getFlagEmoji('DE')} {translation.selection.languageSelector.german}</option>
+                <option value="en">{getFlagEmoji('GB')} {translation.selection.languageSelector.english}</option>
             </select>
         </div>
     )

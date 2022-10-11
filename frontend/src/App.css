@@ -43,8 +43,20 @@
 }
 
 .text-shadow {
-  text-shadow: 0 0 1.5px black;
+  text-shadow: 0 0 3.5px black!important;
 }
+
+.bold {
+  font-weight: bold;
+}
+.arial {
+  font-family: Arial;
+}
+
+div {
+  font-family: Arial!important;
+}
+
 
 .text-center-important {
   text-align: center!important;

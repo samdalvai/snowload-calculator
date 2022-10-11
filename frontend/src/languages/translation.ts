@@ -4,6 +4,12 @@ import {german} from "./german";
 
 export interface Translation {
     language: Language,
+    header: {
+        title: string
+    },
+    footer: {
+
+    },
     termsOfUse: {
         title: string,
         text1: string,
@@ -42,6 +48,13 @@ export interface Translation {
             roofData: {
                 searchCity: string
             }
+        }
+    },
+    selection: {
+        languageSelector: {
+            english: string,
+            italian: string,
+            german: string
         }
     }
 

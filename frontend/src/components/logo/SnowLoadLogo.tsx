@@ -4,7 +4,7 @@ export const SnowLoadLogo = ({text}: {text: String}) => {
     return (
         <h1 className={"white text-shadow"} >
             <strong>
-                Snowload Calculator
+                {text}
             </strong>
         </h1>
     )

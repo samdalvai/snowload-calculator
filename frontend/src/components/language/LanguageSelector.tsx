@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {LanguageCallback} from "../../functions/callbacks";
-import {FlagIcon} from "../icon/FlagIcon";
-
+import {LanguageContext} from "./LanguageContext";
 export const LanguageSelector = ({onSelectLanguage}: { onSelectLanguage: LanguageCallback }) => {
+    const {translation} = useContext(LanguageContext);
+
     const [selectValue, setValue] = useState("en")
 
     const handleSelect = (e: any) => {
@@ -12,12 +13,21 @@ export const LanguageSelector = ({onSelectLanguage}: { onSelectLanguage: Languag
 
     return (
         <div>
-            <select className="form-select shadow-sm" value={selectValue}
+            <select className="form-select shadow-sm"
+                    value={selectValue}
                     onChange={handleSelect}>
-                <option value="en">English</option>
-                <option value="it">Italian</option>
-                <option value="de">German</option>
+                <option value="en">{getFlagEmoji('GB')} {translation.selection.languageSelector.english}</option>
+                <option value="it">{getFlagEmoji('IT')} {translation.selection.languageSelector.italian}</option>
+                <option value="de">{getFlagEmoji('DE')} {translation.selection.languageSelector.german}</option>
             </select>
         </div>
     )
+}
+
+export const getFlagEmoji = (countryCode: string): string => {
+    const codePoints = countryCode
+        .toUpperCase()
+        .split('')
+        .map(char =>  127397 + char.charCodeAt(0));
+    return String.fromCodePoint(...codePoints);
 }

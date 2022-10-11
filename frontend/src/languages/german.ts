@@ -2,6 +2,12 @@ import {Translation} from "./translation";
 
 export const german: Translation = {
     language: "de",
+    header: {
+        title: "Schneelastberechnung"
+    },
+    footer: {
+
+    },
     termsOfUse: {
         title: "Bedingungen für die Nutzung",
         text1: "Die von Ihnen gemachten Angaben werden von unserem System gemäß DIN 1055-5 / EN1991 und den Vorgaben des ZVDH-Merkblattes für Einbauteile automatisch verarbeitet. Auftretende Besonderheiten wie z.B. Dachüberstände, exponierte Lagen, Einhaltung besonderer Sicherheitsvorschriften und oder bauliche Besonderheiten werden nicht berücksichtigt und müssen gesondert geprüft werden. Diese Produktgeneration gilt in Verbindung mit den spezifischen Einbauhinweisen und den Vorgaben des ZVDH Merkblattes Einbauteile in der jeweils gültigen Fassung.",
@@ -40,6 +46,12 @@ export const german: Translation = {
             roofData: {
                 searchCity: "Stadt suchen..."
             }
+        }
+    },selection: {
+        languageSelector: {
+            english: "Englisch",
+            italian: "Italienisch",
+            german: "Deutsch"
         }
     }
 }

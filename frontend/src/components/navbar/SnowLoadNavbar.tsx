@@ -13,10 +13,9 @@ export const SnowLoadNavbar = () => {
             bottom-border snowload-grey-background">
                 <div className="container-fluid">
                     <div style={{marginLeft: "2.5%"}}>
-                        <SnowLoadLogo text={"Snowload Calculator"}/>
+                        <SnowLoadLogo text={translation.header.title}/>
                     </div>
                     <div className="d-flex">
-                        <FlagIcon size={26} language={translation.language}/>
                         <LanguageSelector
                             onSelectLanguage={lang => selectTranslation ? selectTranslation(lang) : ""}/>
                     </div>

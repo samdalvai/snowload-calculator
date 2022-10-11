@@ -2,6 +2,10 @@ import {Translation} from "./translation";
 
 export const italian: Translation = {
     language: "it",
+    words: {
+        yes: "Si",
+        no: "No"
+    },
     header: {
         title: "Calcolo carico neve"
     },
@@ -52,6 +56,52 @@ export const italian: Translation = {
             english: "Inglese",
             italian: "Italiano",
             german: "Tedesco"
+        }
+    },
+    modals: {
+        addCity: {
+            title: "Aggiunta nuova città"
+        }
+    },
+    tables: {
+        roofData: {
+            title: "Dati del tetto",
+            body: {
+                city: "Città",
+                steepness: {
+                    label: "Pendenza (α)"
+                },
+                roofLength: {
+                    label: "Lunghezza falda (sl)"
+                },
+                roofWidth: {
+                    label: "Lunghezza gronda (l)"
+                },
+                safetyCoefficient: {
+                    label: "Coefficiente di sicurezza"
+                }
+            }
+        },
+        snowLoadCalculation: {
+            title: "Calcolo carico neve",
+            body: {
+                altitude: {
+                    label: "Altitudine",
+                    units: "m s.l.m."
+                },
+                zone: {
+                    label: "Zonca climatica"
+                },
+                groundLoad: {
+                    label: "Carico neve al suolo"
+                },
+                roofLoad: {
+                    label: "Carico neve sul tetto"
+                },
+                linearLoad: {
+                    label: "Carico neve in gronda"
+                }
+            }
         }
     }
 }

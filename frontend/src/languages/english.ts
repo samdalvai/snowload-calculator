@@ -2,6 +2,10 @@ import {Translation} from "./translation";
 
 export const english: Translation = {
     language: "en",
+    words: {
+        yes: "Yes",
+        no: "No"
+    },
     header: {
         title: "Snowload Calculator"
     },
@@ -52,6 +56,52 @@ export const english: Translation = {
             english: "English",
             italian: "Italian",
             german: "German"
+        }
+    },
+    modals: {
+        addCity: {
+            title: "Add new city"
+        }
+    },
+    tables: {
+        roofData: {
+            title: "Roof data",
+            body: {
+                city: "City",
+                steepness: {
+                    label: "Steepness (α)"
+                },
+                roofLength: {
+                    label: "Roof Length (sl)"
+                },
+                roofWidth: {
+                    label: "Roof width (l)"
+                },
+                safetyCoefficient: {
+                    label: "Safety coefficient"
+                }
+            }
+        },
+        snowLoadCalculation: {
+            title: "Snow load calculation",
+            body: {
+                altitude: {
+                    label: "Altitude",
+                    units: "masl"
+                },
+                zone: {
+                    label: "Climatic zone"
+                },
+                groundLoad: {
+                    label: "Load on the ground"
+                },
+                roofLoad: {
+                    label: "string"
+                },
+                linearLoad: {
+                    label: "string"
+                }
+            }
         }
     }
 }

@@ -5,7 +5,7 @@ export const InputWithTwoLabels = ({leftLabel, rightLabel, valid, placeHolder, v
 }) => {
     return (
         <div className="input-group shadow-sm rounded">
-            <label className="input-group-text" style={{minWidth: "50%"}}>{leftLabel}</label>
+            <label className="input-group-text" style={{minWidth: "60%"}}>{leftLabel}</label>
             <Input value={value}
                    placeHolder={placeHolder}
                    valid={valid}

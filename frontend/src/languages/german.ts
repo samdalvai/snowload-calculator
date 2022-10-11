@@ -2,8 +2,12 @@ import {Translation} from "./translation";
 
 export const german: Translation = {
     language: "de",
+    words: {
+        yes: "Ja",
+        no: "Nein"
+    },
     header: {
-        title: "Schneelastberechnung"
+        title: "Schneelastrechner"
     },
     footer: {
 
@@ -52,6 +56,52 @@ export const german: Translation = {
             english: "Englisch",
             italian: "Italienisch",
             german: "Deutsch"
+        }
+    },
+    modals: {
+        addCity: {
+            title: "Neue Stadt hinzufügen"
+        }
+    },
+    tables: {
+        roofData: {
+            title: "Daten des Daches",
+            body: {
+                city: "Stadt",
+                steepness: {
+                    label: "Neigung (α)"
+                },
+                roofLength: {
+                    label: "Sparrenlänge (sl)"
+                },
+                roofWidth: {
+                    label: "Trauflänge (l)"
+                },
+                safetyCoefficient: {
+                    label: "Teilsicherheitsbeiwert"
+                }
+            }
+        },
+        snowLoadCalculation: {
+            title: "Berechnung der Schneelast",
+            body: {
+                altitude: {
+                    label: "Höhenlage",
+                    units: "Meter"
+                },
+                zone: {
+                    label: "Klimazone"
+                },
+                groundLoad: {
+                    label: "Schneelast auf dem Boden"
+                },
+                roofLoad: {
+                    label: "Schneelast auf dem Dach"
+                },
+                linearLoad: {
+                    label: "Schubkraft an der Traufe"
+                }
+            }
         }
     }
 }

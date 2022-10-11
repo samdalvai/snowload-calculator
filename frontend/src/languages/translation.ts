@@ -4,6 +4,10 @@ import {german} from "./german";
 
 export interface Translation {
     language: Language,
+    words: {
+        yes: string,
+        no: string
+    },
     header: {
         title: string
     },
@@ -55,6 +59,52 @@ export interface Translation {
             english: string,
             italian: string,
             german: string
+        }
+    },
+    modals: {
+        addCity: {
+            title: string
+        }
+    },
+    tables: {
+        roofData: {
+            title: string,
+            body: {
+                city: string,
+                steepness: {
+                    label: string
+                },
+                roofLength: {
+                    label: string
+                },
+                roofWidth: {
+                    label: string
+                },
+                safetyCoefficient: {
+                    label: string
+                }
+            }
+        },
+        snowLoadCalculation: {
+            title: string,
+            body: {
+                altitude: {
+                    label: string,
+                    units: string
+                },
+                zone: {
+                    label: string
+                },
+                groundLoad: {
+                    label: string
+                },
+                roofLoad: {
+                    label: string
+                },
+                linearLoad: {
+                    label: string
+                }
+            }
         }
     }
 

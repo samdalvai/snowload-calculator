@@ -1,13 +1,16 @@
 import {Callback} from "../../functions/callbacks";
-import React from "react";
+import React, {useContext} from "react";
 import {BackButton} from "../button/BackButton";
 import {RoofData, SnowLoadData} from "../../functions/types";
 import {NonDismissableAlert} from "../alert/NonDismissableAlert";
 import {PrintButton} from "../button/PrintButton";
 import {DisabledInput} from "../input/DisabledInput";
+import {LanguageContext} from "../language/LanguageContext";
 
 export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onBack}:
                                         { roofData: RoofData | null, snowLoadData: SnowLoadData, error: Boolean, loading: boolean, onBack: Callback }) => {
+    const {translation} = useContext(LanguageContext);
+
     React.useEffect(() => {
         const listener = (event: { code: string }) => {
             const pressedKey = event.code
@@ -45,29 +48,29 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
                                 <table className="table">
                                     <thead>
                                         <tr className="table-secondary text-center shadow-sm" style={tableHeaderStyle}>
-                                            <th scope="row" colSpan={2}>Roof data</th>
+                                            <th scope="row" colSpan={2}>{translation.tables.roofData.title}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td width={"50%"}>City</td>
+                                        <td width={"50%"}>{translation.tables.roofData.body.city}</td>
                                         <td width={"50%"}>{roofData?.city.zip} {roofData?.city.name} ({roofData?.city.province})</td>
                                     </tr>
                                     <tr>
-                                        <td width={"50%"}>Steepness (α)</td>
+                                        <td width={"50%"}>{translation.tables.roofData.body.steepness.label}</td>
                                         <td width={"50%"}>{roofData?.steepness} °</td>
                                     </tr>
                                     <tr>
-                                        <td width={"50%"}>Roof length (sl)</td>
+                                        <td width={"50%"}>{translation.tables.roofData.body.roofLength.label}</td>
                                         <td width={"50%"}>{roofData?.roofLength} m</td>
                                     </tr>
                                     <tr>
-                                        <td width={"50%"}>Roof width (l)</td>
+                                        <td width={"50%"}>{translation.tables.roofData.body.roofWidth.label}</td>
                                         <td width={"50%"}>{roofData?.roofWidth} m</td>
                                     </tr>
                                     <tr>
-                                        <td width={"50%"}>Safety coefficient</td>
-                                        <td width={"50%"}>{roofData?.coefficient ? "Yes" : "No"}</td>
+                                        <td width={"50%"}>{translation.tables.roofData.body.safetyCoefficient.label}</td>
+                                        <td width={"50%"}>{roofData?.coefficient ? translation.words.yes : translation.words.no}</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -76,13 +79,13 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
                                 <table className="table">
                                     <thead>
                                         <tr className="table-secondary text-center shadow-sm" style={tableHeaderStyle}>
-                                            <th scope="row" colSpan={2}>Snow load calculation</th>
+                                            <th scope="row" colSpan={2}>{translation.tables.snowLoadCalculation.title}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td width={"50%"}>Altitude</td>
-                                        <td width={"50%"}>{roofData?.city.altitude} masl</td>
+                                        <td width={"50%"}>{translation.tables.snowLoadCalculation.body.altitude.label}</td>
+                                        <td width={"50%"}>{roofData?.city.altitude} {translation.tables.snowLoadCalculation.body.altitude.units}</td>
                                     </tr>
                                     <tr>
                                         <td width={"50%"}>Climatic zone</td>
@@ -92,17 +95,17 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
                                         !loading ?
                                             <>
                                                 <tr>
-                                                    <td width={"50%"}>Load on the ground</td>
+                                                    <td width={"50%"}>{translation.tables.snowLoadCalculation.body.groundLoad.label}</td>
                                                     <td width={"50%"}>{snowLoadData.groundLoad.toFixed(2)} kN/m<sup>2</sup>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td width={"50%"}>Load on the roof</td>
+                                                    <td width={"50%"}>{translation.tables.snowLoadCalculation.body.roofLoad.label}</td>
                                                     <td width={"50%"}>{snowLoadData.roofLoad.toFixed(2)} kN/m<sup>2</sup>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td width={"50%"}>Load per linear meter</td>
+                                                    <td width={"50%"}>{translation.tables.snowLoadCalculation.body.linearLoad.label}</td>
                                                     <td width={"50%"}>{snowLoadData.linearLoad.toFixed(2)} kN/m</td>
                                                 </tr>
                                             </>

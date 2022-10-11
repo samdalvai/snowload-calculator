@@ -146,3 +146,25 @@ export const getTranslation = (language: Language): Translation => {
             return german;
     }
 }
+
+export const getBrowserLanguage = (): Translation => {
+    switch (navigator.language) {
+        case "en":
+        case "en-GB":
+        case "en-US":
+        case "en-CA":
+            return english
+        case "it":
+        case "it-IT":
+        case "it-CH":
+            return italian
+        case "de":
+        case "de-DE":
+        case "de-CH":
+        case "de-AT":
+        case "de-LU":
+            return german
+        default:
+            return english
+    }
+}

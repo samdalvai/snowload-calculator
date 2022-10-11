@@ -1,7 +1,5 @@
 import {LanguageContext} from "../language/LanguageContext";
 import React, {useContext} from "react";
-import {FlagIcon} from "../icon/FlagIcon";
-import {SnowFlakeIcon} from "../icon/SnowFlakeIcon";
 
 export const TermsOfUse = () => {
     const {translation} = useContext(LanguageContext);

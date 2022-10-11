@@ -1,9 +1,9 @@
 import {createContext} from "react";
 import {english} from "../../languages/english";
-import {Language, Translation} from "../../languages/translation";
+import {getBrowserLanguage, Language, Translation} from "../../languages/translation";
 
 export const LanguageContext = createContext<ILanguageContext>({
-    translation: english
+    translation: getBrowserLanguage()
 });
 
 export interface ILanguageContext {

@@ -1,10 +1,11 @@
 import React, {useContext, useState} from "react";
 import {LanguageCallback} from "../../functions/callbacks";
 import {LanguageContext} from "./LanguageContext";
+import {Language} from "../../languages/translation";
 export const LanguageSelector = ({onSelectLanguage}: { onSelectLanguage: LanguageCallback }) => {
     const {translation} = useContext(LanguageContext);
 
-    const [selectValue, setValue] = useState("en")
+    const [selectValue, setValue] = useState<Language>(translation.language)
 
     const handleSelect = (e: any) => {
         setValue(e.target.value);

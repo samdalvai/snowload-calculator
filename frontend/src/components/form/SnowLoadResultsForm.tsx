@@ -8,7 +8,8 @@ import {DisabledInput} from "../input/DisabledInput";
 import {LanguageContext} from "../language/LanguageContext";
 import {ComputeButton} from "../button/ComputeButton";
 import {ResetButton} from "../button/ResetButton";
-import {ButtonsGroup} from "../button/ButtonsGroup";
+import {ButtonsGroup, ButtonsGroupSmall} from "../button/ButtonsGroup";
+import {AheadButton} from "../button/AheadButton";
 
 export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onBack}:
                                         { roofData: RoofData | null, snowLoadData: SnowLoadData, error: Boolean, loading: boolean, onBack: Callback }) => {
@@ -134,7 +135,11 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
 
             <div>
                 <ButtonsGroup leftButton={roofData ? <PrintButton onGenerate={window.print}/> : <div></div>}
-                              rightButton={<BackButton onBack={onBack}/>}/>
+                              rightButton={<ButtonsGroupSmall
+                                  leftButton={<BackButton onBack={onBack}/>}
+                                  rightButton={<AheadButton onAhead={() => null}/>}
+                              />}
+                />
             </div>
         </div>
     )

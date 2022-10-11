@@ -4,15 +4,28 @@ import {Callback} from "../../functions/callbacks";
 
 export type ButtonType = "primary" | "secondary" | "success" | "info" | "light"
 
-export const ButtonWithIcon = ({icon, text, type, width = "100%", onClick}:
-                                   { icon: ReactElement<IconProps>, text?: string, type: ButtonType, width?: string, onClick: Callback }) => {
+
+export const ButtonWithIcon = ({icon, text, type, width = "100%", alignRight = false, onClick}:
+                                   { icon: ReactElement<IconProps>, text?: string, type: ButtonType, width?: string, alignRight?: boolean, onClick: Callback }) => {
     return (
         <div>
             <button type="submit"
                     className={"btn btn-" + type + " shadow-sm rounded all-border button-animated"}
                     style={{width: width}}
                     onClick={onClick}>
-                {icon} {text}
+                {
+                    alignRight ?
+                        text :
+                        icon
+                }
+                {
+                    " "
+                }
+                {
+                    alignRight ?
+                        icon :
+                        text
+                }
             </button>
         </div>
     )

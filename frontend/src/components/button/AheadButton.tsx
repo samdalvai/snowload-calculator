@@ -9,8 +9,10 @@ export const AheadButton = ({onAhead}: { onAhead: Callback }) => {
 
     return (
         <ButtonWithIcon icon={<ArrowRightIcon size={22}/>}
-                        type={"primary"}
-                        text={translation.buttons.text.ahead}
-                        onClick={onAhead}/>
+                            type={"primary"}
+                            text={translation.buttons.text.ahead}
+                            onClick={onAhead}
+                            alignRight
+        />
     )
 }

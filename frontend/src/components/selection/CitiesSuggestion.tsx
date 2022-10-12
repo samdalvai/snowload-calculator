@@ -38,12 +38,27 @@ export const CitiesSuggestionList = ({cities, keyword, onSelectCity}: { cities: 
 }
 
 export const CitySuggestion = ({city, keyword, selected, onSelectCity}: { city: City, keyword: string, selected: boolean, onSelectCity: CityCallBack }) => {
+    const selectedBackground = "#e9ecef"
+    const nonSelectedBackGround = "white"
+
+    const [backGround, setBackGround] = useState<string>(selected ? selectedBackground : nonSelectedBackGround)
+
+    React.useEffect(() => {
+        if (selected)
+            setBackGround(selectedBackground)
+        else
+            setBackGround(nonSelectedBackGround)
+
+    }, [selected])
+
     return (
         <button type="button"
                 className={"list-group-item list-group-item-action list-group-item-light"}
-                style={{backgroundColor: selected ? "#e9ecef" : "white"}}
+                style={{backgroundColor: backGround}}
                 key={city.zip + city.name}
-                onClick={() => onSelectCity(city)}>
+                onClick={() => onSelectCity(city)}
+                //onMouseOver={}
+        >
             <CityData city={city} keyword={keyword}/>
         </button>
     )

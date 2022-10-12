@@ -18,10 +18,10 @@ export const ButtonsGroupSmall = ({leftButton,rightButton}:
                                  { leftButton: ReactElement, rightButton: ReactElement }) => {
     return (
         <div className="row">
-            <div className="col-6">
+            <div className="col-6 pe-1">
                 {leftButton}
             </div>
-            <div className="col-6">
+            <div className="col-6 ps-1">
                 {rightButton}
             </div>
         </div>

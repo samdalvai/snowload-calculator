@@ -12,10 +12,12 @@ import {CheckBoxWithDescription} from "../input/CheckBoxWithDescription";
 import {LanguageContext} from "../language/LanguageContext";
 import {ButtonsGroup} from "../button/ButtonsGroup";
 import {useKeyBoardPress} from "../../functions/hooks/useKeyBoardPress";
+import {SnowLoadContext} from "../context/SnowLoadContext";
 
 export const SnowLoadCalculationForm = ({roofData, onCompute}:
                                             { roofData: RoofData | null, onCompute: RoofDataCallback }) => {
     const {translation} = useContext(LanguageContext);
+    const {citiesSelectionActive} = useContext(SnowLoadContext)
 
     const [selectedCity, setSelectedCity] = useState<City | null>(roofData ? roofData.city : null)
     const [steepness, setSteepness] = useState<string>(roofData ? (roofData.steepness).toString() : '')
@@ -42,7 +44,12 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
         validateInputs()
     }
 
-    useKeyBoardPress(["Enter", "NumpadEnter"], handleOnCompute)
+    const handleEnterPress = () => {
+        if (!citiesSelectionActive)
+            handleOnCompute()
+    }
+
+    useKeyBoardPress(["Enter", "NumpadEnter"], handleEnterPress)
 
     const validateInputs = () => {
         if (selectedCity === null)
@@ -89,7 +96,7 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
                                    onClose={() => setShowAlert(false)}/> : ""
             }
             <div onChange={() => setValidCity(true)}>
-                <CitiesSelector selectedCity={selectedCity} onSelectedCity={setSelectedCity}
+                <CitiesSelector selectedCity={selectedCity} onSelectCity={setSelectedCity}
                                 valid={validCity}/>
             </div>
             <div className="row">

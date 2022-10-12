@@ -51,6 +51,12 @@ export const english: Translation = {
                 name: "Name",
                 province: "Province",
                 altitude: "Altitude"
+            },
+            retainersForm: {
+                roofType: "Roof type",
+                retainingSystem: "Retaining system",
+                retainerHeight: "Retainer height",
+                retainerRows: "Retainer rows"
             }
         },
         placeholders: {

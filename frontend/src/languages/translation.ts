@@ -53,6 +53,12 @@ export interface Translation {
                 name: string,
                 province: string,
                 altitude: string
+            },
+            retainersForm: {
+                roofType: string,
+                retainingSystem: string,
+                retainerHeight: string,
+                retainerRows: string
             }
         },
         placeholders: {

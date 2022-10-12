@@ -51,6 +51,12 @@ export const german: Translation = {
                 name: "Name",
                 province: "Provinz",
                 altitude: "Höhenlage"
+            },
+            retainersForm: {
+                roofType: "Dachdeckung",
+                retainingSystem: "Schneefangsystem",
+                retainerHeight: "Schneefanghöhe",
+                retainerRows: "Schneefangreihen"
             }
         },
         placeholders: {

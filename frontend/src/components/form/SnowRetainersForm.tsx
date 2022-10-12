@@ -2,10 +2,13 @@ import {BackButton} from "../button/BackButton";
 import {Callback} from "../../functions/callbacks";
 import {useKeyBoardPress} from "../../functions/hooks/useKeyBoardPress";
 import {SelectorOptionData} from "../input/Selector";
-import React from "react";
+import React, {useContext} from "react";
 import {SelectorWithLabel} from "../input/SelectorWithLabel";
+import {LanguageContext} from "../language/LanguageContext";
 
 export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
+    const {translation} = useContext(LanguageContext);
+
     useKeyBoardPress(["Backspace"], onBack)
 
     const optionData: SelectorOptionData[] = [
@@ -15,16 +18,45 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
     ]
 
     return (
-        <div>
-            <SelectorWithLabel lableText={"Roof Type"}
-                               lableWidth={"25%"}
-                               defaultValue={"1"}
-                               optionData={optionData}
-                               onSelect={() => null}/>
+        <div className={"pt-3"}>
+            <div className="row">
+                <div className="col-md-6">
+                    <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.roofType}
+                                       lableWidth={"55%"}
+                                       defaultValue={"1"}
+                                       optionData={optionData}
+                                       onSelect={() => null}/>
+                </div>
 
+                <div className="col-md-6">
+                    <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainingSystem}
+                                       lableWidth={"55%"}
+                                       defaultValue={"1"}
+                                       optionData={optionData}
+                                       onSelect={() => null}/>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-md-6">
+                    <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerHeight}
+                                       lableWidth={"55%"}
+                                       defaultValue={"1"}
+                                       optionData={optionData}
+                                       onSelect={() => null}/>
+                </div>
 
+                <div className="col-md-6">
+                    <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerRows}
+                                       lableWidth={"55%"}
+                                       defaultValue={"1"}
+                                       optionData={optionData}
+                                       onSelect={() => null}/>
+                </div>
+            </div>
 
-            <BackButton onBack={onBack}/>
+            <div className={"pt-3"}>
+                <BackButton onBack={onBack}/>
+            </div>
         </div>
     )
 }

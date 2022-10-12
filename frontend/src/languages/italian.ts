@@ -51,6 +51,12 @@ export const italian: Translation = {
                 name: "Nome",
                 province: "Provincia",
                 altitude: "Altitudine"
+            },
+            retainersForm: {
+                roofType: "Tipo di copertura",
+                retainingSystem: "Sistema fermaneve",
+                retainerHeight: "Altezza paraneve",
+                retainerRows: "File paraneve"
             }
         },
         placeholders: {

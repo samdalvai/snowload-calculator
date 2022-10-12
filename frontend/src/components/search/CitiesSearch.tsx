@@ -40,9 +40,14 @@ export const CitiesSearch = ({onSelectCity, valid}: { onSelectCity: CityCallBack
                                          placeHolder={translation.inputs.placeholders.roofData.searchCity}
                                          valid={valid}
                                          onAdd={() => setShowNewCityForm(true)}/>
-                            <CitiesSuggestionList cities={filteredCities}
-                                                  keyword={keyword}
-                                                  onSelectCity={onSelectCity}/>
+                            {
+                                filteredCities.length > 0 ?
+                                    <CitiesSuggestionList cities={filteredCities}
+                                                          keyword={keyword}
+                                                          onSelectCity={onSelectCity}/>
+                                    :
+                                    ""
+                            }
                         </div>
             }
         </div>

@@ -2,8 +2,17 @@ import {City} from "../../functions/types";
 import {CityCallBack} from "../../functions/callbacks";
 import {getCityString} from "../../functions/search/searchCity";
 import React from "react";
+import {useKeyBoardPress} from "../../functions/hooks/useKeyBoardPress";
 
 export const CitiesSuggestionList = ({cities, keyword, onSelectCity}: { cities: City[], keyword: string, onSelectCity: CityCallBack }) => {
+    useKeyBoardPress(["ArrowUp"], () => {
+        console.log("Arrow up!!")
+
+    })
+
+    useKeyBoardPress(["ArrowDown"], () => {
+        console.log("Arrow down!!")
+    })
 
     return (
         <div className="list-group shadow-sm rounded">

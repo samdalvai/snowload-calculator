@@ -1,6 +1,5 @@
 import {City} from "../types";
 import {useApiGet} from "./useApi";
-import {ProvincesResponse} from "./useProvinces";
 
 export type CitiesResponse = {
     cities: City[],

@@ -1,6 +1,6 @@
 import {CitiesSelector} from "../selection/CitiesSelector";
-import {Callback, RoofDataCallback} from "../../functions/callbacks";
-import React, {ReactElement, useContext, useState} from "react";
+import {RoofDataCallback} from "../../functions/callbacks";
+import React, {useContext, useState} from "react";
 import {City, defaultCity, RoofData} from "../../functions/types";
 import {isInputBetweenLowerAndUpperBound, isValidSteepness} from "../../functions/validation/stringValidation";
 import {StringToFloatNumber} from "../../functions/conversion/stringConversion";
@@ -11,6 +11,7 @@ import {InputWithTwoLabels} from "../input/InputWithLabels";
 import {CheckBoxWithDescription} from "../input/CheckBoxWithDescription";
 import {LanguageContext} from "../language/LanguageContext";
 import {ButtonsGroup} from "../button/ButtonsGroup";
+import {useKeyBoardPress} from "../../functions/hooks/useKeyBoardPress";
 
 export const SnowLoadCalculationForm = ({roofData, onCompute}:
                                             { roofData: RoofData | null, onCompute: RoofDataCallback }) => {
@@ -29,23 +30,6 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
 
     const [showAlert, setShowAlert] = useState<boolean>(false)
 
-    React.useEffect(() => {
-        const listener = (event: { code: string; }) => {
-            const pressedKey = event.code
-
-            if (pressedKey === "Enter" || pressedKey === "NumpadEnter")
-                validateInputs()
-        };
-
-        // handle keyboard event only if window element exist (Eg. on pc)
-        if (typeof document !== 'undefined') {
-            document.addEventListener("keydown", listener);
-            return () => {
-                document.removeEventListener("keydown", listener);
-            };
-        }
-    });
-
     const resetInputs = () => {
         setSelectedCity(null)
         setSteepness('')
@@ -53,6 +37,12 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
         setRoofWidth('')
         setCoefficient(false)
     }
+
+    const handleOnCompute = () => {
+        validateInputs()
+    }
+
+    useKeyBoardPress(["Enter", "NumpadEnter"], handleOnCompute)
 
     const validateInputs = () => {
         if (selectedCity === null)
@@ -139,7 +129,7 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
                 </div>
             </div>
             <div className={"pt-3"}>
-                <ButtonsGroup leftButton={<ComputeButton onCompute={validateInputs}/>}
+                <ButtonsGroup leftButton={<ComputeButton onCompute={handleOnCompute}/>}
                                        rightButton={<ResetButton onReset={() => {
                                            resetInputs()
                                            resetInvalidInputs()

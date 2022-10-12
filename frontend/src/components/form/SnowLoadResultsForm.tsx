@@ -6,35 +6,19 @@ import {NonDismissableAlert} from "../alert/NonDismissableAlert";
 import {PrintButton} from "../button/PrintButton";
 import {DisabledInput} from "../input/DisabledInput";
 import {LanguageContext} from "../language/LanguageContext";
-import {ComputeButton} from "../button/ComputeButton";
-import {ResetButton} from "../button/ResetButton";
 import {ButtonsGroup, ButtonsGroupSmall} from "../button/ButtonsGroup";
 import {AheadButton} from "../button/AheadButton";
+import {useKeyBoardPress} from "../../functions/hooks/useKeyBoardPress";
 
 export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onBack}:
                                         { roofData: RoofData | null, snowLoadData: SnowLoadData, error: Boolean, loading: boolean, onBack: Callback }) => {
     const {translation} = useContext(LanguageContext);
 
-    React.useEffect(() => {
-        const listener = (event: { code: string }) => {
-            const pressedKey = event.code
-
-            if (pressedKey === "Backspace")
-                handleBackspace();
-        };
-
-        // handle keyboard event only if window element exist (Eg. on pc)
-        if (typeof document !== 'undefined'){
-            document.addEventListener("keydown", listener);
-            return () => {
-                document.removeEventListener("keydown", listener);
-            };
-        }
-    });
-
     const handleBackspace = () => {
         onBack();
     }
+
+    useKeyBoardPress(["Backspace"], handleBackspace)
 
     const tableHeaderStyle = {
         borderTopWidth: "1.5px",

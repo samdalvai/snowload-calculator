@@ -1,5 +1,5 @@
 import {City} from "../../functions/types";
-import {CityCallBack} from "../../functions/callbacks";
+import {Callback, CityCallBack} from "../../functions/callbacks";
 import {getCityString} from "../../functions/search/searchCity";
 import React, {useState} from "react";
 import {useKeyBoardPress} from "../../functions/hooks/useKeyBoardPress";
@@ -12,15 +12,17 @@ export const CitiesSuggestionList = ({cities, keyword, onSelectCity}: { cities: 
     }, [cities])
 
     useKeyBoardPress(["ArrowUp"], () => {
-        console.log("Arrow up!! ", selectedIndex)
         if (selectedIndex > 0)
             setSelectedIndex(selectedIndex - 1)
     })
 
     useKeyBoardPress(["ArrowDown"], () => {
-        console.log("Arrow down!! ", selectedIndex)
         if (selectedIndex < cities.length - 1)
             setSelectedIndex(selectedIndex + 1)
+    })
+
+    useKeyBoardPress(["Enter"], () => {
+        console.log("Enter!! ")
     })
 
     return (
@@ -31,13 +33,16 @@ export const CitiesSuggestionList = ({cities, keyword, onSelectCity}: { cities: 
                         city={city}
                         keyword={keyword}
                         onSelectCity={onSelectCity}
-                        key={city.zip+city.name} selected={index === selectedIndex}/>) : ""
+                        key={city.zip+city.name}
+                        selected={index === selectedIndex}
+                        onMouseEnter={() => setSelectedIndex(-1)}/>) : ""
             }
         </div>
     )
 }
 
-export const CitySuggestion = ({city, keyword, selected, onSelectCity}: { city: City, keyword: string, selected: boolean, onSelectCity: CityCallBack }) => {
+export const CitySuggestion = ({city, keyword, selected, onMouseEnter, onSelectCity}:
+                                   { city: City, keyword: string, selected: boolean, onMouseEnter: Callback, onSelectCity: CityCallBack }) => {
     const selectedBackground = "#e9ecef"
     const nonSelectedBackGround = "white"
 
@@ -57,7 +62,11 @@ export const CitySuggestion = ({city, keyword, selected, onSelectCity}: { city: 
                 style={{backgroundColor: backGround}}
                 key={city.zip + city.name}
                 onClick={() => onSelectCity(city)}
-                //onMouseOver={}
+                onMouseEnter={() => {
+                    onMouseEnter()
+                    setBackGround(selectedBackground)
+                }}
+                onMouseLeave={() => setBackGround(nonSelectedBackGround)}
         >
             <CityData city={city} keyword={keyword}/>
         </button>

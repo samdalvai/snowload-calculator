@@ -35,14 +35,17 @@ export const CitiesSuggestionList = ({cities, keyword, onSelectCity}: { cities: 
                         onSelectCity={onSelectCity}
                         key={city.zip+city.name}
                         selected={index === selectedIndex}
-                        onMouseEnter={() => setSelectedIndex(-1)}/>) : ""
+                        onMouseEnter={() => setSelectedIndex(index)}
+                        onMouseLeave={() => setSelectedIndex(-1)}
+                    />
+                    ) : ""
             }
         </div>
     )
 }
 
-export const CitySuggestion = ({city, keyword, selected, onMouseEnter, onSelectCity}:
-                                   { city: City, keyword: string, selected: boolean, onMouseEnter: Callback, onSelectCity: CityCallBack }) => {
+export const CitySuggestion = ({city, keyword, selected, onMouseEnter, onMouseLeave, onSelectCity}:
+                                   { city: City, keyword: string, selected: boolean, onMouseEnter: Callback, onMouseLeave: Callback, onSelectCity: CityCallBack }) => {
     const selectedBackground = "#e9ecef"
     const nonSelectedBackGround = "white"
 
@@ -62,11 +65,8 @@ export const CitySuggestion = ({city, keyword, selected, onMouseEnter, onSelectC
                 style={{backgroundColor: backGround}}
                 key={city.zip + city.name}
                 onClick={() => onSelectCity(city)}
-                onMouseEnter={() => {
-                    onMouseEnter()
-                    setBackGround(selectedBackground)
-                }}
-                onMouseLeave={() => setBackGround(nonSelectedBackGround)}
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
         >
             <CityData city={city} keyword={keyword}/>
         </button>

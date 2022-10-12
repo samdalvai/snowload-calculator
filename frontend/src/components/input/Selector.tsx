@@ -2,7 +2,7 @@ import React from "react";
 import {AnyCallback} from "../../functions/callbacks";
 
 export interface SelectorOptionData {
-    value: string;
+    value: any;
     text: string;
 }
 

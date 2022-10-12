@@ -1,10 +1,11 @@
 import {BackButton} from "../button/BackButton";
 import {Callback} from "../../functions/callbacks";
 import {useKeyBoardPress} from "../../functions/hooks/useKeyBoardPress";
-import {Selector, SelectorOptionData} from "../input/Selector";
+import {SelectorOptionData} from "../input/Selector";
 import React from "react";
+import {SelectorWithLabel} from "../input/SelectorWithLabel";
 
-export const SnowRetainersForm = ({onBack}: {onBack: Callback}) => {
+export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
     useKeyBoardPress(["Backspace"], onBack)
 
     const optionData: SelectorOptionData[] = [
@@ -15,11 +16,15 @@ export const SnowRetainersForm = ({onBack}: {onBack: Callback}) => {
 
     return (
         <div>
-            <div className="input-group mb-3">
-                <label className="input-group-text" htmlFor="inputGroupSelect01">Options</label>
-                <Selector optionData={optionData} defaultValue={"1"} onSelect={() => null}/>
-            </div>
-            <BackButton onBack={onBack} />
+            <SelectorWithLabel lableText={"Roof Type"}
+                               lableWidth={"25%"}
+                               defaultValue={"1"}
+                               optionData={optionData}
+                               onSelect={() => null}/>
+
+
+
+            <BackButton onBack={onBack}/>
         </div>
     )
 }

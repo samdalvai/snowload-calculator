@@ -14,3 +14,5 @@ export type BooleanCallback = (arg: boolean) => void
 export type RoofDataCallback = (arg: RoofData) => void
 
 export type LanguageCallback = (arg: Language) => void
+
+export type AnyCallback = (arg: any) => void

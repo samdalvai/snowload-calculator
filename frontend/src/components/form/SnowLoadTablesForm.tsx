@@ -118,7 +118,7 @@ export const SnowLoadTablesForm = ({roofData, snowLoadData, error, loading, onBa
                 <ButtonsGroup leftButton={roofData ? <PrintButton onGenerate={window.print}/> : <div></div>}
                               rightButton={<ButtonsGroupSmall
                                   leftButton={<BackButton onBack={onBack}/>}
-                                  rightButton={<AheadButton onAhead={() => null}/>}
+                                  rightButton={<AheadButton onAhead={onAhead}/>}
                               />}
                 />
             </div>

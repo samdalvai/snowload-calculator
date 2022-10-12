@@ -2,10 +2,20 @@ import React, {useContext, useState} from "react";
 import {LanguageCallback} from "../../functions/callbacks";
 import {LanguageContext} from "./LanguageContext";
 import {Language} from "../../languages/translation";
+import {Selector, SelectorOptionData} from "../selection/Selector";
+
+
+
 export const LanguageSelector = ({onSelectLanguage}: { onSelectLanguage: LanguageCallback }) => {
     const {translation} = useContext(LanguageContext);
 
     const [selectValue, setValue] = useState<Language>(translation.language)
+
+    const optionData: SelectorOptionData[] = [
+        {value: "it", text: getFlagEmoji('IT') + " " + translation.selection.languageSelector.italian},
+        {value: "de", text: getFlagEmoji('DE') + " " + translation.selection.languageSelector.german},
+        {value: "en", text: getFlagEmoji('GB') + " " + translation.selection.languageSelector.english}
+    ]
 
     const handleSelect = (e: any) => {
         setValue(e.target.value);
@@ -14,13 +24,7 @@ export const LanguageSelector = ({onSelectLanguage}: { onSelectLanguage: Languag
 
     return (
         <div>
-            <select className="form-select shadow-sm all-border"
-                    value={selectValue}
-                    onChange={handleSelect}>
-                <option value="it">{getFlagEmoji('IT')} {translation.selection.languageSelector.italian}</option>
-                <option value="de">{getFlagEmoji('DE')} {translation.selection.languageSelector.german}</option>
-                <option value="en">{getFlagEmoji('GB')} {translation.selection.languageSelector.english}</option>
-            </select>
+            <Selector optionData={optionData} defaultValue={selectValue} onSelect={handleSelect} />
         </div>
     )
 }

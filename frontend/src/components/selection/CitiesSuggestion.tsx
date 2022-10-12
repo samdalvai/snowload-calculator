@@ -22,7 +22,7 @@ export const CitiesSuggestionList = ({cities, keyword, onSelectCity}: { cities: 
     })
 
     useKeyBoardPress(["Enter"], () => {
-        console.log("Enter!! ")
+        onSelectCity(cities[selectedIndex])
     })
 
     return (

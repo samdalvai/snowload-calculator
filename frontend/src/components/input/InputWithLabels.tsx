@@ -1,16 +1,17 @@
 import {StringCallBack} from "../../functions/callbacks";
+import {Label} from "./Lable";
 
 export const InputWithTwoLabels = ({leftLabel, rightLabel, valid, placeHolder, value, onChange}: {
     leftLabel: string, rightLabel: string, valid: boolean, placeHolder: string, value: string, onChange: StringCallBack
 }) => {
     return (
         <div className="input-group shadow-sm rounded">
-            <label className="input-group-text" style={{minWidth: "60%"}}>{leftLabel}</label>
+            <Label text={leftLabel} minWidth={"60%"} />
             <Input value={value}
                    placeHolder={placeHolder}
                    valid={valid}
                    onChange={onChange}/>
-            <label className="input-group-text" style={{minWidth: "15%"}}>{rightLabel}</label>
+            <Label text={rightLabel} minWidth={"15%"} />
         </div>
     )
 }
@@ -20,8 +21,7 @@ export const InputWithLeftLabel = ({leftLabel, valid, placeHolder, value, onChan
 }) => {
     return (
         <div className="input-group shadow-sm rounded">
-            <label className="input-group-text"
-                   style={{minWidth: "50%"}}>{leftLabel}</label>
+            <Label text={leftLabel} minWidth={"50%"} />
             <Input value={value}
                    placeHolder={placeHolder}
                    valid={valid}

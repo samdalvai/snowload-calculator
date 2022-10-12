@@ -6,10 +6,10 @@ export interface SelectorOptionData {
     text: string;
 }
 
-export const Selector = ({optionData, defaultValue, onSelect}:
-                             { optionData: SelectorOptionData[], defaultValue: any, onSelect: AnyCallback }) => {
+export const Selector = ({optionData, defaultValue, border, onSelect}:
+                             { optionData: SelectorOptionData[], defaultValue: any, border?: boolean, onSelect: AnyCallback }) => {
     return (
-        <select className="form-select shadow-sm all-border"
+        <select className={"form-select shadow-sm" + (border ? " all-border" : "")}
                 value={defaultValue}
                 onChange={onSelect}>
             {

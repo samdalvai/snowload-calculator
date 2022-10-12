@@ -2,7 +2,7 @@ import React, {useContext, useState} from "react";
 import {LanguageCallback} from "../../functions/callbacks";
 import {LanguageContext} from "./LanguageContext";
 import {Language} from "../../languages/translation";
-import {Selector, SelectorOptionData} from "../selection/Selector";
+import {Selector, SelectorOptionData} from "../input/Selector";
 
 
 
@@ -24,7 +24,7 @@ export const LanguageSelector = ({onSelectLanguage}: { onSelectLanguage: Languag
 
     return (
         <div>
-            <Selector optionData={optionData} defaultValue={selectValue} onSelect={handleSelect} />
+            <Selector optionData={optionData} defaultValue={selectValue} onSelect={handleSelect} border/>
         </div>
     )
 }

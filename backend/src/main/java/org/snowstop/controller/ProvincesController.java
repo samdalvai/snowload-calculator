@@ -12,11 +12,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/provinces")
-public class ProvinceController {
+public class ProvincesController {
 
     private final ProvinceRepository provinceRepository;
 
-    public ProvinceController(ProvinceRepository provinceRepository) {
+    public ProvincesController(ProvinceRepository provinceRepository) {
         this.provinceRepository = provinceRepository;
     }
 

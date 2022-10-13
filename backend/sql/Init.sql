@@ -49,6 +49,8 @@ CREATE TABLE holder
         ON DELETE CASCADE
 );
 
+-- TODO: CREATE DEFINITION FOR RETAINER AND MAP OBJECTS TO API
+
 INSERT INTO product VALUES
         ('030303','Nr. 76 B','https://www.flender-flux.de/fileadmin/products/030303/2.jpg'),
         ('030387','Nr. 176 V','https://www.flender-flux.de/fileadmin/products/030387/2.jpg');

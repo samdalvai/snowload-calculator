@@ -33,6 +33,17 @@ export interface Translation {
             title: string
         }
     },
+    pages: {
+        calculationForm: {
+            title: string
+        },
+        resultsForm: {
+            title: string
+        },
+        retainersForm: {
+            title: string
+        }
+    },
     termsOfUse: {
         title: string,
         text1: string,

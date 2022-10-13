@@ -10,6 +10,7 @@ import {DisabledInput} from "../input/DisabledInput";
 import {ComputeButton} from "../button/ComputeButton";
 import {ResetButton} from "../button/ResetButton";
 import {ButtonsGroup} from "../button/ButtonsGroup";
+import {TitleCard} from "../card/TitleCard";
 
 export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
     const {translation} = useContext(LanguageContext);
@@ -59,6 +60,9 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
 
     return (
         <div>
+            <div className={"py-3"}>
+                <TitleCard  title={translation.pages.retainersForm.title}/>
+            </div>
             <div className="row">
                 <div className="col-md-6 pt-3">
                     <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.roofType}

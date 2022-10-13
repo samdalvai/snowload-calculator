@@ -14,6 +14,7 @@ import {ButtonsGroup} from "../button/ButtonsGroup";
 import {useKeyBoardPress} from "../../functions/hooks/useKeyBoardPress";
 import {SnowLoadContext} from "../context/SnowLoadContext";
 import {defaultCity} from "../../functions/defaultTypes";
+import {TitleCard} from "../card/TitleCard";
 
 export const SnowLoadCalculationForm = ({roofData, onCompute}:
                                             { roofData: RoofData | null, onCompute: RoofDataCallback }) => {
@@ -91,12 +92,15 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
     }
 
     return (
-        <div className={"pt-3"}>
+        <div>
+            <div className={"py-3"}>
+                <TitleCard  title={translation.pages.calculationForm.title}/>
+            </div>
             {
                 showAlert ? <Alert type={"danger"} message={translation.alerts.inputError}
                                    onClose={() => setShowAlert(false)}/> : ""
             }
-            <div onChange={() => setValidCity(true)}>
+            <div className={"pt-3"} onChange={() => setValidCity(true)}>
                 <CitiesSelector selectedCity={selectedCity} onSelectCity={setSelectedCity}
                                 valid={validCity}/>
             </div>
@@ -138,10 +142,10 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
             </div>
             <div className={"pt-3"}>
                 <ButtonsGroup leftButton={<ComputeButton onCompute={handleOnCompute}/>}
-                                       rightButton={<ResetButton onReset={() => {
-                                           resetInputs()
-                                           resetInvalidInputs()
-                                       }}/>}/>
+                              rightButton={<ResetButton onReset={() => {
+                                  resetInputs()
+                                  resetInvalidInputs()
+                              }}/>}/>
             </div>
         </div>
     )

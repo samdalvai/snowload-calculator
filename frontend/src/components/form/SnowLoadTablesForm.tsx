@@ -9,6 +9,7 @@ import {ButtonsGroup, ButtonsGroupSmall} from "../button/ButtonsGroup";
 import {PrintButton} from "../button/PrintButton";
 import {BackButton} from "../button/BackButton";
 import {AheadButton} from "../button/AheadButton";
+import {TitleCard} from "../card/TitleCard";
 
 export const SnowLoadTablesForm = ({roofData, snowLoadData, error, loading, onBack, onAhead}:
                                      { roofData: RoofData | null, snowLoadData: SnowLoadData, error: Boolean, loading: boolean, onBack: Callback, onAhead: Callback }) => {
@@ -25,6 +26,9 @@ export const SnowLoadTablesForm = ({roofData, snowLoadData, error, loading, onBa
 
     return (
         <div>
+            <div className={"py-3"}>
+                <TitleCard  title={translation.pages.resultsForm.title}/>
+            </div>
             <div>
                 {
                     !error ?

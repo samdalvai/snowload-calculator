@@ -78,6 +78,12 @@ export interface Translation {
             roofData: {
                 searchCity: string
             }
+        },
+        options: {
+            roofType: {
+                concreteTile: string,
+                flatTile: string
+            }
         }
     },
     selection: {

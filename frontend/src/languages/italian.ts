@@ -76,6 +76,12 @@ export const italian: Translation = {
             roofData: {
                 searchCity: "Ricerca città"
             }
+        },
+        options: {
+            roofType: {
+                concreteTile: "Tegola in cemento/cotto",
+                flatTile: "Tegola piana"
+            }
         }
     },selection: {
         languageSelector: {

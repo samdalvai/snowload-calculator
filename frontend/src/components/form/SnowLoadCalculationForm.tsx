@@ -1,7 +1,7 @@
 import {CitiesSelector} from "../selection/CitiesSelector";
 import {RoofDataCallback} from "../../functions/callbacks";
 import React, {useContext, useState} from "react";
-import {City, defaultCity, RoofData} from "../../functions/types";
+import {City, RoofData} from "../../functions/types";
 import {isInputBetweenLowerAndUpperBound, isValidSteepness} from "../../functions/validation/stringValidation";
 import {StringToFloatNumber} from "../../functions/conversion/stringConversion";
 import {Alert} from "../alert/Alert";
@@ -13,6 +13,7 @@ import {LanguageContext} from "../language/LanguageContext";
 import {ButtonsGroup} from "../button/ButtonsGroup";
 import {useKeyBoardPress} from "../../functions/hooks/useKeyBoardPress";
 import {SnowLoadContext} from "../context/SnowLoadContext";
+import {defaultCity} from "../../functions/defaultTypes";
 
 export const SnowLoadCalculationForm = ({roofData, onCompute}:
                                             { roofData: RoofData | null, onCompute: RoofDataCallback }) => {

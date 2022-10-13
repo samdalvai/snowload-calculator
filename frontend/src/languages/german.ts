@@ -76,6 +76,12 @@ export const german: Translation = {
             roofData: {
                 searchCity: "Stadt suchen..."
             }
+        },
+        options: {
+            roofType: {
+                concreteTile: "Dachziegel und Dachstein",
+                flatTile: "Schiefer und Shindeln"
+            }
         }
     },selection: {
         languageSelector: {

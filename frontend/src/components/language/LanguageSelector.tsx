@@ -11,7 +11,7 @@ export const LanguageSelector = ({onSelectLanguage}: { onSelectLanguage: Languag
 
     const [selectValue, setValue] = useState<Language>(translation.language)
 
-    const optionData: SelectorOptionData[] = [
+    const optionData: SelectorOptionData<Language>[] = [
         {value: "it", text: getFlagEmoji('IT') + " " + translation.selection.languageSelector.italian},
         {value: "de", text: getFlagEmoji('DE') + " " + translation.selection.languageSelector.german},
         {value: "en", text: getFlagEmoji('GB') + " " + translation.selection.languageSelector.english}

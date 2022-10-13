@@ -76,6 +76,12 @@ export const english: Translation = {
             roofData: {
                 searchCity: "Search city..."
             }
+        },
+        options: {
+            roofType: {
+                concreteTile: "Concrete tile",
+                flatTile: "Flat tile"
+            }
         }
     },selection: {
         languageSelector: {

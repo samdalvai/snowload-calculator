@@ -1,10 +1,10 @@
 import React, {useState} from "react";
-import {defaultSnowLoadData, Province, RoofData, SnowLoadData} from "../../functions/types";
+import {Province, RoofData, SnowLoadData} from "../../functions/types";
 import {getGroundLoad, getLinearLoad, getRoofLoad} from "../../functions/computation/snowLoadComputation";
-import {SnowLoadCalculatorCard} from "../card/SnowLoadCalculatorCard";
 import {SnowLoadCalculationForm} from "./SnowLoadCalculationForm";
 import {SnowLoadResultsForm} from "./SnowLoadResultsForm";
 import {SnowLoadCalculatorContainer} from "../container/SnowLoadCalculatorContainer";
+import {defaultSnowLoadData} from "../../functions/defaultTypes";
 
 export const SnowLoadForm = () => {
     const [computed, setComputed] = useState<boolean>(false)

@@ -1,5 +1,6 @@
 import {getGroundLoad, getLinearLoad, getRoofLoad} from "../functions/computation/snowLoadComputation";
-import {City, defaultCity, Province} from "../functions/types";
+import {City, Province} from "../functions/types";
+import {defaultCity} from "../functions/defaultTypes";
 const {expect} = require('chai');
 
 describe('testing snowload computation functions', () => {

@@ -81,6 +81,10 @@ export const italian: Translation = {
             roofType: {
                 concreteTile: "Tegola in cemento/cotto",
                 flatTile: "Tegola piana"
+            },
+            retainingSystem: {
+                grid: "Griglia",
+                doubleTube: "Doppio tubo"
             }
         }
     },selection: {

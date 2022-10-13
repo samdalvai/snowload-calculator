@@ -5,13 +5,15 @@ import {SelectorOptionData} from "../input/Selector";
 import React, {useContext, useState} from "react";
 import {SelectorWithLabel} from "../input/SelectorWithLabel";
 import {LanguageContext} from "../language/LanguageContext";
-import {RoofData, RoofType} from "../../functions/types";
+import {RetainingSystem, RoofData, RoofType} from "../../functions/types";
 
 export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
     const {translation} = useContext(LanguageContext);
 
     const [rowsValue, setRowsValue] = useState<number>(1)
     const [roofTypeValue, setRoofTypeValue] = useState<RoofType>("concreteTile")
+    const [retainingSystemValue, setRetainingSystemValue] = useState<RetainingSystem>("Grid")
+
 
     useKeyBoardPress(["Backspace"], onBack)
 
@@ -25,6 +27,11 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
     const roofTypeData: SelectorOptionData<RoofType>[] = [
         {value: "concreteTile", text: translation.inputs.options.roofType.concreteTile},
         {value: "flatTile", text: translation.inputs.options.roofType.flatTile}
+    ]
+
+    const retainingSystemData: SelectorOptionData<RetainingSystem>[] = [
+        {value: "Grid", text: translation.inputs.options.retainingSystem.grid},
+        {value: "DoubleTube", text: translation.inputs.options.retainingSystem.doubleTube}
     ]
 
     const retainerRowsData: SelectorOptionData<number>[] = [
@@ -49,9 +56,9 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
                 <div className="col-md-6">
                     <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainingSystem}
                                        lableWidth={"55%"}
-                                       defaultValue={"1"}
-                                       optionData={optionData}
-                                       onSelect={() => null}/>
+                                       defaultValue={retainingSystemValue}
+                                       optionData={retainingSystemData}
+                                       onSelect={e => setRetainingSystemValue(e.target.value)}/>
                 </div>
             </div>
             <div className="row">

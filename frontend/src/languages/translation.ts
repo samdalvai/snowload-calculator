@@ -83,6 +83,10 @@ export interface Translation {
             roofType: {
                 concreteTile: string,
                 flatTile: string
+            },
+            retainingSystem: {
+                grid: string,
+                doubleTube: string
             }
         }
     },

@@ -81,6 +81,10 @@ export const english: Translation = {
             roofType: {
                 concreteTile: "Concrete tile",
                 flatTile: "Flat tile"
+            },
+            retainingSystem: {
+                grid: "Grid",
+                doubleTube: "Double tube"
             }
         }
     },selection: {

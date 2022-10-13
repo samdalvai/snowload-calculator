@@ -30,5 +30,6 @@ export interface SnowLoadData {
     linearLoad: number
 }
 
-// Only two types supported at the beginning
 export type RoofType = "concreteTile" | "flatTile"
+
+export type RetainingSystem = "Grid" | "DoubleTube"

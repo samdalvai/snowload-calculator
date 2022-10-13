@@ -81,6 +81,10 @@ export const german: Translation = {
             roofType: {
                 concreteTile: "Dachziegel und Dachstein",
                 flatTile: "Schiefer und Shindeln"
+            },
+            retainingSystem: {
+                grid: "Schneefanggitter",
+                doubleTube: "Doppelrohr"
             }
         }
     },selection: {

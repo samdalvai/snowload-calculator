@@ -6,7 +6,20 @@ export interface Translation {
     language: Language,
     words: {
         yes: string,
-        no: string
+        no: string,
+        row: string,
+        numbers: {
+            one: string,
+            two: string,
+            three: string,
+            four: string,
+            five: string,
+            six: string,
+            seven: string,
+            eight: string,
+            nine: string,
+            ten: string
+        }
     },
     header: {
         title: string

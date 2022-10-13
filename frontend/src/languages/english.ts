@@ -4,7 +4,20 @@ export const english: Translation = {
     language: "en",
     words: {
         yes: "Yes",
-        no: "No"
+        no: "No",
+        row: "row",
+        numbers: {
+            one: "One",
+            two: "Two",
+            three: "Three",
+            four: "Four",
+            five: "Five",
+            six: "Six",
+            seven: "Seven",
+            eight: "Eight",
+            nine: "Nine",
+            ten: "Ten"
+        }
     },
     header: {
         title: "Snowload Calculator"

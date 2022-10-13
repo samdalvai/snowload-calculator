@@ -8,7 +8,7 @@ export const SelectorWithLabel = ({lableText, lableWidth, optionData, defaultVal
     return (
         <div className="input-group mb-3">
             <Label text={lableText} minWidth={lableWidth} />
-            <Selector optionData={optionData} defaultValue={defaultValue} onSelect={onSelect}/>
+            <Selector optionData={optionData} value={defaultValue} onSelect={onSelect}/>
         </div>
     )
 }

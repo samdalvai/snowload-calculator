@@ -24,7 +24,7 @@ export const LanguageSelector = ({onSelectLanguage}: { onSelectLanguage: Languag
 
     return (
         <div>
-            <Selector optionData={optionData} defaultValue={selectValue} onSelect={handleSelect} border/>
+            <Selector optionData={optionData} value={selectValue} onSelect={handleSelect} border/>
         </div>
     )
 }

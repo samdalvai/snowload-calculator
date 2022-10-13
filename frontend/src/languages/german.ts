@@ -4,7 +4,20 @@ export const german: Translation = {
     language: "de",
     words: {
         yes: "Ja",
-        no: "Nein"
+        no: "Nein",
+        row: "Reihe",
+        numbers: {
+            one: "Eine",
+            two: "Zwei",
+            three: "Drei",
+            four: "Vier",
+            five: "Fünf",
+            six: "Sechs",
+            seven: "Sieben",
+            eight: "Acht",
+            nine: "Neun",
+            ten: "Zehn"
+        }
     },
     header: {
         title: "Schneelastrechner"

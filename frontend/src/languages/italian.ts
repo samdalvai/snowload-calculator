@@ -4,7 +4,20 @@ export const italian: Translation = {
     language: "it",
     words: {
         yes: "Si",
-        no: "No"
+        no: "No",
+        row: "fila",
+        numbers: {
+            one: "Una",
+            two: "Due",
+            three: "Tre",
+            four: "Quattro",
+            five: "Cinque",
+            six: "Sei",
+            seven: "Sette",
+            eight: "Otto",
+            nine: "Nove",
+            ten: "Dieci"
+        }
     },
     header: {
         title: "Calcolo carico neve"

@@ -1,3 +1,5 @@
+import exp from "constants";
+
 export interface City {
     zip: string,
     name: string,
@@ -33,3 +35,5 @@ export interface SnowLoadData {
 export type RoofType = "concreteTile" | "flatTile"
 
 export type RetainingSystem = "Grid" | "DoubleTube"
+
+export type RetainerHeight = "200" | "250" | null

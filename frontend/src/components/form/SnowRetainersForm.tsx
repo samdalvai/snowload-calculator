@@ -5,24 +5,23 @@ import {SelectorOptionData} from "../input/Selector";
 import React, {useContext, useState} from "react";
 import {SelectorWithLabel} from "../input/SelectorWithLabel";
 import {LanguageContext} from "../language/LanguageContext";
-import {RetainingSystem, RoofData, RoofType} from "../../functions/types";
+import {RetainerHeight, RetainingSystem, RoofData, RoofType} from "../../functions/types";
+import {DisabledInput} from "../input/DisabledInput";
+import {ComputeButton} from "../button/ComputeButton";
+import {ResetButton} from "../button/ResetButton";
+import {ButtonsGroup} from "../button/ButtonsGroup";
 
 export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
     const {translation} = useContext(LanguageContext);
 
-    const [rowsValue, setRowsValue] = useState<number>(1)
     const [roofTypeValue, setRoofTypeValue] = useState<RoofType>("concreteTile")
     const [retainingSystemValue, setRetainingSystemValue] = useState<RetainingSystem>("Grid")
+    const [retainerHeightValue, setRetainerHeightValue] = useState<RetainerHeight>("200")
+    const [rowsValue, setRowsValue] = useState<number>(1)
 
+    const [hasHeight, setHasHeight] = useState<boolean>(true)
 
     useKeyBoardPress(["Backspace"], onBack)
-
-    // to be deleted
-    const optionData: SelectorOptionData<string>[] = [
-        {value: "1", text: "Whatever 1"},
-        {value: "2", text: "whatever 2"},
-        {value: "3", text: "Whatever 3"}
-    ]
 
     const roofTypeData: SelectorOptionData<RoofType>[] = [
         {value: "concreteTile", text: translation.inputs.options.roofType.concreteTile},
@@ -34,6 +33,11 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
         {value: "DoubleTube", text: translation.inputs.options.retainingSystem.doubleTube}
     ]
 
+    const retainerHeightData: SelectorOptionData<RetainerHeight>[] = [
+        {value: "200", text: "200 mm"},
+        {value: "250", text: "250 mm"}
+    ]
+
     const retainerRowsData: SelectorOptionData<number>[] = [
         {value: 1, text: translation.words.numbers.one},
         {value: 2, text: translation.words.numbers.two},
@@ -42,10 +46,21 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
         {value: 5, text: translation.words.numbers.five}
     ]
 
+    React.useEffect(() => {
+        if (retainingSystemValue === "Grid") {
+            setHasHeight(true)
+            setRetainerHeightValue("200")
+        } else {
+            setHasHeight(false)
+            setRetainerHeightValue(null)
+        }
+
+    }, [retainingSystemValue])
+
     return (
-        <div className={"pt-3"}>
+        <div>
             <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-6 pt-3">
                     <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.roofType}
                                        lableWidth={"55%"}
                                        defaultValue={roofTypeValue}
@@ -53,7 +68,7 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
                                        onSelect={e => setRoofTypeValue(e.target.value)}/>
                 </div>
 
-                <div className="col-md-6">
+                <div className="col-md-6 pt-3">
                     <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainingSystem}
                                        lableWidth={"55%"}
                                        defaultValue={retainingSystemValue}
@@ -62,15 +77,20 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
                 </div>
             </div>
             <div className="row">
-                <div className="col-md-6">
-                    <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerHeight}
-                                       lableWidth={"55%"}
-                                       defaultValue={"1"}
-                                       optionData={optionData}
-                                       onSelect={() => null}/>
+                <div className="col-md-6 pt-3">
+                    {
+                        hasHeight ?
+                            <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerHeight}
+                                               lableWidth={"55%"}
+                                               defaultValue={retainerHeightValue}
+                                               optionData={retainerHeightData}
+                                               onSelect={e => setRetainerHeightValue(e.target.value)}/>
+                            :
+                            <DisabledInput placeHolder={""} />
+                    }
                 </div>
 
-                <div className="col-md-6">
+                <div className="col-md-6 pt-3">
                     <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerRows}
                                        lableWidth={"55%"}
                                        defaultValue={rowsValue}
@@ -80,7 +100,9 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
             </div>
 
             <div className={"pt-3"}>
-                <BackButton onBack={onBack}/>
+
+                <ButtonsGroup leftButton={<BackButton onBack={onBack}/>}
+                              rightButton={<div/>}/>
             </div>
         </div>
     )

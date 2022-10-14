@@ -10,7 +10,7 @@ public class Retainer {
     String code;
 
     @OneToOne
-    @JoinColumn(name = "retainer_code")
+    @JoinColumn(name = "code")
     RetainerResistance resistance;
 
     String profile;

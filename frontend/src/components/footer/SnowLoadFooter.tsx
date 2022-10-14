@@ -7,7 +7,7 @@ export const SnowLoadFooter = () => {
 
     return (
         <div>
-            <div className="container-fluid shadow-sm top-border snowload-grey-background">
+            <div className="container-fluid shadow-sm top-border-black snowload-grey-background">
                 <footer className={"p-3"}>
                     <div className="row">
                         <div className="col-12 col-md white text-shadow">

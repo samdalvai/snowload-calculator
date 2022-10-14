@@ -15,6 +15,7 @@ import {useKeyBoardPress} from "../../functions/hooks/useKeyBoardPress";
 import {SnowLoadContext} from "../context/SnowLoadContext";
 import {defaultCity} from "../../functions/defaultTypes";
 import {TitleCard} from "../card/TitleCard";
+import {Title} from "../text/Title";
 
 export const SnowLoadCalculationForm = ({roofData, onCompute}:
                                             { roofData: RoofData | null, onCompute: RoofDataCallback }) => {
@@ -93,10 +94,8 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
 
     return (
         <div>
-            <div className={"pt-3 text-center"}>
-                <h1 className={"snowload-blue bold"}>
-                    {translation.pages.calculationForm.title}
-                </h1>
+            <div className={"py-3"}>
+                <Title  text={translation.pages.calculationForm.title}/>
             </div>
             {
                 showAlert ? <Alert type={"danger"} message={translation.alerts.inputError}

@@ -11,6 +11,7 @@ import {ComputeButton} from "../button/ComputeButton";
 import {ResetButton} from "../button/ResetButton";
 import {ButtonsGroup} from "../button/ButtonsGroup";
 import {TitleCard} from "../card/TitleCard";
+import {Title} from "../text/Title";
 
 export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
     const {translation} = useContext(LanguageContext);
@@ -60,10 +61,8 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
 
     return (
         <div>
-            <div className={"pt-3 text-center"}>
-                <h1 className={"snowload-blue bold"}>
-                    {translation.pages.retainersForm.title}
-                </h1>
+            <div className={"py-3"}>
+                <Title  text={translation.pages.retainersForm.title}/>
             </div>
             <div className="row">
                 <div className="col-md-6 pt-3">
@@ -106,9 +105,8 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
             </div>
 
             <div className={"pt-3"}>
-
                 <ButtonsGroup leftButton={<BackButton onBack={onBack}/>}
-                              rightButton={<div/>}/>
+                              rightButton={<BackButton onBack={onBack}/>}/>
             </div>
         </div>
     )

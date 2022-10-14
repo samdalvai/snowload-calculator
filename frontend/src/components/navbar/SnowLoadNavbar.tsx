@@ -9,7 +9,7 @@ export const SnowLoadNavbar = () => {
     return (
         <div>
             <nav className="navbar navbar-expand-sm shadow-sm
-            bottom-border snowload-grey-background">
+            bottom-border-black snowload-grey-background">
                 <div className="container-fluid">
                     <SnowLoadLogo text={translation.header.title}/>
                     <button className="navbar-toggler all-border shadow-sm" type="button" data-bs-toggle="collapse"

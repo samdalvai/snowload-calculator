@@ -10,6 +10,7 @@ import {PrintButton} from "../button/PrintButton";
 import {BackButton} from "../button/BackButton";
 import {AheadButton} from "../button/AheadButton";
 import {TitleCard} from "../card/TitleCard";
+import {Title} from "../text/Title";
 
 export const SnowLoadTablesForm = ({roofData, snowLoadData, error, loading, onBack, onAhead}:
                                      { roofData: RoofData | null, snowLoadData: SnowLoadData, error: Boolean, loading: boolean, onBack: Callback, onAhead: Callback }) => {
@@ -26,10 +27,8 @@ export const SnowLoadTablesForm = ({roofData, snowLoadData, error, loading, onBa
 
     return (
         <div>
-            <div className={"pt-3 text-center"}>
-                <h1 className={"snowload-blue bold"}>
-                    {translation.pages.resultsForm.title}
-                </h1>
+            <div className={"py-3"}>
+                <Title  text={translation.pages.resultsForm.title}/>
             </div>
             <div>
                 {

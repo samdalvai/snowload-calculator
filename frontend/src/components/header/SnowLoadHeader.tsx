@@ -8,7 +8,7 @@ export const SnowLoadHeader = () => {
     return (
         <div>
             <div className="container-fluid shadow-sm
-            bottom-border snowload-grey-background">
+            bottom-border-black snowload-grey-background">
                 <header className={"text-center p-3"} >
                     <SnowLoadLogo  text={translation.header.title}/>
                 </header>

@@ -18,20 +18,20 @@ public class ProductsController {
 
     // URL example: http://localhost:8080/products
     @GetMapping
-    public List<Product> getCities() {
+    public List<Product> getProducts() {
         return productRepository.findAll();
     }
 
-    // URL example: http://localhost:8080/products/id/030303
-    @GetMapping("/id/{id}")
-    public Product getCity(@PathVariable String id) {
+    // URL example: http://localhost:8080/products/code/030303
+    @GetMapping("/code/{code}")
+    public Product getProduct(@PathVariable String code) {
 
-        return productRepository.findById(id).orElseThrow(RuntimeException::new);
+        return productRepository.findById(code).orElseThrow(RuntimeException::new);
     }
 
     // URL example: http://localhost:8080/products/name/Nr.%2076%20B
     @GetMapping("/name/{name}")
-    public List<Product> getCityByName(@PathVariable String name) {
+    public List<Product> getProductByName(@PathVariable String name) {
 
         return productRepository.findProductByName(name);
     }

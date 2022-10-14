@@ -57,9 +57,12 @@ div {
   font-family: Arial!important;
 }
 
-
 .text-center-important {
   text-align: center!important;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px black!important;
 }
 
 /* CONTAINER */

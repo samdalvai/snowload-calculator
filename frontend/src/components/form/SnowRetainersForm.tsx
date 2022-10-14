@@ -60,8 +60,10 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
 
     return (
         <div>
-            <div className={"py-3"}>
-                <TitleCard  title={translation.pages.retainersForm.title}/>
+            <div className={"pt-3 text-center"}>
+                <h1 className={"snowload-blue bold"}>
+                    {translation.pages.retainersForm.title}
+                </h1>
             </div>
             <div className="row">
                 <div className="col-md-6 pt-3">

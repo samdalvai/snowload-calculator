@@ -26,8 +26,10 @@ export const SnowLoadTablesForm = ({roofData, snowLoadData, error, loading, onBa
 
     return (
         <div>
-            <div className={"py-3"}>
-                <TitleCard  title={translation.pages.resultsForm.title}/>
+            <div className={"pt-3 text-center"}>
+                <h1 className={"snowload-blue bold"}>
+                    {translation.pages.resultsForm.title}
+                </h1>
             </div>
             <div>
                 {

@@ -93,8 +93,10 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
 
     return (
         <div>
-            <div className={"py-3"}>
-                <TitleCard  title={translation.pages.calculationForm.title}/>
+            <div className={"pt-3 text-center"}>
+                <h1 className={"snowload-blue bold"}>
+                    {translation.pages.calculationForm.title}
+                </h1>
             </div>
             {
                 showAlert ? <Alert type={"danger"} message={translation.alerts.inputError}

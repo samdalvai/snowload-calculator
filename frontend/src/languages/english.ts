@@ -149,6 +149,20 @@ export const english: Translation = {
                     label: "Linear Load"
                 }
             }
+        },
+        holderChoice: {
+            headers: {
+                image: "Image",
+                code: "Code",
+                name: "Name",
+                height: "Height (mm)",
+                distance: "Distance (mm)"
+            }
+        },
+        retainerChoice: {
+            headers: {
+
+            }
         }
     },
     loading: {

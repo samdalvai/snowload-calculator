@@ -152,6 +152,20 @@ export interface Translation {
                     label: string
                 }
             }
+        },
+        holderChoice: {
+            headers: {
+                image: string,
+                code: string,
+                name: string,
+                height: string,
+                distance: string
+            }
+        },
+        retainerChoice: {
+            headers: {
+
+            }
         }
     },
     loading: {

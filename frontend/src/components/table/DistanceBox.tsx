@@ -9,7 +9,8 @@ export const DistanceBox = ({color, checked, onChecked}:
             onClick={onChecked}>
             <input className="form-check-input all-border"
                    type="radio"
-                   checked={checked}/>
+                   checked={checked}
+                   onChange={onChecked}/>
         </th>
     )
 }

@@ -11,22 +11,22 @@ export const ProductCard = () => {
 
     return (
         <tr>
-            <th className={"border-right-lightgray"}>
+            <th className={"border-right-lightgray text-center"}>
                 <ProductImage url={"https://www.flender-flux.de/fileadmin/products/030303/2.jpg"}/>
             </th>
             <th className={"border-right-lightgray text-center"}>
                 <div>
-                    <text>030303</text>
+                    <p>030303</p>
                 </div>
             </th>
             <th className={"border-right-lightgray text-center"}>
                 <div>
-                    <text>Nr. 76 B</text>
+                    <p>Nr. 76 B</p>
                 </div>
             </th>
             <th className={"border-right-lightgray text-center"}>
                 <div>
-                    <text>200</text>
+                    <p>200</p>
                 </div>
             </th>
             <>

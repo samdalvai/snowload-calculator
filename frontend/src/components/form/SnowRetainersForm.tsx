@@ -13,6 +13,7 @@ import {ButtonsGroup} from "../button/ButtonsGroup";
 import {TitleCard} from "../card/TitleCard";
 import {Title} from "../text/Title";
 import {ProductTable} from "../table/ProductTable";
+import {AheadButton} from "../button/AheadButton";
 
 export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
     const {translation} = useContext(LanguageContext);
@@ -83,7 +84,7 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
                 </div>
             </div>
             <div className="row">
-                <div className="col-md-6 pt-3">
+                <div className="col-md-6 py-3">
                     {
                         hasHeight ?
                             <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerHeight}
@@ -105,13 +106,13 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
                 </div>
             </div>
 
-            <div className={"py-3"}>
-                <ButtonsGroup leftButton={<BackButton onBack={onBack}/>}
-                              rightButton={<BackButton onBack={onBack}/>}/>
+            <div className={"pt-3"}>
+                <ProductTable />
             </div>
 
-            <div className={"py-3"}>
-                <ProductTable />
+            <div className={"pb-3"}>
+                <ButtonsGroup leftButton={<BackButton onBack={onBack}/>}
+                              rightButton={<AheadButton onAhead={() => null}/>}/>
             </div>
         </div>
     )

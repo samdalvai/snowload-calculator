@@ -149,6 +149,20 @@ export const italian: Translation = {
                     label: "Carico neve in gronda"
                 }
             }
+        },
+        holderChoice: {
+            headers: {
+                image: "Immagine",
+                code: "Codice",
+                name: "Nome",
+                height: "Altezza (mm)",
+                distance: "Interasse (mm)"
+            }
+        },
+        retainerChoice: {
+            headers: {
+
+            }
         }
     },
     loading: {

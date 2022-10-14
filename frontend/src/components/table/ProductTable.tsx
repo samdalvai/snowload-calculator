@@ -1,13 +1,17 @@
 import {ProductCard} from "./ProductCard";
+import {useContext} from "react";
+import {LanguageContext} from "../language/LanguageContext";
 
 export const ProductTable = () => {
+    const {translation} = useContext(LanguageContext);
+    const headers = translation.tables.holderChoice.headers
 
     return (
         <table className="table shadow-sm rounded">
             <thead>
             <tr className={"table-secondary table-header"}>
                 {
-                    ["Image", "Code", "Name", "Height (mm)", "Distance (mm)"].map((header, index) => (
+                    [headers.image, headers.code, headers.name, headers.height, headers.distance].map((header, index) => (
                             index < 4 ?
                                 <th scope="col" rowSpan={2} className={"border-right-lightgray"} key={index}>{header}</th>
                                 :

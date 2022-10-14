@@ -149,6 +149,20 @@ export const german: Translation = {
                     label: "Schubkraft an der Traufe"
                 }
             }
+        },
+        holderChoice: {
+            headers: {
+                image: "Bild",
+                code: "Artikel",
+                name: "Name",
+                height: "Höhe (mm)",
+                distance: "Abstand (mm)"
+            }
+        },
+        retainerChoice: {
+            headers: {
+
+            }
         }
     },
     loading: {

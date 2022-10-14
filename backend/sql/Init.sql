@@ -32,7 +32,7 @@ CREATE TABLE product
     type   VARCHAR(10) NOT NULL,
     height VARCHAR(3),
     image VARCHAR(80) NOT NULL,
-    CONSTRAINT retainer_type_check CHECK (type IN ('Grid', 'Tube')),
+    CONSTRAINT retainer_type_check CHECK (type IN ('Grid', 'DoubleTube')),
     CONSTRAINT retainer_height_check CHECK (height IN ('200', '250', null))
 );
 

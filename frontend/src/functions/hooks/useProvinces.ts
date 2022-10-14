@@ -12,9 +12,3 @@ export const useProvinces = (): ProvincesResponse => {
 
     return {provinces: [data], loading, error};
 }
-
-export const useProvincesGenericEndpoint = (url: string): ProvincesResponse => {
-    const {data, loading, error} = useApiGet('/provinces' + url);
-
-    return {provinces: [data], loading, error};
-}

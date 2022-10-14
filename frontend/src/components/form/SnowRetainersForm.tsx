@@ -5,19 +5,20 @@ import {SelectorOptionData} from "../input/Selector";
 import React, {useContext, useState} from "react";
 import {SelectorWithLabel} from "../input/SelectorWithLabel";
 import {LanguageContext} from "../language/LanguageContext";
-import {RetainerHeight, RetainingSystem, RoofData, RoofType} from "../../functions/types";
+import {RetainerHeight, RetainerType, RoofData, RoofType} from "../../functions/types";
 import {DisabledInput} from "../input/DisabledInput";
 import {ComputeButton} from "../button/ComputeButton";
 import {ResetButton} from "../button/ResetButton";
 import {ButtonsGroup} from "../button/ButtonsGroup";
 import {TitleCard} from "../card/TitleCard";
 import {Title} from "../text/Title";
+import {ProductTable} from "../table/ProductTable";
 
 export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
     const {translation} = useContext(LanguageContext);
 
     const [roofTypeValue, setRoofTypeValue] = useState<RoofType>("concreteTile")
-    const [retainingSystemValue, setRetainingSystemValue] = useState<RetainingSystem>("Grid")
+    const [retainingSystemValue, setRetainingSystemValue] = useState<RetainerType>("Grid")
     const [retainerHeightValue, setRetainerHeightValue] = useState<RetainerHeight>("200")
     const [rowsValue, setRowsValue] = useState<number>(1)
 
@@ -30,7 +31,7 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
         {value: "flatTile", text: translation.inputs.options.roofType.flatTile}
     ]
 
-    const retainingSystemData: SelectorOptionData<RetainingSystem>[] = [
+    const retainingSystemData: SelectorOptionData<RetainerType>[] = [
         {value: "Grid", text: translation.inputs.options.retainingSystem.grid},
         {value: "DoubleTube", text: translation.inputs.options.retainingSystem.doubleTube}
     ]
@@ -104,9 +105,13 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
                 </div>
             </div>
 
-            <div className={"pt-3"}>
+            <div className={"py-3"}>
                 <ButtonsGroup leftButton={<BackButton onBack={onBack}/>}
                               rightButton={<BackButton onBack={onBack}/>}/>
+            </div>
+
+            <div>
+                <ProductTable />
             </div>
         </div>
     )

@@ -141,7 +141,7 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
                                              onChange={() => setCoefficient(!coefficient)}/>
                 </div>
             </div>
-            <div className={"pt-3"}>
+            <div className={"py-3"}>
                 <ButtonsGroup leftButton={<ComputeButton onCompute={handleOnCompute}/>}
                               rightButton={<ResetButton onReset={() => {
                                   resetInputs()

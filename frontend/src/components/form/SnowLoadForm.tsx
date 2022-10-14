@@ -5,6 +5,7 @@ import {SnowLoadCalculationForm} from "./SnowLoadCalculationForm";
 import {SnowLoadResultsForm} from "./SnowLoadResultsForm";
 import {SnowLoadCalculatorContainer} from "../container/SnowLoadCalculatorContainer";
 import {defaultSnowLoadData} from "../../functions/defaultTypes";
+import {SnowLoadCalculatorCard} from "../card/SnowLoadCalculatorCard";
 
 export const SnowLoadForm = () => {
     const [computed, setComputed] = useState<boolean>(false)
@@ -47,7 +48,7 @@ export const SnowLoadForm = () => {
 
     return (
         <div>
-            <SnowLoadCalculatorContainer body={
+            <SnowLoadCalculatorCard body={
                 !computed ?
                     <SnowLoadCalculationForm roofData={roofData}
                                              onCompute={data => {

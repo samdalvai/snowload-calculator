@@ -14,14 +14,13 @@ export const SnowLoadCalculatorContainer = ({body}: { body: ReactElement }) => {
 
             <div className={"flex-auto container"}>
                 {body}
-            </div>
-
-            <div className="row pt-3">
-                <div className="col-md-6 pt-3 image-container">
-                    <ImageContainerRounded url={"/img/roof.jpg"} alt={"Roof"}/>
-                </div>
-                <div className="col-md-6 pt-3">
-                    <TermsOfUse/>
+                <div className="row pt-3">
+                    <div className="col-md-6 pt-3 image-container">
+                        <ImageContainerRounded url={"/img/roof.jpg"} alt={"Roof"}/>
+                    </div>
+                    <div className="col-md-6 pt-3">
+                        <TermsOfUse/>
+                    </div>
                 </div>
             </div>
 

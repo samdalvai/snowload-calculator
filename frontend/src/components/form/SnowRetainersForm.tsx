@@ -83,8 +83,8 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
                                        onSelect={e => setRetainingSystemValue(e.target.value)}/>
                 </div>
             </div>
-            <div className="row">
-                <div className="col-md-6 py-3">
+            <div className="row pb-3">
+                <div className="col-md-6 pt-3">
                     {
                         hasHeight ?
                             <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerHeight}

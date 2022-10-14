@@ -1,15 +1,15 @@
-import {useState} from "react";
+import {Callback} from "../../functions/callbacks";
 
-export const DistanceBox = ({color, checked}: {color: DistanceBoxColor, checked: boolean}) => {
-    const [isChecked, setIsChecked] = useState<boolean>(checked)
+export const DistanceBox = ({color, checked, onChecked}:
+                                {color: DistanceBoxColor, checked: boolean, onChecked: Callback}) => {
 
     return (
-        <th className={("border-right-light") + (color === "red" ? " red-checkbox" : " green-checkbox")}
-            style={{textAlign: "center", verticalAlign: "middle"}}
-            onClick={() => setIsChecked(!checked)}>
+        <th className={("border-right-darkgray") + (color === "red" ? " red-checkbox" : " green-checkbox")}
+            style={{textAlign: "center", verticalAlign: "middle", minWidth: "5.5%"}}
+            onClick={onChecked}>
             <input className="form-check-input all-border"
                    type="radio"
-                   checked={isChecked}/>
+                   checked={checked}/>
         </th>
     )
 }

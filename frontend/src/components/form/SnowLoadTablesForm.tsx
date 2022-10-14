@@ -29,7 +29,7 @@ export const SnowLoadTablesForm = ({roofData, snowLoadData, error, loading, onBa
                     !error ?
                         <div className="row">
                             <div className="col-md-6 pt-3">
-                                <table className="table">
+                                <table className="table shadow-sm rounded">
                                     <thead>
                                     <tr className="table-secondary text-center shadow-sm table-header">
                                         <th scope="row" colSpan={2}>{translation.tables.roofData.title}</th>
@@ -60,7 +60,7 @@ export const SnowLoadTablesForm = ({roofData, snowLoadData, error, loading, onBa
                                 </table>
                             </div>
                             <div className="col-md-6 pt-3">
-                                <table className="table">
+                                <table className="table shadow-sm rounded">
                                     <thead>
                                     <tr className="table-secondary text-center shadow-sm table-header">
                                         <th scope="row" colSpan={2}>{translation.tables.snowLoadCalculation.title}</th>

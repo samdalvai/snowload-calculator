@@ -184,10 +184,16 @@ footer a:hover {
   vertical-align: middle;
 }
 
-.border-right-light {
+.border-right-darkgray {
   border-right-style: solid;
   border-right-width: 1px;
   border-right-color: darkgray;
+}
+
+.border-right-lightgray {
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: lightgray;
 }
 
 .red-checkbox {

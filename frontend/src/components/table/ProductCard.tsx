@@ -1,4 +1,5 @@
 import {ProductImage} from "./ProductImage";
+import {DistanceBox} from "./DistanceBox";
 
 export const ProductCard = () => {
     return (
@@ -22,24 +23,12 @@ export const ProductCard = () => {
                 </div>
             </th>
             <>
-                <th className={"border-right-light red-checkbox"} style={{textAlign: "center", verticalAlign: "middle"}}>
-                    <input className="form-check-input all-border" type="radio" checked={false}/>
-                </th>
-                <th className={"border-right-light red-checkbox"} style={{textAlign: "center", verticalAlign: "middle"}}>
-                    <input className="form-check-input all-border" type="radio" checked={false}/>
-                </th>
-                <th className={"border-right-light red-checkbox"} style={{textAlign: "center", verticalAlign: "middle"}}>
-                    <input className="form-check-input all-border" type="radio" checked={false}/>
-                </th>
-                <th className={"border-right-light green-checkbox"} style={{textAlign: "center", verticalAlign: "middle"}}>
-                    <input className="form-check-input all-border" type="radio" checked={false}/>
-                </th>
-                <th className={"border-right-light green-checkbox"} style={{textAlign: "center", verticalAlign: "middle"}}>
-                    <input className="form-check-input all-border" type="radio" checked={false}/>
-                </th>
-                <th className={"border-right-light green-checkbox"} style={{textAlign: "center", verticalAlign: "middle"}}>
-                    <input className="form-check-input all-border" type="radio" checked={false}/>
-                </th>
+                <DistanceBox  color={"red"} checked={false}/>
+                <DistanceBox  color={"red"} checked={false}/>
+                <DistanceBox  color={"red"} checked={false}/>
+                <DistanceBox  color={"red"} checked={false}/>
+                <DistanceBox  color={"green"} checked={false}/>
+                <DistanceBox  color={"green"} checked={false}/>
             </>
         </tr>
     )

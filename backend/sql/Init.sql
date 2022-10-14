@@ -7,9 +7,9 @@ CREATE TABLE province
     shorthand VARCHAR(2) PRIMARY KEY,
     name      VARCHAR(40) NOT NULL UNIQUE,
     zone      VARCHAR(3)  NOT NULL,
-    baseLoad  DOUBLE      NOT NULL,
-    CONSTRAINT zoneCheck CHECK (zone IN ('I-A', 'I-M', 'II', 'III')),
-    CONSTRAINT loadCheck CHECK (baseload > 0.0)
+    base_load  DOUBLE      NOT NULL,
+    CONSTRAINT zone_check CHECK (zone IN ('I-A', 'I-M', 'II', 'III')),
+    CONSTRAINT load_check CHECK (base_load > 0.0)
 );
 
 CREATE TABLE city
@@ -18,8 +18,8 @@ CREATE TABLE city
     name     VARCHAR(40) NOT NULL,
     province VARCHAR(2)  NOT NULL,
     altitude NUMERIC     NOT NULL,
-    CONSTRAINT citiPK PRIMARY KEY (zip, name),
-    CONSTRAINT cityInProvince FOREIGN KEY (province)
+    CONSTRAINT citi_pk PRIMARY KEY (zip, name),
+    CONSTRAINT city_in_province FOREIGN KEY (province)
         REFERENCES province (shorthand)
         ON UPDATE CASCADE
         ON DELETE RESTRICT
@@ -32,18 +32,18 @@ CREATE TABLE product
     type   VARCHAR(10) NOT NULL,
     height VARCHAR(3),
     image VARCHAR(80) NOT NULL,
-    CONSTRAINT retainerTypeCheck CHECK (type IN ('Grid', 'Tube')),
-    CONSTRAINT retainerHeightCheck CHECK (height IN ('200', '250', null))
+    CONSTRAINT retainer_type_check CHECK (type IN ('Grid', 'Tube')),
+    CONSTRAINT retainer_height_check CHECK (height IN ('200', '250', null))
 );
 
 CREATE TABLE holder
 (
     code           VARCHAR(6) PRIMARY KEY,
     resistance     DOUBLE      NOT NULL,
-    roofType       VARCHAR(20) NOT NULL,
-    CONSTRAINT holderResistanceCheck CHECK (resistance > 0.0),
-    CONSTRAINT roofTypeCheck CHECK (roofType IN ('concreteTile', 'flatTile')),
-    CONSTRAINT holderInProduct FOREIGN KEY (code)
+    roof_type       VARCHAR(20) NOT NULL,
+    CONSTRAINT holder_resistance_check CHECK (resistance > 0.0),
+    CONSTRAINT roof_type_check CHECK (roof_type IN ('concreteTile', 'flatTile')),
+    CONSTRAINT holder_in_product FOREIGN KEY (code)
         REFERENCES product (code)
         ON UPDATE CASCADE
         ON DELETE CASCADE
@@ -52,11 +52,25 @@ CREATE TABLE holder
 CREATE TABLE retainer
 (
     code             VARCHAR(6) PRIMARY KEY,
-    resistance       DOUBLE      NOT NULL,
     profile          VARCHAR(20) NOT NULL,
-    CONSTRAINT retainerResistanceCheck CHECK (resistance > 0.0),
-    CONSTRAINT retainerInProduct FOREIGN KEY (code)
+    CONSTRAINT retainer_in_product FOREIGN KEY (code)
         REFERENCES product (code)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+);
+
+CREATE TABLE retainer_resistance
+(
+    retainer_code    VARCHAR(6) PRIMARY KEY,
+    dist400             DOUBLE,
+    dist500             DOUBLE,
+    dist600             DOUBLE,
+    dist700             DOUBLE,
+    dist800             DOUBLE,
+    dist900             DOUBLE,
+    dist1000            DOUBLE,
+    CONSTRAINT resistance_in_retainer FOREIGN KEY (retainer_code)
+        REFERENCES retainer (code)
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
@@ -72,8 +86,12 @@ INSERT INTO holder VALUES
     ('030387', 2.2, 'concreteTile');
 
 INSERT INTO retainer VALUES
-    ('020006', 10.0, '20/20/3'),
-    ('020007', 10.0, '20/20/3');
+    ('020006', '20/20/3'),
+    ('020007', '20/20/3');
+
+INSERT INTO retainer_resistance VALUES
+    ('020006',1.6,2.2,3.2,4.2,5.9,9.0,13.9),
+    ('020007',1.6,2.2,3.2,4.2,5.9,9.0,13.9);
 
 INSERT INTO province VALUES
     ('SS', 'Sassari', 'III', 0.6),

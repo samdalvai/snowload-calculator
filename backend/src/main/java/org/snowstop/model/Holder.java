@@ -10,12 +10,12 @@ public class Holder {
     String code;
     Double resistance;
 
-    @Column(name = "rooftype")
+    @Column(name = "roof_type")
     String roofType;
 
     @OneToOne
     @JoinColumn(name = "code")
-    Product product;
+    Product productInfo;
 
     public Holder() {
     }
@@ -24,7 +24,7 @@ public class Holder {
         this.code = code;
         this.resistance = resistance;
         this.roofType = roofType;
-        this.product = product;
+        this.productInfo = product;
     }
 
     public String getCode() {
@@ -51,12 +51,12 @@ public class Holder {
         this.roofType = roofType;
     }
 
-    public Product getProduct() {
-        return product;
+    public Product getProductInfo() {
+        return productInfo;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProductInfo(Product product) {
+        this.productInfo = product;
     }
 
 }

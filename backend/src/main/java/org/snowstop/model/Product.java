@@ -10,7 +10,8 @@ import javax.persistence.Table;
 public class Product {
 
     @Id
-    String code;
+    @Column(name = "code")
+    String productCode;
     String name;
     @Column(name = "type")
     String retainerType;
@@ -22,19 +23,19 @@ public class Product {
     }
 
     public Product(String code, String name, String retainerType, String retainerHeight, String image) {
-        this.code = code;
+        this.productCode = code;
         this.name = name;
         this.retainerType = retainerType;
         this.retainerHeight = retainerHeight;
         this.image = image;
     }
 
-    public String getCode() {
-        return code;
+    public String getProductCode() {
+        return productCode;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setProductCode(String code) {
+        this.productCode = code;
     }
 
     public String getName() {

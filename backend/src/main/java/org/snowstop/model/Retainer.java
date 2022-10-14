@@ -8,22 +8,25 @@ public class Retainer {
 
     @Id
     String code;
-    Double resistance;
+
+    @OneToOne
+    @JoinColumn(name = "retainer_code")
+    RetainerResistance resistance;
 
     String profile;
 
     @OneToOne
     @JoinColumn(name = "code")
-    Product product;
+    Product productInfo;
 
     public Retainer() {
     }
 
-    public Retainer(String code, Double resistance, String profile, Product product) {
+    public Retainer(String code, RetainerResistance resistance, String profile, Product product) {
         this.code = code;
         this.resistance = resistance;
         this.profile = profile;
-        this.product = product;
+        this.productInfo = product;
     }
 
     public String getCode() {
@@ -34,11 +37,11 @@ public class Retainer {
         this.code = code;
     }
 
-    public Double getResistance() {
+    public RetainerResistance getResistance() {
         return resistance;
     }
 
-    public void setResistance(Double resistance) {
+    public void setResistance(RetainerResistance resistance) {
         this.resistance = resistance;
     }
 
@@ -50,11 +53,11 @@ public class Retainer {
         this.profile = profile;
     }
 
-    public Product getProduct() {
-        return product;
+    public Product getProductInfo() {
+        return productInfo;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProductInfo(Product product) {
+        this.productInfo = product;
     }
 }

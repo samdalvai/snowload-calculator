@@ -1,10 +1,21 @@
-import {ProductCard} from "./ProductCard";
-import {useContext} from "react";
+import React, {useContext, useState} from "react";
 import {LanguageContext} from "../language/LanguageContext";
+import {useHolders} from "../../functions/hooks/useHolders";
+import {DisabledInput} from "../input/DisabledInput";
+import {Product} from "../../functions/types";
+import {ProductCard} from "./ProductCard";
 
 export const ProductTable = () => {
     const {translation} = useContext(LanguageContext);
     const headers = translation.tables.holderChoice.headers
+
+    const {holders, loading, error} = useHolders()
+    const [product, setProduct] = useState<Product[]>([])
+
+    React.useEffect(() => {
+        console.log(holders)
+        setProduct(holders.map(holder => holder.productInfo))
+    }, [holders])
 
     return (
         <table className="table shadow-sm rounded">
@@ -22,7 +33,7 @@ export const ProductTable = () => {
             </tr>
             <tr className={"table-secondary shadow-sm table-header"}>
                 {
-                    ["400", "500", "600", "700", "800", "900","1000"].map((dist, index) => (
+                    ["400", "500", "600", "700", "800", "900", "1000"].map((dist, index) => (
                         index < 6 ?
                             <th scope="col" className={"border-right-lightgray"} key={index + 10}>{dist}</th>
                             :
@@ -32,8 +43,33 @@ export const ProductTable = () => {
             </tr>
             </thead>
             <tbody>
-            <ProductCard/>
+            {
+                loading ?
+                    <>
+                        <tr>
+                            <td colSpan={11}>
+                                <DisabledInput placeHolder={translation.loading.products}/>
+                            </td>
+                        </tr>
+                    </> :
+                    <>
+                        {
+                            product.map(prod => <ProductCard product={prod}/>
+                            )
+                        }
+                    </>
+            }
             </tbody>
         </table>
     )
 }
+
+/*
+<ProductCard product={{
+                            productCode: "030303",
+                            name: "Nr. 76 B",
+                            retainerType: "Grid",
+                            retainerHeight: "200",
+                            image: "https://www.flender-flux.de/fileadmin/products/030303/2.jpg"
+                        }}/>
+ */

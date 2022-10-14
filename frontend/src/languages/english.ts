@@ -167,7 +167,8 @@ export const english: Translation = {
     },
     loading: {
         cities: "Loading cities...",
-        computation: "Computing snowload..."
+        computation: "Computing snowload...",
+        products: "Loading products..."
     },
     error: {
         cities: "Error loading cities..."

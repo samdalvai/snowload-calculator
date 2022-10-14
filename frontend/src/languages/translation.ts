@@ -170,7 +170,8 @@ export interface Translation {
     },
     loading: {
         cities: string,
-        computation: string
+        computation: string,
+        products: string
     },
     error: {
         cities: string

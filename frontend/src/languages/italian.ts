@@ -167,7 +167,8 @@ export const italian: Translation = {
     },
     loading: {
         cities: "Caricamento delle città...",
-        computation: "Calcolo del carico di neve..."
+        computation: "Calcolo del carico di neve...",
+        products: "Caricamento dei prodotti..."
     },
     error: {
         cities: "Errore nel caricamento delle città..."

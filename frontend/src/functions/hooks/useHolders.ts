@@ -10,5 +10,5 @@ export type HoldersResponse = {
 export const useHolders = (): HoldersResponse => {
     const {data, loading, error} = useApiGet('/holders');
 
-    return {holders: [data], loading, error};
+    return {holders: data, loading, error};
 }

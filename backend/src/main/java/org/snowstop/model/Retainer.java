@@ -1,8 +1,6 @@
 package org.snowstop.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "retainer")
@@ -14,13 +12,18 @@ public class Retainer {
 
     String profile;
 
+    @OneToOne
+    @JoinColumn(name = "code")
+    Product product;
+
     public Retainer() {
     }
 
-    public Retainer(String code, Double resistance, String profile) {
+    public Retainer(String code, Double resistance, String profile, Product product) {
         this.code = code;
         this.resistance = resistance;
         this.profile = profile;
+        this.product = product;
     }
 
     public String getCode() {
@@ -45,5 +48,13 @@ public class Retainer {
 
     public void setProfile(String profile) {
         this.profile = profile;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

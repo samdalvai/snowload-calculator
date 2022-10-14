@@ -1,9 +1,6 @@
 package org.snowstop.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "holder")
@@ -16,13 +13,18 @@ public class Holder {
     @Column(name = "rooftype")
     String roofType;
 
+    @OneToOne
+    @JoinColumn(name = "code")
+    Product product;
+
     public Holder() {
     }
 
-    public Holder(String code, Double resistance, String roofType) {
+    public Holder(String code, Double resistance, String roofType, Product product) {
         this.code = code;
         this.resistance = resistance;
         this.roofType = roofType;
+        this.product = product;
     }
 
     public String getCode() {
@@ -48,4 +50,13 @@ public class Holder {
     public void setRoofType(String roofType) {
         this.roofType = roofType;
     }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
 }

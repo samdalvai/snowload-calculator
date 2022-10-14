@@ -27,7 +27,7 @@ export const SnowLoadTablesForm = ({roofData, snowLoadData, error, loading, onBa
             <div>
                 {
                     !error ?
-                        <div className="row">
+                        <div>
                             <div className="col-md-6 pt-3">
                                 <table className="table shadow-sm rounded">
                                     <thead>

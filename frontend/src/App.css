@@ -189,3 +189,25 @@ footer a:hover {
   border-right-width: 1px;
   border-right-color: darkgray;
 }
+
+.red-checkbox {
+  background-color: #dc3545!important;
+}
+
+.red-checkbox:hover {
+  background-color: #bb2d3b!important
+}
+
+.green-checkbox {
+  background-color: #198754!important;
+}
+
+.green-checkbox:hover {
+  background-color: #157347!important;
+}
+
+.center {
+  vertical-align: center!important;
+  text-align: center!important;
+  align-items: center!important;
+}

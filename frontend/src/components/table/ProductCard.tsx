@@ -21,9 +21,26 @@ export const ProductCard = () => {
                     <text>200</text>
                 </div>
             </th>
-            <th colSpan={7}>
-                hello
-            </th>
+            <>
+                <th className={"border-right-light red-checkbox"} style={{textAlign: "center", verticalAlign: "middle"}}>
+                    <input className="form-check-input all-border" type="radio" checked={false}/>
+                </th>
+                <th className={"border-right-light red-checkbox"} style={{textAlign: "center", verticalAlign: "middle"}}>
+                    <input className="form-check-input all-border" type="radio" checked={false}/>
+                </th>
+                <th className={"border-right-light red-checkbox"} style={{textAlign: "center", verticalAlign: "middle"}}>
+                    <input className="form-check-input all-border" type="radio" checked={false}/>
+                </th>
+                <th className={"border-right-light green-checkbox"} style={{textAlign: "center", verticalAlign: "middle"}}>
+                    <input className="form-check-input all-border" type="radio" checked={false}/>
+                </th>
+                <th className={"border-right-light green-checkbox"} style={{textAlign: "center", verticalAlign: "middle"}}>
+                    <input className="form-check-input all-border" type="radio" checked={false}/>
+                </th>
+                <th className={"border-right-light green-checkbox"} style={{textAlign: "center", verticalAlign: "middle"}}>
+                    <input className="form-check-input all-border" type="radio" checked={false}/>
+                </th>
+            </>
         </tr>
     )
 }

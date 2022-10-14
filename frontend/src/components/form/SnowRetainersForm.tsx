@@ -110,7 +110,7 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
                               rightButton={<BackButton onBack={onBack}/>}/>
             </div>
 
-            <div>
+            <div className={"py-3"}>
                 <ProductTable />
             </div>
         </div>

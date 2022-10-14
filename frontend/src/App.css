@@ -171,3 +171,21 @@ footer a:hover {
     transform: scale(1.025)!important;
   }
 }
+
+/* TABLE */
+.table-header {
+  border-top-width: 1.5px;
+  border-bottom-width: 1.5px;
+  border-color: black!important;
+}
+
+.table-header > th {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.border-right-light {
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: darkgray;
+}

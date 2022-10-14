@@ -3,26 +3,26 @@ import {ProductImage} from "./ProductImage";
 export const ProductCard = () => {
     return (
         <tr>
-            <th>
+            <th style={{width: "125px"}}>
                 <ProductImage url={"https://www.flender-flux.de/fileadmin/products/030303/2.jpg"}/>
             </th>
-            <th>
-                <div className={"col"}>
-                    030303
+            <th style={{width: "125px"}}>
+                <div>
+                    <text>030303</text>
                 </div>
             </th>
-            <th>
-                <div className={"col"}>
-                    Nr. 76 B
+            <th style={{width: "125px"}}>
+                <div>
+                    <text>Nr. 76 B</text>
                 </div>
             </th>
-            <th>
-                <div className={"col"}>
-                    200
+            <th style={{width: "125px"}}>
+                <div>
+                    <text>200</text>
                 </div>
             </th>
-            <th>
-
+            <th colSpan={7}>
+                hello
             </th>
         </tr>
     )

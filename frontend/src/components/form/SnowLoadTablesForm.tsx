@@ -19,12 +19,6 @@ export const SnowLoadTablesForm = ({roofData, snowLoadData, error, loading, onBa
     useKeyBoardPress(["Backspace"], onBack)
     useKeyBoardPress(["Enter", "NumpadEnter"], onAhead)
 
-    const tableHeaderStyle = {
-        borderTopWidth: "1.5px",
-        borderBottomWidth: "1.5px",
-        borderColor: "black"
-    }
-
     return (
         <div>
             <div className={"py-3"}>
@@ -37,7 +31,7 @@ export const SnowLoadTablesForm = ({roofData, snowLoadData, error, loading, onBa
                             <div className="col-md-6 pt-3">
                                 <table className="table">
                                     <thead>
-                                    <tr className="table-secondary text-center shadow-sm" style={tableHeaderStyle}>
+                                    <tr className="table-secondary text-center shadow-sm table-header">
                                         <th scope="row" colSpan={2}>{translation.tables.roofData.title}</th>
                                     </tr>
                                     </thead>
@@ -68,7 +62,7 @@ export const SnowLoadTablesForm = ({roofData, snowLoadData, error, loading, onBa
                             <div className="col-md-6 pt-3">
                                 <table className="table">
                                     <thead>
-                                    <tr className="table-secondary text-center shadow-sm" style={tableHeaderStyle}>
+                                    <tr className="table-secondary text-center shadow-sm table-header">
                                         <th scope="row" colSpan={2}>{translation.tables.snowLoadCalculation.title}</th>
                                     </tr>
                                     </thead>

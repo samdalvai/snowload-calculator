@@ -14,7 +14,7 @@ public class Province {
     String name;
     String zone;
 
-    @Column(name = "baseload")
+    @Column(name = "baseLoad")
     Double load;
 
     public Province() {

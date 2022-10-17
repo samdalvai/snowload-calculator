@@ -150,7 +150,7 @@ export const german: Translation = {
                 }
             }
         },
-        holderChoice: {
+        productChoice: {
             headers: {
                 image: "Bild",
                 code: "Artikel",

@@ -150,7 +150,7 @@ export const italian: Translation = {
                 }
             }
         },
-        holderChoice: {
+        productChoice: {
             headers: {
                 image: "Immagine",
                 code: "Codice",

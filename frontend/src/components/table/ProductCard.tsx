@@ -3,6 +3,8 @@ import {DistanceBox} from "./DistanceBox";
 import {useState} from "react";
 import {Product} from "../../functions/types";
 import {SelectorOptionData} from "../input/Selector";
+import {useWindowSize} from "../../functions/hooks/useWindowSize";
+import {ProductDescription, ProductDescriptionSmall} from "./ProductDescription";
 
 export const ProductCard = ({product}: { product: Product }) => {
     const [checked, setChecked] = useState<boolean[]>([false, false, false, false, false, false, false])
@@ -22,31 +24,17 @@ export const ProductCard = ({product}: { product: Product }) => {
         {value: 700, text: "1000"}
     ]*/
 
+    const size = useWindowSize()
+
     return (
         <>
             <tr>
-                <th className={"border-right-lightgray text-center"}
-                    style={{verticalAlign: "middle"}}>
-                    <ProductImage url={product.image}/>
-                </th>
-                <th className={"border-right-lightgray text-center"}
-                    style={{verticalAlign: "middle"}}>
-                    <div>
-                        <p>{product.productCode}</p>
-                    </div>
-                </th>
-                <th className={"border-right-lightgray text-center"}
-                    style={{verticalAlign: "middle"}}>
-                    <div>
-                        <p>{product.name}</p>
-                    </div>
-                </th>
-                <th className={"border-right-lightgray text-center"}
-                    style={{verticalAlign: "middle"}}>
-                    <div>
-                        <p>{product.retainerHeight}</p>
-                    </div>
-                </th>
+                {
+                    size.width !== undefined && size.width >= 800 ?
+                        <ProductDescription  product={product}/>
+                        :
+                        <ProductDescriptionSmall product={product} />
+                }
                 <>
                     <DistanceBox color={"red"} checked={checked[0]} onChecked={() => handleSetChecked(0)}/>
                     <DistanceBox color={"red"} checked={checked[1]} onChecked={() => handleSetChecked(1)}/>

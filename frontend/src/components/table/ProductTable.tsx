@@ -4,10 +4,11 @@ import {useHolders} from "../../functions/hooks/useHolders";
 import {DisabledInput} from "../input/DisabledInput";
 import {Product} from "../../functions/types";
 import {ProductCard} from "./ProductCard";
+import {useWindowSize} from "../../functions/hooks/useWindowSize";
 
 export const ProductTable = () => {
     const {translation} = useContext(LanguageContext);
-    const headers = translation.tables.holderChoice.headers
+    const headers = translation.tables.productChoice.headers
 
     const {holders, loading, error} = useHolders()
     const [product, setProduct] = useState<Product[]>([])
@@ -16,6 +17,10 @@ export const ProductTable = () => {
         console.log(holders)
         setProduct(holders.map(holder => holder.productInfo))
     }, [holders])
+
+    const size = useWindowSize()
+
+    console.log(size)
 
     return (
         <div className="table-responsive">

@@ -153,7 +153,7 @@ export interface Translation {
                 }
             }
         },
-        holderChoice: {
+        productChoice: {
             headers: {
                 image: string,
                 code: string,

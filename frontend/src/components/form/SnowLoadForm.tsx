@@ -48,7 +48,7 @@ export const SnowLoadForm = () => {
 
     return (
         <div>
-            <SnowLoadCalculatorCard body={
+            <SnowLoadCalculatorContainer body={
                 !computed ?
                     <SnowLoadCalculationForm roofData={roofData}
                                              onCompute={data => {

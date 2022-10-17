@@ -49,7 +49,8 @@ export const ProductCard = ({product}: { product: Product }) => {
                             <ProductDescriptionSmall product={product} />
                             <DistanceSelector  onSelect={e => setDistanceValue(e.target.value)}
                                                optionData={distanceSelectorData}
-                                               value={distanceValue}/>
+                                               value={distanceValue}
+                                               color={"red"}/>
                         </>
                 }
 

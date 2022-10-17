@@ -1,13 +1,14 @@
 import {AnyCallback} from "../../functions/callbacks";
 import React from "react";
 import {SelectorOptionData} from "../input/Selector";
+import {DistanceBoxColor} from "./DistanceBox";
 
-export const DistanceSelector = ({optionData, value, onSelect}:
-                                     { optionData: SelectorOptionData<any>[], value: any, onSelect: AnyCallback }) => {
+export const DistanceSelector = ({color, optionData, value, onSelect}:
+                                     { color: DistanceBoxColor, optionData: SelectorOptionData<any>[], value: any, onSelect: AnyCallback }) => {
     return (
-        <th className={"text-center"}
+        <th className={"text-center red-checkbox"}
             style={{verticalAlign: "middle"}}>
-            <select className={"form-select text-center"}
+            <select className={"form-select shadow-sm all-border"}
                     value={value}
                     onChange={onSelect}>
                 {

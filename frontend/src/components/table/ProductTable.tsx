@@ -56,7 +56,7 @@ export const ProductTable = () => {
                         </> :
                         <>
                             {
-                                product.map(prod => <ProductCard product={prod}/>
+                                product.map((prod, index) => <ProductCard key={index} product={prod}/>
                                 )
                             }
                         </>

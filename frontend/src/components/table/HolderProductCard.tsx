@@ -1,5 +1,5 @@
 import {DistanceBox} from "./DistanceBox";
-import {useState} from "react";
+import React, {useState} from "react";
 import {Holder} from "../../functions/types";
 import {SelectorOptionData} from "../input/Selector";
 import {useWindowSize} from "../../functions/hooks/useWindowSize";
@@ -17,6 +17,11 @@ export const HolderProductCard = ({holder, rows, linearLoad, selected, onSelectH
         setChecked(checked.map((c, index) => index === idx ? true : false))
     }
 
+    React.useEffect(() => {
+        if (!selected)
+            setChecked([false, false, false, false, false, false, false])
+    }, [selected])
+
     const distanceSelectorData: SelectorOptionData<number>[] = [
         {value: 400, text: "400"},
         {value: 500, text: "500"},
@@ -26,8 +31,6 @@ export const HolderProductCard = ({holder, rows, linearLoad, selected, onSelectH
         {value: 900, text: "900"},
         {value: 1000, text: "1000"}
     ]
-
-    console.log(holder.resistance)
 
 
     const size = useWindowSize()

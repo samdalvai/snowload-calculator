@@ -37,10 +37,11 @@ export const HolderProductCard = ({holder, rows, linearLoad, selected, onSelectH
     const size = useWindowSize()
 
     return (
-        <tr style={{
+        <tr className={"product-card"}
+            style={{
             backgroundColor: selected ? "lightblue" : "white"}}
-            onClick={() => onSelectHolder(holder)}
-        >
+            onClick={() => onSelectHolder(holder)
+        }>
             {
                 size.width !== undefined && size.width >= 800 ?
                     <>

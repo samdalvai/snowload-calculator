@@ -20,7 +20,7 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
                         onBack={onBack}
                         onAhead={() => setShowRetainersForm(true)}/>
                     :
-                    <SnowRetainersForm  onBack={() => setShowRetainersForm(false)}/>
+                    <SnowRetainersForm linearLoad={snowLoadData.linearLoad} onBack={() => setShowRetainersForm(false)}/>
             }
         </div>
     )

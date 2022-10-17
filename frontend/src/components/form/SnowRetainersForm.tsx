@@ -15,7 +15,7 @@ import {Title} from "../text/Title";
 import {ProductTable} from "../table/ProductTable";
 import {AheadButton} from "../button/AheadButton";
 
-export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
+export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, onBack: Callback }) => {
     const {translation} = useContext(LanguageContext);
 
     const [roofTypeValue, setRoofTypeValue] = useState<RoofType>("concreteTile")
@@ -66,6 +66,7 @@ export const SnowRetainersForm = ({onBack}: { onBack: Callback }) => {
             <div className={"py-3"}>
                 <Title  text={translation.pages.retainersForm.title}/>
             </div>
+            <TitleCard  title={translation.tables.snowLoadCalculation.body.linearLoad.label + ": " + linearLoad.toFixed(2) + " kN/m"}/>
             <div className="row">
                 <div className="col-md-6 pt-3">
                     <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.roofType}

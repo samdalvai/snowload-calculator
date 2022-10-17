@@ -115,6 +115,12 @@ div {
   border-style: solid hidden hidden hidden;
 }
 
+.top-bottom-border-black {
+  border-width: 1.5px!important;
+  border-color: black!important;
+  border-style: solid hidden solid hidden;
+}
+
 .all-border {
   border-width: 1.5px!important;
   border-color: black!important;

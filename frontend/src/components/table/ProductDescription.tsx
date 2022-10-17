@@ -40,6 +40,9 @@ export const ProductDescriptionSmall = ({product}: { product: Product }) => {
             <th className={"border-right-lightgray text-center"}
                 style={{verticalAlign: "middle"}}>
                 <ProductImage url={product.image}/>
+            </th>
+            <th className={"border-right-lightgray text-center"}
+                style={{verticalAlign: "middle"}}>
                 <p>{translation.tables.productChoice.headers.code}: {product.productCode}</p>
                 <p>{translation.tables.productChoice.headers.name}: {product.name}</p>
                 <p>{translation.tables.productChoice.headers.height}: {product.retainerHeight}</p>

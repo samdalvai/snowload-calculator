@@ -159,7 +159,8 @@ export interface Translation {
                 code: string,
                 name: string,
                 height: string,
-                distance: string
+                distance: string,
+                description: string
             }
         },
         retainerChoice: {

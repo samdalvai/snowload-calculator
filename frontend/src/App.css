@@ -118,7 +118,7 @@ div {
 .all-border {
   border-width: 1.5px!important;
   border-color: black!important;
-  border-style: solid solid solid solid;
+  border-style: solid solid solid solid!important;
 }
 
 .bottom-border-light {

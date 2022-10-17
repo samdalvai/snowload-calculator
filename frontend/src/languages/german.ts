@@ -156,7 +156,8 @@ export const german: Translation = {
                 code: "Artikel",
                 name: "Name",
                 height: "Höhe (mm)",
-                distance: "Abstand (mm)"
+                distance: "Abstand (mm)",
+                description: "Beschreibung"
             }
         },
         retainerChoice: {

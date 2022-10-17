@@ -156,7 +156,8 @@ export const italian: Translation = {
                 code: "Codice",
                 name: "Nome",
                 height: "Altezza (mm)",
-                distance: "Interasse (mm)"
+                distance: "Interasse (mm)",
+                description: "Descrizione"
             }
         },
         retainerChoice: {

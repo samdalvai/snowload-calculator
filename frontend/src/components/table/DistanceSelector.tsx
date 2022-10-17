@@ -1,11 +1,13 @@
 import {AnyCallback} from "../../functions/callbacks";
 import React from "react";
 import {SelectorOptionData} from "../input/Selector";
+import {Holder} from "../../functions/types";
+import {getSystemResistance} from "../../functions/computation/resistanceComputation";
 
-export const DistanceSelector = ({linearLoad, systemResistance, optionData, value, onSelect}:
-                                     { linearLoad: number, systemResistance: number, optionData: SelectorOptionData<any>[], value: any, onSelect: AnyCallback }) => {
+export const DistanceSelector = ({linearLoad, holder, rows, distanceValue, optionData, value, onSelect}:
+                                     { linearLoad: number, holder: Holder, rows: number, distanceValue: number, optionData: SelectorOptionData<any>[], value: any, onSelect: AnyCallback }) => {
 
-    const color = (systemResistance >= linearLoad) ? "green-checkbox" : "red-checkbox"
+    const color = (getSystemResistance(holder,rows,distanceValue) >= linearLoad) ? "green-checkbox" : "red-checkbox"
 
     return (
         <th className={"text-center " + color}
@@ -15,7 +17,10 @@ export const DistanceSelector = ({linearLoad, systemResistance, optionData, valu
                     onChange={onSelect}>
                 {
                     optionData.map(val =>
-                        <option key={val.value} value={val.value}>{val.text}</option>
+                        <option
+                            className={getSystemResistance(holder,rows,val.value) >= linearLoad ? "green-checkbox" : "red-checkbox"}
+                            key={val.value}
+                            value={val.value}>{val.text}</option>
                     )
                 }
             </select>

@@ -67,7 +67,9 @@ export const HolderProductCard = ({holder, rows, linearLoad, selected, onSelectH
                                           optionData={distanceSelectorData}
                                           value={distanceValue}
                                           linearLoad={linearLoad}
-                                          systemResistance={getSystemResistance(holder, rows, distanceValue)}/>
+                                          distanceValue={distanceValue}
+                                          holder={holder}
+                                          rows={rows}/>
                     </>
             }
 

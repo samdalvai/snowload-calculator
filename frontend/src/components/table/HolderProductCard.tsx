@@ -15,6 +15,7 @@ export const HolderProductCard = ({holder, rows, linearLoad, selected, onSelectH
 
     const handleSetChecked = (idx: number) => {
         setChecked(checked.map((c, index) => index === idx ? true : false))
+        setDistanceValue((idx + 4) * 100)
     }
 
     React.useEffect(() => {

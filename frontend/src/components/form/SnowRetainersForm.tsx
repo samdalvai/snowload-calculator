@@ -106,7 +106,7 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
             </div>
 
             <div className={"pt-3"}>
-                <ProductTable  onHolderSelect={() => null} onRetainerSelect={() => null} linearLoad={linearLoad}/>
+                <ProductTable  onHolderSelect={() => null} onRetainerSelect={() => null} linearLoad={linearLoad} rows={rowsValue}/>
             </div>
 
             <div className={"pb-3"}>

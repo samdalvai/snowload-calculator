@@ -2,7 +2,7 @@ import {Holder} from "../types";
 import {useApiGet} from "./useApi";
 
 export type HoldersResponse = {
-    data: Holder[],
+    holderData: Holder[],
     loading: Boolean,
     error: any
 }
@@ -10,5 +10,5 @@ export type HoldersResponse = {
 export const useHolders = (): HoldersResponse => {
     const {data, loading, error} = useApiGet('/holders');
 
-    return {data, loading, error};
+    return {holderData: data, loading, error};
 }

@@ -2,22 +2,22 @@ import React, {useContext, useState} from "react";
 import {LanguageContext} from "../language/LanguageContext";
 import {useHolders} from "../../functions/hooks/useHolders";
 import {DisabledInput} from "../input/DisabledInput";
-import {Product, SnowStopProduct} from "../../functions/types";
-import {ProductCard} from "./ProductCard";
+import {Holder, Product, SnowStopProduct} from "../../functions/types";
+import {HolderProductCard} from "./HolderProductCard";
 import {useWindowSize} from "../../functions/hooks/useWindowSize";
 import {ProductTableHeader, ProductTableHeaderSmall} from "./ProductTableHeader";
 import {ProductCallback} from "../../functions/callbacks";
 
-export const ProductTable = ({linearLoad, onHolderSelect, onRetainerSelect}: {linearLoad: number, onHolderSelect: ProductCallback, onRetainerSelect: ProductCallback}) => {
+export const ProductTable = ({rows, linearLoad, onHolderSelect, onRetainerSelect}: {rows: number, linearLoad: number, onHolderSelect: ProductCallback, onRetainerSelect: ProductCallback}) => {
     const {translation} = useContext(LanguageContext);
 
-    const {data, loading, error} = useHolders()
-    const [holders, setHolders] = useState<SnowStopProduct[]>([])
+    const {holderData, loading, error} = useHolders()
+    const [holders, setHolders] = useState<Holder[]>([])
 
     React.useEffect(() => {
-        console.log(data)
-        setHolders(data.map(holder => holder))
-    }, [data])
+        console.log(holderData)
+        setHolders(holderData.map(holder => holder))
+    }, [holderData])
 
     const size = useWindowSize()
 
@@ -44,7 +44,11 @@ export const ProductTable = ({linearLoad, onHolderSelect, onRetainerSelect}: {li
                         </> :
                         <>
                             {
-                                holders.map((prod, index) => <ProductCard key={index} product={prod} linearLoad={linearLoad}/>
+                                holders.map((prod, index) => <HolderProductCard
+                                    key={index}
+                                    holder={prod}
+                                    linearLoad={linearLoad}
+                                    rows={rows}/>
                                 )
                             }
                         </>

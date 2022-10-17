@@ -1,13 +1,14 @@
 import {ProductImage} from "./ProductImage";
 import {DistanceBox} from "./DistanceBox";
 import {useState} from "react";
-import {Product, SnowStopProduct} from "../../functions/types";
+import {Holder, Product, RetainerResistance, SnowStopProduct} from "../../functions/types";
 import {SelectorOptionData} from "../input/Selector";
 import {useWindowSize} from "../../functions/hooks/useWindowSize";
 import {ProductDescription, ProductDescriptionSmall} from "./ProductDescription";
 import {DistanceSelector} from "./DistanceSelector";
+import {getSystemResistance, isHolderResistanceHigher} from "../../functions/computation/resistanceComputation";
 
-export const ProductCard = ({product, linearLoad}: { product: SnowStopProduct, linearLoad: number }) => {
+export const HolderProductCard = ({holder, rows, linearLoad}: { holder: Holder, rows: number, linearLoad: number }) => {
     const [checked, setChecked] = useState<boolean[]>([false, false, false, false, false, false, false])
     const [distanceValue, setDistanceValue] = useState<number>(400)
 
@@ -25,6 +26,9 @@ export const ProductCard = ({product, linearLoad}: { product: SnowStopProduct, l
         {value: 1000, text: "1000"}
     ]
 
+    console.log(holder.resistance)
+
+
     const size = useWindowSize()
 
     return (
@@ -33,22 +37,28 @@ export const ProductCard = ({product, linearLoad}: { product: SnowStopProduct, l
                 {
                     size.width !== undefined && size.width >= 800 ?
                         <>
-                            <ProductDescription  product={product}/>
+                            <ProductDescription  product={holder}/>
                             <>
                                 {
                                     distanceSelectorData.map((data, index) => (
-                                        <DistanceBox key={index} color={"red"} checked={checked[index]} onChecked={() => handleSetChecked(index)} distance={data.value}/>
+                                        <DistanceBox key={index} color={
+                                            isHolderResistanceHigher(holder,rows,data.value,linearLoad) ?
+                                                "green"
+                                                :
+                                                "red"
+                                        } checked={checked[index]} onChecked={() => handleSetChecked(index)} distance={data.value}/>
                                     ))
                                 }
                             </>
                         </>
                         :
                         <>
-                            <ProductDescriptionSmall product={product} />
+                            <ProductDescriptionSmall product={holder} />
                             <DistanceSelector  onSelect={e => setDistanceValue(e.target.value)}
                                                optionData={distanceSelectorData}
                                                value={distanceValue}
-                                               color={"red"}/>
+                                               linearLoad={linearLoad}
+                                               systemResistance={getSystemResistance(holder,rows,distanceValue)}/>
                         </>
                 }
 

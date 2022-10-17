@@ -7,8 +7,6 @@ import {SelectorWithLabel} from "../input/SelectorWithLabel";
 import {LanguageContext} from "../language/LanguageContext";
 import {RetainerHeight, RetainerType, RoofData, RoofType} from "../../functions/types";
 import {DisabledInput} from "../input/DisabledInput";
-import {ComputeButton} from "../button/ComputeButton";
-import {ResetButton} from "../button/ResetButton";
 import {ButtonsGroup} from "../button/ButtonsGroup";
 import {TitleCard} from "../card/TitleCard";
 import {Title} from "../text/Title";
@@ -108,7 +106,7 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
             </div>
 
             <div className={"pt-3"}>
-                <ProductTable />
+                <ProductTable  onHolderSelect={() => null} onRetainerSelect={() => null} linearLoad={linearLoad}/>
             </div>
 
             <div className={"pb-3"}>

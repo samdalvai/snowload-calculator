@@ -2,22 +2,22 @@ import React, {useContext, useState} from "react";
 import {LanguageContext} from "../language/LanguageContext";
 import {useHolders} from "../../functions/hooks/useHolders";
 import {DisabledInput} from "../input/DisabledInput";
-import {Product} from "../../functions/types";
+import {Product, SnowStopProduct} from "../../functions/types";
 import {ProductCard} from "./ProductCard";
 import {useWindowSize} from "../../functions/hooks/useWindowSize";
 import {ProductTableHeader, ProductTableHeaderSmall} from "./ProductTableHeader";
+import {ProductCallback} from "../../functions/callbacks";
 
-export const ProductTable = () => {
+export const ProductTable = ({linearLoad, onHolderSelect, onRetainerSelect}: {linearLoad: number, onHolderSelect: ProductCallback, onRetainerSelect: ProductCallback}) => {
     const {translation} = useContext(LanguageContext);
-    const headers = translation.tables.productChoice.headers
 
-    const {holders, loading, error} = useHolders()
-    const [product, setProduct] = useState<Product[]>([])
+    const {data, loading, error} = useHolders()
+    const [holders, setHolders] = useState<SnowStopProduct[]>([])
 
     React.useEffect(() => {
-        console.log(holders)
-        setProduct(holders.map(holder => holder.productInfo))
-    }, [holders])
+        console.log(data)
+        setHolders(data.map(holder => holder))
+    }, [data])
 
     const size = useWindowSize()
 
@@ -44,7 +44,7 @@ export const ProductTable = () => {
                         </> :
                         <>
                             {
-                                product.map((prod, index) => <ProductCard key={index} product={prod}/>
+                                holders.map((prod, index) => <ProductCard key={index} product={prod} linearLoad={linearLoad}/>
                                 )
                             }
                         </>

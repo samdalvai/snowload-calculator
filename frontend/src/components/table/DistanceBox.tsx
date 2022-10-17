@@ -1,7 +1,7 @@
 import {Callback} from "../../functions/callbacks";
 
-export const DistanceBox = ({color, checked, onChecked}:
-                                {color: DistanceBoxColor, checked: boolean, onChecked: Callback}) => {
+export const DistanceBox = ({color, distance, checked, onChecked}:
+                                {color: DistanceBoxColor, distance: number, checked: boolean, onChecked: Callback}) => {
 
     return (
         <th className={("border-right-darkgray") + (color === "red" ? " red-checkbox" : " green-checkbox")}

@@ -52,6 +52,8 @@ export interface Product {
     image: string
 }
 
+export type SnowStopProduct = Holder | Retainer
+
 export interface RetainerResistance {
     dist400: number,
     dist500: number,

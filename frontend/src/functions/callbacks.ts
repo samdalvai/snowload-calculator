@@ -1,4 +1,4 @@
-import {City, RoofData} from "./types";
+import {City, Product, RoofData} from "./types";
 import {Language} from "../languages/translation";
 
 export type StringCallBack = (arg: string) => void
@@ -16,3 +16,5 @@ export type RoofDataCallback = (arg: RoofData) => void
 export type LanguageCallback = (arg: Language) => void
 
 export type AnyCallback = (arg: any) => void
+
+export type ProductCallback = (arg: Product) => void

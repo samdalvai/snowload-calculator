@@ -6,13 +6,16 @@ import {Holder, Product, SnowStopProduct} from "../../functions/types";
 import {HolderProductCard} from "./HolderProductCard";
 import {useWindowSize} from "../../functions/hooks/useWindowSize";
 import {ProductTableHeader, ProductTableHeaderSmall} from "./ProductTableHeader";
-import {ProductCallback} from "../../functions/callbacks";
+import {HolderCallback, ProductCallback, RetainerCallback} from "../../functions/callbacks";
 
-export const ProductTable = ({rows, linearLoad, onHolderSelect, onRetainerSelect}: {rows: number, linearLoad: number, onHolderSelect: ProductCallback, onRetainerSelect: ProductCallback}) => {
+export const ProductTable = ({rows, linearLoad}:
+                                 {rows: number, linearLoad: number, onSelectHolder: HolderCallback, onSelectRetainer: RetainerCallback}) => {
     const {translation} = useContext(LanguageContext);
 
     const {holderData, loading, error} = useHolders()
     const [holders, setHolders] = useState<Holder[]>([])
+
+    const [selectedHolder, setSelectedHolder] = useState<Holder | null>(null)
 
     React.useEffect(() => {
         console.log(holderData)
@@ -48,7 +51,13 @@ export const ProductTable = ({rows, linearLoad, onHolderSelect, onRetainerSelect
                                     key={index}
                                     holder={prod}
                                     linearLoad={linearLoad}
-                                    rows={rows}/>
+                                    rows={rows}
+                                    onSelectHolder={setSelectedHolder}
+                                    selected={
+                                        selectedHolder ?
+                                            prod.code === selectedHolder.code :
+                                            false
+                                    }/>
                                 )
                             }
                         </>

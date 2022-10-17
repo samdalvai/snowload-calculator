@@ -38,7 +38,9 @@ export const ProductDescriptionSmall = ({product}: { product: SnowStopProduct })
     return (
         <>
             <th className={"border-right-lightgray text-center"}
-                style={{verticalAlign: "middle"}}>
+                style={{
+                    verticalAlign: "middle"
+                }}>
                 <ProductImage url={product.productInfo.image}/>
             </th>
             <th className={"border-right-lightgray text-center"}

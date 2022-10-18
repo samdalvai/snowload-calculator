@@ -111,6 +111,10 @@ export interface Translation {
     modals: {
         addCity: {
             title: string
+        },
+        resistanceError: {
+            title: string,
+            body: string
         }
     },
     tables: {

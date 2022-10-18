@@ -1,4 +1,4 @@
-import {Product, SnowStopProduct} from "../../functions/types";
+import {SnowStopProduct} from "../../functions/types";
 import {ProductImage} from "./ProductImage";
 import {useContext} from "react";
 import {LanguageContext} from "../language/LanguageContext";

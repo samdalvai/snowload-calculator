@@ -108,6 +108,10 @@ export const german: Translation = {
     modals: {
         addCity: {
             title: "Neue Stadt hinzufügen"
+        },
+        resistanceError: {
+            title: "Fehler bei dem Widerstand",
+            body: "Der Widerstand ist nicht hoch genug, bitte verringern Sie den Abstand des Halters oder erhöhen Sie die Anzahl der Reihen."
         }
     },
     tables: {

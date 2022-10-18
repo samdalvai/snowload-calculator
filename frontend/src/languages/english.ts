@@ -108,6 +108,10 @@ export const english: Translation = {
     modals: {
         addCity: {
             title: "Add new city"
+        },
+        resistanceError: {
+            title: "Resistance error",
+            body: "The resistance is not high enough, please decrease the distance of the holder or increase the number of rows"
         }
     },
     tables: {

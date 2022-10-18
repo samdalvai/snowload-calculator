@@ -108,6 +108,10 @@ export const italian: Translation = {
     modals: {
         addCity: {
             title: "Aggiunta nuova città"
+        },
+        resistanceError: {
+            title: "Errore nella resistenza",
+            body: "La resistenza del sistema non è sufficiente, ridurre la distanza del supporto o aumentare il numero di file."
         }
     },
     tables: {

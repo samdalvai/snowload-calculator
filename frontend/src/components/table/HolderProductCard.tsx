@@ -13,9 +13,14 @@ export const HolderProductCard = ({holder, rows, linearLoad, selected, onSelectH
     const [checked, setChecked] = useState<boolean[]>([false, false, false, false, false, false, false])
     const [distanceValue, setDistanceValue] = useState<number>(400)
 
-    const handleSetChecked = (idx: number) => {
+    const handleOnChecked = (idx: number) => {
         setChecked(checked.map((c, index) => index === idx ? true : false))
-        setDistanceValue((idx + 4) * 100)
+        setDistanceValue(distanceSelectorData[idx].value)
+    }
+
+    const handleOnSelected = (value: number) => {
+        setDistanceValue(value)
+        setChecked(checked.map((c, index) => index === (value / 100 - 4) ? true : false))
     }
 
     React.useEffect(() => {
@@ -54,7 +59,7 @@ export const HolderProductCard = ({holder, rows, linearLoad, selected, onSelectH
                                             "green"
                                             :
                                             "red"
-                                    } checked={checked[index]} onChecked={() => handleSetChecked(index)}
+                                    } checked={checked[index]} onChecked={() => handleOnChecked(index)}
                                                  distance={data.value}/>
                                 ))
                             }
@@ -63,7 +68,7 @@ export const HolderProductCard = ({holder, rows, linearLoad, selected, onSelectH
                     :
                     <>
                         <ProductDescriptionSmall product={holder}/>
-                        <DistanceSelector onSelect={e => setDistanceValue(e.target.value)}
+                        <DistanceSelector onSelect={e => handleOnSelected(e.target.value)}
                                           optionData={distanceSelectorData}
                                           value={distanceValue}
                                           linearLoad={linearLoad}

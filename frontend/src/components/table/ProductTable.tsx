@@ -24,8 +24,6 @@ export const ProductTable = ({rows, linearLoad}:
 
     const size = useWindowSize()
 
-    console.log(size)
-
     return (
         <div className="table-responsive">
             <table className="table shadow-sm rounded">

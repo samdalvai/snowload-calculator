@@ -3,7 +3,6 @@ import {SnowLoadFooter} from "../footer/SnowLoadFooter";
 import {TermsOfUse} from "../text/TermsOfUse";
 import {SnowLoadNavbar} from "../navbar/SnowLoadNavbar";
 import {ImageContainerRounded} from "../image/ImageContainerRounded";
-import {Title} from "../text/Title";
 
 export const SnowLoadCalculatorContainer = ({body}: { body: ReactElement }) => {
     return (
@@ -24,9 +23,11 @@ export const SnowLoadCalculatorContainer = ({body}: { body: ReactElement }) => {
                 </div>
             </div>
 
-            <div className={"pt-3"}>
-                <SnowLoadFooter/>
-            </div>
+            {
+                /*<div className={"pt-3"}>
+                    <SnowLoadFooter/>
+                </div>*/
+            }
         </div>
     )
 }

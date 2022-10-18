@@ -202,6 +202,10 @@ footer a:hover {
   border-right-color: lightgray;
 }
 
+.red-background {
+  background-color: #dc3545!important;
+}
+
 .red-checkbox {
   background-color: #dc3545!important;
 }

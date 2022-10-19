@@ -176,7 +176,8 @@ export const english: Translation = {
         products: "Loading products..."
     },
     error: {
-        cities: "Error loading cities..."
+        cities: "Error loading cities...",
+        products: "Error loading products.."
     },
     alerts: {
         inputError: "You have an error in your input, please retry...",

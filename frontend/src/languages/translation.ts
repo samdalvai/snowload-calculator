@@ -179,7 +179,8 @@ export interface Translation {
         products: string
     },
     error: {
-        cities: string
+        cities: string,
+        products: string
     },
     alerts: {
         inputError: string,

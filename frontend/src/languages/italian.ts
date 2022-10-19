@@ -176,7 +176,8 @@ export const italian: Translation = {
         products: "Caricamento dei prodotti..."
     },
     error: {
-        cities: "Errore nel caricamento delle città..."
+        cities: "Errore nel caricamento delle città...",
+        products: "Errore nel caricamento dei prodotti.."
     },
     alerts: {
         inputError: "Si è verificato un errore nell'inserimento dei dati, riprovare...",

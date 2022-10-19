@@ -176,7 +176,8 @@ export const german: Translation = {
         products: "Produkte werden geladen..."
     },
     error: {
-        cities: "Fehler beim Laden von Städten..."
+        cities: "Fehler beim Laden von Städten...",
+        products: "Fehler beim Laden von Produkten.."
     },
     alerts: {
         inputError: "Sie haben einen Fehler in Ihrer Eingabe, bitte versuchen Sie es erneut...",

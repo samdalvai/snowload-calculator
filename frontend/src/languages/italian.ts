@@ -17,7 +17,9 @@ export const italian: Translation = {
             eight: "Otto",
             nine: "Nove",
             ten: "Dieci"
-        }
+        },
+        holder: "Supporto fermaneve",
+        retainer: "Sistema di ritenuta"
     },
     header: {
         title: "Calcolo carico neve"

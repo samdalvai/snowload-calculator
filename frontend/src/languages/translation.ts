@@ -19,7 +19,9 @@ export interface Translation {
             eight: string,
             nine: string,
             ten: string
-        }
+        },
+        holder: string,
+        retainer: string
     },
     header: {
         title: string

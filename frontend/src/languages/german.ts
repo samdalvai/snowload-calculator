@@ -17,7 +17,9 @@ export const german: Translation = {
             eight: "Acht",
             nine: "Neun",
             ten: "Zehn"
-        }
+        },
+        holder: "Schneefangstütze",
+        retainer: "Rückhaltesystem"
     },
     header: {
         title: "Schneelastrechner"

@@ -63,6 +63,11 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
 
     }, [retainingSystemValue])
 
+    const handleOnAhead = () => {
+        // check here
+
+    }
+
     return (
         <div>
             <div className={"py-3"}>
@@ -115,7 +120,7 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
 
             <div className={"pb-3"}>
                 <ButtonsGroup leftButton={<BackButton onBack={onBack}/>}
-                              rightButton={<AheadButton onAhead={() => null}/>}/>
+                              rightButton={<AheadButton onAhead={handleOnAhead}/>}/>
             </div>
         </div>
     )

@@ -1,3 +1,5 @@
+import {Holder} from "./classes";
+
 export interface City {
     zip: string,
     name: string,
@@ -30,19 +32,22 @@ export interface SnowLoadData {
     linearLoad: number
 }
 
-export interface Holder {
+/*export interface Holder {
     code: string,
     resistance: number,
     roofType: RoofType
     productInfo: Product
-}
+    type : "Holder"
+}*/
 
+/*
 export interface Retainer {
     code: string,
     resistance: RetainerResistance
     profile: string,
     productInfo: Product
 }
+*/
 
 export interface Product {
     productCode: string,
@@ -51,8 +56,6 @@ export interface Product {
     retainerHeight: RetainerHeight,
     image: string
 }
-
-export type SnowStopProduct = Holder | Retainer
 
 export interface RetainerResistance {
     dist400: number,

@@ -1,5 +1,6 @@
-import {City, Holder, Product, Retainer, RoofData} from "./types";
+import {City, Product, RoofData} from "./types";
 import {Language} from "../languages/translation";
+import {Holder, Retainer, SnowStopProduct} from "./classes";
 
 export type StringCallBack = (arg: string) => void
 
@@ -22,3 +23,5 @@ export type ProductCallback = (arg: Product) => void
 export type HolderCallback = (arg: Holder) => void
 
 export type RetainerCallback = (arg: Retainer) => void
+
+export type SnowStopProductCallback = (arg: SnowStopProduct) => void

@@ -5,13 +5,14 @@ import {SelectorOptionData} from "../input/Selector";
 import React, {useContext, useState} from "react";
 import {SelectorWithLabel} from "../input/SelectorWithLabel";
 import {LanguageContext} from "../language/LanguageContext";
-import {Holder, Retainer, RetainerHeight, RetainerType, RoofData, RoofType} from "../../functions/types";
+import { RetainerHeight, RetainerType, RoofData, RoofType} from "../../functions/types";
 import {DisabledInput} from "../input/DisabledInput";
 import {ButtonsGroup} from "../button/ButtonsGroup";
 import {TitleCard} from "../card/TitleCard";
 import {Title} from "../text/Title";
 import {ProductSelector} from "../table/ProductSelector";
 import {AheadButton} from "../button/AheadButton";
+import {Holder, Retainer} from "../../functions/classes";
 
 export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, onBack: Callback }) => {
     const {translation} = useContext(LanguageContext);

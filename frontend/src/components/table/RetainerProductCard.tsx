@@ -5,16 +5,14 @@ import {useWindowSize} from "../../functions/hooks/useWindowSize";
 import {ProductDescription, ProductDescriptionSmall} from "./ProductDescription";
 import {DistanceSelector} from "./DistanceSelector";
 import {isHolderResistanceHigher} from "../../functions/computation/resistanceComputation";
-import {HolderCallback} from "../../functions/callbacks";
+import {SnowStopProductCallback} from "../../functions/callbacks";
 import {ErrorModal} from "../modal/ErrorModal";
 import {LanguageContext} from "../language/LanguageContext";
 import {Holder} from "../../functions/classes";
 
-export const HolderProductCard = ({holder, rows, linearLoad, selected, onSelectHolder}:
-                                      { holder: Holder, rows: number, linearLoad: number, selected: boolean, onSelectHolder: HolderCallback }) => {
+export const HolderProductCard = ({holder, rows, linearLoad, selected, onSelectProduct}:
+                                      { holder: Holder, rows: number, linearLoad: number, selected: boolean, onSelectProduct: SnowStopProductCallback }) => {
     const {translation} = useContext(LanguageContext);
-
-    //console.log(holder.type)
 
     const [checked, setChecked] = useState<boolean[]>([false, false, false, false, false, false, false])
     const [distanceValue, setDistanceValue] = useState<number>(400)
@@ -76,7 +74,7 @@ export const HolderProductCard = ({holder, rows, linearLoad, selected, onSelectH
                 style={{
                     backgroundColor: selected ? "lightblue" : "white"
                 }}
-                onClick={() => onSelectHolder(holder)
+                onClick={() => onSelectProduct(holder)
                 }>
                 {
                     size.width !== undefined && size.width >= 800 ?

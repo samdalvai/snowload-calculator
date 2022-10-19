@@ -5,24 +5,22 @@ import {useWindowSize} from "../../functions/hooks/useWindowSize";
 import {ProductDescription, ProductDescriptionSmall} from "./ProductDescription";
 import {DistanceSelector} from "./DistanceSelector";
 import {isResistanceHigher} from "../../functions/computation/resistanceComputation";
-import {SnowStopProductCallback} from "../../functions/callbacks";
+import {Callback, SnowStopProductCallback} from "../../functions/callbacks";
 import {ErrorModal} from "../modal/ErrorModal";
 import {LanguageContext} from "../language/LanguageContext";
 import {SnowStopProduct} from "../../functions/types";
 
-export const ProductCard = ({product, rows, linearLoad, selected, onSelect}:
-                                { product: SnowStopProduct, rows: number, linearLoad: number, selected: boolean, onSelect: SnowStopProductCallback }) => {
+export const ProductCard = ({product, rows, linearLoad, selected, onSelect, onResistanceError}:
+                                { product: SnowStopProduct, rows: number, linearLoad: number, selected: boolean, onSelect: SnowStopProductCallback, onResistanceError: Callback }) => {
     const {translation} = useContext(LanguageContext);
 
     const [checked, setChecked] = useState<boolean[]>([false, false, false, false, false, false, false])
     const [distanceValue, setDistanceValue] = useState<number>(400)
 
-    const [showError, setShowError] = useState<boolean>(false)
-
     const handleOnChecked = (idx: number) => {
         console.log("Checking")
         if (!isResistanceHigher(product, rows, distanceSelectorData[idx].value, linearLoad)) {
-            setShowError(true)
+            onResistanceError()
         } else {
             setChecked(checked.map((c, index) => index === idx ? true : false))
             setDistanceValue(distanceSelectorData[idx].value)
@@ -32,7 +30,7 @@ export const ProductCard = ({product, rows, linearLoad, selected, onSelect}:
     const handleOnSelected = (value: number) => {
         console.log("Selecting: ", value)
         if (!isResistanceHigher(product, rows, value, linearLoad)) {
-            setShowError(true)
+            onResistanceError()
         } else {
             setDistanceValue(value)
             setChecked(checked.map((c, index) => index === (value / 100 - 4) ? true : false))
@@ -64,14 +62,6 @@ export const ProductCard = ({product, rows, linearLoad, selected, onSelect}:
 
     return (
         <>
-            {
-                showError ?
-                    <ErrorModal show={showError} header={translation.modals.resistanceError.title}
-                                body={translation.modals.resistanceError.body}
-                                onHide={() => setShowError(false)}/>
-                    :
-                    ""
-            }
             <tr className={"product-card"}
                 style={{
                     backgroundColor: selected ? "lightblue" : "white"

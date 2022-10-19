@@ -2,11 +2,12 @@ import React, {useContext, useState} from "react";
 import {LanguageContext} from "../language/LanguageContext";
 import {useHolders} from "../../functions/hooks/useHolders";
 import {Holder, Retainer, SnowStopProduct} from "../../functions/types";
-import {HolderCallback, RetainerCallback} from "../../functions/callbacks";
+import {Callback, HolderCallback, RetainerCallback} from "../../functions/callbacks";
 import {useRetainers} from "../../functions/hooks/useRetainers";
 import {ProductTable} from "./ProductTable";
 import {ProductCard} from "./ProductCard";
 import {TitleCard} from "../card/TitleCard";
+import {ErrorModal} from "../modal/ErrorModal";
 
 export const ProductSelector = ({rows, linearLoad}:
                                     { rows: number, linearLoad: number, onSelectHolder: HolderCallback, onSelectRetainer: RetainerCallback }) => {
@@ -21,6 +22,8 @@ export const ProductSelector = ({rows, linearLoad}:
     const [selectedHolder, setSelectedHolder] = useState<SnowStopProduct | null>(null)
     const [selectedRetainer, setSelectedRetainer] = useState<SnowStopProduct | null>(null)
 
+    const [showError, setShowError] = useState<boolean>(false)
+
     React.useEffect(() => {
         setHolders(holderData.map(data => ({...data, type: "Holder"})))
     }, [holderData])
@@ -31,6 +34,14 @@ export const ProductSelector = ({rows, linearLoad}:
 
     return (
         <div>
+            {
+                showError ?
+                    <ErrorModal show={showError} header={translation.modals.resistanceError.title}
+                                body={translation.modals.resistanceError.body}
+                                onHide={() => setShowError(false)}/>
+                    :
+                    ""
+            }
             <div className={""}>
                 <TitleCard title={translation.words.holder}/>
             </div>
@@ -49,7 +60,7 @@ export const ProductSelector = ({rows, linearLoad}:
                                               selectedHolder ?
                                                   prod.code === selectedHolder.code :
                                                   false
-                                          }/>
+                                          } onResistanceError={() => setShowError(true)}/>
                                       )
                                   }
                               </>}
@@ -75,7 +86,7 @@ export const ProductSelector = ({rows, linearLoad}:
                                                       selectedRetainer ?
                                                           prod.code === selectedRetainer.code :
                                                           false
-                                                  }/>
+                                                  } onResistanceError={() => setShowError(true)}/>
                                               )
                                           }
                                       </>}

@@ -20,6 +20,7 @@ export const ProductCard = ({product, rows, linearLoad, selected, onSelect}:
     const [showError, setShowError] = useState<boolean>(false)
 
     const handleOnChecked = (idx: number) => {
+        console.log("Checking")
         if (!isResistanceHigher(product, rows, distanceSelectorData[idx].value, linearLoad)) {
             setShowError(true)
         } else {
@@ -29,6 +30,7 @@ export const ProductCard = ({product, rows, linearLoad, selected, onSelect}:
     }
 
     const handleOnSelected = (value: number) => {
+        console.log("Selecting: ", value)
         if (!isResistanceHigher(product, rows, value, linearLoad)) {
             setShowError(true)
         } else {

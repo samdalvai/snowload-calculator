@@ -90,8 +90,8 @@ INSERT INTO retainer VALUES
     ('020007', '20/20/3');
 
 INSERT INTO retainer_resistance VALUES
-    ('020006',1.6,2.2,3.2,4.2,5.9,9.0,13.9),
-    ('020007',1.6,2.2,3.2,4.2,5.9,9.0,13.9);
+    ('020006',13.9,9.0,5.9,4.2,3.2,2.2,1.6),
+    ('020007',13.9,9.0,5.9,4.2,3.2,2.2,1.6);
 
 INSERT INTO province VALUES
     ('SS', 'Sassari', 'III', 0.6),

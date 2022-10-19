@@ -3,7 +3,7 @@ import {useApiGet} from "./useApi";
 
 export type RetainerResponse = {
     retainerData: Retainer[],
-    loadingRetainer: Boolean,
+    loadingRetainer: boolean,
     errorRetainer: any
 }
 

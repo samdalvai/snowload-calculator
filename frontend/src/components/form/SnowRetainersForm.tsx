@@ -12,7 +12,7 @@ import {TitleCard} from "../card/TitleCard";
 import {Title} from "../text/Title";
 import {ProductSelector} from "../table/ProductSelector";
 import {AheadButton} from "../button/AheadButton";
-import {Holder, Retainer} from "../../functions/classes";
+import {Holder, Retainer} from "../../functions/types";
 
 export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, onBack: Callback }) => {
     const {translation} = useContext(LanguageContext);

@@ -1,11 +1,14 @@
-import {Holder} from "../classes";
+import {Holder, Retainer, SnowStopProduct} from "../types";
 
-export const isHolderResistanceHigher = (product: Holder, rows: number, distance: number, linearLoad: number) => {
+/*export const isResistanceHigher = (product: Holder, rows: number, distance: number, linearLoad: number) => {
+
+    //product.getResistance(1,400);
+
     return getHolderResistance(product,rows,distance) >= linearLoad;
 
-}
+}*/
 
-/*export const isResistanceHigher = (product: SnowStopProduct, rows: number, distance: number, linearLoad: number) => {
+export const isResistanceHigher = (product: SnowStopProduct, rows: number, distance: number, linearLoad: number) => {
     switch (product.type) {
         case "Holder":
             return getHolderResistance(product,rows,distance)
@@ -14,13 +17,13 @@ export const isHolderResistanceHigher = (product: Holder, rows: number, distance
         default:
             throw new Error("Unsupported snowstop product type");
     }
-}*/
+}
 
 export const getHolderResistance = (product: Holder, rows: number, distance: number): number => {
     // distance is thought as mm, e.g. 400, 500, 600 ...
     return product.resistance * rows * 1000.0 / distance
 }
-/*
+
 export const getRetainerResistance = (product: Retainer, rows: number, distance: number): number => {
     // distance is thought as mm, e.g. 400, 500, 600 ...
     switch (distance) {
@@ -42,4 +45,4 @@ export const getRetainerResistance = (product: Retainer, rows: number, distance:
             throw new Error("Unable to determine retainer resistance");
     }
 
-}*/
+}

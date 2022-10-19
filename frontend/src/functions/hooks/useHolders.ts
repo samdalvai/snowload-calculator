@@ -1,4 +1,4 @@
-import {Holder} from "../classes";
+import {Holder} from "../types";
 import {useApiGet} from "./useApi";
 
 export type HoldersResponse = {

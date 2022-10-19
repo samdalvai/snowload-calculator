@@ -1,4 +1,4 @@
-import {Retainer} from "../classes";
+import {Retainer} from "../types";
 import {useApiGet} from "./useApi";
 
 export type RetainerResponse = {

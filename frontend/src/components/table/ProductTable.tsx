@@ -4,7 +4,7 @@ import {HolderProductCard} from "./HolderProductCard";
 import React, {ReactElement, useContext} from "react";
 import {useWindowSize} from "../../functions/hooks/useWindowSize";
 import {LanguageContext} from "../language/LanguageContext";
-import {Holder} from "../../functions/classes";
+import {Holder} from "../../functions/types";
 
 export const ProductTable = ({loading, error, productList}: {loading: boolean, error: any, productList: ReactElement}) => {
     const {translation} = useContext(LanguageContext);

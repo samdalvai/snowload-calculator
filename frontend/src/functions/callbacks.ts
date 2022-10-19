@@ -1,6 +1,6 @@
 import {City, Product, RoofData} from "./types";
 import {Language} from "../languages/translation";
-import {Holder, Retainer, SnowStopProduct} from "./classes";
+import {Holder, Retainer, SnowStopProduct} from "./types";
 
 export type StringCallBack = (arg: string) => void
 

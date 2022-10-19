@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
 import {LanguageContext} from "../language/LanguageContext";
 import {useHolders} from "../../functions/hooks/useHolders";
-import {Holder, Retainer} from "../../functions/classes";
+import {Holder, Retainer} from "../../functions/types";
 import {HolderProductCard} from "./HolderProductCard";
 import {HolderCallback, RetainerCallback} from "../../functions/callbacks";
 import {useRetainers} from "../../functions/hooks/useRetainers";
@@ -15,17 +15,19 @@ export const ProductSelector = ({rows, linearLoad}:
     const [holders, setHolders] = useState<Holder[]>([])
 
     const {retainerData, loadingRetainer, errorRetainer} = useRetainers()
-    const [retainers, seRetainers] = useState<Retainer[]>([])
+    //const [retainers, seRetainers] = useState<Retainer[]>([])
 
     const [selectedHolder, setSelectedHolder] = useState<Holder | null>(null)
 
     React.useEffect(() => {
-        setHolders(holderData)
+        setHolders(holderData.map(data => ({...data, type: "Holder"})))
     }, [holderData])
 
-    React.useEffect(() => {
+    /*React.useEffect(() => {
         seRetainers(retainerData)
-    }, [retainerData])
+    }, [retainerData])*/
+
+    holders.forEach(h => console.log(h))
 
     return (
         <div>
@@ -51,25 +53,25 @@ export const ProductSelector = ({rows, linearLoad}:
                 />
             </div>
             <div>
-                <ProductTable error={errorHolder}
-                              loading={loadingHolder}
-                              productList={<>
-                                  {
-                                      holders.map((prod, index) => <HolderProductCard
-                                          key={index}
-                                          holder={prod}
-                                          linearLoad={linearLoad}
-                                          rows={rows}
-                                          onSelectHolder={setSelectedHolder}
-                                          selected={
-                                              selectedHolder ?
-                                                  prod.code === selectedHolder.code :
-                                                  false
-                                          }/>
-                                      )
-                                  }
-                              </>}
-                />
+                {/*<ProductTable error={errorHolder}
+                               loading={loadingHolder}
+                               productList={<>
+                                   {
+                                       holders.map((prod, index) => <HolderProductCard
+                                           key={index}
+                                           holder={prod}
+                                           linearLoad={linearLoad}
+                                           rows={rows}
+                                           onSelectHolder={setSelectedHolder}
+                                           selected={
+                                               selectedHolder ?
+                                                   prod.code === selectedHolder.code :
+                                                   false
+                                           }/>
+                                       )
+                                   }
+                               </>}
+                />*/}
             </div>
         </div>
     )

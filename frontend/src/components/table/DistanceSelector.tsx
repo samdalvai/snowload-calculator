@@ -2,7 +2,7 @@ import {AnyCallback} from "../../functions/callbacks";
 import React from "react";
 import {SelectorOptionData} from "../input/Selector";
 import {getHolderResistance} from "../../functions/computation/resistanceComputation";
-import {Holder} from "../../functions/classes";
+import {Holder} from "../../functions/types";
 
 export const DistanceSelector = ({linearLoad, holder, rows, distanceValue, optionData, value, onSelect}:
                                      { linearLoad: number, holder: Holder, rows: number, distanceValue: number, optionData: SelectorOptionData<any>[], value: any, onSelect: AnyCallback }) => {

@@ -4,11 +4,11 @@ import {SelectorOptionData} from "../input/Selector";
 import {useWindowSize} from "../../functions/hooks/useWindowSize";
 import {ProductDescription, ProductDescriptionSmall} from "./ProductDescription";
 import {DistanceSelector} from "./DistanceSelector";
-import {isHolderResistanceHigher} from "../../functions/computation/resistanceComputation";
+import {isResistanceHigher} from "../../functions/computation/resistanceComputation";
 import {HolderCallback} from "../../functions/callbacks";
 import {ErrorModal} from "../modal/ErrorModal";
 import {LanguageContext} from "../language/LanguageContext";
-import {Holder} from "../../functions/classes";
+import {Holder} from "../../functions/types";
 
 export const HolderProductCard = ({holder, rows, linearLoad, selected, onSelectHolder}:
                                       { holder: Holder, rows: number, linearLoad: number, selected: boolean, onSelectHolder: HolderCallback }) => {
@@ -22,7 +22,7 @@ export const HolderProductCard = ({holder, rows, linearLoad, selected, onSelectH
     const [showError, setShowError] = useState<boolean>(false)
 
     const handleOnChecked = (idx: number) => {
-        if (!isHolderResistanceHigher(holder, rows, distanceSelectorData[idx].value, linearLoad)) {
+        if (!isResistanceHigher(holder, rows, distanceSelectorData[idx].value, linearLoad)) {
             setShowError(true)
         } else {
             setChecked(checked.map((c, index) => index === idx ? true : false))
@@ -31,7 +31,7 @@ export const HolderProductCard = ({holder, rows, linearLoad, selected, onSelectH
     }
 
     const handleOnSelected = (value: number) => {
-        if (!isHolderResistanceHigher(holder, rows, value, linearLoad)) {
+        if (!isResistanceHigher(holder, rows, value, linearLoad)) {
             setShowError(true)
         } else {
             setDistanceValue(value)
@@ -45,7 +45,7 @@ export const HolderProductCard = ({holder, rows, linearLoad, selected, onSelectH
     }, [selected])
 
     React.useEffect(() => {
-        if (!isHolderResistanceHigher(holder, rows, distanceValue, linearLoad))
+        if (!isResistanceHigher(holder, rows, distanceValue, linearLoad))
             setChecked([false, false, false, false, false, false, false])
     }, [rows])
 
@@ -86,7 +86,7 @@ export const HolderProductCard = ({holder, rows, linearLoad, selected, onSelectH
                                 {
                                     distanceSelectorData.map((data, index) => (
                                         <DistanceBox key={index} color={
-                                            isHolderResistanceHigher(holder, rows, data.value, linearLoad) ?
+                                            isResistanceHigher(holder, rows, data.value, linearLoad) ?
                                                 "green"
                                                 :
                                                 "red"

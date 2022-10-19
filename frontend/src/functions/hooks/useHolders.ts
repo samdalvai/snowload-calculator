@@ -3,12 +3,12 @@ import {useApiGet} from "./useApi";
 
 export type HoldersResponse = {
     holderData: Holder[],
-    loading: Boolean,
-    error: any
+    loadingHolder: boolean,
+    errorHolder: any
 }
 
 export const useHolders = (): HoldersResponse => {
     const {data, loading, error} = useApiGet('/holders');
 
-    return {holderData: data, loading, error};
+    return {holderData: data, loadingHolder: loading, errorHolder: error};
 }

@@ -5,7 +5,7 @@ export type ApiResponse = {
     statusText: String;
     data: any;
     error: any;
-    loading: Boolean;
+    loading: boolean;
 };
 
 export const useApiGet = (url: string): ApiResponse => {

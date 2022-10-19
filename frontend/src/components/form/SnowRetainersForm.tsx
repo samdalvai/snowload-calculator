@@ -5,12 +5,12 @@ import {SelectorOptionData} from "../input/Selector";
 import React, {useContext, useState} from "react";
 import {SelectorWithLabel} from "../input/SelectorWithLabel";
 import {LanguageContext} from "../language/LanguageContext";
-import {RetainerHeight, RetainerType, RoofData, RoofType} from "../../functions/types";
+import {Holder, Retainer, RetainerHeight, RetainerType, RoofData, RoofType} from "../../functions/types";
 import {DisabledInput} from "../input/DisabledInput";
 import {ButtonsGroup} from "../button/ButtonsGroup";
 import {TitleCard} from "../card/TitleCard";
 import {Title} from "../text/Title";
-import {ProductTable} from "../table/ProductTable";
+import {ProductSelector} from "../table/ProductSelector";
 import {AheadButton} from "../button/AheadButton";
 
 export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, onBack: Callback }) => {
@@ -22,6 +22,9 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
     const [rowsValue, setRowsValue] = useState<number>(1)
 
     const [hasHeight, setHasHeight] = useState<boolean>(true)
+
+    const [holder, setHolder] = useState<Holder | null>(null)
+    const [retainer, setRetainer] = useState<Retainer | null>(null)
 
     useKeyBoardPress(["Backspace"], onBack)
 
@@ -106,7 +109,7 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
             </div>
 
             <div className={"pt-3"}>
-                <ProductTable onSelectHolder={() => null} onSelectRetainer={() => null} linearLoad={linearLoad} rows={rowsValue}/>
+                <ProductSelector onSelectHolder={setHolder} onSelectRetainer={setRetainer} linearLoad={linearLoad} rows={rowsValue}/>
             </div>
 
             <div className={"pb-3"}>

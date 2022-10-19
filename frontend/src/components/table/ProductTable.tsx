@@ -1,26 +1,13 @@
-import React, {useContext, useState} from "react";
-import {LanguageContext} from "../language/LanguageContext";
-import {useHolders} from "../../functions/hooks/useHolders";
-import {DisabledInput} from "../input/DisabledInput";
-import {Holder, Product, SnowStopProduct} from "../../functions/types";
-import {HolderProductCard} from "./HolderProductCard";
-import {useWindowSize} from "../../functions/hooks/useWindowSize";
 import {ProductTableHeader, ProductTableHeaderSmall} from "./ProductTableHeader";
-import {HolderCallback, ProductCallback, RetainerCallback} from "../../functions/callbacks";
+import {DisabledInput} from "../input/DisabledInput";
+import {HolderProductCard} from "./HolderProductCard";
+import React, {ReactElement, useContext} from "react";
+import {useWindowSize} from "../../functions/hooks/useWindowSize";
+import {LanguageContext} from "../language/LanguageContext";
+import {Holder} from "../../functions/types";
 
-export const ProductTable = ({rows, linearLoad}:
-                                 {rows: number, linearLoad: number, onSelectHolder: HolderCallback, onSelectRetainer: RetainerCallback}) => {
+export const ProductTable = ({loading, error, productList}: {loading: boolean, error: any, productList: ReactElement}) => {
     const {translation} = useContext(LanguageContext);
-
-    const {holderData, loading, error} = useHolders()
-    const [holders, setHolders] = useState<Holder[]>([])
-
-    const [selectedHolder, setSelectedHolder] = useState<Holder | null>(null)
-
-    React.useEffect(() => {
-        console.log(holderData)
-        setHolders(holderData.map(holder => holder))
-    }, [holderData])
 
     const size = useWindowSize()
 
@@ -45,18 +32,7 @@ export const ProductTable = ({rows, linearLoad}:
                         </> :
                         <>
                             {
-                                holders.map((prod, index) => <HolderProductCard
-                                    key={index}
-                                    holder={prod}
-                                    linearLoad={linearLoad}
-                                    rows={rows}
-                                    onSelectHolder={setSelectedHolder}
-                                    selected={
-                                        selectedHolder ?
-                                            prod.code === selectedHolder.code :
-                                            false
-                                    }/>
-                                )
+                                productList
                             }
                         </>
                 }

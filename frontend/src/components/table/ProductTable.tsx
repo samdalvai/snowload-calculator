@@ -16,40 +16,40 @@ export const ProductTable = ({
 
     return (
         <>
-            {
-                !error ?
-                    <div className="table-responsive">
-                        <table className="table shadow-sm rounded">
-                            {
-                                size.width !== undefined && size.width >= 800 ?
-                                    <ProductTableHeader/>
-                                    :
-                                    <ProductTableHeaderSmall/>
-                            }
-                            <tbody>
-                            {
+            <div className="table-responsive">
+                <table className="table shadow-sm rounded">
+                    {
+                        size.width !== undefined && size.width >= 800 ?
+                            <ProductTableHeader/>
+                            :
+                            <ProductTableHeaderSmall/>
+                    }
+                    <tbody>
+                    {
 
-                                loading ?
-                                    <>
-                                        <tr>
-                                            <td colSpan={11}>
-                                                <DisabledInput placeHolder={translation.loading.products}/>
-                                            </td>
-                                        </tr>
-                                    </> :
-                                    <>
-                                        {
-                                            productList
-                                        }
-                                    </>
+                        !error ?
+                            loading ?
+                                <>
+                                    <tr>
+                                        <td colSpan={11}>
+                                            <DisabledInput placeHolder={translation.loading.products}/>
+                                        </td>
+                                    </tr>
+                                </> :
+                                <>
+                                    {
+                                        productList
+                                    }
+                                </>
+                            :
+                            <td colSpan={11}>
+                                <ErrorInput message={translation.error.products}/>
+                            </td>
 
-                            }
-                            </tbody>
-                        </table>
-                    </div>
-                    :
-                    <ErrorInput message={translation.error.products} />
-            }
+                    }
+                    </tbody>
+                </table>
+            </div>
         </>
 
     )

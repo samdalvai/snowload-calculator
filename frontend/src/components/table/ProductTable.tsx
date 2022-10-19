@@ -1,6 +1,5 @@
 import {ProductTableHeader, ProductTableHeaderSmall} from "./ProductTableHeader";
 import {DisabledInput} from "../input/DisabledInput";
-import {HolderProductCard} from "./HolderProductCard";
 import React, {ReactElement, useContext} from "react";
 import {useWindowSize} from "../../functions/hooks/useWindowSize";
 import {LanguageContext} from "../language/LanguageContext";

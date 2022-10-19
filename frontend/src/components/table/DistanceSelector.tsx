@@ -1,13 +1,13 @@
 import {AnyCallback} from "../../functions/callbacks";
 import React from "react";
 import {SelectorOptionData} from "../input/Selector";
-import {getHolderResistance} from "../../functions/computation/resistanceComputation";
-import {Holder} from "../../functions/types";
+import {getResistance} from "../../functions/computation/resistanceComputation";
+import {SnowStopProduct} from "../../functions/types";
 
-export const DistanceSelector = ({linearLoad, holder, rows, distanceValue, optionData, value, onSelect}:
-                                     { linearLoad: number, holder: Holder, rows: number, distanceValue: number, optionData: SelectorOptionData<any>[], value: any, onSelect: AnyCallback }) => {
+export const DistanceSelector = ({linearLoad, product, rows, distanceValue, optionData, value, onSelect}:
+                                     { linearLoad: number, product: SnowStopProduct, rows: number, distanceValue: number, optionData: SelectorOptionData<any>[], value: any, onSelect: AnyCallback }) => {
 
-    const color = (getHolderResistance(holder,rows,distanceValue) >= linearLoad) ? "green-checkbox" : "red-checkbox"
+    const color = (getResistance(product, rows, distanceValue) >= linearLoad) ? "green-checkbox" : "red-checkbox"
 
     return (
         <th className={"text-center " + color}
@@ -18,7 +18,7 @@ export const DistanceSelector = ({linearLoad, holder, rows, distanceValue, optio
                 {
                     optionData.map(val =>
                         <option
-                            className={getHolderResistance(holder,rows,val.value) >= linearLoad ? "green-checkbox" : "red-checkbox"}
+                            className={getResistance(product, rows, val.value) >= linearLoad ? "green-checkbox" : "red-checkbox"}
                             key={val.value}
                             value={val.value}>{val.text}</option>
                     )

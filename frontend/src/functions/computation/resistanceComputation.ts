@@ -1,14 +1,10 @@
 import {Holder, Retainer, SnowStopProduct} from "../types";
 
-/*export const isResistanceHigher = (product: Holder, rows: number, distance: number, linearLoad: number) => {
-
-    //product.getResistance(1,400);
-
-    return getHolderResistance(product,rows,distance) >= linearLoad;
-
-}*/
-
 export const isResistanceHigher = (product: SnowStopProduct, rows: number, distance: number, linearLoad: number) => {
+    return getResistance(product,rows,distance) >= linearLoad
+}
+
+export const getResistance = (product: SnowStopProduct, rows: number, distance: number) => {
     switch (product.type) {
         case "Holder":
             return getHolderResistance(product,rows,distance)

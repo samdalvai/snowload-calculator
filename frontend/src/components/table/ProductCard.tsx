@@ -8,10 +8,10 @@ import {isResistanceHigher} from "../../functions/computation/resistanceComputat
 import {SnowStopProductCallback} from "../../functions/callbacks";
 import {ErrorModal} from "../modal/ErrorModal";
 import {LanguageContext} from "../language/LanguageContext";
-import {Holder} from "../../functions/types";
+import {SnowStopProduct} from "../../functions/types";
 
-export const ProductCard = ({holder, rows, linearLoad, selected, onSelectProduct}:
-                                      { holder: Holder, rows: number, linearLoad: number, selected: boolean, onSelectProduct: SnowStopProductCallback }) => {
+export const ProductCard = ({product, rows, linearLoad, selected, onSelect}:
+                                { product: SnowStopProduct, rows: number, linearLoad: number, selected: boolean, onSelect: SnowStopProductCallback }) => {
     const {translation} = useContext(LanguageContext);
 
     const [checked, setChecked] = useState<boolean[]>([false, false, false, false, false, false, false])
@@ -20,7 +20,7 @@ export const ProductCard = ({holder, rows, linearLoad, selected, onSelectProduct
     const [showError, setShowError] = useState<boolean>(false)
 
     const handleOnChecked = (idx: number) => {
-        if (!isResistanceHigher(holder, rows, distanceSelectorData[idx].value, linearLoad)) {
+        if (!isResistanceHigher(product, rows, distanceSelectorData[idx].value, linearLoad)) {
             setShowError(true)
         } else {
             setChecked(checked.map((c, index) => index === idx ? true : false))
@@ -29,7 +29,7 @@ export const ProductCard = ({holder, rows, linearLoad, selected, onSelectProduct
     }
 
     const handleOnSelected = (value: number) => {
-        if (!isResistanceHigher(holder, rows, value, linearLoad)) {
+        if (!isResistanceHigher(product, rows, value, linearLoad)) {
             setShowError(true)
         } else {
             setDistanceValue(value)
@@ -43,7 +43,7 @@ export const ProductCard = ({holder, rows, linearLoad, selected, onSelectProduct
     }, [selected])
 
     React.useEffect(() => {
-        if (!isResistanceHigher(holder, rows, distanceValue, linearLoad))
+        if (!isResistanceHigher(product, rows, distanceValue, linearLoad))
             setChecked([false, false, false, false, false, false, false])
     }, [rows])
 
@@ -74,17 +74,17 @@ export const ProductCard = ({holder, rows, linearLoad, selected, onSelectProduct
                 style={{
                     backgroundColor: selected ? "lightblue" : "white"
                 }}
-                onClick={() => onSelectProduct(holder)
+                onClick={() => onSelect(product)
                 }>
                 {
                     size.width !== undefined && size.width >= 800 ?
                         <>
-                            <ProductDescription product={holder}/>
+                            <ProductDescription product={product}/>
                             <>
                                 {
                                     distanceSelectorData.map((data, index) => (
                                         <DistanceBox key={index} color={
-                                            isResistanceHigher(holder, rows, data.value, linearLoad) ?
+                                            isResistanceHigher(product, rows, data.value, linearLoad) ?
                                                 "green"
                                                 :
                                                 "red"
@@ -96,28 +96,17 @@ export const ProductCard = ({holder, rows, linearLoad, selected, onSelectProduct
                         </>
                         :
                         <>
-                            <ProductDescriptionSmall product={holder}/>
+                            <ProductDescriptionSmall product={product}/>
                             <DistanceSelector onSelect={e => handleOnSelected(e.target.value)}
                                               optionData={distanceSelectorData}
                                               value={distanceValue}
                                               linearLoad={linearLoad}
                                               distanceValue={distanceValue}
-                                              holder={holder}
+                                              product={product}
                                               rows={rows}/>
                         </>
                 }
-
             </tr>
         </>
     )
 }
-
-/*
-alternative to boxes
-    <th className={""}
-        style={{verticalAlign: "middle"}}>
-        <DistanceSelector  onSelect={e => setDistanceValue(e.target.value)}
-                   optionData={distanceSelectorData}
-                   value={distanceValue}/>
-    </th>
- */

@@ -6,7 +6,6 @@ import {HolderCallback, RetainerCallback} from "../../functions/callbacks";
 import {useRetainers} from "../../functions/hooks/useRetainers";
 import {ProductTable} from "./ProductTable";
 import {ProductCard} from "./ProductCard";
-import {Title} from "../text/Title";
 import {TitleCard} from "../card/TitleCard";
 
 export const ProductSelector = ({rows, linearLoad}:
@@ -33,53 +32,58 @@ export const ProductSelector = ({rows, linearLoad}:
     return (
         <div>
             <div className={""}>
-                <TitleCard  title={translation.words.holder}/>
+                <TitleCard title={translation.words.holder}/>
             </div>
             <div className={"pb-3"}>
                 <ProductTable error={errorHolder}
-                               loading={loadingHolder}
-                               productList={<>
-                                   {
-                                       holders.map((prod, index) => <ProductCard
-                                           key={index}
-                                           product={prod}
-                                           linearLoad={linearLoad}
-                                           rows={rows}
-                                           onSelect={setSelectedHolder}
-                                           selected={
-                                               selectedHolder ?
-                                                   prod.code === selectedHolder.code :
-                                                   false
-                                           }/>
-                                       )
-                                   }
-                               </>}
+                              loading={loadingHolder}
+                              productList={<>
+                                  {
+                                      holders.map((prod, index) => <ProductCard
+                                          key={index}
+                                          product={prod}
+                                          linearLoad={linearLoad}
+                                          rows={rows}
+                                          onSelect={setSelectedHolder}
+                                          selected={
+                                              selectedHolder ?
+                                                  prod.code === selectedHolder.code :
+                                                  false
+                                          }/>
+                                      )
+                                  }
+                              </>}
                 />
             </div>
-            <div>
-                <div className={""}>
-                    <TitleCard  title={translation.words.retainer}/>
-                </div>
-                <ProductTable error={errorRetainer}
-                               loading={loadingRetainer}
-                               productList={<>
-                                   {
-                                       retainers.map((prod, index) => <ProductCard
-                                           key={index * 100}
-                                           product={prod}
-                                           linearLoad={linearLoad}
-                                           rows={rows}
-                                           onSelect={setSelectedRetainer}
-                                           selected={
-                                               selectedRetainer ?
-                                                   prod.code === selectedRetainer.code :
-                                                   false
-                                           }/>
-                                       )
-                                   }
-                               </>}
-                />
-            </div>
+            {
+                selectedHolder ?
+                    <div>
+                        <div className={""}>
+                            <TitleCard title={translation.words.retainer}/>
+                        </div>
+                        <ProductTable error={errorRetainer}
+                                      loading={loadingRetainer}
+                                      productList={<>
+                                          {
+                                              retainers.map((prod, index) => <ProductCard
+                                                  key={index}
+                                                  product={prod}
+                                                  linearLoad={linearLoad}
+                                                  rows={rows}
+                                                  onSelect={setSelectedRetainer}
+                                                  selected={
+                                                      selectedRetainer ?
+                                                          prod.code === selectedRetainer.code :
+                                                          false
+                                                  }/>
+                                              )
+                                          }
+                                      </>}
+                        />
+                    </div>
+                    :
+                    ""
+            }
         </div>
     )
 }

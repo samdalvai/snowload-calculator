@@ -6,12 +6,8 @@ import {LanguageContext} from "../language/LanguageContext";
 import {ErrorInput} from "../input/ErrorInput";
 import {SnowStopProductType} from "../../functions/types";
 
-export const ProductTable = ({
-                                 loading,
-                                 error,
-                                 productList,
-                                 productType
-                             }: { loading: boolean, error: any, productList: ReactElement, productType: SnowStopProductType }) => {
+export const ProductTable = ({ loading, error, productList, productType}:
+                                 { loading: boolean, error: any, productList: ReactElement, productType: SnowStopProductType }) => {
     const {translation} = useContext(LanguageContext);
 
     const size = useWindowSize()

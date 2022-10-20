@@ -10,30 +10,35 @@ export const SnowLoadProductContext = createContext<ISnowLoadProductContext>({
     retainer: null,
     holderDistance: null,
     retainerDistance: null,
-    setHolderDistance(arg: number | null): void {
+    setHolder(arg: Holder | null): void {
+    }, setHolderDistance(arg: number | null): void {
+    }, setRetainer(arg: Retainer | null): void {
     }, setRetainerDistance(arg: number | null): void {
+    }, setRetainerHeight(arg: RetainerHeight): void {
+    }, setRetainerType(arg: RetainerType): void {
+    }, setRoofType(arg: RoofType): void {
+    }, setRows(arg: number): void {
     }
-
 });
 
 export interface ISnowLoadProductContext {
     roofType: RoofType,
-    setRoofType?: (arg: RoofType) => void
+    setRoofType: (arg: RoofType) => void
 
     retainerType: RetainerType,
-    setRetainerType?: (arg: RetainerType) => void
+    setRetainerType: (arg: RetainerType) => void
 
     retainerHeight: RetainerHeight,
-    setRetainerHeight?: (arg: RetainerHeight) => void
+    setRetainerHeight: (arg: RetainerHeight) => void
 
     rows: number
-    setRows?: (arg: number) => void
+    setRows: (arg: number) => void
 
     holder: Holder | null,
-    setHolder?: (arg: Holder | null) => void
+    setHolder: (arg: Holder | null) => void
 
     retainer: Retainer | null,
-    setRetainer?: (arg: Retainer | null) => void
+    setRetainer: (arg: Retainer | null) => void
 
     holderDistance: number | null
     setHolderDistance: (arg: number | null) => void

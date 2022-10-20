@@ -27,14 +27,12 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
         rows,
         setRows,
         holder,
-        setHolder
+        retainer,
+        holderDistance,
+        retainerDistance
     } = useContext(SnowLoadProductContext)
 
     const [hasHeight, setHasHeight] = useState<boolean>(true)
-
-    const [retainer, setRetainer] = useState<Retainer | null>(null)
-    const [holderDistance, setHolderDistance] = useState<number | null>(null)
-    const [retainerDistance, setRetainerDistance] = useState<number | null>(null)
 
     useKeyBoardPress(["Backspace"], onBack)
 
@@ -92,8 +90,7 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
                                        lableWidth={"55%"}
                                        defaultValue={roofType}
                                        optionData={roofTypeData}
-                                       onSelect={e => setRoofType ? setRoofType(e.target.value) : ""
-                                       }/>
+                                       onSelect={e => setRoofType(e.target.value)}/>
                 </div>
 
                 <div className="col-md-6 pt-3">
@@ -101,7 +98,7 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
                                        lableWidth={"55%"}
                                        defaultValue={retainerType}
                                        optionData={retainingSystemData}
-                                       onSelect={e => setRetainerType ? setRetainerType(e.target.value) : ""}/>
+                                       onSelect={e => setRetainerType(e.target.value)}/>
                 </div>
             </div>
             <div className="row pb-3">
@@ -112,7 +109,7 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
                                                lableWidth={"55%"}
                                                defaultValue={retainerHeight}
                                                optionData={retainerHeightData}
-                                               onSelect={e => setRetainerHeight ? setRetainerHeight(e.target.value) : ""}/>
+                                               onSelect={e => setRetainerHeight(e.target.value)}/>
                             :
                             <DisabledInput placeHolder={""}/>
                     }
@@ -123,14 +120,12 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
                                        lableWidth={"55%"}
                                        defaultValue={rows}
                                        optionData={retainerRowsData}
-                                       onSelect={e => setRows ? setRows(e.target.value) : ""}/>
+                                       onSelect={e => setRows(e.target.value)}/>
                 </div>
             </div>
 
             <div className={"pt-3"}>
-                <ProductSelector linearLoad={linearLoad}
-                                 onSelectHolderDistance={setHolderDistance}
-                                 onSelectRetainerDistance={setRetainerDistance}/>
+                <ProductSelector linearLoad={linearLoad} />
             </div>
 
             <div className={"pb-3"}>

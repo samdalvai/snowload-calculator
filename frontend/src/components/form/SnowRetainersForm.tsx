@@ -17,13 +17,16 @@ import {SnowLoadProductContext} from "../context/SnowLoadProductContext";
 export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, onBack: Callback }) => {
     const {translation} = useContext(LanguageContext);
 
-    //const [roofTypeValue, setRoofTypeValue] = useState<RoofType>("concreteTile")
-
-    const {roofTypeValue, setRoofTypeValue} = useContext(SnowLoadProductContext)
-
-    const [retainingSystemValue, setRetainingSystemValue] = useState<RetainerType>("Grid")
-    const [retainerHeightValue, setRetainerHeightValue] = useState<RetainerHeight>("200")
-    const [rowsValue, setRowsValue] = useState<number>(1)
+    const {
+        roofTypeValue,
+        setRoofTypeValue,
+        retainingSystemValue,
+        setRetainingSystemValue,
+        retainerHeightValue,
+        setRetainerHeightValue,
+        rowsValue,
+        setRowsValue
+    } = useContext(SnowLoadProductContext)
 
     const [hasHeight, setHasHeight] = useState<boolean>(true)
 
@@ -58,12 +61,14 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
     ]
 
     React.useEffect(() => {
-        if (retainingSystemValue === "Grid") {
-            setHasHeight(true)
-            setRetainerHeightValue("200")
-        } else {
-            setHasHeight(false)
-            setRetainerHeightValue(null)
+        if (setRetainerHeightValue !== undefined) {
+            if (retainingSystemValue === "Grid") {
+                setHasHeight(true)
+                setRetainerHeightValue("200")
+            } else {
+                setHasHeight(false)
+                setRetainerHeightValue(null)
+            }
         }
 
     }, [retainingSystemValue])
@@ -95,7 +100,7 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
                                        lableWidth={"55%"}
                                        defaultValue={retainingSystemValue}
                                        optionData={retainingSystemData}
-                                       onSelect={e => setRetainingSystemValue(e.target.value)}/>
+                                       onSelect={e => setRetainingSystemValue ? setRetainingSystemValue(e.target.value) : ""}/>
                 </div>
             </div>
             <div className="row pb-3">
@@ -106,7 +111,7 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
                                                lableWidth={"55%"}
                                                defaultValue={retainerHeightValue}
                                                optionData={retainerHeightData}
-                                               onSelect={e => setRetainerHeightValue(e.target.value)}/>
+                                               onSelect={e => setRetainerHeightValue ? setRetainerHeightValue(e.target.value) : ""}/>
                             :
                             <DisabledInput placeHolder={""}/>
                     }
@@ -117,7 +122,7 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
                                        lableWidth={"55%"}
                                        defaultValue={rowsValue}
                                        optionData={retainerRowsData}
-                                       onSelect={e => setRowsValue(e.target.value)}/>
+                                       onSelect={e => setRowsValue ? setRowsValue(e.target.value) : ""}/>
                 </div>
             </div>
 

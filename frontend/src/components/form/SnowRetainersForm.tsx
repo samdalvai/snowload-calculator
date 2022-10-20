@@ -26,6 +26,8 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
 
     const [holder, setHolder] = useState<Holder | null>(null)
     const [retainer, setRetainer] = useState<Retainer | null>(null)
+    const [holderDistance, setHolderDistance] = useState<number | null>(null)
+    const [retainerDistance, setRetainerDistance] = useState<number | null>(null)
 
     useKeyBoardPress(["Backspace"], onBack)
 
@@ -115,7 +117,7 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
             </div>
 
             <div className={"pt-3"}>
-                <ProductSelector onSelectHolder={setHolder} onSelectRetainer={setRetainer} linearLoad={linearLoad} rows={rowsValue}/>
+                <ProductSelector onSelectHolder={setHolder} onSelectRetainer={setRetainer} linearLoad={linearLoad} rows={rowsValue} onSelectHolderDistance={setHolderDistance} onSelectRetainerDistance={setRetainerDistance}/>
             </div>
 
             <div className={"pb-3"}>

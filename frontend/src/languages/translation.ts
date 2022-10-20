@@ -117,6 +117,10 @@ export interface Translation {
         resistanceError: {
             title: string,
             body: string
+        },
+        distanceMismatchError: {
+            title: string,
+            body: string
         }
     },
     tables: {

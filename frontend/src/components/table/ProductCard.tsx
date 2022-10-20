@@ -19,6 +19,7 @@ export const ProductCard = ({product, rows, linearLoad, selected, onSelect, onSe
         } else {
             setChecked(checked.map((c, index) => index === idx ? true : false))
             setDistanceValue(distanceSelectorData[idx].value)
+            onSelectDistance(distanceSelectorData[idx].value)
         }
     }
 
@@ -28,6 +29,7 @@ export const ProductCard = ({product, rows, linearLoad, selected, onSelect, onSe
         } else {
             setDistanceValue(value)
             setChecked(checked.map((c, index) => index === (value / 100 - 4) ? true : false))
+            onSelectDistance(value)
         }
     }
 

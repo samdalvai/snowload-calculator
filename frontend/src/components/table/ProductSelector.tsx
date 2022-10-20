@@ -2,15 +2,15 @@ import React, {useContext, useState} from "react";
 import {LanguageContext} from "../language/LanguageContext";
 import {useHolders} from "../../functions/hooks/useHolders";
 import {Holder, Retainer, SnowStopProduct} from "../../functions/types";
-import {HolderCallback, RetainerCallback} from "../../functions/callbacks";
+import {HolderCallback, NumberCallBack, RetainerCallback} from "../../functions/callbacks";
 import {useRetainers} from "../../functions/hooks/useRetainers";
 import {ProductTable} from "./ProductTable";
 import {ProductCard} from "./ProductCard";
 import {TitleCardSmall} from "../card/TitleCard";
 import {ErrorModal} from "../modal/ErrorModal";
 
-export const ProductSelector = ({rows, linearLoad}:
-                                    { rows: number, linearLoad: number, onSelectHolder: HolderCallback, onSelectRetainer: RetainerCallback }) => {
+export const ProductSelector = ({rows, linearLoad, onSelectHolderDistance, onSelectRetainerDistance}:
+                                    { rows: number, linearLoad: number, onSelectHolder: HolderCallback, onSelectRetainer: RetainerCallback, onSelectHolderDistance: NumberCallBack, onSelectRetainerDistance: NumberCallBack }) => {
     const {translation} = useContext(LanguageContext);
 
     const {holderData, loadingHolder, errorHolder} = useHolders()
@@ -22,7 +22,11 @@ export const ProductSelector = ({rows, linearLoad}:
     const [selectedHolder, setSelectedHolder] = useState<SnowStopProduct | null>(null)
     const [selectedRetainer, setSelectedRetainer] = useState<SnowStopProduct | null>(null)
 
-    const [showError, setShowError] = useState<boolean>(false)
+    const [holderDistance, setHolderDistance] = useState<number | null>(null)
+    const [retainerDistance, setRetainerDistance] = useState<number | null>(null)
+
+    const [showResistanceError, setShowResistanceError] = useState<boolean>(false)
+    const [showDistanceMismatchError, setShowDistanceMismatchError] = useState<boolean>(false)
 
     React.useEffect(() => {
         setHolders(holderData.map(data => ({...data, type: "Holder"})))
@@ -32,13 +36,33 @@ export const ProductSelector = ({rows, linearLoad}:
         seRetainers(retainerData.map(data => ({...data, type: "Retainer"})))
     }, [retainerData])
 
+    React.useEffect(() => {
+        if (holderDistance !== retainerDistance)
+            setShowDistanceMismatchError(true)
+        else {
+            if (holderDistance !== null && retainerDistance !== null){
+                onSelectHolderDistance(holderDistance)
+                onSelectRetainerDistance(retainerDistance)
+            }
+        }
+
+    },[retainerDistance])
+
     return (
         <div>
             {
-                showError ?
-                    <ErrorModal show={showError} header={translation.modals.resistanceError.title}
+                showResistanceError ?
+                    <ErrorModal show={showResistanceError} header={translation.modals.resistanceError.title}
                                 body={translation.modals.resistanceError.body}
-                                onHide={() => setShowError(false)}/>
+                                onHide={() => setShowResistanceError(false)}/>
+                    :
+                    ""
+            }
+            {
+                showDistanceMismatchError ?
+                    <ErrorModal show={showDistanceMismatchError} header={translation.modals.distanceMismatchError.title}
+                                body={translation.modals.resistanceError.body}
+                                onHide={() => setShowDistanceMismatchError(false)}/>
                     :
                     ""
             }
@@ -60,8 +84,8 @@ export const ProductSelector = ({rows, linearLoad}:
                                               selectedHolder ?
                                                   prod.code === selectedHolder.code :
                                                   false
-                                          } onResistanceError={() => setShowError(true)}
-                                          onSelectDistance={() => null}/>
+                                          } onResistanceError={() => setShowResistanceError(true)}
+                                          onSelectDistance={setHolderDistance}/>
                                       )
                                   }
                               </>}
@@ -87,8 +111,8 @@ export const ProductSelector = ({rows, linearLoad}:
                                                       selectedRetainer ?
                                                           prod.code === selectedRetainer.code :
                                                           false
-                                                  } onResistanceError={() => setShowError(true)}
-                                                  onSelectDistance={() => null}/>
+                                                  } onResistanceError={() => setShowResistanceError(true)}
+                                                  onSelectDistance={setRetainerDistance}/>
                                               )
                                           }
                                       </>}

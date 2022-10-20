@@ -114,6 +114,10 @@ export const italian: Translation = {
         resistanceError: {
             title: "Errore nella resistenza",
             body: "La resistenza del sistema non è sufficiente, ridurre la distanza del supporto o aumentare il numero di file."
+        },
+        distanceMismatchError: {
+            title: "Errore nella distanza",
+            body: "È necessario scegliere la stessa distanza tra il supporto e il sistema di ritenuta."
         }
     },
     tables: {

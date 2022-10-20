@@ -18,7 +18,7 @@ export const english: Translation = {
             nine: "Nine",
             ten: "Ten"
         },
-        holder: "Support",
+        holder: "Holder",
         retainer: "Retaining system"
     },
     header: {
@@ -114,6 +114,10 @@ export const english: Translation = {
         resistanceError: {
             title: "Resistance error",
             body: "The resistance is not high enough, please decrease the distance of the holder or increase the number of rows"
+        },
+        distanceMismatchError: {
+            title: "Distance mismatch error",
+            body: "You need to select the same distance for the holder and the retaining system"
         }
     },
     tables: {

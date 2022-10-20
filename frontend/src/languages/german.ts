@@ -114,6 +114,10 @@ export const german: Translation = {
         resistanceError: {
             title: "Fehler bei dem Widerstand",
             body: "Der Widerstand ist nicht hoch genug, bitte verringern Sie den Abstand des Halters oder erhöhen Sie die Anzahl der Reihen."
+        },
+        distanceMismatchError: {
+            title: "Fehler bei der Abstand",
+            body: "Es ist notwendig, den gleichen Abstand zwischen der Stütze und dem Rückhaltesystem zu wählen."
         }
     },
     tables: {

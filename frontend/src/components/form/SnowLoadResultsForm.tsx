@@ -32,8 +32,8 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
                         onBack={onBack}
                         onAhead={() => setShowRetainersForm(true)}/>
                     :
-                    <SnowLoadProductContext.Provider value={{roofType, retainerType, retainerHeight, rows, holder, retainer,
-                        setRoofType, setRetainerType, setRetainerHeight, setRows, setHolder, setRetainer}}>
+                    <SnowLoadProductContext.Provider value={{roofType, retainerType, retainerHeight, rows, holder, retainer, holderDistance, retainerDistance,
+                        setRoofType, setRetainerType, setRetainerHeight, setRows, setHolder, setRetainer, setHolderDistance, setRetainerDistance}}>
                         <SnowRetainersForm linearLoad={snowLoadData.linearLoad}
                                            onBack={() => setShowRetainersForm(false)}/>
                     </SnowLoadProductContext.Provider>

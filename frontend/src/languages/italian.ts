@@ -166,6 +166,7 @@ export const italian: Translation = {
                 code: "Codice",
                 name: "Nome",
                 height: "Altezza (mm)",
+                profile: "Profilo",
                 distance: "Interasse (mm)",
                 description: "Descrizione"
             }

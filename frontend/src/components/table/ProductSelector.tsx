@@ -119,12 +119,12 @@ export const ProductSelector = ({linearLoad, onSelectHolderDistance, onSelectRet
                                       )
                                   }
                               </>}
-                />
+                 productType={"Holder"}/>
             </div>
             {
                 selectedHolder ?
                     <div>
-                        <div className={""}>
+                        <div>
                             <TitleCardSmall title={translation.words.retainer}/>
                         </div>
                         <ProductTable error={errorRetainer}
@@ -145,7 +145,7 @@ export const ProductSelector = ({linearLoad, onSelectHolderDistance, onSelectRet
                                               )
                                           }
                                       </>}
-                        />
+                         productType={"Retainer"}/>
                     </div>
                     :
                     ""

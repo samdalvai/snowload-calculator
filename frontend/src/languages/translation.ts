@@ -169,6 +169,7 @@ export interface Translation {
                 code: string,
                 name: string,
                 height: string,
+                profile: string,
                 distance: string,
                 description: string
             }

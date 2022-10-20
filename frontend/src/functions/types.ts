@@ -49,6 +49,8 @@ export interface Retainer {
 
 export type SnowStopProduct = Holder | Retainer;
 
+export type SnowStopProductType = "Holder" | "Retainer";
+
 export interface Product {
     productCode: string,
     name: string,

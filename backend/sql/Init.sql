@@ -77,17 +77,20 @@ CREATE TABLE retainer_resistance
 
 INSERT INTO product VALUES
     ('030049', 'Nr. 62', 'Grid', '200', 'https://www.flender-flux.de/fileadmin/products/030049/2.jpg'),
+    ('030085', 'Nr. 69', 'DoubleTube', null, 'https://www.flender-flux.de/fileadmin/products/030085/2.jpg'),
     ('030084', 'Nr. 76', 'Grid', '200', 'https://www.flender-flux.de/fileadmin/products/030084/2.jpg'),
     ('030303', 'Nr. 76 B', 'Grid', '200', 'https://www.flender-flux.de/fileadmin/products/030303/2.jpg'),
     ('030387', 'Nr. 176 V', 'Grid', '250', 'https://www.flender-flux.de/fileadmin/products/030387/2.jpg'),
     ('030357', 'Nr. 176 S', 'Grid', '250', 'https://www.flender-flux.de/fileadmin/products/030357/2.jpg'),
     ('030417', 'Nr. 376 V', 'Grid', '200', 'https://www.flender-flux.de/fileadmin/products/030417/2.jpg'),
     ('030418', 'Nr. 376 S', 'Grid', '200', 'https://www.flender-flux.de/fileadmin/products/030418/2.jpg'),
-    ('020006', 'Snow guard', 'Grid', '200', 'https://www.flender-flux.de/fileadmin/products/020006/2.jpg'),
-    ('020007', 'Snow guard', 'Grid', '250', 'https://www.flender-flux.de/fileadmin/products/020007/2.jpg');
+    ('020006', 'Snow grid', 'Grid', '200', 'https://www.flender-flux.de/fileadmin/products/020006/2.jpg'),
+    ('020007', 'Snow grid', 'Grid', '250', 'https://www.flender-flux.de/fileadmin/products/020007/2.jpg'),
+    ('020017', 'Snow tube', 'DoubleTube', null, 'https://www.flender-flux.de/fileadmin/products/020017/2.jpg');
 
 INSERT INTO holder VALUES
     ('030049', 0.53,'concreteTile'),
+    ('030085', 1.80,'concreteTile'),
     ('030084', 1.55,'flatTile'),
     ('030303', 1.55, 'concreteTile'),
     ('030387', 2.2, 'concreteTile'),
@@ -97,11 +100,13 @@ INSERT INTO holder VALUES
 
 INSERT INTO retainer VALUES
     ('020006', '20/20/3'),
-    ('020007', '20/20/3');
+    ('020007', '20/20/3'),
+    ('020017', '3000');
 
 INSERT INTO retainer_resistance VALUES
     ('020006',13.9,9.0,5.9,4.2,3.2,2.2,1.6),
-    ('020007',13.9,9.0,5.9,4.2,3.2,2.2,1.6);
+    ('020007',13.9,9.0,5.9,4.2,3.2,2.2,1.6),
+    ('020017',30.0,24.0,18.2,12.3,6.4,3.7,2.0);
 
 INSERT INTO province VALUES
     ('SS', 'Sassari', 'III', 0.6),

@@ -1,7 +1,8 @@
 import React, {useContext} from "react";
 import {LanguageContext} from "../language/LanguageContext";
+import {SnowStopProductType} from "../../functions/types";
 
-export const ProductTableHeader = () => {
+export const ProductTableHeader = ({productType}: {productType: SnowStopProductType}) => {
     const {translation} = useContext(LanguageContext);
     const headers = translation.tables.productChoice.headers
 
@@ -9,7 +10,7 @@ export const ProductTableHeader = () => {
         <thead>
             <tr className={"table-secondary table-header"}>
                 {
-                    [headers.image, headers.code, headers.name, headers.height, headers.distance].map((header, index) => (
+                    [headers.image, headers.code, headers.name, (productType === "Holder" ? headers.height : headers.profile), headers.distance].map((header, index) => (
                             index < 4 ?
                                 <th scope="col" rowSpan={2} className={"border-right-lightgray"}
                                     key={index}>{header}</th>

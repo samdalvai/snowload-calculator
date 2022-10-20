@@ -232,6 +232,7 @@ th > select {
   border: 0!important;
 }
 
-.product-card,.form-select:hover {
+.product-card:hover {
+  background-color: #e9ecef!important;
   cursor: pointer;
 }

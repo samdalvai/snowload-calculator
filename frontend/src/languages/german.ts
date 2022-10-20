@@ -166,6 +166,7 @@ export const german: Translation = {
                 code: "Artikel",
                 name: "Name",
                 height: "Höhe (mm)",
+                profile: "Profil",
                 distance: "Abstand (mm)",
                 description: "Beschreibung"
             }

@@ -84,7 +84,7 @@ export const ProductCard = ({product, rows, linearLoad, selected, onSelect, onSe
                         :
                         <>
                             <ProductDescriptionSmall product={product}/>
-                            <DistanceSelector onSelect={e => handleOnSelected(e.target.value)}
+                            <DistanceSelector onSelect={handleOnSelected}
                                               optionData={distanceSelectorData}
                                               value={distanceValue}
                                               linearLoad={linearLoad}

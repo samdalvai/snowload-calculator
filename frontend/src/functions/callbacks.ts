@@ -25,3 +25,5 @@ export type HolderCallback = (arg: Holder) => void
 export type RetainerCallback = (arg: Retainer) => void
 
 export type SnowStopProductCallback = (arg: SnowStopProduct) => void
+
+export type GenericCallback<T> = (arg: T) => void

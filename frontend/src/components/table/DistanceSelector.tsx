@@ -1,11 +1,11 @@
-import {AnyCallback} from "../../functions/callbacks";
+import {AnyCallback, GenericCallback, NumberCallBack} from "../../functions/callbacks";
 import React from "react";
 import {SelectorOptionData} from "../input/Selector";
 import {getResistance} from "../../functions/computation/resistanceComputation";
 import {SnowStopProduct} from "../../functions/types";
 
 export const DistanceSelector = ({linearLoad, product, rows, distanceValue, optionData, value, onSelect}:
-                                     { linearLoad: number, product: SnowStopProduct, rows: number, distanceValue: number, optionData: SelectorOptionData<any>[], value: any, onSelect: AnyCallback }) => {
+                                     { linearLoad: number, product: SnowStopProduct, rows: number, distanceValue: number, optionData: SelectorOptionData<number>[], value: any, onSelect: NumberCallBack }) => {
 
     const color = (getResistance(product, rows, distanceValue) >= linearLoad) ? "green-checkbox" : "red-checkbox"
 
@@ -14,7 +14,9 @@ export const DistanceSelector = ({linearLoad, product, rows, distanceValue, opti
             style={{verticalAlign: "middle"}}>
             <select className={"form-select shadow-sm all-border"}
                     value={value}
-                    onChange={onSelect}>
+                    onChange={(e) => {
+                        onSelect(parseInt(e.target.value))
+                    }}>
                 {
                     optionData.map(val =>
                         <option

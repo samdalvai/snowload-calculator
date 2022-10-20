@@ -6,7 +6,7 @@ import {HolderCallback, RetainerCallback} from "../../functions/callbacks";
 import {useRetainers} from "../../functions/hooks/useRetainers";
 import {ProductTable} from "./ProductTable";
 import {ProductCard} from "./ProductCard";
-import {TitleCard, TitleCardSmall} from "../card/TitleCard";
+import {TitleCardSmall} from "../card/TitleCard";
 import {ErrorModal} from "../modal/ErrorModal";
 
 export const ProductSelector = ({rows, linearLoad}:

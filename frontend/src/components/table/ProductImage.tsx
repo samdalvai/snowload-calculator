@@ -1,5 +1,5 @@
 export const ProductImage = ({url, alt}: {url: string, alt?: string}) => {
     return (
-        <img src={url} className="rounded" alt={url} style={{maxWidth: "100px"}}/>
+        <img src={url} className="rounded" alt={url} style={{width: "100px", height: "75px"}}/>
     )
 }

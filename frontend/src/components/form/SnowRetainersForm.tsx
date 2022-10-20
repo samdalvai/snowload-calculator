@@ -5,19 +5,22 @@ import {SelectorOptionData} from "../input/Selector";
 import React, {useContext, useState} from "react";
 import {SelectorWithLabel} from "../input/SelectorWithLabel";
 import {LanguageContext} from "../language/LanguageContext";
-import { RetainerHeight, RetainerType, RoofData, RoofType} from "../../functions/types";
+import {Holder, Retainer, RetainerHeight, RetainerType, RoofType} from "../../functions/types";
 import {DisabledInput} from "../input/DisabledInput";
 import {ButtonsGroup} from "../button/ButtonsGroup";
 import {TitleCard} from "../card/TitleCard";
 import {Title} from "../text/Title";
 import {ProductSelector} from "../table/ProductSelector";
 import {AheadButton} from "../button/AheadButton";
-import {Holder, Retainer} from "../../functions/types";
+import {SnowLoadProductContext} from "../context/SnowLoadProductContext";
 
 export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, onBack: Callback }) => {
     const {translation} = useContext(LanguageContext);
 
-    const [roofTypeValue, setRoofTypeValue] = useState<RoofType>("concreteTile")
+    //const [roofTypeValue, setRoofTypeValue] = useState<RoofType>("concreteTile")
+
+    const {roofTypeValue, setRoofTypeValue} = useContext(SnowLoadProductContext)
+
     const [retainingSystemValue, setRetainingSystemValue] = useState<RetainerType>("Grid")
     const [retainerHeightValue, setRetainerHeightValue] = useState<RetainerHeight>("200")
     const [rowsValue, setRowsValue] = useState<number>(1)
@@ -73,16 +76,18 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
     return (
         <div>
             <div className={"py-3"}>
-                <Title  text={translation.pages.retainersForm.title}/>
+                <Title text={translation.pages.retainersForm.title}/>
             </div>
-            <TitleCard  title={translation.tables.snowLoadCalculation.body.linearLoad.label + ": " + linearLoad.toFixed(2) + " kN/m"}/>
+            <TitleCard
+                title={translation.tables.snowLoadCalculation.body.linearLoad.label + ": " + linearLoad.toFixed(2) + " kN/m"}/>
             <div className="row">
                 <div className="col-md-6 pt-3">
                     <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.roofType}
                                        lableWidth={"55%"}
                                        defaultValue={roofTypeValue}
                                        optionData={roofTypeData}
-                                       onSelect={e => setRoofTypeValue(e.target.value)}/>
+                                       onSelect={e => setRoofTypeValue ? setRoofTypeValue(e.target.value) : ""
+                                       }/>
                 </div>
 
                 <div className="col-md-6 pt-3">
@@ -103,7 +108,7 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
                                                optionData={retainerHeightData}
                                                onSelect={e => setRetainerHeightValue(e.target.value)}/>
                             :
-                            <DisabledInput placeHolder={""} />
+                            <DisabledInput placeHolder={""}/>
                     }
                 </div>
 
@@ -117,7 +122,9 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
             </div>
 
             <div className={"pt-3"}>
-                <ProductSelector onSelectHolder={setHolder} onSelectRetainer={setRetainer} linearLoad={linearLoad} rows={rowsValue} onSelectHolderDistance={setHolderDistance} onSelectRetainerDistance={setRetainerDistance}/>
+                <ProductSelector onSelectHolder={setHolder} onSelectRetainer={setRetainer} linearLoad={linearLoad}
+                                 rows={rowsValue} onSelectHolderDistance={setHolderDistance}
+                                 onSelectRetainerDistance={setRetainerDistance}/>
             </div>
 
             <div className={"pb-3"}>

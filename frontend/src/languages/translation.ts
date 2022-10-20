@@ -82,7 +82,7 @@ export interface Translation {
             },
             retainersForm: {
                 roofType: string,
-                retainingSystem: string,
+                retainerType: string,
                 retainerHeight: string,
                 retainerRows: string
             }

@@ -1,5 +1,5 @@
 import {DistanceBox} from "./DistanceBox";
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {SelectorOptionData} from "../input/Selector";
 import {useWindowSize} from "../../functions/hooks/useWindowSize";
 import {ProductDescription, ProductDescriptionSmall} from "./ProductDescription";
@@ -7,11 +7,14 @@ import {DistanceSelector} from "./DistanceSelector";
 import {isResistanceHigher} from "../../functions/computation/resistanceComputation";
 import {Callback, NumberCallBack, SnowStopProductCallback} from "../../functions/callbacks";
 import {SnowStopProduct} from "../../functions/types";
+import {SnowLoadProductContext} from "../context/SnowLoadProductContext";
 
-export const ProductCard = ({product, rows, linearLoad, selected, onSelect, onSelectDistance, onResistanceError}:
-                                { product: SnowStopProduct, rows: number, linearLoad: number, selected: boolean, onSelect: SnowStopProductCallback, onSelectDistance: NumberCallBack, onResistanceError: Callback }) => {
+export const ProductCard = ({product, linearLoad, selected, onSelect, onSelectDistance, onResistanceError}:
+                                { product: SnowStopProduct, linearLoad: number, selected: boolean, onSelect: SnowStopProductCallback, onSelectDistance: NumberCallBack, onResistanceError: Callback }) => {
     const [checked, setChecked] = useState<boolean[]>([false, false, false, false, false, false, false])
     const [distanceValue, setDistanceValue] = useState<number>(400)
+
+    const {rows} = useContext(SnowLoadProductContext)
 
     const handleOnChecked = (idx: number) => {
         if (!isResistanceHigher(product, rows, distanceSelectorData[idx].value, linearLoad)) {
@@ -77,7 +80,7 @@ export const ProductCard = ({product, rows, linearLoad, selected, onSelect, onSe
                                                 :
                                                 "red"
                                         } checked={checked[index]}
-                                          onChecked={() => handleOnChecked(index)}
+                                                     onChecked={() => handleOnChecked(index)}
                                         />
                                     ))
                                 }

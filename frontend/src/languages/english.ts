@@ -80,7 +80,7 @@ export const english: Translation = {
             },
             retainersForm: {
                 roofType: "Roof type",
-                retainingSystem: "Retaining system",
+                retainerType: "Retainer type",
                 retainerHeight: "Retainer height",
                 retainerRows: "Retainer rows"
             }

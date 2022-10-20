@@ -2,22 +2,22 @@ import {createContext, useState} from "react";
 import {RetainerHeight, RetainerType, RoofType} from "../../functions/types";
 
 export const SnowLoadProductContext = createContext<ISnowLoadProductContext>({
-    roofTypeValue: "concreteTile",
-    retainingSystemValue: "Grid",
-    retainerHeightValue: "200",
-    rowsValue: 1
+    roofType: "concreteTile",
+    retainerType: "Grid",
+    retainerHeight: "200",
+    rows: 1
 });
 
 export interface ISnowLoadProductContext {
-    roofTypeValue: RoofType,
-    setRoofTypeValue?: (arg: RoofType) => void
+    roofType: RoofType,
+    setRoofType?: (arg: RoofType) => void
 
-    retainingSystemValue: RetainerType,
-    setRetainingSystemValue?: (arg: RetainerType) => void
+    retainerType: RetainerType,
+    setRetainerType?: (arg: RetainerType) => void
 
-    retainerHeightValue : RetainerHeight,
-    setRetainerHeightValue? : (arg: RetainerHeight) => void
+    retainerHeight : RetainerHeight,
+    setRetainerHeight? : (arg: RetainerHeight) => void
 
-    rowsValue: number
-    setRowsValue?: (arg: number) => void
+    rows: number
+    setRows?: (arg: number) => void
 }

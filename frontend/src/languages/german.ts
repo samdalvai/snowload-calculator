@@ -80,7 +80,7 @@ export const german: Translation = {
             },
             retainersForm: {
                 roofType: "Dachdeckung",
-                retainingSystem: "Schneefangsystem",
+                retainerType: "Schneefangsystem",
                 retainerHeight: "Schneefanghöhe",
                 retainerRows: "Schneefangreihen"
             }

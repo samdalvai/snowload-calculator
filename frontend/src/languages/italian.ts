@@ -80,7 +80,7 @@ export const italian: Translation = {
             },
             retainersForm: {
                 roofType: "Tipo di copertura",
-                retainingSystem: "Sistema fermaneve",
+                retainerType: "Sistema fermaneve",
                 retainerHeight: "Altezza paraneve",
                 retainerRows: "File paraneve"
             }

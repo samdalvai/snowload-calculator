@@ -8,10 +8,12 @@ import {ProductTable} from "./ProductTable";
 import {ProductCard} from "./ProductCard";
 import {TitleCardSmall} from "../card/TitleCard";
 import {ErrorModal} from "../modal/ErrorModal";
+import {SnowLoadProductContext} from "../context/SnowLoadProductContext";
 
-export const ProductSelector = ({rows, linearLoad, onSelectHolderDistance, onSelectRetainerDistance}:
-                                    { rows: number, linearLoad: number, onSelectHolder: HolderCallback, onSelectRetainer: RetainerCallback, onSelectHolderDistance: NumberCallBack, onSelectRetainerDistance: NumberCallBack }) => {
+export const ProductSelector = ({linearLoad, onSelectHolderDistance, onSelectRetainerDistance}:
+                                    { linearLoad: number, onSelectHolder: HolderCallback, onSelectRetainer: RetainerCallback, onSelectHolderDistance: NumberCallBack, onSelectRetainerDistance: NumberCallBack }) => {
     const {translation} = useContext(LanguageContext);
+    const {roofType, retainerType, retainerHeight} = useContext(SnowLoadProductContext)
 
     const {holderData, loadingHolder, errorHolder} = useHolders()
     const [holders, setHolders] = useState<Holder[]>([])
@@ -19,6 +21,7 @@ export const ProductSelector = ({rows, linearLoad, onSelectHolderDistance, onSel
 
     const {retainerData, loadingRetainer, errorRetainer} = useRetainers()
     const [retainers, seRetainers] = useState<Retainer[]>([])
+    const [filteredRetainers, setFilteredRetainers] = useState<Retainer[]>([])
 
     const [selectedHolder, setSelectedHolder] = useState<SnowStopProduct | null>(null)
     const [selectedRetainer, setSelectedRetainer] = useState<SnowStopProduct | null>(null)
@@ -41,17 +44,40 @@ export const ProductSelector = ({rows, linearLoad, onSelectHolderDistance, onSel
         if (holderDistance !== retainerDistance)
             setShowDistanceMismatchError(true)
         else {
-            if (holderDistance !== null && retainerDistance !== null){
+            if (holderDistance !== null && retainerDistance !== null) {
                 onSelectHolderDistance(holderDistance)
                 onSelectRetainerDistance(retainerDistance)
             }
         }
 
-    },[retainerDistance])
+    }, [retainerDistance])
 
     React.useEffect(() => {
-        setFilteredHolders(holders)
-    },[holders])
+        filerHolders()
+    }, [holders, roofType, retainerType, retainerHeight])
+
+    React.useEffect(() => {
+        filterRetainers()
+    }, [retainers, retainerType, retainerHeight])
+
+    const filerHolders = () => {
+        const filteredHolders = holders.filter(h =>
+            h.roofType === roofType &&
+            h.productInfo.retainerType === retainerType &&
+            h.productInfo.retainerHeight === retainerHeight
+        )
+
+        setFilteredHolders(filteredHolders)
+    }
+
+    const filterRetainers = () => {
+        const filteredRetainers = retainers.filter(r =>
+            r.productInfo.retainerType === retainerType &&
+            r.productInfo.retainerHeight === retainerHeight
+        )
+
+        setFilteredRetainers(filteredRetainers)
+    }
 
     return (
         <div>
@@ -83,7 +109,6 @@ export const ProductSelector = ({rows, linearLoad, onSelectHolderDistance, onSel
                                           key={index}
                                           product={prod}
                                           linearLoad={linearLoad}
-                                          rows={rows}
                                           onSelect={setSelectedHolder}
                                           selected={
                                               selectedHolder ?
@@ -106,11 +131,10 @@ export const ProductSelector = ({rows, linearLoad, onSelectHolderDistance, onSel
                                       loading={loadingRetainer}
                                       productList={<>
                                           {
-                                              retainers.map((prod, index) => <ProductCard
+                                              filteredRetainers.map((prod, index) => <ProductCard
                                                   key={index}
                                                   product={prod}
                                                   linearLoad={linearLoad}
-                                                  rows={rows}
                                                   onSelect={setSelectedRetainer}
                                                   selected={
                                                       selectedRetainer ?

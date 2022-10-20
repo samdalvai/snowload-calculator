@@ -18,14 +18,14 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
     const {translation} = useContext(LanguageContext);
 
     const {
-        roofTypeValue,
-        setRoofTypeValue,
-        retainingSystemValue,
-        setRetainingSystemValue,
-        retainerHeightValue,
-        setRetainerHeightValue,
-        rowsValue,
-        setRowsValue
+        roofType,
+        setRoofType,
+        retainerType,
+        setRetainerType,
+        retainerHeight,
+        setRetainerHeight,
+        rows,
+        setRows
     } = useContext(SnowLoadProductContext)
 
     const [hasHeight, setHasHeight] = useState<boolean>(true)
@@ -61,17 +61,17 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
     ]
 
     React.useEffect(() => {
-        if (setRetainerHeightValue !== undefined) {
-            if (retainingSystemValue === "Grid") {
+        if (setRetainerHeight !== undefined) {
+            if (retainerType === "Grid") {
                 setHasHeight(true)
-                setRetainerHeightValue("200")
+                setRetainerHeight("200")
             } else {
                 setHasHeight(false)
-                setRetainerHeightValue(null)
+                setRetainerHeight(null)
             }
         }
 
-    }, [retainingSystemValue])
+    }, [retainerType])
 
     const handleOnAhead = () => {
         // check here
@@ -89,18 +89,18 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
                 <div className="col-md-6 pt-3">
                     <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.roofType}
                                        lableWidth={"55%"}
-                                       defaultValue={roofTypeValue}
+                                       defaultValue={roofType}
                                        optionData={roofTypeData}
-                                       onSelect={e => setRoofTypeValue ? setRoofTypeValue(e.target.value) : ""
+                                       onSelect={e => setRoofType ? setRoofType(e.target.value) : ""
                                        }/>
                 </div>
 
                 <div className="col-md-6 pt-3">
-                    <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainingSystem}
+                    <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerType}
                                        lableWidth={"55%"}
-                                       defaultValue={retainingSystemValue}
+                                       defaultValue={retainerType}
                                        optionData={retainingSystemData}
-                                       onSelect={e => setRetainingSystemValue ? setRetainingSystemValue(e.target.value) : ""}/>
+                                       onSelect={e => setRetainerType ? setRetainerType(e.target.value) : ""}/>
                 </div>
             </div>
             <div className="row pb-3">
@@ -109,9 +109,9 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
                         hasHeight ?
                             <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerHeight}
                                                lableWidth={"55%"}
-                                               defaultValue={retainerHeightValue}
+                                               defaultValue={retainerHeight}
                                                optionData={retainerHeightData}
-                                               onSelect={e => setRetainerHeightValue ? setRetainerHeightValue(e.target.value) : ""}/>
+                                               onSelect={e => setRetainerHeight ? setRetainerHeight(e.target.value) : ""}/>
                             :
                             <DisabledInput placeHolder={""}/>
                     }
@@ -120,15 +120,15 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
                 <div className="col-md-6 pt-3">
                     <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerRows}
                                        lableWidth={"55%"}
-                                       defaultValue={rowsValue}
+                                       defaultValue={rows}
                                        optionData={retainerRowsData}
-                                       onSelect={e => setRowsValue ? setRowsValue(e.target.value) : ""}/>
+                                       onSelect={e => setRows ? setRows(e.target.value) : ""}/>
                 </div>
             </div>
 
             <div className={"pt-3"}>
                 <ProductSelector onSelectHolder={setHolder} onSelectRetainer={setRetainer} linearLoad={linearLoad}
-                                 rows={rowsValue} onSelectHolderDistance={setHolderDistance}
+                                 onSelectHolderDistance={setHolderDistance}
                                  onSelectRetainerDistance={setRetainerDistance}/>
             </div>
 

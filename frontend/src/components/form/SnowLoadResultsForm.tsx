@@ -8,10 +8,11 @@ import {SnowLoadProductContext} from "../context/SnowLoadProductContext";
 export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onBack}:
                                         { roofData: RoofData | null, snowLoadData: SnowLoadData, error: Boolean, loading: boolean, onBack: Callback }) => {
     const [showRetainersForm, setShowRetainersForm] = useState<boolean>(false)
-    const [roofTypeValue, setRoofTypeValue] = useState<RoofType>("concreteTile")
-    const [retainingSystemValue, setRetainingSystemValue] = useState<RetainerType>("Grid")
-    const [retainerHeightValue, setRetainerHeightValue] = useState<RetainerHeight>("200")
-    const [rowsValue, setRowsValue] = useState<number>(1)
+
+    const [roofType, setRoofType] = useState<RoofType>("concreteTile")
+    const [retainerType, setRetainerType] = useState<RetainerType>("Grid")
+    const [retainerHeight, setRetainerHeight] = useState<RetainerHeight>("200")
+    const [rows, setRows] = useState<number>(1)
 
     return (
         <div>
@@ -25,8 +26,8 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
                         onBack={onBack}
                         onAhead={() => setShowRetainersForm(true)}/>
                     :
-                    <SnowLoadProductContext.Provider value={{roofTypeValue, retainingSystemValue, retainerHeightValue, rowsValue,
-                        setRoofTypeValue, setRetainingSystemValue, setRetainerHeightValue, setRowsValue}}>
+                    <SnowLoadProductContext.Provider value={{roofType, retainerType, retainerHeight, rows,
+                        setRoofType: setRoofType, setRetainerType: setRetainerType, setRetainerHeight: setRetainerHeight, setRows: setRows}}>
                         <SnowRetainersForm linearLoad={snowLoadData.linearLoad}
                                            onBack={() => setShowRetainersForm(false)}/>
                     </SnowLoadProductContext.Provider>

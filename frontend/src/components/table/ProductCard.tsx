@@ -1,24 +1,19 @@
 import {DistanceBox} from "./DistanceBox";
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import {SelectorOptionData} from "../input/Selector";
 import {useWindowSize} from "../../functions/hooks/useWindowSize";
 import {ProductDescription, ProductDescriptionSmall} from "./ProductDescription";
 import {DistanceSelector} from "./DistanceSelector";
 import {isResistanceHigher} from "../../functions/computation/resistanceComputation";
-import {Callback, SnowStopProductCallback} from "../../functions/callbacks";
-import {ErrorModal} from "../modal/ErrorModal";
-import {LanguageContext} from "../language/LanguageContext";
+import {Callback, NumberCallBack, SnowStopProductCallback} from "../../functions/callbacks";
 import {SnowStopProduct} from "../../functions/types";
 
-export const ProductCard = ({product, rows, linearLoad, selected, onSelect, onResistanceError}:
-                                { product: SnowStopProduct, rows: number, linearLoad: number, selected: boolean, onSelect: SnowStopProductCallback, onResistanceError: Callback }) => {
-    const {translation} = useContext(LanguageContext);
-
+export const ProductCard = ({product, rows, linearLoad, selected, onSelect, onSelectDistance, onResistanceError}:
+                                { product: SnowStopProduct, rows: number, linearLoad: number, selected: boolean, onSelect: SnowStopProductCallback, onSelectDistance: NumberCallBack, onResistanceError: Callback }) => {
     const [checked, setChecked] = useState<boolean[]>([false, false, false, false, false, false, false])
     const [distanceValue, setDistanceValue] = useState<number>(400)
 
     const handleOnChecked = (idx: number) => {
-        console.log("Checking")
         if (!isResistanceHigher(product, rows, distanceSelectorData[idx].value, linearLoad)) {
             onResistanceError()
         } else {
@@ -28,7 +23,6 @@ export const ProductCard = ({product, rows, linearLoad, selected, onSelect, onRe
     }
 
     const handleOnSelected = (value: number) => {
-        console.log("Selecting: ", value)
         if (!isResistanceHigher(product, rows, value, linearLoad)) {
             onResistanceError()
         } else {
@@ -80,8 +74,9 @@ export const ProductCard = ({product, rows, linearLoad, selected, onSelect, onRe
                                                 "green"
                                                 :
                                                 "red"
-                                        } checked={checked[index]} onChecked={() => handleOnChecked(index)}
-                                                     distance={data.value}/>
+                                        } checked={checked[index]}
+                                          onChecked={() => handleOnChecked(index)}
+                                        />
                                     ))
                                 }
                             </>

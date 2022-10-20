@@ -4,7 +4,6 @@ import React, {ReactElement, useContext, useState} from "react";
 import {useWindowSize} from "../../functions/hooks/useWindowSize";
 import {LanguageContext} from "../language/LanguageContext";
 import {ErrorInput} from "../input/ErrorInput";
-import {ErrorModal} from "../modal/ErrorModal";
 
 export const ProductTable = ({
                                  loading,

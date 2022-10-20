@@ -2,11 +2,11 @@ import React, {useContext, useState} from "react";
 import {LanguageContext} from "../language/LanguageContext";
 import {useHolders} from "../../functions/hooks/useHolders";
 import {Holder, Retainer, SnowStopProduct} from "../../functions/types";
-import {Callback, HolderCallback, RetainerCallback} from "../../functions/callbacks";
+import {HolderCallback, RetainerCallback} from "../../functions/callbacks";
 import {useRetainers} from "../../functions/hooks/useRetainers";
 import {ProductTable} from "./ProductTable";
 import {ProductCard} from "./ProductCard";
-import {TitleCard} from "../card/TitleCard";
+import {TitleCard, TitleCardSmall} from "../card/TitleCard";
 import {ErrorModal} from "../modal/ErrorModal";
 
 export const ProductSelector = ({rows, linearLoad}:
@@ -42,8 +42,8 @@ export const ProductSelector = ({rows, linearLoad}:
                     :
                     ""
             }
-            <div className={""}>
-                <TitleCard title={translation.words.holder}/>
+            <div>
+                <TitleCardSmall title={translation.words.holder}/>
             </div>
             <div className={"pb-3"}>
                 <ProductTable error={errorHolder}
@@ -60,7 +60,8 @@ export const ProductSelector = ({rows, linearLoad}:
                                               selectedHolder ?
                                                   prod.code === selectedHolder.code :
                                                   false
-                                          } onResistanceError={() => setShowError(true)}/>
+                                          } onResistanceError={() => setShowError(true)}
+                                          onSelectDistance={() => null}/>
                                       )
                                   }
                               </>}
@@ -70,7 +71,7 @@ export const ProductSelector = ({rows, linearLoad}:
                 selectedHolder ?
                     <div>
                         <div className={""}>
-                            <TitleCard title={translation.words.retainer}/>
+                            <TitleCardSmall title={translation.words.retainer}/>
                         </div>
                         <ProductTable error={errorRetainer}
                                       loading={loadingRetainer}
@@ -86,7 +87,8 @@ export const ProductSelector = ({rows, linearLoad}:
                                                       selectedRetainer ?
                                                           prod.code === selectedRetainer.code :
                                                           false
-                                                  } onResistanceError={() => setShowError(true)}/>
+                                                  } onResistanceError={() => setShowError(true)}
+                                                  onSelectDistance={() => null}/>
                                               )
                                           }
                                       </>}

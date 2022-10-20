@@ -2,7 +2,7 @@ import React, {useContext, useState} from "react";
 import {LanguageContext} from "../language/LanguageContext";
 import {useHolders} from "../../functions/hooks/useHolders";
 import {Holder, Retainer, SnowStopProduct} from "../../functions/types";
-import {HolderCallback, NumberCallBack, RetainerCallback} from "../../functions/callbacks";
+import {NumberCallBack} from "../../functions/callbacks";
 import {useRetainers} from "../../functions/hooks/useRetainers";
 import {ProductTable} from "./ProductTable";
 import {ProductCard} from "./ProductCard";
@@ -11,9 +11,9 @@ import {ErrorModal} from "../modal/ErrorModal";
 import {SnowLoadProductContext} from "../context/SnowLoadProductContext";
 
 export const ProductSelector = ({linearLoad, onSelectHolderDistance, onSelectRetainerDistance}:
-                                    { linearLoad: number, onSelectHolder: HolderCallback, onSelectRetainer: RetainerCallback, onSelectHolderDistance: NumberCallBack, onSelectRetainerDistance: NumberCallBack }) => {
+                                    { linearLoad: number, onSelectHolderDistance: NumberCallBack, onSelectRetainerDistance: NumberCallBack }) => {
     const {translation} = useContext(LanguageContext);
-    const {roofType, retainerType, retainerHeight} = useContext(SnowLoadProductContext)
+    const {roofType, retainerType, retainerHeight, holder, setHolder, retainer, setRetainer} = useContext(SnowLoadProductContext)
 
     const {holderData, loadingHolder, errorHolder} = useHolders()
     const [holders, setHolders] = useState<Holder[]>([])
@@ -23,8 +23,8 @@ export const ProductSelector = ({linearLoad, onSelectHolderDistance, onSelectRet
     const [retainers, seRetainers] = useState<Retainer[]>([])
     const [filteredRetainers, setFilteredRetainers] = useState<Retainer[]>([])
 
-    const [selectedHolder, setSelectedHolder] = useState<SnowStopProduct | null>(null)
-    const [selectedRetainer, setSelectedRetainer] = useState<SnowStopProduct | null>(null)
+    //const [selectedHolder, setSelectedHolder] = useState<SnowStopProduct | null>(null)
+    //const [selectedRetainer, setSelectedRetainer] = useState<SnowStopProduct | null>(null)
 
     const [holderDistance, setHolderDistance] = useState<number | null>(null)
     const [retainerDistance, setRetainerDistance] = useState<number | null>(null)
@@ -54,11 +54,15 @@ export const ProductSelector = ({linearLoad, onSelectHolderDistance, onSelectRet
 
     React.useEffect(() => {
         filerHolders()
-    }, [holders, roofType, retainerType, retainerHeight])
-
-    React.useEffect(() => {
         filterRetainers()
-    }, [retainers, retainerType, retainerHeight])
+
+        if (setHolder !== undefined)
+            setHolder(null)
+
+        if (setRetainer !== undefined)
+            setRetainer(null)
+
+    }, [holders, retainers, roofType, retainerType, retainerHeight])
 
     const filerHolders = () => {
         const filteredHolders = holders.filter(h =>
@@ -77,6 +81,16 @@ export const ProductSelector = ({linearLoad, onSelectHolderDistance, onSelectRet
         )
 
         setFilteredRetainers(filteredRetainers)
+    }
+
+    const handleOnSelect = (product: SnowStopProduct) => {
+        if (product.type === "Holder") {
+            if (setHolder !== undefined)
+                setHolder(product)
+        } else {
+            if (setRetainer !== undefined)
+                setRetainer(product)
+        }
     }
 
     return (
@@ -109,20 +123,20 @@ export const ProductSelector = ({linearLoad, onSelectHolderDistance, onSelectRet
                                           key={index}
                                           product={prod}
                                           linearLoad={linearLoad}
-                                          onSelect={setSelectedHolder}
+                                          onSelect={handleOnSelect}
                                           selected={
-                                              selectedHolder ?
-                                                  prod.code === selectedHolder.code :
+                                              holder ?
+                                                  prod.code === holder.code :
                                                   false
                                           } onResistanceError={() => setShowResistanceError(true)}
                                           onSelectDistance={setHolderDistance}/>
                                       )
                                   }
                               </>}
-                 productType={"Holder"}/>
+                              productType={"Holder"}/>
             </div>
             {
-                selectedHolder ?
+                holder ?
                     <div>
                         <div>
                             <TitleCardSmall title={translation.words.retainer}/>
@@ -135,17 +149,17 @@ export const ProductSelector = ({linearLoad, onSelectHolderDistance, onSelectRet
                                                   key={index}
                                                   product={prod}
                                                   linearLoad={linearLoad}
-                                                  onSelect={setSelectedRetainer}
+                                                  onSelect={handleOnSelect}
                                                   selected={
-                                                      selectedRetainer ?
-                                                          prod.code === selectedRetainer.code :
+                                                      retainer ?
+                                                          prod.code === retainer.code :
                                                           false
                                                   } onResistanceError={() => setShowResistanceError(true)}
                                                   onSelectDistance={setRetainerDistance}/>
                                               )
                                           }
                                       </>}
-                         productType={"Retainer"}/>
+                                      productType={"Retainer"}/>
                     </div>
                     :
                     ""

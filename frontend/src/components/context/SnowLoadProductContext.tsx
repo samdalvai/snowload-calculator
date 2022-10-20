@@ -1,11 +1,14 @@
 import {createContext, useState} from "react";
-import {RetainerHeight, RetainerType, RoofType} from "../../functions/types";
+import {Holder, Retainer, RetainerHeight, RetainerType, RoofType} from "../../functions/types";
+import {HolderCallback} from "../../functions/callbacks";
 
 export const SnowLoadProductContext = createContext<ISnowLoadProductContext>({
     roofType: "concreteTile",
     retainerType: "Grid",
     retainerHeight: "200",
-    rows: 1
+    rows: 1,
+    holder: null,
+    retainer: null
 });
 
 export interface ISnowLoadProductContext {
@@ -20,4 +23,15 @@ export interface ISnowLoadProductContext {
 
     rows: number
     setRows?: (arg: number) => void
+
+    holder: Holder | null,
+    setHolder?:  (arg: Holder | null) => void
+
+    retainer: Retainer | null,
+    setRetainer?:  (arg: Retainer | null) => void
+
+    /*
+    const [holderDistance, setHolderDistance] = useState<number | null>(null)
+    const [retainerDistance, setRetainerDistance] = useState<number | null>(null)
+    */
 }

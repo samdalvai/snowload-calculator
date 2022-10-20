@@ -1,6 +1,6 @@
 import {Callback} from "../../functions/callbacks";
 import React, {useState} from "react";
-import {RetainerHeight, RetainerType, RoofData, RoofType, SnowLoadData} from "../../functions/types";
+import {Holder, Retainer, RetainerHeight, RetainerType, RoofData, RoofType, SnowLoadData} from "../../functions/types";
 import {SnowLoadTablesForm} from "./SnowLoadTablesForm";
 import {SnowRetainersForm} from "./SnowRetainersForm";
 import {SnowLoadProductContext} from "../context/SnowLoadProductContext";
@@ -14,6 +14,12 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
     const [retainerHeight, setRetainerHeight] = useState<RetainerHeight>("200")
     const [rows, setRows] = useState<number>(1)
 
+    const [holder, setHolder] = useState<Holder | null>(null)
+    const [retainer, setRetainer] = useState<Retainer | null>(null)
+
+    const [holderDistance, setHolderDistance] = useState<number | null>(null)
+    const [retainerDistance, setRetainerDistance] = useState<number | null>(null)
+
     return (
         <div>
             {
@@ -26,8 +32,8 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
                         onBack={onBack}
                         onAhead={() => setShowRetainersForm(true)}/>
                     :
-                    <SnowLoadProductContext.Provider value={{roofType, retainerType, retainerHeight, rows,
-                        setRoofType: setRoofType, setRetainerType: setRetainerType, setRetainerHeight: setRetainerHeight, setRows: setRows}}>
+                    <SnowLoadProductContext.Provider value={{roofType, retainerType, retainerHeight, rows, holder, retainer,
+                        setRoofType, setRetainerType, setRetainerHeight, setRows, setHolder, setRetainer}}>
                         <SnowRetainersForm linearLoad={snowLoadData.linearLoad}
                                            onBack={() => setShowRetainersForm(false)}/>
                     </SnowLoadProductContext.Provider>

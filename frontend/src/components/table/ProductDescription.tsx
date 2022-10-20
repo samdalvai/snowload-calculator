@@ -4,6 +4,8 @@ import {useContext} from "react";
 import {LanguageContext} from "../language/LanguageContext";
 
 export const ProductDescription = ({product}: { product: SnowStopProduct }) => {
+    const {translation} = useContext(LanguageContext);
+
     return (
         <>
             <th className={"border-right-lightgray text-center"}
@@ -27,7 +29,10 @@ export const ProductDescription = ({product}: { product: SnowStopProduct }) => {
                 <div>
                     {
                         product.type === "Holder" ?
-                            <p>{product.productInfo.retainerHeight}</p>
+                            <p>{product.productInfo.retainerHeight?
+                                product.productInfo.retainerHeight :
+                                translation.words.none
+                            }</p>
                             :
                             <p>{product.profile}</p>
                     }

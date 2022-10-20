@@ -21,7 +21,8 @@ export interface Translation {
             ten: string
         },
         holder: string,
-        retainer: string
+        retainer: string,
+        none: string
     },
     header: {
         title: string

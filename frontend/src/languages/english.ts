@@ -19,7 +19,8 @@ export const english: Translation = {
             ten: "Ten"
         },
         holder: "Holder",
-        retainer: "Retaining system"
+        retainer: "Retaining system",
+        none: "None"
     },
     header: {
         title: "Snowload Calculator"

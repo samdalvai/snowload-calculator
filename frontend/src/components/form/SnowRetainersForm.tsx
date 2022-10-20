@@ -25,12 +25,13 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
         retainerHeight,
         setRetainerHeight,
         rows,
-        setRows
+        setRows,
+        holder,
+        setHolder
     } = useContext(SnowLoadProductContext)
 
     const [hasHeight, setHasHeight] = useState<boolean>(true)
 
-    const [holder, setHolder] = useState<Holder | null>(null)
     const [retainer, setRetainer] = useState<Retainer | null>(null)
     const [holderDistance, setHolderDistance] = useState<number | null>(null)
     const [retainerDistance, setRetainerDistance] = useState<number | null>(null)
@@ -127,7 +128,7 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
             </div>
 
             <div className={"pt-3"}>
-                <ProductSelector onSelectHolder={setHolder} onSelectRetainer={setRetainer} linearLoad={linearLoad}
+                <ProductSelector linearLoad={linearLoad}
                                  onSelectHolderDistance={setHolderDistance}
                                  onSelectRetainerDistance={setRetainerDistance}/>
             </div>

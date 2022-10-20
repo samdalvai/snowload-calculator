@@ -9,11 +9,11 @@ import {ErrorInput} from "../input/ErrorInput";
 import {AddCityModal} from "../modal/AddCityModal";
 import {DisabledInput} from "../input/DisabledInput";
 import {LanguageContext} from "../language/LanguageContext";
-import {SnowLoadContext} from "../context/SnowLoadContext";
+import {CitiesSelectionContext} from "../context/CitiesSelectionContext";
 
 export const CitiesSearch = ({onSelectCity, valid}: { onSelectCity: CityCallBack, valid: boolean }) => {
     const {translation} = useContext(LanguageContext);
-    const {citiesSelectionActive, setCitiesSelectionActive} = useContext(SnowLoadContext)
+    const {citiesSelectionActive, setCitiesSelectionActive} = useContext(CitiesSelectionContext)
 
     const {cities, loading, error} = useCities();
     const [keyword, setKeyword] = useState<string>('');

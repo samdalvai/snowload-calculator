@@ -5,11 +5,11 @@ import {CityCallBack} from "../../functions/callbacks";
 import {DisabledInput} from "../input/DisabledInput";
 import {DeleteButton} from "../button/DeleteButton";
 import {useContext} from "react";
-import {SnowLoadContext} from "../context/SnowLoadContext";
+import {CitiesSelectionContext} from "../context/CitiesSelectionContext";
 
 export const CitiesSelector = ({selectedCity, valid, onSelectCity}:
                                    { selectedCity: City | null, valid: boolean, onSelectCity: CityCallBack }) => {
-    const {setCitiesSelectionActive} = useContext(SnowLoadContext)
+    const {setCitiesSelectionActive} = useContext(CitiesSelectionContext)
 
     const handleOnSelectCity = (city: City | null) => {
         if (setCitiesSelectionActive) {

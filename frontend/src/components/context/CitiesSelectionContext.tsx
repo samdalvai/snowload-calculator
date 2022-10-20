@@ -1,10 +1,10 @@
 import {createContext} from "react";
 
-export const SnowLoadContext = createContext<ISnowLoadContext>({
+export const CitiesSelectionContext = createContext<ICitiesSelectionContext>({
     citiesSelectionActive: false
 });
 
-export interface ISnowLoadContext {
+export interface ICitiesSelectionContext {
     citiesSelectionActive?: boolean,
     setCitiesSelectionActive?: (arg: boolean) => void
 }

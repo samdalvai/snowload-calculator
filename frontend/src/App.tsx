@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import {SnowLoadForm} from "./components/form/SnowLoadForm";
 import {getBrowserLanguage, getTranslation, Language, Translation} from "./languages/translation";
 import {LanguageContext} from './components/language/LanguageContext';
-import {SnowLoadContext} from "./components/context/SnowLoadContext";
+import {CitiesSelectionContext} from "./components/context/CitiesSelectionContext";
 
 function App() {
     const [translation, setTranslation] = useState<Translation>(getBrowserLanguage())
@@ -15,11 +15,11 @@ function App() {
 
     return (
         <div>
-            <SnowLoadContext.Provider value={{citiesSelectionActive, setCitiesSelectionActive}}>
+            <CitiesSelectionContext.Provider value={{citiesSelectionActive, setCitiesSelectionActive}}>
                 <LanguageContext.Provider value={{translation, selectTranslation}}>
                     <SnowLoadForm/>
                 </LanguageContext.Provider>
-            </SnowLoadContext.Provider>
+            </CitiesSelectionContext.Provider>
         </div>
     );
 }

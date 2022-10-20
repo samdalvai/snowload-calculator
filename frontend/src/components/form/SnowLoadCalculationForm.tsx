@@ -12,7 +12,7 @@ import {CheckBoxWithDescription} from "../input/CheckBoxWithDescription";
 import {LanguageContext} from "../language/LanguageContext";
 import {ButtonsGroup} from "../button/ButtonsGroup";
 import {useKeyBoardPress} from "../../functions/hooks/useKeyBoardPress";
-import {SnowLoadContext} from "../context/SnowLoadContext";
+import {CitiesSelectionContext} from "../context/CitiesSelectionContext";
 import {defaultCity} from "../../functions/defaultTypes";
 import {TitleCard} from "../card/TitleCard";
 import {Title} from "../text/Title";
@@ -20,7 +20,7 @@ import {Title} from "../text/Title";
 export const SnowLoadCalculationForm = ({roofData, onCompute}:
                                             { roofData: RoofData | null, onCompute: RoofDataCallback }) => {
     const {translation} = useContext(LanguageContext);
-    const {citiesSelectionActive} = useContext(SnowLoadContext)
+    const {citiesSelectionActive} = useContext(CitiesSelectionContext)
 
     const [selectedCity, setSelectedCity] = useState<City | null>(roofData ? roofData.city : null)
     const [steepness, setSteepness] = useState<string>(roofData ? (roofData.steepness).toString() : '')

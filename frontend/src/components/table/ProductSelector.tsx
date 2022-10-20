@@ -15,6 +15,7 @@ export const ProductSelector = ({rows, linearLoad, onSelectHolderDistance, onSel
 
     const {holderData, loadingHolder, errorHolder} = useHolders()
     const [holders, setHolders] = useState<Holder[]>([])
+    const [filteredHolders, setFilteredHolders] = useState<Holder[]>([])
 
     const {retainerData, loadingRetainer, errorRetainer} = useRetainers()
     const [retainers, seRetainers] = useState<Retainer[]>([])
@@ -48,6 +49,10 @@ export const ProductSelector = ({rows, linearLoad, onSelectHolderDistance, onSel
 
     },[retainerDistance])
 
+    React.useEffect(() => {
+        setFilteredHolders(holders)
+    },[holders])
+
     return (
         <div>
             {
@@ -74,7 +79,7 @@ export const ProductSelector = ({rows, linearLoad, onSelectHolderDistance, onSel
                               loading={loadingHolder}
                               productList={<>
                                   {
-                                      holders.map((prod, index) => <ProductCard
+                                      filteredHolders.map((prod, index) => <ProductCard
                                           key={index}
                                           product={prod}
                                           linearLoad={linearLoad}

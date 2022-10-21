@@ -20,7 +20,8 @@ export const english: Translation = {
         },
         holder: "Holder",
         retainer: "Retaining system",
-        none: "None"
+        none: "None",
+        noResults: "No results..."
     },
     header: {
         title: "Snowload Calculator"
@@ -83,6 +84,7 @@ export const english: Translation = {
                 roofType: "Roof type",
                 retainerType: "Retainer type",
                 retainerHeight: "Retainer height",
+                retainerMaterial: "Material",
                 retainerRows: "Retainer rows"
             }
         },
@@ -103,6 +105,13 @@ export const english: Translation = {
                 grid: "Grid",
                 tube: "Double Tube",
                 log: "Log"
+            },
+            retainerMaterial: {
+                zinkSteel: "Zink steel",
+                stainlessSteel: "Stainless steel",
+                paintedSteel: "Painted steel",
+                aluminium: "Aluminium",
+                copper: "Copper"
             }
         }
     },selection: {

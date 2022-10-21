@@ -20,7 +20,8 @@ export const german: Translation = {
         },
         holder: "Schneefangstütze",
         retainer: "Rückhaltesystem",
-        none: "Keine"
+        none: "Keine",
+        noResults: "Kein Ergebnis..."
     },
     header: {
         title: "Schneelastrechner"
@@ -83,6 +84,7 @@ export const german: Translation = {
                 roofType: "Dachdeckung",
                 retainerType: "Schneefangsystem",
                 retainerHeight: "Schneefanghöhe",
+                retainerMaterial: "Material",
                 retainerRows: "Schneefangreihen"
             }
         },
@@ -103,6 +105,13 @@ export const german: Translation = {
                 grid: "Schneefanggitter",
                 tube: "Doppelrohr",
                 log: "Schneefangrohr"
+            },
+            retainerMaterial: {
+                zinkSteel: "Verzinkt",
+                stainlessSteel: "Edelstahl",
+                paintedSteel: "Beschichtet",
+                aluminium: "Aluminium",
+                copper: "Kupfer"
             }
         }
     },selection: {

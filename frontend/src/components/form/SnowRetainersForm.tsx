@@ -5,7 +5,7 @@ import {SelectorOptionData} from "../input/Selector";
 import React, {useContext, useState} from "react";
 import {SelectorWithLabel} from "../input/SelectorWithLabel";
 import {LanguageContext} from "../language/LanguageContext";
-import {RetainerHeight, RetainerType, RoofType} from "../../functions/types";
+import {RetainerHeight, RetainerMaterial, RetainerType, RoofType} from "../../functions/types";
 import {ButtonsGroup} from "../button/ButtonsGroup";
 import {TitleCard} from "../card/TitleCard";
 import {Title} from "../text/Title";
@@ -23,6 +23,8 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
         setRetainerType,
         retainerHeight,
         setRetainerHeight,
+        retainerMaterial,
+        setRetainerMaterial,
         rows,
         setRows,
         holder,
@@ -61,6 +63,14 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
     const retainerLogHeightData: SelectorOptionData<RetainerHeight>[] = [
         {value: "140", text: "140 mm"},
         {value: "120", text: "120 mm"}
+    ]
+
+    const retainerMaterialData: SelectorOptionData<RetainerMaterial>[] = [
+        {value: "Zink Steel", text: translation.inputs.options.retainerMaterial.zinkSteel},
+        {value: "Painted Steel", text: translation.inputs.options.retainerMaterial.paintedSteel},
+        {value: "Stainless Steel", text: translation.inputs.options.retainerMaterial.stainlessSteel},
+        {value: "Aluminium", text: translation.inputs.options.retainerMaterial.aluminium},
+        {value: "Copper", text: translation.inputs.options.retainerMaterial.copper},
     ]
 
     const [retainerHeightData, setRetainerHeightData] = useState<SelectorOptionData<RetainerHeight>[]>(retainerGridHeightData)
@@ -124,7 +134,7 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
                 </div>
             </div>
             <div className="row pb-3">
-                <div className="col-md-6 pt-3">
+                <div className="col-md-4 pt-3">
                     {
                         //hasHeight ?
                             <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerHeight}
@@ -137,7 +147,15 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
                     }
                 </div>
 
-                <div className="col-md-6 pt-3">
+                <div className="col-md-4 pt-3">
+                    <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerMaterial}
+                                       lableWidth={"55%"}
+                                       defaultValue={retainerMaterial}
+                                       optionData={retainerMaterialData}
+                                       onSelect={e => setRetainerMaterial(e.target.value)}/>
+                </div>
+
+                <div className="col-md-4 pt-3">
                     <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerRows}
                                        lableWidth={"55%"}
                                        defaultValue={rows}

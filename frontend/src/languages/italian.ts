@@ -20,7 +20,8 @@ export const italian: Translation = {
         },
         holder: "Supporto fermaneve",
         retainer: "Sistema di ritenuta",
-        none: "Nessuna"
+        none: "Nessuna",
+        noResults: "Nessun risultato..."
     },
     header: {
         title: "Calcolo carico neve"
@@ -83,6 +84,7 @@ export const italian: Translation = {
                 roofType: "Tipo di copertura",
                 retainerType: "Sistema fermaneve",
                 retainerHeight: "Altezza paraneve",
+                retainerMaterial: "Materiale",
                 retainerRows: "File paraneve"
             }
         },
@@ -103,6 +105,13 @@ export const italian: Translation = {
                 grid: "Griglia",
                 tube: "Doppio tubo",
                 log: "Tronco"
+            },
+            retainerMaterial: {
+                zinkSteel: "Acciao zincato",
+                stainlessSteel: "Acciaio inox",
+                paintedSteel: "Acciao preverniciato",
+                aluminium: "Alluminio",
+                copper: "Rame"
             }
         }
     },selection: {

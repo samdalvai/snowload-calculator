@@ -22,7 +22,8 @@ export interface Translation {
         },
         holder: string,
         retainer: string,
-        none: string
+        none: string,
+        noResults: string
     },
     header: {
         title: string
@@ -85,6 +86,7 @@ export interface Translation {
                 roofType: string,
                 retainerType: string,
                 retainerHeight: string,
+                retainerMaterial: string,
                 retainerRows: string
             }
         },
@@ -105,6 +107,13 @@ export interface Translation {
                 grid: string,
                 tube: string,
                 log: string
+            },
+            retainerMaterial: {
+                zinkSteel: string,
+                stainlessSteel: string,
+                paintedSteel: string,
+                aluminium: string,
+                copper: string
             }
         }
     },

@@ -42,7 +42,10 @@ export const CitiesSearch = ({onSelectCity, valid}: { onSelectCity: CityCallBack
 
     return (
         <div>
-            <AddCityModal show={showNewCityForm} onHide={() => setShowNewCityForm(false)}/>
+            <AddCityModal show={showNewCityForm} onHide={() => {
+                setShowNewCityForm(false)
+                //window.location.reload() // Brute force method to force fetching cities
+            }}/>
             {
                 error ? <ErrorInput message={translation.error.cities}/> :
                     loading ?

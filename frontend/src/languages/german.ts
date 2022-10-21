@@ -94,11 +94,15 @@ export const german: Translation = {
         options: {
             roofType: {
                 concreteTile: "Dachziegel und Dachstein",
-                flatTile: "Schiefer und Shindeln"
+                flatTile: "Schiefer und Shindeln",
+                metalRoof: "Metalldach",
+                standingSeam: "Stehfalzdeckung",
+                ondulatedPlate: "Wellplatten"
             },
             retainingSystem: {
                 grid: "Schneefanggitter",
-                doubleTube: "Doppelrohr"
+                tube: "Doppelrohr",
+                log: "Schneefangrohr"
             }
         }
     },selection: {

@@ -94,11 +94,15 @@ export const italian: Translation = {
         options: {
             roofType: {
                 concreteTile: "Tegola in cemento/cotto",
-                flatTile: "Tegola piana"
+                flatTile: "Tegola piana",
+                metalRoof: "Tetto in metallo",
+                standingSeam: "Lamiera aggraffata",
+                ondulatedPlate: "Lamiera ondulata"
             },
             retainingSystem: {
                 grid: "Griglia",
-                doubleTube: "Doppio tubo"
+                tube: "Doppio tubo",
+                log: "Tronco"
             }
         }
     },selection: {

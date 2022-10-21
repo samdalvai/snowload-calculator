@@ -69,8 +69,8 @@ export interface RetainerResistance {
     dist1000: number
 }
 
-export type RoofType = "concreteTile" | "flatTile"
+export type RoofType = 'concreteTile' | 'flatTile' | 'metalRoof' | 'standingSeam' | 'ondulatedPlate'
 
-export type RetainerType = "Grid" | "DoubleTube"
+export type RetainerType = 'Grid' | 'Tube' | 'Log'
 
-export type RetainerHeight = "200" | "250" | null
+export type RetainerHeight = '28' | '32' | '35' | '120' | '140' | '200' | '250'

@@ -96,11 +96,15 @@ export interface Translation {
         options: {
             roofType: {
                 concreteTile: string,
-                flatTile: string
+                flatTile: string,
+                metalRoof: string,
+                standingSeam: string,
+                ondulatedPlate: string
             },
             retainingSystem: {
                 grid: string,
-                doubleTube: string
+                tube: string,
+                log: string
             }
         }
     },

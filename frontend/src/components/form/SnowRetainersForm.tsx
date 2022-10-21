@@ -32,34 +32,56 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
         retainerDistance
     } = useContext(SnowLoadProductContext)
 
-    const [hasHeight, setHasHeight] = useState<boolean>(true)
+    //const [hasHeight, setHasHeight] = useState<boolean>(true)
 
     useKeyBoardPress(["Backspace"], onBack)
 
     const roofTypeData: SelectorOptionData<RoofType>[] = [
         {value: "concreteTile", text: translation.inputs.options.roofType.concreteTile},
-        {value: "flatTile", text: translation.inputs.options.roofType.flatTile}
+        {value: "flatTile", text: translation.inputs.options.roofType.flatTile},
+        {value: "metalRoof", text: translation.inputs.options.roofType.metalRoof},
+        {value: "standingSeam", text: translation.inputs.options.roofType.standingSeam},
+        {value: "ondulatedPlate", text: translation.inputs.options.roofType.ondulatedPlate}
     ]
 
     const retainingSystemData: SelectorOptionData<RetainerType>[] = [
         {value: "Grid", text: translation.inputs.options.retainingSystem.grid},
-        {value: "DoubleTube", text: translation.inputs.options.retainingSystem.doubleTube}
+        {value: "Tube", text: translation.inputs.options.retainingSystem.tube},
+        {value: "Log", text: translation.inputs.options.retainingSystem.log}
     ]
 
-    const retainerHeightData: SelectorOptionData<RetainerHeight>[] = [
+    const retainerGridHeightData: SelectorOptionData<RetainerHeight>[] = [
         {value: "200", text: "200 mm"},
         {value: "250", text: "250 mm"}
     ]
+
+    const retainerTubeHeightData: SelectorOptionData<RetainerHeight>[] = [
+        {value: "32", text: "32 mm"},
+        {value: "28", text: "28 mm"},
+        {value: "35", text: "35 mm"}
+    ]
+
+    const retainerLogHeightData: SelectorOptionData<RetainerHeight>[] = [
+        {value: "140", text: "140 mm"},
+        {value: "120", text: "120 mm"}
+    ]
+
+    const [retainerHeightData, setRetainerHeightData] = useState<SelectorOptionData<RetainerHeight>[]>(retainerGridHeightData)
 
     const retainerRowsData: SelectorOptionData<number>[] = [
         {value: 1, text: translation.words.numbers.one},
         {value: 2, text: translation.words.numbers.two},
         {value: 3, text: translation.words.numbers.three},
         {value: 4, text: translation.words.numbers.four},
-        {value: 5, text: translation.words.numbers.five}
+        {value: 5, text: translation.words.numbers.five},
+        {value: 6, text: translation.words.numbers.six},
+        {value: 7, text: translation.words.numbers.seven},
+        {value: 8, text: translation.words.numbers.eight},
+        {value: 9, text: translation.words.numbers.nine},
+        {value: 10, text: translation.words.numbers.ten}
     ]
 
-    React.useEffect(() => {
+    /*React.useEffect(() => {
         if (setRetainerHeight !== undefined) {
             if (retainerType === "Grid") {
                 setHasHeight(true)
@@ -67,6 +89,22 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
             } else {
                 setHasHeight(false)
                 setRetainerHeight(null)
+            }
+        }
+
+    }, [retainerType])*/
+
+    React.useEffect(() => {
+        if (setRetainerHeight !== undefined) {
+            if (retainerType === "Grid") {
+                setRetainerHeightData(retainerGridHeightData)
+                setRetainerHeight("200")
+            } else if (retainerType === "Tube"){
+                setRetainerHeightData(retainerTubeHeightData)
+                setRetainerHeight("32")
+            } else {
+                setRetainerHeightData(retainerLogHeightData)
+                setRetainerHeight("140")
             }
         }
 
@@ -104,14 +142,14 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
             <div className="row pb-3">
                 <div className="col-md-6 pt-3">
                     {
-                        hasHeight ?
+                        //hasHeight ?
                             <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerHeight}
                                                lableWidth={"55%"}
                                                defaultValue={retainerHeight}
                                                optionData={retainerHeightData}
                                                onSelect={e => setRetainerHeight(e.target.value)}/>
-                            :
-                            <DisabledInput placeHolder={""}/>
+                           // :
+                            //<DisabledInput placeHolder={""}/>
                     }
                 </div>
 

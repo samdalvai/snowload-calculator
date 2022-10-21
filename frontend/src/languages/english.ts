@@ -94,11 +94,15 @@ export const english: Translation = {
         options: {
             roofType: {
                 concreteTile: "Concrete tile",
-                flatTile: "Flat tile"
+                flatTile: "Flat tile",
+                metalRoof: "Metal roof",
+                standingSeam: "Standing seam",
+                ondulatedPlate: "Ondulated plate"
             },
             retainingSystem: {
                 grid: "Grid",
-                doubleTube: "Double tube"
+                tube: "Double Tube",
+                log: "Log"
             }
         }
     },selection: {

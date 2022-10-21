@@ -1,6 +1,15 @@
 import {Callback} from "../../functions/callbacks";
 import React, {useState} from "react";
-import {Holder, Retainer, RetainerHeight, RetainerType, RoofData, RoofType, SnowLoadData} from "../../functions/types";
+import {
+    Holder,
+    Retainer,
+    RetainerHeight,
+    RetainerMaterial,
+    RetainerType,
+    RoofData,
+    RoofType,
+    SnowLoadData
+} from "../../functions/types";
 import {SnowLoadTablesForm} from "./SnowLoadTablesForm";
 import {SnowRetainersForm} from "./SnowRetainersForm";
 import {SnowLoadProductContext} from "../context/SnowLoadProductContext";
@@ -12,6 +21,7 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
     const [roofType, setRoofType] = useState<RoofType>("concreteTile")
     const [retainerType, setRetainerType] = useState<RetainerType>("Grid")
     const [retainerHeight, setRetainerHeight] = useState<RetainerHeight>("200")
+    const [retainerMaterial, setRetainerMaterial] = useState<RetainerMaterial>("Zink Steel")
     const [rows, setRows] = useState<number>(1)
 
     const [holder, setHolder] = useState<Holder | null>(null)
@@ -32,8 +42,8 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
                         onBack={onBack}
                         onAhead={() => setShowRetainersForm(true)}/>
                     :
-                    <SnowLoadProductContext.Provider value={{roofType, retainerType, retainerHeight, rows, holder, retainer, holderDistance, retainerDistance,
-                        setRoofType, setRetainerType, setRetainerHeight, setRows, setHolder, setRetainer, setHolderDistance, setRetainerDistance}}>
+                    <SnowLoadProductContext.Provider value={{roofType, retainerType, retainerHeight, retainerMaterial, rows, holder, retainer, holderDistance, retainerDistance,
+                        setRoofType, setRetainerType, setRetainerHeight, setRetainerMaterial, setRows, setHolder, setRetainer, setHolderDistance, setRetainerDistance}}>
                         <SnowRetainersForm linearLoad={snowLoadData.linearLoad}
                                            onBack={() => setShowRetainersForm(false)}/>
                     </SnowLoadProductContext.Provider>

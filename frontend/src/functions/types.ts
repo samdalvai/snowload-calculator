@@ -56,7 +56,7 @@ export interface Product {
     name: string,
     retainerType: RetainerType,
     retainerHeight: RetainerHeight,
-    material: ProductMaterial
+    material: RetainerMaterial
     image: string
 }
 
@@ -70,7 +70,7 @@ export interface RetainerResistance {
     dist1000: number
 }
 
-export type ProductMaterial = 'Zink Steel' | 'Stainless Steel' | 'Painted Steel' | 'Aluminium' | 'Copper'
+export type RetainerMaterial = 'Zink Steel' | 'Stainless Steel' | 'Painted Steel' | 'Aluminium' | 'Copper'
 
 export type RoofType = 'concreteTile' | 'flatTile' | 'metalRoof' | 'standingSeam' | 'ondulatedPlate'
 

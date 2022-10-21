@@ -1,10 +1,11 @@
 import {createContext} from "react";
-import {Holder, Retainer, RetainerHeight, RetainerType, RoofType} from "../../functions/types";
+import {Holder, Retainer, RetainerHeight, RetainerMaterial, RetainerType, RoofType} from "../../functions/types";
 
 export const SnowLoadProductContext = createContext<ISnowLoadProductContext>({
     roofType: "concreteTile",
     retainerType: "Grid",
     retainerHeight: "200",
+    retainerMaterial: "Zink Steel",
     rows: 1,
     holder: null,
     retainer: null,
@@ -18,6 +19,7 @@ export const SnowLoadProductContext = createContext<ISnowLoadProductContext>({
     }, setRetainerType(arg: RetainerType): void {
     }, setRoofType(arg: RoofType): void {
     }, setRows(arg: number): void {
+    },   setRetainerMaterial(arg: RetainerMaterial): void {
     }
 });
 
@@ -30,6 +32,9 @@ export interface ISnowLoadProductContext {
 
     retainerHeight: RetainerHeight,
     setRetainerHeight: (arg: RetainerHeight) => void
+
+    retainerMaterial: RetainerMaterial,
+    setRetainerMaterial: (arg: RetainerMaterial) => void
 
     rows: number
     setRows: (arg: number) => void

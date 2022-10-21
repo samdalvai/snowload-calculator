@@ -5,8 +5,7 @@ import {SelectorOptionData} from "../input/Selector";
 import React, {useContext, useState} from "react";
 import {SelectorWithLabel} from "../input/SelectorWithLabel";
 import {LanguageContext} from "../language/LanguageContext";
-import {Holder, Retainer, RetainerHeight, RetainerType, RoofType} from "../../functions/types";
-import {DisabledInput} from "../input/DisabledInput";
+import {RetainerHeight, RetainerType, RoofType} from "../../functions/types";
 import {ButtonsGroup} from "../button/ButtonsGroup";
 import {TitleCard} from "../card/TitleCard";
 import {Title} from "../text/Title";
@@ -31,8 +30,6 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
         holderDistance,
         retainerDistance
     } = useContext(SnowLoadProductContext)
-
-    //const [hasHeight, setHasHeight] = useState<boolean>(true)
 
     useKeyBoardPress(["Backspace"], onBack)
 
@@ -80,19 +77,6 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
         {value: 9, text: translation.words.numbers.nine},
         {value: 10, text: translation.words.numbers.ten}
     ]
-
-    /*React.useEffect(() => {
-        if (setRetainerHeight !== undefined) {
-            if (retainerType === "Grid") {
-                setHasHeight(true)
-                setRetainerHeight("200")
-            } else {
-                setHasHeight(false)
-                setRetainerHeight(null)
-            }
-        }
-
-    }, [retainerType])*/
 
     React.useEffect(() => {
         if (setRetainerHeight !== undefined) {

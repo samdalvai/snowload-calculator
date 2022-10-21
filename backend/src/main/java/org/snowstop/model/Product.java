@@ -17,16 +17,18 @@ public class Product {
     String retainerType;
     @Column(name = "height")
     String retainerHeight;
+    String material;
     String image;
 
     public Product() {
     }
 
-    public Product(String code, String name, String retainerType, String retainerHeight, String image) {
-        this.productCode = code;
+    public Product(String productCode, String name, String retainerType, String retainerHeight, String material, String image) {
+        this.productCode = productCode;
         this.name = name;
         this.retainerType = retainerType;
         this.retainerHeight = retainerHeight;
+        this.material = material;
         this.image = image;
     }
 
@@ -34,8 +36,8 @@ public class Product {
         return productCode;
     }
 
-    public void setProductCode(String code) {
-        this.productCode = code;
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
     }
 
     public String getName() {
@@ -60,6 +62,14 @@ public class Product {
 
     public void setRetainerHeight(String retainerHeight) {
         this.retainerHeight = retainerHeight;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(String material) {
+        this.material = material;
     }
 
     public String getImage() {

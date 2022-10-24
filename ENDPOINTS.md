@@ -34,6 +34,22 @@
 * `/cities/load`: retrieve cities by `lower` and `upper` bound for load.
   The lower and upper bound must be specified in the URL, for example: `/province/load?lower=0.5&upper=1.2`
 
+### PRODUCTS
+
+* `/products`: lists all products
+* `/products/code/{code}`: retrieves the product by code
+* `/products/name/{name}`: retrieves the product/s by name
+
+### HOLDERS
+
+* `/holders`: lists all holders
+* `/holders/code/{code}`: retrieves the holder by code
+
+### RETAINER
+
+* `/retainers`: lists all retainers
+* `/retainers/code/{code}`: retrieves the retainer by code
+
 
 ## `POST` endpoints:
 

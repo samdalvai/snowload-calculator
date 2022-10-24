@@ -61,10 +61,10 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
         if (!isValidSteepness(steepness))
             setValidSteepnessInput(false)
 
-        if (!isInputBetweenLowerAndUpperBound(roofLength, 0.0, 1000))
+        if (!isInputBetweenLowerAndUpperBound(roofLength, 1.0, 1000))
             setValidRoofLength(false)
 
-        if (!isInputBetweenLowerAndUpperBound(roofWidth, 0.0, 1000))
+        if (!isInputBetweenLowerAndUpperBound(roofWidth, 1.0, 1000))
             setValidRoofWidth(false)
 
         if (isInputValid()) {
@@ -81,7 +81,10 @@ export const SnowLoadCalculationForm = ({roofData, onCompute}:
     }
 
     const isInputValid = (): boolean => {
-        return selectedCity !== null && isValidSteepness(steepness) && isInputBetweenLowerAndUpperBound(roofLength, 0.0, 1000) && isInputBetweenLowerAndUpperBound(roofWidth, 0.0, 1000);
+        return selectedCity !== null &&
+            isValidSteepness(steepness) &&
+            isInputBetweenLowerAndUpperBound(roofLength, 1.0, 1000) &&
+            isInputBetweenLowerAndUpperBound(roofWidth, 1.0, 1000);
     }
 
     const resetInvalidInputs = () => {

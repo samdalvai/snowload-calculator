@@ -52,6 +52,7 @@ export const ProductSelector = ({linearLoad}:
         if (holderDistance !== null && retainerDistance !== null && holderDistance !== retainerDistance) {
             setShowDistanceMismatchError(true)
             setRetainerDistance(null)
+            setRetainer(null)
         }
     }, [retainerDistance])
 

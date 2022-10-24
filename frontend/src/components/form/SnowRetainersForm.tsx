@@ -36,8 +36,6 @@ export const SnowRetainersForm = ({linearLoad, onBack, onAhead}: { linearLoad: n
 
     const [showIncompleteSelectionError, setShowIncompleteSelectionError] = useState<boolean>(false)
 
-    useKeyBoardPress(["Backspace"], onBack)
-
     const roofTypeData: SelectorOptionData<RoofType>[] = [
         {value: "concreteTile", text: translation.inputs.options.roofType.concreteTile},
         {value: "flatTile", text: translation.inputs.options.roofType.flatTile},
@@ -108,12 +106,16 @@ export const SnowRetainersForm = ({linearLoad, onBack, onAhead}: { linearLoad: n
     }, [retainerType])
 
     const handleOnAhead = () => {
+        console.log("Ahead")
         if (!holder || !retainer || !holderDistance || !retainerDistance) {
             setShowIncompleteSelectionError(true)
         } else {
             onAhead()
         }
     }
+
+    useKeyBoardPress(["Backspace"], onBack)
+    useKeyBoardPress(["Enter", "NumpadEnter"], handleOnAhead)
 
     return (
         <div>

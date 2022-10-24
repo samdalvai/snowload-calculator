@@ -44,6 +44,9 @@ export const german: Translation = {
         },
         retainersForm: {
             title: "Auswahl der Schneefangsystem"
+        },
+        summaryForm: {
+            title: "Zusammenfassung"
         }
     },
     termsOfUse: {

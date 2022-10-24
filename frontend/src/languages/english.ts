@@ -44,6 +44,9 @@ export const english: Translation = {
         },
         retainersForm: {
             title: "Retainer selection"
+        },
+        summaryForm: {
+            title: "Summary"
         }
     },
     termsOfUse: {

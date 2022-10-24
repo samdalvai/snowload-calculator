@@ -46,6 +46,9 @@ export interface Translation {
         },
         retainersForm: {
             title: string
+        },
+        summaryForm: {
+            title: string
         }
     },
     termsOfUse: {

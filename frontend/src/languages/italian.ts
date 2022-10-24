@@ -44,6 +44,9 @@ export const italian: Translation = {
         },
         retainersForm: {
             title: "Scelta sistema di trattenuta"
+        },
+        summaryForm: {
+            title: "Riassunto"
         }
     },
     termsOfUse: {

@@ -14,7 +14,7 @@ import {AheadButton} from "../button/AheadButton";
 import {SnowLoadProductContext} from "../context/SnowLoadProductContext";
 import {ErrorModal} from "../modal/ErrorModal";
 
-export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, onBack: Callback }) => {
+export const SnowRetainersForm = ({linearLoad, onBack, onAhead}: { linearLoad: number, onBack: Callback, onAhead: Callback }) => {
     const {translation} = useContext(LanguageContext);
 
     const {
@@ -111,7 +111,7 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
         if (!holder || !retainer || !holderDistance || !retainerDistance) {
             setShowIncompleteSelectionError(true)
         } else {
-
+            onAhead()
         }
     }
 

@@ -28,9 +28,9 @@ export const ProductTable = ({loading, error, productList, productType}:
                         !error ?
                             loading ?
                                 <tr>
-                                    <td colSpan={11}>
+                                    <th colSpan={11}>
                                         <DisabledInput placeHolder={translation.loading.products}/>
-                                    </td>
+                                    </th>
                                 </tr>
                                 :
                                 <>
@@ -40,9 +40,9 @@ export const ProductTable = ({loading, error, productList, productType}:
                                 </>
                             :
                             <tr>
-                                <td colSpan={11}>
+                                <th colSpan={11}>
                                     <ErrorInput message={translation.error.products}/>
-                                </td>
+                                </th>
                             </tr>
                     }
                     </tbody>

@@ -105,8 +105,10 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
     }, [retainerType])
 
     const handleOnAhead = () => {
-        // check here
-
+        console.log(holder)
+        console.log(holderDistance)
+        console.log(retainer)
+        console.log(retainerDistance)
     }
 
     return (

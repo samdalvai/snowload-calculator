@@ -86,11 +86,9 @@ export const ProductSelector = ({linearLoad}:
 
     const handleOnSelect = (product: SnowStopProduct) => {
         if (product.type === "Holder") {
-            if (setHolder !== undefined)
-                setHolder(product)
+            setHolder(product)
         } else {
-            if (setRetainer !== undefined)
-                setRetainer(product)
+            setRetainer(product)
         }
     }
 

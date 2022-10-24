@@ -23,6 +23,7 @@ export const ProductCard = ({product, linearLoad, selected, onSelect, onSelectDi
             setChecked(checked.map((c, index) => index === idx ? true : false))
             setDistanceValue(distanceSelectorData[idx].value)
             onSelectDistance(distanceSelectorData[idx].value)
+            onSelect(product)
         }
     }
 
@@ -33,6 +34,7 @@ export const ProductCard = ({product, linearLoad, selected, onSelect, onSelectDi
             setDistanceValue(value)
             setChecked(checked.map((c, index) => index === (value / 100 - 4) ? true : false))
             onSelectDistance(value)
+            onSelect(product)
         }
     }
 
@@ -65,8 +67,8 @@ export const ProductCard = ({product, linearLoad, selected, onSelect, onSelectDi
                 style={{
                     backgroundColor: selected ? "lightblue" : "white"
                 }}
-                onClick={() => onSelect(product)
-                }>
+                //onClick={() => onSelect(product)}
+            >
                 {
                     size.width !== undefined && size.width >= 800 ?
                         <>

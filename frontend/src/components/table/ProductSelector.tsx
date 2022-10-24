@@ -68,8 +68,8 @@ export const ProductSelector = ({linearLoad}:
         const filteredHolders = holders.filter(h =>
             h.roofType === roofType &&
             h.productInfo.retainerType === retainerType &&
-            h.productInfo.retainerHeight === retainerHeight &&
-            h.productInfo.material === retainerMaterial
+            h.productInfo.retainerHeight === retainerHeight
+            //&& h.productInfo.material === retainerMaterial
         )
 
         setFilteredHolders(filteredHolders)
@@ -78,8 +78,8 @@ export const ProductSelector = ({linearLoad}:
     const filterRetainers = () => {
         const filteredRetainers = retainers.filter(r =>
             r.productInfo.retainerType === retainerType &&
-            r.productInfo.retainerHeight === retainerHeight &&
-            r.productInfo.material === retainerMaterial
+            r.productInfo.retainerHeight === retainerHeight
+            //&& r.productInfo.material === retainerMaterial
         )
 
         setFilteredRetainers(filteredRetainers)

@@ -134,9 +134,11 @@ export const ProductSelector = ({linearLoad}:
                                               onSelectDistance={setHolderDistance}/>
                                           )
                                           :
-                                          <td colSpan={11}>
-                                              <DisabledInput placeHolder={translation.words.noResults}/>
-                                          </td>
+                                          <tr>
+                                              <td colSpan={11}>
+                                                  <DisabledInput placeHolder={translation.words.noResults}/>
+                                              </td>
+                                          </tr>
                                   }
                               </>}
                               productType={"Holder"}/>

@@ -1,12 +1,12 @@
 import {ProductTableHeader, ProductTableHeaderSmall} from "./ProductTableHeader";
 import {DisabledInput} from "../input/DisabledInput";
-import React, {ReactElement, useContext, useState} from "react";
+import React, {ReactElement, useContext} from "react";
 import {useWindowSize} from "../../functions/hooks/useWindowSize";
 import {LanguageContext} from "../language/LanguageContext";
 import {ErrorInput} from "../input/ErrorInput";
 import {SnowStopProductType} from "../../functions/types";
 
-export const ProductTable = ({ loading, error, productList, productType}:
+export const ProductTable = ({loading, error, productList, productType}:
                                  { loading: boolean, error: any, productList: ReactElement, productType: SnowStopProductType }) => {
     const {translation} = useContext(LanguageContext);
 
@@ -27,23 +27,23 @@ export const ProductTable = ({ loading, error, productList, productType}:
 
                         !error ?
                             loading ?
-                                <>
-                                    <tr>
-                                        <td colSpan={11}>
-                                            <DisabledInput placeHolder={translation.loading.products}/>
-                                        </td>
-                                    </tr>
-                                </> :
+                                <tr>
+                                    <td colSpan={11}>
+                                        <DisabledInput placeHolder={translation.loading.products}/>
+                                    </td>
+                                </tr>
+                                :
                                 <>
                                     {
                                         productList
                                     }
                                 </>
                             :
-                            <td colSpan={11}>
-                                <ErrorInput message={translation.error.products}/>
-                            </td>
-
+                            <tr>
+                                <td colSpan={11}>
+                                    <ErrorInput message={translation.error.products}/>
+                                </td>
+                            </tr>
                     }
                     </tbody>
                 </table>

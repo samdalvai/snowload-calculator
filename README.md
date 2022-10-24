@@ -1,22 +1,27 @@
 # Snowload Calculator
 A web application for the calculation of snowload and snow retaining systems in Italy
 based on the full stack application template from tutorial [app](https://www.baeldung.com/spring-boot-react-crud).
-The application architecture is based on a backend API with `Java Spring Boot`,
+The application architecture is based on a backend API with `Java Spring Boot` along with a `MySql` database,
 and a frontend application with `React`.
 
 # Table of contents
-* [BACK-END-APPLICATION](#back-end-application)
-* [FRONT-END-APPLICATION](#front-end-application)
+* [How to configure](#how-to-configure)
+  * [Back-end application](#back-end-application)
+  * [Front-end application](#front-end-application)
+* [How to use Snowload Calculator](#how-to-use-snowload-calculator)
+* [Author](#author)
 
-# BACK-END APPLICATION
+# How to configure
 
-## Application Prerequisites
+## Back-end application
+
+### Application Prerequisites
 
 * Java 1.8 or higher.
 * Maven
 * Docker
 
-## How to run
+### How to run
 
 * Run `docker-compose up -d` to run the mysql database.
 * The configuration should load all the queries found in `backend/sql/Init.sql` automatically the first time the docker container is created, if this is not the case you might need to run all of them manually.
@@ -28,8 +33,8 @@ To start the Spring Boot API, from the `backend/` folder run:
 Access the API on http://localhost:8080/cities.
 A complete list of the endpoints can be found in the [ENDPOINTS](ENDPOINTS.md) readme file.
 
-As an alternative you can use the docker to run the dockerized version of `Spring Boot` with 
-mysql, by uncommenting the backend service in the `docker-comose.yaml` file:
+As an alternative you can use `Docker` to run the dockerized version of `Spring Boot` with
+`MySql`, by uncommenting the backend service in the `docker-comose.yaml` file:
 
 ```yaml
     #  backend:
@@ -42,16 +47,16 @@ mysql, by uncommenting the backend service in the `docker-comose.yaml` file:
     ...
 ```
 
-# FRONT-END APPLICATION
+## Front-end application
 
-## Application Prerequisites
+### Application Prerequisites
 
 * Node.js 12 or higher
 
-## How to run
+### How to run
 
 * From inside the `frontend/` folder run `npm install` to install the required packages
-* To start the frontend application, from inside the `frontend/` folder, run:
+* To start the frontend application, from inside the `frontend/` folder run:
 
 > npm start
 
@@ -74,6 +79,14 @@ As an alternative you can use the dockerized version of `Node` by uncommenting t
 Please note that if you are using both the docker version of the `backend` and the `frontend` application, you need to change the `"proxy"` property 
 in the `package.json` file of the `frontend` application from `http://localhost:8080` to `http://backend:8080`.
 
-## How to test
+### How to test
 
 * From inside the `frontend/` folder run `npm test` to run all the tests
+
+# How to use Snowload Calculator
+
+
+
+
+# Author
+Samuel Dalvai

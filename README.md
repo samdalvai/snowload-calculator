@@ -9,6 +9,7 @@ and a frontend application with `React`.
   * [Back-end application](#back-end-application)
   * [Front-end application](#front-end-application)
 * [How to use Snowload Calculator](#how-to-use-snowload-calculator)
+* [Acknowledgements](#acknowledgements)
 * [Author](#author)
 
 # How to configure
@@ -134,9 +135,18 @@ The application is available in three languages, namely English, Italian and
 German.
 The default language is chosen based on the default
 language of the browser, otherwise it is possible to 
-select the preferred language manually on the top right corner:
+select the preferred language manually in the top right corner:
 
 ![Language](img/language.png)
+
+# Acknowledgements
+
+The products that can be chosen in the [retainer selection](#retainer-selection) section are produced 
+by the company [Flender Flux](https://www.flender-flux.de/), based in Netphen, Germany.
+The resistance of the snow retaining systems specified in the data is just for demonstrating purposes,
+and all the computations performed by the snow load computation tool are not guaranteed to be 
+correct.
+
 
 # Author
 Samuel Dalvai

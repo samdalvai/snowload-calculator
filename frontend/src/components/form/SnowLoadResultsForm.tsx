@@ -48,7 +48,10 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
                         setRoofType, setRetainerType, setRetainerHeight, setRetainerMaterial, setRows, setHolder, setRetainer, setHolderDistance, setRetainerDistance}}>
                         {
                             showSummaryForm ?
-                                <SnowLoadSummaryForm  onBack={() => setShowSummaryForm(false)}/>
+                                <SnowLoadSummaryForm
+                                    onBack={() => setShowSummaryForm(false)}
+                                    roofData={roofData}
+                                    snowLoadData={snowLoadData}/>
                                     :
                                 <SnowRetainersForm
                                     linearLoad={snowLoadData.linearLoad}

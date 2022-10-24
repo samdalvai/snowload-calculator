@@ -14,7 +14,11 @@ import {AheadButton} from "../button/AheadButton";
 import {SnowLoadProductContext} from "../context/SnowLoadProductContext";
 import {ErrorModal} from "../modal/ErrorModal";
 
-export const SnowRetainersForm = ({linearLoad, onBack, onAhead}: { linearLoad: number, onBack: Callback, onAhead: Callback }) => {
+export const SnowRetainersForm = ({
+                                      linearLoad,
+                                      onBack,
+                                      onAhead
+                                  }: { linearLoad: number, onBack: Callback, onAhead: Callback }) => {
     const {translation} = useContext(LanguageContext);
 
     const {
@@ -146,16 +150,11 @@ export const SnowRetainersForm = ({linearLoad, onBack, onAhead}: { linearLoad: n
             </div>
             <div className="row pb-3">
                 <div className="col-md-4 pt-3">
-                    {
-                        //hasHeight ?
-                        <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerHeight}
-                                           lableWidth={"55%"}
-                                           defaultValue={retainerHeight}
-                                           optionData={retainerHeightData}
-                                           onSelect={e => setRetainerHeight(e.target.value)}/>
-                        // :
-                        //<DisabledInput placeHolder={""}/>
-                    }
+                    <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerHeight}
+                                       lableWidth={"55%"}
+                                       defaultValue={retainerHeight}
+                                       optionData={retainerHeightData}
+                                       onSelect={e => setRetainerHeight(e.target.value)}/>
                 </div>
 
                 <div className="col-md-4 pt-3">

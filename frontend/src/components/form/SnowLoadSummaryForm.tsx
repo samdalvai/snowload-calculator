@@ -52,105 +52,128 @@ export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack}:
                 </div>
             </div>
 
-            <div className="table-responsive">
-                <table className="table shadow-sm rounded">
-                    <thead>
-                    <tr className="table-secondary text-center shadow-sm table-header">
-                        <th scope="row" colSpan={3}>{"Retaining system"}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {
-                        holder ?
-                            <tr>
-                                <td width={"25%"} style={{verticalAlign: "middle"}}>{translation.words.holder}</td>
-                                <th className={"text-center"}
-                                    style={{verticalAlign: "middle"}}>
-                                    <ProductImage url={holder ? holder.productInfo.image : ""}/>
-                                </th>
-                                <th className={"text-center"}
-                                    style={{verticalAlign: "middle"}}>
-                                    <div>
-                                        <p>{translation.tables.productChoice.headers.code}: {holder.productInfo.productCode}</p>
-                                        <p>{translation.tables.productChoice.headers.name}: {holder.productInfo.name}</p>
-                                    </div>
-                                </th>
+            <div className={"row"}>
+                <div className="col-md-6 pt-3">
+                    <div className="table-responsive">
+                        <table className="table shadow-sm rounded">
+                            <thead>
+                                <tr className="table-secondary text-center shadow-sm table-header">
+                                    <th scope="row" colSpan={3}>{"Retaining system products"}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    holder ?
+                                        <tr>
+                                            <td width={"25%"}
+                                                style={{verticalAlign: "middle"}}>{translation.words.holder}</td>
+                                            <th className={"text-center"}
+                                                style={{verticalAlign: "middle"}}>
+                                                <ProductImage url={holder ? holder.productInfo.image : ""}/>
+                                            </th>
+                                            <th className={"text-center"}
+                                                style={{verticalAlign: "middle"}}>
+                                                <div>
+                                                    <p>{translation.tables.productChoice.headers.code}: {holder.productInfo.productCode}</p>
+                                                    <p>{translation.tables.productChoice.headers.name}: {holder.productInfo.name}</p>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                        :
+                                        <tr>
+                                            <DisabledInput placeHolder={"..."}/>
+                                        </tr>
+                                }
+                                {
+                                    retainer ?
+                                        <tr>
+                                            <td width={"25%"}
+                                                style={{verticalAlign: "middle"}}>{translation.words.retainer}</td>
+                                            <th className={"text-center"}
+                                                style={{verticalAlign: "middle"}}>
+                                                <ProductImage url={retainer.productInfo.image}/>
+                                            </th>
+                                            <th className={"text-center"}
+                                                style={{verticalAlign: "middle"}}>
+                                                <div>
+                                                    <p>{translation.tables.productChoice.headers.code}: {retainer.productInfo.productCode}</p>
+                                                    <p>{translation.tables.productChoice.headers.name}: {retainer.productInfo.name}</p>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                        :
+                                        <tr>
+                                            <DisabledInput placeHolder={"..."}/>
+                                        </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div className="col-md-6 pt-3">
+                    <div className="table-responsive">
+                        <table className="table shadow-sm rounded" >
+                            <thead>
+                            <tr className="table-secondary text-center shadow-sm table-header">
+                                <th scope="row" colSpan={3}>{"Retaining system quantities"}</th>
                             </tr>
-                            :
-                            <tr>
-                                <DisabledInput placeHolder={"..."}/>
-                            </tr>
-                    }
-                    {
-                        retainer ?
-                            <tr>
-                                <td width={"25%"} style={{verticalAlign: "middle"}}>{translation.words.retainer}</td>
-                                <th className={"text-center"}
-                                    style={{verticalAlign: "middle"}}>
-                                    <ProductImage url={retainer.productInfo.image}/>
-                                </th>
-                                <th className={"text-center"}
-                                    style={{verticalAlign: "middle"}}>
-                                    <div>
-                                        <p>{translation.tables.productChoice.headers.code}: {retainer.productInfo.productCode}</p>
-                                        <p>{translation.tables.productChoice.headers.name}: {retainer.productInfo.name}</p>
-                                    </div>
-                                </th>
-                            </tr>
-                            :
-                            <tr>
-                                <DisabledInput placeHolder={"..."}/>
-                            </tr>
-                    }
-                    <tr>
-                        <td width={"25%"}
-                            style={{verticalAlign: "middle"}}>{translation.tables.productChoice.headers.distance}</td>
-                        <th className={"text-center"}
-                            colSpan={2}
-                            style={{verticalAlign: "middle"}}>
-                            {retainerDistance}
-                        </th>
-                    </tr>
-                    <tr>
-                        <td width={"25%"}
-                            style={{verticalAlign: "middle"}}>{translation.inputs.labels.retainersForm.retainerRows}</td>
-                        <th className={"text-center"}
-                            colSpan={2}
-                            style={{verticalAlign: "middle"}}>
-                            {rows}
-                        </th>
-                    </tr>
-                    <tr>
-                        <td width={"25%"} style={{verticalAlign: "middle"}}>Number of holders</td>
-                        <th className={"text-center"}
-                            colSpan={2}
-                            style={{verticalAlign: "middle"}}>
-                            {
-                                roofData && retainerDistance ?
-                                    // Compute the number of holders needed
-                                    (((roofData.roofWidth * 1000.0 / retainerDistance) + 1) * rows).toFixed(0)
-                                    :
-                                    ""
-                            }
-                        </th>
-                    </tr>
-                    <tr>
-                        <td width={"25%"} style={{verticalAlign: "middle"}}>Number of elements (retaining system)</td>
-                        <th className={"text-center"}
-                            colSpan={2}
-                            style={{verticalAlign: "middle"}}>
-                            {
-                                roofData && retainerDistance ?
-                                    // Compute the number of holders needed
-                                    (Math.round(roofData.roofWidth / 3.0) + roofData.roofWidth % 3) * rows
-                                    :
-                                    ""
-                            }
-                        </th>
-                    </tr>
-                    </tbody>
-                </table>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td width={"25%"}
+                                        style={{verticalAlign: "middle"}}>{translation.tables.productChoice.headers.distance}</td>
+                                    <th className={"text-center"}
+                                        colSpan={2}
+                                        style={{verticalAlign: "middle"}}>
+                                        {retainerDistance}
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td width={"25%"}
+                                        style={{verticalAlign: "middle"}}>{translation.inputs.labels.retainersForm.retainerRows}</td>
+                                    <th className={"text-center"}
+                                        colSpan={2}
+                                        style={{verticalAlign: "middle"}}>
+                                        {rows}
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td width={"25%"} style={{verticalAlign: "middle"}}>
+                                        Number of holders</td>
+                                    <th className={"text-center"}
+                                        colSpan={2}
+                                        style={{verticalAlign: "middle"}}>
+                                        {
+                                            roofData && retainerDistance ?
+                                                // Compute the number of holders needed
+                                                (((roofData.roofWidth * 1000.0 / retainerDistance) + 1) * rows).toFixed(0)
+                                                :
+                                                ""
+                                        }
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td width={"25%"} style={{verticalAlign: "middle"}}>
+                                        Number of retainers
+                                    </td>
+                                    <th className={"text-center"}
+                                        colSpan={2}
+                                        style={{verticalAlign: "middle"}}>
+                                        {
+                                            roofData && retainerDistance ?
+                                                // Compute the number of holders needed
+                                                (Math.round(roofData.roofWidth / 3.0) + roofData.roofWidth % 3) * rows
+                                                :
+                                                ""
+                                        }
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
+
 
             <div className={"pb-3"}>
                 <ButtonsGroup leftButton={<BackButton onBack={onBack}/>}

@@ -66,7 +66,14 @@ export const ProductCard = ({product, linearLoad, selected, onSelect, onSelectDi
             <tr className={"product-card"}
                 style={{
                     backgroundColor: selected ? "lightblue" : "white"
-                }}>
+                }}
+                onClick={ () => {
+                    if (distanceValue === 400){
+                        onSelectDistance(400)
+                        onSelect(product)
+                    }
+                }}
+            >
                 {
                     size.width !== undefined && size.width >= 800 ?
                         <>

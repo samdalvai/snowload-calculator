@@ -143,10 +143,10 @@ select the preferred language manually in the top right corner:
 
 The products that can be chosen in the [retainer selection](#retainer-selection) section are produced 
 by the company [Flender Flux](https://www.flender-flux.de/), based in Netphen, Germany.
-The resistance of the snow retaining systems specified in the data is just for demonstrating purposes,
-and all the computations performed by the snow load computation tool are not guaranteed to be 
+I do not own the right to use the images and the data for commercial use, this tool and 
+the resistance of the snow retaining systems specified in the data are just for demonstrating purposes.
+In addition, the computations performed by the snow load computation tool are not guaranteed to be 
 correct.
-
 
 # Author
 Samuel Dalvai

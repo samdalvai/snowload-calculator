@@ -64,7 +64,8 @@ export const italian: Translation = {
             print: "Stampa",
             back: "Indietro",
             send: "Invia",
-            ahead: "Avanti"
+            ahead: "Avanti",
+            newComp: "Nuovo calcolo"
         },
         toolTips: {
             addButton: "Fare clic per aggiungere una nuova città",

@@ -66,7 +66,8 @@ export interface Translation {
             addCity: string,
             print: string,
             back: string,
-            ahead: string
+            ahead: string,
+            newComp: string
         },
         toolTips: {
             addButton: string,

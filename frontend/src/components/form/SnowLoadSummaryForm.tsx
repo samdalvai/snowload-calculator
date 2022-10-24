@@ -3,7 +3,7 @@ import {LanguageContext} from "../language/LanguageContext";
 import {SnowLoadProductContext} from "../context/SnowLoadProductContext";
 import {Title} from "../text/Title";
 import {Callback} from "../../functions/callbacks";
-import {ButtonsGroup} from "../button/ButtonsGroup";
+import {ButtonsGroup, ButtonsGroupSmall} from "../button/ButtonsGroup";
 import {BackButton} from "../button/BackButton";
 import {PrintButton} from "../button/PrintButton";
 import {useKeyBoardPress} from "../../functions/hooks/useKeyBoardPress";
@@ -11,26 +11,18 @@ import {RoofData, SnowLoadData} from "../../functions/types";
 import {RoofDatatable} from "../table/RoofDatatable";
 import {SnowLoadCalculationTable} from "../table/SnowLoadCalculationTable";
 import {ProductImage} from "../table/ProductImage";
+import {ResetButton} from "../button/ResetButton";
+import {NewComputation} from "../button/NewComputationButton";
 
-export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack}:
-                                        { roofData: RoofData | null, snowLoadData: SnowLoadData, onBack: Callback }) => {
+export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack, onNewComputation}:
+                                        { roofData: RoofData | null, snowLoadData: SnowLoadData, onBack: Callback, onNewComputation: Callback }) => {
     const {translation} = useContext(LanguageContext);
 
     const {
-        roofType,
-        setRoofType,
-        retainerType,
-        setRetainerType,
-        retainerHeight,
-        setRetainerHeight,
-        retainerMaterial,
-        setRetainerMaterial,
         rows,
-        setRows,
         holder,
         retainer,
         holderDistance,
-        retainerDistance
     } = useContext(SnowLoadProductContext)
 
     useKeyBoardPress(["Backspace"], onBack)
@@ -181,7 +173,8 @@ export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack}:
 
             <div className={"pb-3"}>
                 <ButtonsGroup leftButton={<BackButton onBack={onBack}/>}
-                              rightButton={<PrintButton onPrint={window.print}/>}/>
+                              rightButton={<ButtonsGroupSmall leftButton={<PrintButton onPrint={window.print}/>}
+                                                              rightButton={<NewComputation onNewComputation={onNewComputation}/>}/>}/>
             </div>
         </div>
     )

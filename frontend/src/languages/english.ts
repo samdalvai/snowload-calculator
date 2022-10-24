@@ -64,7 +64,8 @@ export const english: Translation = {
             print: "Print",
             back: "Back",
             send: "Send",
-            ahead: "Ahead"
+            ahead: "Ahead",
+            newComp: "New Computation"
         },
         toolTips: {
             addButton: "Click to add a new city",

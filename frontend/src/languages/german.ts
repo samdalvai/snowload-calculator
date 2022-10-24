@@ -64,7 +64,8 @@ export const german: Translation = {
             print: "Drucken",
             back: "Zurück",
             send: "Senden",
-            ahead: "Weiter"
+            ahead: "Weiter",
+            newComp: "Neue Berechnung"
         },
         toolTips: {
             addButton: "Klicken Sie, um eine neue Stadt hinzuzufügen",

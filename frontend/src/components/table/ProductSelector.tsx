@@ -95,22 +95,12 @@ export const ProductSelector = ({linearLoad}:
 
     return (
         <div>
-            {
-                showResistanceError ?
-                    <ErrorModal show={showResistanceError} header={translation.modals.resistanceError.title}
-                                body={translation.modals.resistanceError.body}
-                                onHide={() => setShowResistanceError(false)}/>
-                    :
-                    ""
-            }
-            {
-                showDistanceMismatchError ?
-                    <ErrorModal show={showDistanceMismatchError} header={translation.modals.distanceMismatchError.title}
-                                body={translation.modals.distanceMismatchError.body}
-                                onHide={() => setShowDistanceMismatchError(false)}/>
-                    :
-                    ""
-            }
+            <ErrorModal show={showResistanceError} header={translation.modals.resistanceError.title}
+                        body={translation.modals.resistanceError.body}
+                        onHide={() => setShowResistanceError(false)}/>
+            <ErrorModal show={showDistanceMismatchError} header={translation.modals.distanceMismatchError.title}
+                        body={translation.modals.distanceMismatchError.body}
+                        onHide={() => setShowDistanceMismatchError(false)}/>
             <div>
                 <TitleCardSmall title={translation.words.holder}/>
             </div>

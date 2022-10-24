@@ -135,6 +135,10 @@ export interface Translation {
         distanceMismatchError: {
             title: string,
             body: string
+        },
+        incompleteSelectionError: {
+            title: string,
+            body: string
         }
     },
     tables: {

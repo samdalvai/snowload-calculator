@@ -132,6 +132,10 @@ export const english: Translation = {
         distanceMismatchError: {
             title: "Distance mismatch error",
             body: "You need to select the same distance for the holder and the retaining system"
+        },
+        incompleteSelectionError: {
+            title: "Incomplete selection error",
+            body: "Please select both a holder and a retainer to proceed..."
         }
     },
     tables: {

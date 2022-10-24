@@ -132,6 +132,10 @@ export const italian: Translation = {
         distanceMismatchError: {
             title: "Errore nella distanza",
             body: "È necessario scegliere la stessa distanza tra il supporto e il sistema di ritenuta."
+        },
+        incompleteSelectionError: {
+            title: "Selezione incompleta",
+            body: "Per procedere, selezionare sia un supporto che un sistema di ritenuta..."
         }
     },
     tables: {

@@ -12,6 +12,7 @@ import {Title} from "../text/Title";
 import {ProductSelector} from "../table/ProductSelector";
 import {AheadButton} from "../button/AheadButton";
 import {SnowLoadProductContext} from "../context/SnowLoadProductContext";
+import {ErrorModal} from "../modal/ErrorModal";
 
 export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, onBack: Callback }) => {
     const {translation} = useContext(LanguageContext);
@@ -32,6 +33,8 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
         holderDistance,
         retainerDistance
     } = useContext(SnowLoadProductContext)
+
+    const [showIncompleteSelectionError, setShowIncompleteSelectionError] = useState<boolean>(false)
 
     useKeyBoardPress(["Backspace"], onBack)
 
@@ -93,7 +96,7 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
             if (retainerType === "Grid") {
                 setRetainerHeightData(retainerGridHeightData)
                 setRetainerHeight("200")
-            } else if (retainerType === "Tube"){
+            } else if (retainerType === "Tube") {
                 setRetainerHeightData(retainerTubeHeightData)
                 setRetainerHeight("32")
             } else {
@@ -105,14 +108,18 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
     }, [retainerType])
 
     const handleOnAhead = () => {
-        console.log(holder)
-        console.log(holderDistance)
-        console.log(retainer)
-        console.log(retainerDistance)
+        if (!holder || !retainer || !holderDistance || !retainerDistance) {
+            setShowIncompleteSelectionError(true)
+        } else {
+
+        }
     }
 
     return (
         <div>
+            <ErrorModal show={showIncompleteSelectionError} header={translation.modals.incompleteSelectionError.title}
+                        body={translation.modals.incompleteSelectionError.body}
+                        onHide={() => setShowIncompleteSelectionError(false)}/>
             <div className={"py-3"}>
                 <Title text={translation.pages.retainersForm.title}/>
             </div>
@@ -139,13 +146,13 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
                 <div className="col-md-4 pt-3">
                     {
                         //hasHeight ?
-                            <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerHeight}
-                                               lableWidth={"55%"}
-                                               defaultValue={retainerHeight}
-                                               optionData={retainerHeightData}
-                                               onSelect={e => setRetainerHeight(e.target.value)}/>
-                           // :
-                            //<DisabledInput placeHolder={""}/>
+                        <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerHeight}
+                                           lableWidth={"55%"}
+                                           defaultValue={retainerHeight}
+                                           optionData={retainerHeightData}
+                                           onSelect={e => setRetainerHeight(e.target.value)}/>
+                        // :
+                        //<DisabledInput placeHolder={""}/>
                     }
                 </div>
 
@@ -167,7 +174,7 @@ export const SnowRetainersForm = ({linearLoad, onBack}: { linearLoad: number, on
             </div>
 
             <div className={"pt-3"}>
-                <ProductSelector linearLoad={linearLoad} />
+                <ProductSelector linearLoad={linearLoad}/>
             </div>
 
             <div className={"pb-3"}>

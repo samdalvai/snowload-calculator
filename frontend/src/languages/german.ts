@@ -132,6 +132,10 @@ export const german: Translation = {
         distanceMismatchError: {
             title: "Fehler bei der Abstand",
             body: "Es ist notwendig, den gleichen Abstand zwischen der Stütze und dem Rückhaltesystem zu wählen."
+        },
+        incompleteSelectionError: {
+            title: "Unvollständigen Auswahl",
+            body: "Bitte wählen Sie sowohl einen Halter als auch ein Rückhaltesystem aus, um fortzufahren..."
         }
     },
     tables: {

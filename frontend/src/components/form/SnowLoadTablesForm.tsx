@@ -14,7 +14,7 @@ import {RoofDatatable} from "../table/RoofDatatable";
 import {SnowLoadCalculationTable} from "../table/SnowLoadCalculationTable";
 
 export const SnowLoadTablesForm = ({roofData, snowLoadData, error, loading, onBack, onAhead}:
-                                     { roofData: RoofData | null, snowLoadData: SnowLoadData, error: Boolean, loading: boolean, onBack: Callback, onAhead: Callback }) => {
+                                       { roofData: RoofData | null, snowLoadData: SnowLoadData, error: Boolean, loading: boolean, onBack: Callback, onAhead: Callback }) => {
     const {translation} = useContext(LanguageContext);
 
     useKeyBoardPress(["Backspace"], onBack)
@@ -23,21 +23,25 @@ export const SnowLoadTablesForm = ({roofData, snowLoadData, error, loading, onBa
     return (
         <div>
             <div className={"py-3"}>
-                <Title  text={translation.pages.resultsForm.title}/>
+                <Title text={translation.pages.resultsForm.title}/>
             </div>
             <div>
                 {
                     !error ?
-                        <div className={"row"}>
-                            <div className="col-md-6 pt-3">
-                                <RoofDatatable  roofData={roofData}/>
+                        loading ?
+                            <div>
+                                <DisabledInput placeHolder={translation.loading.computation}/>
                             </div>
-                            <div className="col-md-6 pt-3">
-                                <SnowLoadCalculationTable  loading={loading}
-                                                           roofData={roofData}
-                                                           snowLoadData={snowLoadData}/>
+                            :
+                            <div className={"row"}>
+                                <div className="col-md-6 pt-3">
+                                    <RoofDatatable roofData={roofData}/>
+                                </div>
+                                <div className="col-md-6 pt-3">
+                                    <SnowLoadCalculationTable roofData={roofData}
+                                                              snowLoadData={snowLoadData}/>
+                                </div>
                             </div>
-                        </div>
                         :
                         <NonDismissableAlert
                             message={translation.alerts.computationError}

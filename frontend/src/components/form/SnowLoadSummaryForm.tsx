@@ -37,6 +37,8 @@ export const SnowLoadSummaryForm = ({onBack}: {onBack: Callback}) => {
                 <Title text={translation.pages.summaryForm.title}/>
             </div>
 
+            
+
             <div className={"pb-3"}>
                 <ButtonsGroup leftButton={<BackButton onBack={onBack}/>}
                               rightButton={<PrintButton  onPrint={window.print}/>}/>

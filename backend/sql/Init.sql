@@ -471,7 +471,6 @@ INSERT INTO holder VALUES
    ('030412', 3.75, 'flatTile'),
    ('030414', 3.75, 'flatTile'),
    ('030416', 3.75, 'flatTile'),
-   ('030416', 3.75, 'flatTile'),
    ('030418', 3.75, 'flatTile'),
    ('030420', 3.75, 'flatTile'),
    ('030401', 2.00, 'flatTile');

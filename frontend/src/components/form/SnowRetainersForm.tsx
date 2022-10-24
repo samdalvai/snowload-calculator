@@ -156,38 +156,7 @@ export const SnowRetainersForm = ({
                 </div>
             </div>
             <div className="row pb-3">
-                <div className="col-md-6 pt-3">
-                    <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerHeight}
-                                       lableWidth={"55%"}
-                                       defaultValue={retainerHeight}
-                                       optionData={retainerHeightData}
-                                       onSelect={e => setRetainerHeight(e.target.value)}/>
-                </div>
-
-                <div className="col-md-6 pt-3">
-                    <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerRows}
-                                       lableWidth={"55%"}
-                                       defaultValue={rows}
-                                       optionData={retainerRowsData}
-                                       onSelect={e => setRows(e.target.value)}/>
-                </div>
-            </div>
-
-            <div className={"pt-3"}>
-                <ProductSelector linearLoad={linearLoad}/>
-            </div>
-
-            <div className={"pb-3"}>
-                <ButtonsGroup leftButton={<BackButton onBack={onBack}/>}
-                              rightButton={<AheadButton onAhead={handleOnAhead}/>}/>
-            </div>
-        </div>
-    )
-}
-
-/*
-ALTERNATIVE WITH MATERIAL
-<div className="col-md-4 pt-3">
+                <div className="col-md-4 pt-3">
                     <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerHeight}
                                        lableWidth={"55%"}
                                        defaultValue={retainerHeight}
@@ -210,4 +179,35 @@ ALTERNATIVE WITH MATERIAL
                                        optionData={retainerRowsData}
                                        onSelect={e => setRows(e.target.value)}/>
                 </div>
+            </div>
+
+            <div className={"pt-3"}>
+                <ProductSelector linearLoad={linearLoad}/>
+            </div>
+
+            <div className={"pb-3"}>
+                <ButtonsGroup leftButton={<BackButton onBack={onBack}/>}
+                              rightButton={<AheadButton onAhead={handleOnAhead}/>}/>
+            </div>
+        </div>
+    )
+}
+
+/*
+ALTERNATIVE WITHOUT MATERIAL
+    <div className="col-md-6 pt-3">
+        <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerHeight}
+                           lableWidth={"55%"}
+                           defaultValue={retainerHeight}
+                           optionData={retainerHeightData}
+                           onSelect={e => setRetainerHeight(e.target.value)}/>
+    </div>
+
+    <div className="col-md-6 pt-3">
+        <SelectorWithLabel lableText={translation.inputs.labels.retainersForm.retainerRows}
+                           lableWidth={"55%"}
+                           defaultValue={rows}
+                           optionData={retainerRowsData}
+                           onSelect={e => setRows(e.target.value)}/>
+    </div>
  */

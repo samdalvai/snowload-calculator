@@ -23,7 +23,9 @@ export interface Translation {
         holder: string,
         retainer: string,
         none: string,
-        noResults: string
+        noResults: string,
+        nrOfHolders: string,
+        nrOfRetainers: string
     },
     header: {
         title: string
@@ -195,9 +197,10 @@ export interface Translation {
                 description: string
             }
         },
-        retainerChoice: {
+        summaryTables: {
             headers: {
-
+                retainerProducts: string,
+                retainerQuantities: string
             }
         }
     },

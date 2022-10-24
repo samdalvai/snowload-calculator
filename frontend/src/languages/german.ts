@@ -21,7 +21,9 @@ export const german: Translation = {
         holder: "Schneefangstütze",
         retainer: "Rückhaltesystem",
         none: "Keine",
-        noResults: "Kein Ergebnis..."
+        noResults: "Kein Ergebnis...",
+        nrOfHolders: "Anzahl der Schneefangstütze",
+        nrOfRetainers: "Anzahl der Rückhaltesysteme"
     },
     header: {
         title: "Schneelastrechner"
@@ -192,9 +194,10 @@ export const german: Translation = {
                 description: "Beschreibung"
             }
         },
-        retainerChoice: {
+        summaryTables: {
             headers: {
-
+                retainerProducts: "Schneefangsystem - Produkte",
+                retainerQuantities: "Schneefangsystem - Anzahl"
             }
         }
     },

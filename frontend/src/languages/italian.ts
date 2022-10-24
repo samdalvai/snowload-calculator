@@ -21,7 +21,9 @@ export const italian: Translation = {
         holder: "Supporto fermaneve",
         retainer: "Sistema di ritenuta",
         none: "Nessuna",
-        noResults: "Nessun risultato..."
+        noResults: "Nessun risultato...",
+        nrOfHolders: "Nr. supporti fermaneve",
+        nrOfRetainers: "Nr. sistemi di ritenuta"
     },
     header: {
         title: "Calcolo carico neve"
@@ -192,9 +194,10 @@ export const italian: Translation = {
                 description: "Descrizione"
             }
         },
-        retainerChoice: {
+        summaryTables: {
             headers: {
-
+                retainerProducts: "Prodotti sistema di ritenuta",
+                retainerQuantities: "Quantità sistema di ritenuta"
             }
         }
     },

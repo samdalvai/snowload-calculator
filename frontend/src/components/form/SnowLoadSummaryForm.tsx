@@ -57,7 +57,7 @@ export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack}:
                         <table className="table shadow-sm rounded">
                             <thead>
                             <tr className="table-secondary text-center shadow-sm table-header">
-                                <th scope="row" colSpan={3}>{"Retaining system products"}</th>
+                                <th scope="row" colSpan={3}>{translation.tables.summaryTables.headers.retainerProducts}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -110,7 +110,7 @@ export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack}:
                         <table className="table shadow-sm rounded">
                             <thead>
                             <tr className="table-secondary text-center shadow-sm table-header">
-                                <th scope="row" colSpan={3}>{"Retaining system quantities"}</th>
+                                <th scope="row" colSpan={3}>{translation.tables.summaryTables.headers.retainerQuantities}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -134,7 +134,7 @@ export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack}:
                             </tr>
                             <tr>
                                 <td width={"25%"} style={{verticalAlign: "middle"}}>
-                                    Number of holders
+                                    {translation.words.nrOfHolders}
                                 </td>
                                 <th className={"text-center"}
                                     colSpan={2}
@@ -154,7 +154,7 @@ export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack}:
                                     retainer ?
                                         <>
                                             <td width={"25%"} style={{verticalAlign: "middle"}}>
-                                                Number of retainers
+                                                {translation.words.nrOfRetainers}
                                             </td>
                                             <th className={"text-center"}
                                                 colSpan={2}

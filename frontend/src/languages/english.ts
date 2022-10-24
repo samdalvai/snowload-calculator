@@ -21,7 +21,9 @@ export const english: Translation = {
         holder: "Holder",
         retainer: "Retaining system",
         none: "None",
-        noResults: "No results..."
+        noResults: "No results...",
+        nrOfHolders: "Number of holder",
+        nrOfRetainers: "Number of retainers"
     },
     header: {
         title: "Snowload Calculator"
@@ -192,9 +194,10 @@ export const english: Translation = {
                 description: "Description"
             }
         },
-        retainerChoice: {
+        summaryTables: {
             headers: {
-
+                retainerProducts: "Retaining system products",
+                retainerQuantities: "Retaining system quantities"
             }
         }
     },

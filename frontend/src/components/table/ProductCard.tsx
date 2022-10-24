@@ -43,10 +43,10 @@ export const ProductCard = ({product, linearLoad, selected, onSelect, onSelectDi
             setChecked([false, false, false, false, false, false, false])
     }, [selected])
 
-    React.useEffect(() => {
+    /*React.useEffect(() => {
         if (!isResistanceHigher(product, rows, distanceValue, linearLoad))
             setChecked([false, false, false, false, false, false, false])
-    }, [rows])
+    }, [rows])*/
 
     const distanceSelectorData: SelectorOptionData<number>[] = [
         {value: 400, text: "400"},
@@ -66,9 +66,7 @@ export const ProductCard = ({product, linearLoad, selected, onSelect, onSelectDi
             <tr className={"product-card"}
                 style={{
                     backgroundColor: selected ? "lightblue" : "white"
-                }}
-                //onClick={() => onSelect(product)}
-            >
+                }}>
                 {
                     size.width !== undefined && size.width >= 800 ?
                         <>

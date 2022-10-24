@@ -19,6 +19,7 @@ export const ProductSelector = ({linearLoad}:
         retainerType,
         retainerHeight,
         retainerMaterial,
+        rows,
         holder,
         setHolder,
         retainer,
@@ -61,8 +62,10 @@ export const ProductSelector = ({linearLoad}:
         filterRetainers()
         setHolder(null)
         setRetainer(null)
+        setHolderDistance(null)
+        setRetainerDistance(null)
 
-    }, [holders, retainers, roofType, retainerType, retainerHeight, retainerMaterial])
+    }, [holders, retainers, roofType, retainerType, retainerHeight, retainerMaterial, rows])
 
     const filerHolders = () => {
         const filteredHolders = holders.filter(h =>

@@ -110,11 +110,18 @@ export const SnowRetainersForm = ({
     }, [retainerType])
 
     const handleOnAhead = () => {
-        console.log("Ahead")
-        if (!holder || !retainer || !holderDistance || !retainerDistance) {
+        if (!holder || !holderDistance) {
             setShowIncompleteSelectionError(true)
         } else {
-            onAhead()
+            if (!retainer || !retainerDistance) {
+                if (retainerType === "Log" && retainerHeight === "140") { // Allow no selection when retainer type is log and height 120
+                    onAhead()
+                } else {
+                    setShowIncompleteSelectionError(true)
+                }
+            } else {
+                onAhead()
+            }
         }
     }
 

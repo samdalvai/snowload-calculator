@@ -143,7 +143,6 @@ export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack, onHome}:
                                 </td>
                             </tr>
                             <tr>
-
                                 {
                                     retainer ?
                                         <>
@@ -172,7 +171,6 @@ export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack, onHome}:
                 </div>
             </div>
 
-
             <div className={"pb-3"}>
                 <ButtonsGroup leftButton={<BackButton onBack={onBack}/>}
                               rightButton={<ButtonsGroupSmall leftButton={<PrintButton onPrint={window.print}/>}
@@ -181,13 +179,3 @@ export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack, onHome}:
         </div>
     )
 }
-
-/*
-<ProductCard
-                linearLoad={snowLoadData.linearLoad}
-                onResistanceError={() => null}
-                onSelect={() => null}
-                onSelectDistance={() => null}
-                product={holder? holder : null}
-                selected/>
- */

@@ -1,14 +1,14 @@
 import React, {useContext, useState} from "react";
 import {LanguageContext} from "../language/LanguageContext";
-import {useHolders} from "../../functions/hooks/useHolders";
 import {Holder, Retainer, SnowStopProduct} from "../../functions/types";
-import {useRetainers} from "../../functions/hooks/useRetainers";
 import {ProductTable} from "./ProductTable";
 import {ProductCard} from "./ProductCard";
 import {TitleCardSmall} from "../card/TitleCard";
 import {ErrorModal} from "../modal/ErrorModal";
 import {SnowLoadProductContext} from "../context/SnowLoadProductContext";
 import {DisabledInput} from "../input/DisabledInput";
+import {getRetainers} from "../../data/retainers";
+import {getHolders} from "../../data/holders";
 
 export const ProductSelector = ({linearLoad}:
                                     { linearLoad: number }) => {
@@ -30,24 +30,14 @@ export const ProductSelector = ({linearLoad}:
         setRetainerDistance
     } = useContext(SnowLoadProductContext)
 
-    const {holderData, loadingHolder, errorHolder} = useHolders()
-    const [holders, setHolders] = useState<Holder[]>([])
+    const [holders] = useState<Holder[]>(getHolders)
     const [filteredHolders, setFilteredHolders] = useState<Holder[]>([])
 
-    const {retainerData, loadingRetainer, errorRetainer} = useRetainers()
-    const [retainers, seRetainers] = useState<Retainer[]>([])
+    const [retainers] = useState<Retainer[]>(getRetainers)
     const [filteredRetainers, setFilteredRetainers] = useState<Retainer[]>([])
 
     const [showResistanceError, setShowResistanceError] = useState<boolean>(false)
     const [showDistanceMismatchError, setShowDistanceMismatchError] = useState<boolean>(false)
-
-    React.useEffect(() => {
-        setHolders(holderData.map(data => ({...data, type: "Holder"})))
-    }, [holderData])
-
-    React.useEffect(() => {
-        seRetainers(retainerData.map(data => ({...data, type: "Retainer"})))
-    }, [retainerData])
 
     React.useEffect(() => {
         if (holderDistance !== null && retainerDistance !== null && holderDistance !== retainerDistance) {
@@ -110,32 +100,31 @@ export const ProductSelector = ({linearLoad}:
                 <TitleCardSmall title={translation.words.holder}/>
             </div>
             <div className={"pb-3"}>
-                <ProductTable error={errorHolder}
-                              loading={loadingHolder}
-                              productList={<>
-                                  {
-                                      filteredHolders.length > 0 ?
-                                          filteredHolders.map((prod, index) => <ProductCard
-                                              key={index}
-                                              product={prod}
-                                              linearLoad={linearLoad}
-                                              onSelect={handleOnSelect}
-                                              selected={
-                                                  holder ?
-                                                      prod.code === holder.code :
-                                                      false
-                                              } onResistanceError={() => setShowResistanceError(true)}
-                                              onSelectDistance={setHolderDistance}/>
-                                          )
-                                          :
-                                          <tr>
-                                              <td colSpan={11}>
-                                                  <DisabledInput placeHolder={translation.words.noResults}/>
-                                              </td>
-                                          </tr>
-                                  }
-                              </>}
-                              productType={"Holder"}/>
+                <ProductTable
+                    productList={<>
+                        {
+                            filteredHolders.length > 0 ?
+                                filteredHolders.map((prod, index) => <ProductCard
+                                    key={index}
+                                    product={prod}
+                                    linearLoad={linearLoad}
+                                    onSelect={handleOnSelect}
+                                    selected={
+                                        holder ?
+                                            prod.code === holder.code :
+                                            false
+                                    } onResistanceError={() => setShowResistanceError(true)}
+                                    onSelectDistance={setHolderDistance}/>
+                                )
+                                :
+                                <tr>
+                                    <td colSpan={11}>
+                                        <DisabledInput placeHolder={translation.words.noResults}/>
+                                    </td>
+                                </tr>
+                        }
+                    </>}
+                    productType={"Holder"}/>
             </div>
             {
                 holder ?
@@ -143,30 +132,29 @@ export const ProductSelector = ({linearLoad}:
                         <div>
                             <TitleCardSmall title={translation.words.retainer}/>
                         </div>
-                        <ProductTable error={errorRetainer}
-                                      loading={loadingRetainer}
-                                      productList={<>
-                                          {
-                                              filteredRetainers.length > 0 ?
-                                                  filteredRetainers.map((prod, index) => <ProductCard
-                                                      key={index}
-                                                      product={prod}
-                                                      linearLoad={linearLoad}
-                                                      onSelect={handleOnSelect}
-                                                      selected={
-                                                          retainer ?
-                                                              prod.code === retainer.code :
-                                                              false
-                                                      } onResistanceError={() => setShowResistanceError(true)}
-                                                      onSelectDistance={setRetainerDistance}/>
-                                                  )
-                                                  :
-                                                  <td colSpan={11}>
-                                                      <DisabledInput placeHolder={translation.words.noResults}/>
-                                                  </td>
-                                          }
-                                      </>}
-                                      productType={"Retainer"}/>
+                        <ProductTable
+                            productList={<>
+                                {
+                                    filteredRetainers.length > 0 ?
+                                        filteredRetainers.map((prod, index) => <ProductCard
+                                            key={index * 100}
+                                            product={prod}
+                                            linearLoad={linearLoad}
+                                            onSelect={handleOnSelect}
+                                            selected={
+                                                retainer ?
+                                                    prod.code === retainer.code :
+                                                    false
+                                            } onResistanceError={() => setShowResistanceError(true)}
+                                            onSelectDistance={setRetainerDistance}/>
+                                        )
+                                        :
+                                        <td colSpan={11}>
+                                            <DisabledInput placeHolder={translation.words.noResults}/>
+                                        </td>
+                                }
+                            </>}
+                            productType={"Retainer"}/>
                     </div>
                     :
                     ""

@@ -5,8 +5,6 @@ import {ButtonWithIcon} from "./ButtonWithIcon";
 import {HomeIcon} from "@primer/octicons-react";
 
 export const HomeButton = ({onHome}: { onHome: Callback }) => {
-    const {translation} = useContext(LanguageContext);
-
     return (
         <ButtonWithIcon icon={<HomeIcon size={22}/>}
                         type={"success"}

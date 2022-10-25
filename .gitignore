@@ -40,3 +40,5 @@ build/
 
 ### Maven ###
 .m2
+
+node_modules/

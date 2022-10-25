@@ -7,8 +7,9 @@ import {Alert} from "../alert/Alert";
 import {ResetButton} from "../button/ResetButton";
 import {AddCityButton} from "../button/AddCityButton";
 import {LanguageContext} from "../language/LanguageContext";
+import {CityCallBack} from "../../functions/callbacks";
 
-export const AddCityForm = () => {
+export const AddCityForm = ({onAddCity}: {onAddCity: CityCallBack}) => {
     const {translation} = useContext(LanguageContext);
 
     const [zip, setZip] = useState<string>('')
@@ -89,6 +90,7 @@ export const AddCityForm = () => {
                 if (response.status === 201 || response.status === 200){
                     setSuccess(true)
                     setError(false)
+                    onAddCity(newCity)
                 } else {
                     setError(true)
                     setSuccess(false)

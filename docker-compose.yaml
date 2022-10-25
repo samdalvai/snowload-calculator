@@ -3,8 +3,8 @@ version: "3.7"
 services:
   frontend:
     restart: on-failure
-    build: ./frontend
+    build: ./
     volumes:
-      - ./frontend:/usr/app
+      - ./:/usr/app
     ports:
       - "3000:3000"

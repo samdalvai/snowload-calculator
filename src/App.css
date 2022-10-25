@@ -240,3 +240,31 @@ th > select {
   background-color: #e9ecef!important;
   cursor: pointer;
 }
+
+.summary-table {
+  min-height: 275px;
+}
+
+.summary-table thead tr {
+  height: 40px;
+}
+
+.snowload-table {
+  min-height: 275px;
+}
+
+.snowload-table thead tr {
+  height: 40px;
+}
+
+@media (max-width: 1000px) {
+  .snowload-table {
+    min-height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .snowload-table {
+    min-height: 250px;
+  }
+}

@@ -45,11 +45,12 @@ export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack, onHome}:
             <div className={"row"}>
                 <div className="col-md-6 pt-3">
                     <div className="table-responsive">
-                        <table className="table shadow-sm rounded">
+                        <table className="table shadow-sm rounded summary-table">
                             <thead>
-                            <tr className="table-secondary text-center shadow-sm table-header">
-                                <th scope="row" colSpan={3}>{translation.tables.summaryTables.headers.retainerProducts}</th>
-                            </tr>
+                                <tr className="table-secondary text-center shadow-sm table-header">
+                                    <th scope="row"
+                                        colSpan={3}>{translation.tables.summaryTables.headers.retainerProducts}</th>
+                                </tr>
                             </thead>
                             <tbody>
                             {
@@ -57,17 +58,18 @@ export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack, onHome}:
                                     <tr>
                                         <td width={"25%"}
                                             style={{verticalAlign: "middle"}}>{translation.words.holder}</td>
-                                        <th className={"text-center"}
+                                        <td className={"text-center"}
                                             style={{verticalAlign: "middle"}}>
                                             <ProductImage url={holder ? holder.productInfo.image : ""}/>
-                                        </th>
-                                        <th className={"text-center"}
+                                        </td>
+                                        <td
+                                            className={""}
                                             style={{verticalAlign: "middle"}}>
                                             <div>
-                                                <p>{translation.tables.productChoice.headers.code}: {holder.productInfo.productCode}</p>
-                                                <p>{translation.tables.productChoice.headers.name}: {holder.productInfo.name}</p>
+                                                <p>{holder.productInfo.productCode}</p>
+                                                <p>{holder.productInfo.name}</p>
                                             </div>
-                                        </th>
+                                        </td>
                                     </tr>
                                     :
                                     ""
@@ -77,17 +79,17 @@ export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack, onHome}:
                                     <tr>
                                         <td width={"25%"}
                                             style={{verticalAlign: "middle"}}>{translation.words.retainer}</td>
-                                        <th className={"text-center"}
+                                        <td className={"text-center"}
                                             style={{verticalAlign: "middle"}}>
                                             <ProductImage url={retainer.productInfo.image}/>
-                                        </th>
-                                        <th className={"text-center"}
+                                        </td>
+                                        <td className={""}
                                             style={{verticalAlign: "middle"}}>
                                             <div>
-                                                <p>{translation.tables.productChoice.headers.code}: {retainer.productInfo.productCode}</p>
-                                                <p>{translation.tables.productChoice.headers.name}: {retainer.productInfo.name}</p>
+                                                <p>{retainer.productInfo.productCode}</p>
+                                                <p>{retainer.productInfo.name}</p>
                                             </div>
-                                        </th>
+                                        </td>
                                     </tr>
                                     :
                                     ""
@@ -98,36 +100,37 @@ export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack, onHome}:
                 </div>
                 <div className="col-md-6 pt-3">
                     <div className="table-responsive">
-                        <table className="table shadow-sm rounded">
+                        <table className="table shadow-sm rounded summary-table">
                             <thead>
                             <tr className="table-secondary text-center shadow-sm table-header">
-                                <th scope="row" colSpan={3}>{translation.tables.summaryTables.headers.retainerQuantities}</th>
+                                <th scope="row"
+                                    colSpan={3}>{translation.tables.summaryTables.headers.retainerQuantities}</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td width={"25%"}
+                                <td width={"50%"}
                                     style={{verticalAlign: "middle"}}>{translation.tables.productChoice.headers.distance}</td>
-                                <th className={"text-center"}
+                                <td
                                     colSpan={2}
                                     style={{verticalAlign: "middle"}}>
                                     {holderDistance}
-                                </th>
+                                </td>
                             </tr>
                             <tr>
-                                <td width={"25%"}
+                                <td width={"50%"}
                                     style={{verticalAlign: "middle"}}>{translation.inputs.labels.retainersForm.retainerRows}</td>
-                                <th className={"text-center"}
+                                <td
                                     colSpan={2}
                                     style={{verticalAlign: "middle"}}>
                                     {rows}
-                                </th>
+                                </td>
                             </tr>
                             <tr>
-                                <td width={"25%"} style={{verticalAlign: "middle"}}>
+                                <td width={"50%"} style={{verticalAlign: "middle"}}>
                                     {translation.words.nrOfHolders}
                                 </td>
-                                <th className={"text-center"}
+                                <td
                                     colSpan={2}
                                     style={{verticalAlign: "middle"}}>
                                     {
@@ -137,17 +140,17 @@ export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack, onHome}:
                                             :
                                             ""
                                     }
-                                </th>
+                                </td>
                             </tr>
                             <tr>
 
                                 {
                                     retainer ?
                                         <>
-                                            <td width={"25%"} style={{verticalAlign: "middle"}}>
+                                            <td width={"50%"} style={{verticalAlign: "middle"}}>
                                                 {translation.words.nrOfRetainers}
                                             </td>
-                                            <th className={"text-center"}
+                                            <td
                                                 colSpan={2}
                                                 style={{verticalAlign: "middle"}}>
                                                 {
@@ -157,7 +160,7 @@ export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack, onHome}:
                                                         :
                                                         ""
                                                 }
-                                            </th>
+                                            </td>
                                         </>
                                         :
                                         ""

@@ -1,4 +1,30 @@
-import {RetainerWithMissingInfo} from "../functions/types";
+import {Product, Retainer, RetainerResistanceWithCode, RetainerWithMissingInfo} from "../functions/types";
+import {products} from "./products";
+import {retainerResistance} from "./resistance";
+
+export const getRetainers = (): Retainer[] => {
+    const productInfos: Product[] = products
+    const resistances: RetainerResistanceWithCode[] = retainerResistance
+
+    return retainers.map(r => (
+        {
+            code: r.code,
+            resistance: resistances.filter(res => res.retainerCode === r.code).map(res => ({
+                    dist400: res.dist400,
+                    dist500: res.dist500,
+                    dist600: res.dist600,
+                    dist700: res.dist700,
+                    dist800: res.dist800,
+                    dist900: res.dist900,
+                    dist1000: res.dist1000
+                }
+            ))[0],
+            profile: r.profile,
+            productInfo: productInfos.filter(info => info.productCode === r.code)[0],
+            type: "Retainer"
+        }))
+}
+
 
 export const retainers: RetainerWithMissingInfo[] = [
     {

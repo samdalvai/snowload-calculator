@@ -1,4 +1,18 @@
-import {HolderWithMissingInfo} from "../functions/types";
+import {Holder, HolderWithMissingInfo, Product} from "../functions/types";
+import {products} from "./products";
+
+export const getHolders = (): Holder[] => {
+    const productInfos: Product[] = products
+
+    return holders.map(h => (
+        {
+            code: h.code,
+            resistance: h.resistance,
+            roofType: h.roofType,
+            productInfo: productInfos.filter(info => info.productCode === h.code)[0],
+            type: "Holder"
+        }))
+}
 
 export const holders: HolderWithMissingInfo[] = [
     {

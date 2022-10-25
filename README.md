@@ -9,6 +9,7 @@ and a frontend application with `React`.
   * [Back-end application](#back-end-application)
   * [Front-end application](#front-end-application)
 * [How to use Snowload Calculator](#how-to-use-snowload-calculator)
+* [Application demo](#application-demo)
 * [Acknowledgements](#acknowledgements)
 * [Author](#author)
 
@@ -89,7 +90,7 @@ in the `package.json` file of the `frontend` application from `http://localhost:
 `Snowload Calculator` is a single page web application for the computation of
 snow load and snow retaining systems in Italy.
 The following is an overview on the different steps that need to 
-be performed in order to use the apllication:
+be performed in order to use the application:
 
 ## Roof data
 ![Roof Data](img/roofData.png)
@@ -138,6 +139,10 @@ language of the browser, otherwise it is possible to
 select the preferred language manually in the top right corner:
 
 ![Language](img/language.png)
+
+# Application demo
+A working demo of the application, based on a `React` only version of the `Snowload Calculcator` app is
+available [here](https://snowload-calculator-vercel.vercel.app/).
 
 # Acknowledgements
 

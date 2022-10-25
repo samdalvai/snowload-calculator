@@ -62,10 +62,10 @@ export const ProductCard = ({product, linearLoad, selected, onSelect, onSelectDi
                     backgroundColor: selected ? "lightblue" : "white"
                 }}
                 onClick={ () => {
-                    if (distanceValue === 400){
-                        onSelectDistance(400)
-                        onSelect(product)
-                    }
+                    // if (distanceValue === 400){ // TODO: CREATES PROBLEMS ON MOBILE
+                    //     onSelectDistance(400)
+                    //     onSelect(product)
+                    // }
                 }}
             >
                 {

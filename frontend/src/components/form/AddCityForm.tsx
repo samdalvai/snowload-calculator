@@ -7,8 +7,10 @@ import {Alert} from "../alert/Alert";
 import {ResetButton} from "../button/ResetButton";
 import {AddCityButton} from "../button/AddCityButton";
 import {LanguageContext} from "../language/LanguageContext";
+import {CityCallBack} from "../../functions/callbacks";
+import {provinces} from "../../data/provinces";
 
-export const AddCityForm = () => {
+export const AddCityForm = ({onAddCity}: {onAddCity: CityCallBack}) => {
     const {translation} = useContext(LanguageContext);
 
     const [zip, setZip] = useState<string>('')
@@ -68,7 +70,7 @@ export const AddCityForm = () => {
         setShowAlert(false)
     }
 
-    const handleAddCity = async () => {
+    const handleAddCity = () => {
         const newCity: City = {
             zip: zip,
             name: name,
@@ -76,24 +78,16 @@ export const AddCityForm = () => {
             altitude: StringToIntNumber(altitude)
         }
 
-        await fetch('/cities', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newCity),
-        })
-            .then((response) => {
-                console.log(response)
-                if (response.status === 201 || response.status === 200){
-                    setSuccess(true)
-                    setError(false)
-                } else {
-                    setError(true)
-                    setSuccess(false)
-                }
-            })
+        const isProvinceExisting = provinces.some(pr => pr.shorthand === newCity.province)
+
+        if (isProvinceExisting) {
+            setSuccess(true)
+            setError(false)
+            onAddCity(newCity)
+        } else {
+            setError(true)
+            setSuccess(false)
+        }
     }
 
     return (

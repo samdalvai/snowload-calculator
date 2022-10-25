@@ -39,10 +39,11 @@ export const CitiesSearch = ({onSelectCity, valid}: { onSelectCity: CityCallBack
 
     return (
         <div>
-            <AddCityModal show={showNewCityForm} onHide={() => {
-                setShowNewCityForm(false)
-                //window.location.reload() // Brute force method to force fetching cities
-            }}/>
+            <AddCityModal
+                show={showNewCityForm}
+                onHide={() => setShowNewCityForm(false)}
+                onAddCity={onSelectCity}
+                />
             <div>
                 <SearchField onSearch={filterCities}
                              placeHolder={translation.inputs.placeholders.roofData.searchCity}

@@ -43,11 +43,6 @@ export const ProductCard = ({product, linearLoad, selected, onSelect, onSelectDi
             setChecked([false, false, false, false, false, false, false])
     }, [selected])
 
-    /*React.useEffect(() => {
-        if (!isResistanceHigher(product, rows, distanceValue, linearLoad))
-            setChecked([false, false, false, false, false, false, false])
-    }, [rows])*/
-
     const distanceSelectorData: SelectorOptionData<number>[] = [
         {value: 400, text: "400"},
         {value: 500, text: "500"},
@@ -57,7 +52,6 @@ export const ProductCard = ({product, linearLoad, selected, onSelect, onSelectDi
         {value: 900, text: "900"},
         {value: 1000, text: "1000"}
     ]
-
 
     const size = useWindowSize()
 

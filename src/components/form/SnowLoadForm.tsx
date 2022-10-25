@@ -17,7 +17,7 @@ export const SnowLoadForm = () => {
         computeSnowLoads(data, province)
     }
 
-    const handleNewComputation = () => {
+    const handleOnHome = () => {
         setRoofData(null)
         setComputed(false)
     }
@@ -49,7 +49,7 @@ export const SnowLoadForm = () => {
                     <SnowLoadResultsForm roofData={roofData}
                                          snowLoadData={snowLoadData}
                                          onBack={() => setComputed(false)}
-                     onNewComputation={handleNewComputation}/>
+                                         onHome={handleOnHome}/>
             }/>
         </div>
     )

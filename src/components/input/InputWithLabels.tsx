@@ -10,6 +10,7 @@ export const InputWithTwoLabels = ({leftLabel, rightLabel, valid, placeHolder, v
             <Input value={value}
                    placeHolder={placeHolder}
                    valid={valid}
+                   type={"number"}
                    onChange={onChange}/>
             <Label text={rightLabel} minWidth={"15%"} />
         </div>
@@ -30,11 +31,11 @@ export const InputWithLeftLabel = ({leftLabel, valid, placeHolder, value, onChan
     )
 }
 
-export const Input = ({value, placeHolder, valid, onChange}:
-                          { value: string, placeHolder: string, valid: boolean, onChange: StringCallBack }) => {
+export const Input = ({value, type, placeHolder, valid, onChange}:
+                          { value: string, type?: "text" | "number", placeHolder: string, valid: boolean, onChange: StringCallBack }) => {
     return (
         <>
-            <input type="text"
+            <input type={type ? type : "text"}
                    className={valid ? "form-control" : "form-control is-invalid"}
                    value={value}
                    onChange={e => onChange(e.target.value)}

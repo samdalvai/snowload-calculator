@@ -83,7 +83,7 @@ export interface Translation {
                 safetyCoefficient: string
             },
             addCity: {
-                zip:  string,
+                zip: string,
                 name: string,
                 province: string,
                 altitude: string

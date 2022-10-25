@@ -81,7 +81,7 @@ export const italian: Translation = {
                 safetyCoefficient: "1.5 coefficiente di sicurezza"
             },
             addCity: {
-                zip:  "CAP",
+                zip: "CAP",
                 name: "Nome",
                 province: "Provincia",
                 altitude: "Altitudine"

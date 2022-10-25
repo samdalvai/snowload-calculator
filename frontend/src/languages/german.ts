@@ -81,7 +81,7 @@ export const german: Translation = {
                 safetyCoefficient: "1.5 Teilsicherheitsbeiwert"
             },
             addCity: {
-                zip:  "Postleitzahl",
+                zip: "Postleitzahl",
                 name: "Name",
                 province: "Provinz",
                 altitude: "Höhenlage"

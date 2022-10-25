@@ -8,7 +8,7 @@ export const SnowLoadCalculationTable = ({roofData, snowLoadData}:
 
     return (
         <div>
-            <table className="table shadow-sm rounded">
+            <table className="table shadow-sm rounded snowload-table">
                 <thead>
                     <tr className="table-secondary text-center shadow-sm table-header">
                         <th scope="row" colSpan={2}>{translation.tables.snowLoadCalculation.title}</th>

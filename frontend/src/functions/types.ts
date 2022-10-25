@@ -38,6 +38,12 @@ export interface Holder {
     type : "Holder"
 }
 
+export interface HolderWithMissingInfo {
+    code: string,
+    resistance: number,
+    roofType: RoofType
+}
+
 
 export interface Retainer {
     code: string,
@@ -45,6 +51,11 @@ export interface Retainer {
     profile: string,
     productInfo: Product
     type : "Retainer"
+}
+
+export interface RetainerWithMissingInfo {
+    code: string,
+    profile: string
 }
 
 export type SnowStopProduct = Holder | Retainer;
@@ -61,6 +72,17 @@ export interface Product {
 }
 
 export interface RetainerResistance {
+    dist400: number,
+    dist500: number,
+    dist600: number,
+    dist700: number,
+    dist800: number,
+    dist900: number,
+    dist1000: number
+}
+
+export interface RetainerResistanceWithCode {
+    retainerCode: string,
     dist400: number,
     dist500: number,
     dist600: number,

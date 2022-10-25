@@ -43,11 +43,6 @@ export const ProductCard = ({product, linearLoad, selected, onSelect, onSelectDi
             setChecked([false, false, false, false, false, false, false])
     }, [selected])
 
-    /*React.useEffect(() => {
-        if (!isResistanceHigher(product, rows, distanceValue, linearLoad))
-            setChecked([false, false, false, false, false, false, false])
-    }, [rows])*/
-
     const distanceSelectorData: SelectorOptionData<number>[] = [
         {value: 400, text: "400"},
         {value: 500, text: "500"},
@@ -68,10 +63,10 @@ export const ProductCard = ({product, linearLoad, selected, onSelect, onSelectDi
                     backgroundColor: selected ? "lightblue" : "white"
                 }}
                 onClick={ () => {
-                    if (distanceValue === 400){
-                        onSelectDistance(400)
-                        onSelect(product)
-                    }
+                    // if (distanceValue === 400){ // TODO: CAUSES PROBLEM WHEN SELECTING DISTANCE
+                    //     onSelectDistance(400)
+                    //     onSelect(product)
+                    // }
                 }}
             >
                 {

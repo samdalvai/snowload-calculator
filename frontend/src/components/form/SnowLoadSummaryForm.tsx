@@ -11,7 +11,6 @@ import {RoofData, SnowLoadData} from "../../functions/types";
 import {RoofDatatable} from "../table/RoofDatatable";
 import {SnowLoadCalculationTable} from "../table/SnowLoadCalculationTable";
 import {ProductImage} from "../table/ProductImage";
-import {ResetButton} from "../button/ResetButton";
 import {NewComputation} from "../button/NewComputationButton";
 
 export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack, onNewComputation}:

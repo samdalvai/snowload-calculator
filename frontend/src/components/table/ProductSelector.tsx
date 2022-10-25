@@ -80,11 +80,12 @@ export const ProductSelector = ({linearLoad}:
 
     const filterRetainers = () => {
         const filteredRetainers = retainers.filter(r =>
-            r.productInfo.retainerType === retainerType &&
+            (r.productInfo.retainerType === retainerType &&
             r.productInfo.retainerHeight === retainerHeight &&
-            r.productInfo.material === retainerMaterial ||
+            r.productInfo.material === retainerMaterial) ||
             (retainerType === "Tube" && retainerMaterial === "Zink Steel" ? r.productInfo.material === "Aluminium" && r.productInfo.retainerHeight === retainerHeight : false)
         )
+
         // The last line of the equivalence returns also aluminium tubes for Zink steel holders
 
         setFilteredRetainers(filteredRetainers)

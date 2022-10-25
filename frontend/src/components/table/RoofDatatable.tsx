@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import {LanguageContext} from "../language/LanguageContext";
-import {RoofData, SnowLoadData} from "../../functions/types";
+import {RoofData} from "../../functions/types";
 
 export const RoofDatatable = ({roofData}: { roofData: RoofData | null}) => {
     const {translation} = useContext(LanguageContext);

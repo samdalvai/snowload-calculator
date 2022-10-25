@@ -11,10 +11,10 @@ import {RoofData, SnowLoadData} from "../../functions/types";
 import {RoofDatatable} from "../table/RoofDatatable";
 import {SnowLoadCalculationTable} from "../table/SnowLoadCalculationTable";
 import {ProductImage} from "../table/ProductImage";
-import {NewComputation} from "../button/NewComputationButton";
+import {HomeButton} from "../button/HomeButton";
 
-export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack, onNewComputation}:
-                                        { roofData: RoofData | null, snowLoadData: SnowLoadData, onBack: Callback, onNewComputation: Callback }) => {
+export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack, onHome}:
+                                        { roofData: RoofData | null, snowLoadData: SnowLoadData, onBack: Callback, onHome: Callback }) => {
     const {translation} = useContext(LanguageContext);
 
     const {
@@ -173,7 +173,7 @@ export const SnowLoadSummaryForm = ({roofData, snowLoadData, onBack, onNewComput
             <div className={"pb-3"}>
                 <ButtonsGroup leftButton={<BackButton onBack={onBack}/>}
                               rightButton={<ButtonsGroupSmall leftButton={<PrintButton onPrint={window.print}/>}
-                                                              rightButton={<NewComputation onNewComputation={onNewComputation}/>}/>}/>
+                                                              rightButton={<HomeButton onHome={onHome}/>}/>}/>
             </div>
         </div>
     )

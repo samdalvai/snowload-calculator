@@ -15,8 +15,8 @@ import {SnowRetainersForm} from "./SnowRetainersForm";
 import {SnowLoadProductContext} from "../context/SnowLoadProductContext";
 import {SnowLoadSummaryForm} from "./SnowLoadSummaryForm";
 
-export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onBack, onNewComputation}:
-                                        { roofData: RoofData | null, snowLoadData: SnowLoadData, error: Boolean, loading: boolean, onBack: Callback, onNewComputation: Callback }) => {
+export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onBack, onHome}:
+                                        { roofData: RoofData | null, snowLoadData: SnowLoadData, error: Boolean, loading: boolean, onBack: Callback, onHome: Callback }) => {
     const [showRetainersForm, setShowRetainersForm] = useState<boolean>(false)
     const [showSummaryForm, setShowSummaryForm] = useState<boolean>(false)
 
@@ -52,7 +52,7 @@ export const SnowLoadResultsForm = ({roofData, snowLoadData, error, loading, onB
                                     onBack={() => setShowSummaryForm(false)}
                                     roofData={roofData}
                                     snowLoadData={snowLoadData}
-                                    onNewComputation={onNewComputation}/>
+                                    onHome={onHome}/>
                                     :
                                 <SnowRetainersForm
                                     linearLoad={snowLoadData.linearLoad}

@@ -31,7 +31,7 @@ export const SnowLoadForm = () => {
         setLoading(false)
     }
 
-    const handleNewComputation = () => {
+    const handleOnHome = () => {
         setRoofData(null)
         setComputed(false)
     }
@@ -65,7 +65,7 @@ export const SnowLoadForm = () => {
                                          error={error}
                                          loading={loading}
                                          onBack={() => setComputed(false)}
-                     onNewComputation={handleNewComputation}/>
+                                         onHome={handleOnHome}/>
             }/>
         </div>
     )

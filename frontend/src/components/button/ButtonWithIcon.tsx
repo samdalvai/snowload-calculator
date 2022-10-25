@@ -2,7 +2,7 @@ import React, {ReactElement} from "react";
 import {IconProps} from "@primer/octicons-react";
 import {Callback} from "../../functions/callbacks";
 
-export type ButtonType = "primary" | "secondary" | "success" | "info" | "light"
+export type ButtonType = "primary" | "secondary" | "success" | "info" | "light" | "warning"
 
 
 export const ButtonWithIcon = ({icon, text, type, width = "100%", alignRight = false, onClick}:

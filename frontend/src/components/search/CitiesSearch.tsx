@@ -1,21 +1,18 @@
-import {useCities} from "../../functions/hooks/useCities";
 import {SearchField} from "./SearchField";
 import {CitiesSuggestionList} from "../selection/CitiesSuggestion";
 import React, {useContext, useState} from "react";
 import {City} from "../../functions/types";
 import {searchCity} from "../../functions/search/searchCity";
 import {CityCallBack} from "../../functions/callbacks";
-import {ErrorInput} from "../input/ErrorInput";
 import {AddCityModal} from "../modal/AddCityModal";
-import {DisabledInput} from "../input/DisabledInput";
 import {LanguageContext} from "../language/LanguageContext";
 import {CitiesSelectionContext} from "../context/CitiesSelectionContext";
+import {cities} from '../../data/cities'
 
 export const CitiesSearch = ({onSelectCity, valid}: { onSelectCity: CityCallBack, valid: boolean }) => {
     const {translation} = useContext(LanguageContext);
     const {citiesSelectionActive, setCitiesSelectionActive} = useContext(CitiesSelectionContext)
 
-    const {cities, loading, error} = useCities();
     const [keyword, setKeyword] = useState<string>('');
     const [filteredCities, setFilteredCities] = useState<City[]>([]);
 
@@ -46,25 +43,20 @@ export const CitiesSearch = ({onSelectCity, valid}: { onSelectCity: CityCallBack
                 setShowNewCityForm(false)
                 //window.location.reload() // Brute force method to force fetching cities
             }}/>
-            {
-                error ? <ErrorInput message={translation.error.cities}/> :
-                    loading ?
-                        <DisabledInput placeHolder={translation.loading.cities}/> :
-                        <div>
-                            <SearchField onSearch={filterCities}
-                                         placeHolder={translation.inputs.placeholders.roofData.searchCity}
-                                         valid={valid}
-                                         onAdd={() => setShowNewCityForm(true)}/>
-                            {
-                                citiesSelectionActive ?
-                                    <CitiesSuggestionList cities={filteredCities}
-                                                          keyword={keyword}
-                                                          onSelectCity={onSelectCity}/>
-                                    :
-                                    ""
-                            }
-                        </div>
-            }
+            <div>
+                <SearchField onSearch={filterCities}
+                             placeHolder={translation.inputs.placeholders.roofData.searchCity}
+                             valid={valid}
+                             onAdd={() => setShowNewCityForm(true)}/>
+                {
+                    citiesSelectionActive ?
+                        <CitiesSuggestionList cities={filteredCities}
+                                              keyword={keyword}
+                                              onSelectCity={onSelectCity}/>
+                        :
+                        ""
+                }
+            </div>
         </div>
     );
 }

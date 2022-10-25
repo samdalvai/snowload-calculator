@@ -1,54 +1,14 @@
 # Snowload Calculator
-A web application for the calculation of snowload and snow retaining systems in Italy
-based on the full stack application template from tutorial [app](https://www.baeldung.com/spring-boot-react-crud).
-The application architecture is based on a backend API with `Java Spring Boot` along with a `MySql` database,
-and a frontend application with `React`.
+A web application for the calculation of snowload and snow retaining systems in Italy.
+This is a React only version of the full stack `Snowload Calculator` app.
 
 # Table of contents
 * [How to configure](#how-to-configure)
-  * [Back-end application](#back-end-application)
-  * [Front-end application](#front-end-application)
 * [How to use Snowload Calculator](#how-to-use-snowload-calculator)
 * [Acknowledgements](#acknowledgements)
 * [Author](#author)
 
 # How to configure
-
-## Back-end application
-
-### Application Prerequisites
-
-* Java 1.8 or higher.
-* Maven
-* Docker
-
-### How to run
-
-* Run `docker-compose up -d` to run the mysql database.
-* The configuration should load all the queries found in `backend/sql/Init.sql` automatically the first time the docker container is created, if this is not the case you might need to run all of them manually.
-
-To start the Spring Boot API, from the `backend/` folder run:
-
-> mvn spring-boot:run
-
-Access the API on http://localhost:8080/cities.
-A complete list of the endpoints can be found in the [ENDPOINTS](ENDPOINTS.md) readme file.
-
-As an alternative you can use `Docker` to run the dockerized version of `Spring Boot` with
-`MySql`, by uncommenting the backend service in the `docker-comose.yaml` file:
-
-```yaml
-    #  backend:
-    #    depends_on:
-    #      - db
-    #    restart: on-failure
-    #    build: ./backend
-    #    ports:
-    #      - "8080:8080"
-    ...
-```
-
-## Front-end application
 
 ### Application Prerequisites
 
@@ -56,40 +16,25 @@ As an alternative you can use `Docker` to run the dockerized version of `Spring 
 
 ### How to run
 
-* From inside the `frontend/` folder run `npm install` to install the required packages
-* To start the frontend application, from inside the `frontend/` folder run:
+* From inside the `root/` folder run `npm install` to install the required packages
+* To start the frontend application, in the `root/` folder run:
 
 > npm start
 
 Access the application at http://localhost:3000 in the browser.
 
-As an alternative you can use the dockerized version of `Node` by uncommenting the backend service in the `docker-comose.yaml` file:
-
-```yaml
-    #  frontend:
-    #    depends_on:
-    #      - backend
-    #    restart: on-failure
-    #    build: ./frontend
-    #    volumes:
-    #      - ./frontend:/usr/app
-    #    ports:
-    #      - "3000:3000"
-    ...
-```
-Please note that if you are using both the docker version of the `backend` and the `frontend` application, you need to change the `"proxy"` property 
-in the `package.json` file of the `frontend` application from `http://localhost:8080` to `http://backend:8080`.
+As an alternative you can use the dockerized version of `Node` by running `docker-comose up -d`
 
 ### How to test
 
-* From inside the `frontend/` folder run `npm test` to run all the tests
+* From inside the `root/` folder run `npm test` to run all the tests
 
 # How to use Snowload Calculator
 
 `Snowload Calculator` is a single page web application for the computation of
 snow load and snow retaining systems in Italy.
 The following is an overview on the different steps that need to 
-be performed in order to use the apllication:
+be performed in order to use the application:
 
 ## Roof data
 ![Roof Data](img/roofData.png)

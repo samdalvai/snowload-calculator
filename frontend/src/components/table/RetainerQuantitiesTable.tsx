@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import {LanguageContext} from "../language/LanguageContext";
 import {SnowLoadProductContext} from "../context/SnowLoadProductContext";
 import {RoofData} from "../../functions/types";
+import {getRetainersQuantity} from "../../functions/computation/retainerComputation";
 
 export const RetainerQuantitiesTable = ({roofData}: { roofData: RoofData | null }) => {
     const {translation} = useContext(LanguageContext);
@@ -70,7 +71,7 @@ export const RetainerQuantitiesTable = ({roofData}: { roofData: RoofData | null 
                                         {
                                             roofData && holderDistance ?
                                                 // Compute the number of holders needed
-                                                (Math.round(roofData.roofWidth / 3.0) + roofData.roofWidth % 3) * rows
+                                                getRetainersQuantity(roofData.roofWidth, rows)
                                                 :
                                                 ""
                                         }

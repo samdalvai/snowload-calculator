@@ -142,7 +142,7 @@ select the preferred language manually in the top right corner:
 
 # Application demo
 A working demo of the application, based on a `React` only version of the `Snowload Calculcator` app is
-available [here](https://snowload-calculator-vercel.vercel.app/).
+available [here](https://snowload-calculator.vercel.app/).
 
 # Acknowledgements
 

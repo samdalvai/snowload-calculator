@@ -20,7 +20,7 @@ export const SnowLoadCalculationTable = ({roofData, snowLoadData}:
                         <td width={"50%"}>{roofData?.city.altitude} {translation.tables.snowLoadCalculation.body.altitude.units}</td>
                     </tr>
                     <tr>
-                        <td width={"50%"}>Climatic zone</td>
+                        <td width={"50%"}>{translation.tables.snowLoadCalculation.body.zone.label}</td>
                         <td width={"50%"}>{snowLoadData.zone}</td>
                     </tr>
                     <tr>

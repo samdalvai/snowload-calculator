@@ -171,7 +171,7 @@ export const italian: Translation = {
                     units: "m s.l.m."
                 },
                 zone: {
-                    label: "Zonca climatica"
+                    label: "Zona climatica"
                 },
                 groundLoad: {
                     label: "Carico neve al suolo"

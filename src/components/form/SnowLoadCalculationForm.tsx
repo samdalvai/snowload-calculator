@@ -14,7 +14,6 @@ import {ButtonsGroup} from "../button/ButtonsGroup";
 import {useKeyBoardPress} from "../../functions/hooks/useKeyBoardPress";
 import {CitiesSelectionContext} from "../context/CitiesSelectionContext";
 import {defaultCity} from "../../functions/defaultTypes";
-import {TitleCard} from "../card/TitleCard";
 import {Title} from "../text/Title";
 
 export const SnowLoadCalculationForm = ({roofData, onCompute}:

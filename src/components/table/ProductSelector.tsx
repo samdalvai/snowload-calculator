@@ -45,6 +45,7 @@ export const ProductSelector = ({linearLoad}:
             setRetainerDistance(null)
             setRetainer(null)
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [retainerDistance])
 
     React.useEffect(() => {
@@ -55,6 +56,7 @@ export const ProductSelector = ({linearLoad}:
         setHolderDistance(null)
         setRetainerDistance(null)
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [holders, retainers, roofType, retainerType, retainerHeight, retainerMaterial, rows])
 
     const filerHolders = () => {
@@ -70,9 +72,9 @@ export const ProductSelector = ({linearLoad}:
 
     const filterRetainers = () => {
         const filteredRetainers = retainers.filter(r =>
-            r.productInfo.retainerType === retainerType &&
+            (r.productInfo.retainerType === retainerType &&
             r.productInfo.retainerHeight === retainerHeight &&
-            r.productInfo.material === retainerMaterial ||
+            r.productInfo.material === retainerMaterial) ||
             (retainerType === "Tube" && retainerMaterial === "Zink Steel" ? r.productInfo.material === "Aluminium" && r.productInfo.retainerHeight === retainerHeight : false)
         )
         // The last line of the equivalence returns also aluminium tubes for Zink steel holders

@@ -1,5 +1,4 @@
 import React, {ReactElement} from "react";
-import {SnowLoadFooter} from "../footer/SnowLoadFooter";
 import {TermsOfUse} from "../text/TermsOfUse";
 import {SnowLoadNavbar} from "../navbar/SnowLoadNavbar";
 import {ImageContainerRounded} from "../image/ImageContainerRounded";

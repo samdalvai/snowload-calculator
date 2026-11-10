@@ -1,6 +1,5 @@
 import React, {useContext} from "react";
 import {LanguageContext} from "../language/LanguageContext";
-import {SnowLoadProductContext} from "../context/SnowLoadProductContext";
 import {Title} from "../text/Title";
 import {Callback} from "../../functions/callbacks";
 import {ButtonsGroup, ButtonsGroupSmall} from "../button/ButtonsGroup";

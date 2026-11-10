@@ -1,4 +1,4 @@
-import {AnyCallback, GenericCallback, NumberCallBack} from "../../functions/callbacks";
+import {NumberCallBack} from "../../functions/callbacks";
 import React from "react";
 import {SelectorOptionData} from "../input/Selector";
 import {getResistance} from "../../functions/computation/resistanceComputation";

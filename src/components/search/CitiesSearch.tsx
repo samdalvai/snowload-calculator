@@ -35,6 +35,7 @@ export const CitiesSearch = ({onSelectCity, valid}: { onSelectCity: CityCallBack
                 setCitiesSelectionActive(false);
         }
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [filteredCities])
 
     return (

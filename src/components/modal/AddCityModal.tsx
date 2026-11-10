@@ -1,5 +1,4 @@
 import {Callback, CityCallBack} from "../../functions/callbacks";
-import {Modal} from "react-bootstrap";
 import {AddCityForm} from "../form/AddCityForm";
 import React, {useContext} from "react";
 import {SnowLoadModal} from "./SnowLoadModal";
